@@ -112,7 +112,7 @@
       "source": "supabase/migration-drafts/20261118000900_client_creation_idempotency.sql",
       "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\migration-drafts\\20261118000900_client_creation_idempotency.sql",
       "stagedFile": "supabase/migrations/20261118000900_client_creation_idempotency.sql",
-      "sha256": "4080c240ae99bb24f4e798d4cf6fd095ca78108a4c1a7d3b0abe65a7cfe05da3"
+      "sha256": "41ca983123f02593c8168a4e57cfaa52e85080cff90451fb7c188ed15c606f3f"
     }
   ],
   "ancillaryArtifacts": [

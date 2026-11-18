@@ -87,6 +87,21 @@ ALTER TABLE app_private.client_creation_receipts ENABLE ROW LEVEL SECURITY;
 ALTER TABLE app_private.client_creation_receipts FORCE ROW LEVEL SECURITY;
 REVOKE ALL ON app_private.client_creation_receipts FROM PUBLIC,anon,authenticated,service_role,
  contratpro_migration_owner,contratpro_runtime,contratpro_platform_runtime,contratpro_agency_writer,contratpro_identity_writer,contratpro_client_receipt_writer;
+-- Default ACLs can name roles outside the fixed application-role list. Remove
+-- every non-owner grant on this new object before installing its allowlist.
+DO $receipt_acl$
+DECLARE grantee_name pg_catalog.text;
+BEGIN
+ FOR grantee_name IN
+   SELECT DISTINCT pg_catalog.pg_get_userbyid(a.grantee)
+   FROM pg_catalog.pg_class c,LATERAL pg_catalog.aclexplode(c.relacl) a
+   WHERE c.oid='app_private.client_creation_receipts'::pg_catalog.regclass
+     AND a.grantee<>c.relowner AND a.grantee<>0
+ LOOP
+   EXECUTE pg_catalog.format('REVOKE ALL ON TABLE app_private.client_creation_receipts FROM %I',grantee_name);
+ END LOOP;
+END;
+$receipt_acl$;
 GRANT SELECT,INSERT ON app_private.client_creation_receipts TO contratpro_client_receipt_writer;
 CREATE POLICY client_receipts_read ON app_private.client_creation_receipts FOR SELECT TO contratpro_client_receipt_writer
  USING(creator_user_id=app_private.canonical_auth_user() AND app_private.client_allowed(agency_id,'clients.read') AND app_private.client_allowed(agency_id,'clients.create'));
@@ -212,6 +227,20 @@ END;
 $f$;
 REVOKE ALL ON FUNCTION app_private.capture_client_creation() FROM PUBLIC,anon,authenticated,service_role,
  contratpro_migration_owner,contratpro_runtime,contratpro_platform_runtime,contratpro_agency_writer,contratpro_identity_writer;
+-- Normalize inherited default grants while postgres still owns the function.
+DO $capture_acl$
+DECLARE grantee_name pg_catalog.text;
+BEGIN
+ FOR grantee_name IN
+   SELECT DISTINCT pg_catalog.pg_get_userbyid(a.grantee)
+   FROM pg_catalog.pg_proc p,LATERAL pg_catalog.aclexplode(p.proacl) a
+   WHERE p.oid='app_private.capture_client_creation()'::pg_catalog.regprocedure
+     AND a.grantee<>p.proowner AND a.grantee<>0
+ LOOP
+   EXECUTE pg_catalog.format('REVOKE ALL ON FUNCTION app_private.capture_client_creation() FROM %I',grantee_name);
+ END LOOP;
+END;
+$capture_acl$;
 -- Attach while postgres still owns the function (CREATE TRIGGER checks EXECUTE).
 -- No DML runs in this migration; the trigger is only exposed after owner transfer.
 CREATE TRIGGER clients_capture_creation AFTER INSERT ON tenancy.clients FOR EACH ROW EXECUTE FUNCTION app_private.capture_client_creation();
@@ -227,6 +256,19 @@ LANGUAGE sql VOLATILE SECURITY DEFINER SET search_path=pg_catalog,pg_temp SET ro
 $f$;
 REVOKE ALL ON FUNCTION app_private.match_client_creation(uuid,uuid,jsonb) FROM PUBLIC,anon,authenticated,service_role,
  contratpro_migration_owner,contratpro_runtime,contratpro_platform_runtime,contratpro_agency_writer,contratpro_identity_writer;
+DO $match_acl$
+DECLARE grantee_name pg_catalog.text;
+BEGIN
+ FOR grantee_name IN
+   SELECT DISTINCT pg_catalog.pg_get_userbyid(a.grantee)
+   FROM pg_catalog.pg_proc p,LATERAL pg_catalog.aclexplode(p.proacl) a
+   WHERE p.oid='app_private.match_client_creation(uuid,uuid,jsonb)'::pg_catalog.regprocedure
+     AND a.grantee<>p.proowner AND a.grantee<>0
+ LOOP
+   EXECUTE pg_catalog.format('REVOKE ALL ON FUNCTION app_private.match_client_creation(uuid,uuid,jsonb) FROM %I',grantee_name);
+ END LOOP;
+END;
+$match_acl$;
 -- Finish ACLs while postgres owns the function: SET-only membership does not
 -- inherit the new owner's grant authority.
 GRANT EXECUTE ON FUNCTION app_private.match_client_creation(uuid,uuid,jsonb) TO authenticated;
