@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "scope": "Offline code validation fixes and operator-reported observation reconciliation only",
+  "reviewedAtUtc": "2026-11-17T09:15:53.584Z",
+  "components": {
+    "loggingEvidenceValidation": {
+      "verdict": "PASS",
+      "scope": "Structured conservative evidence gate; not live logging clearance",
+      "change": "Observer no longer accepts bare clearance boolean/reference without reviewed settings, inspection provenance/deadline/transport and provider/runtime/audit review evidence. Packet flat PASS cannot bypass the assessment."
+    },
+    "reconciliationValidation": {
+      "verdict": "PASS",
+      "scope": "Receipt contract hardening; no terminal authority invented",
+      "change": "Explicit target/attempt/hash/source correlation, rollback success, checkpoint/digest, integer chronology/freshness, label uniqueness and strict fact types; cancellation and failed metadata block confirmation."
+    },
+    "credentialSourceInspection": {
+      "verdict": "PASS",
+      "mechanism": [
+        "readA02AdminCredentials: existing hidden operator TTY",
+        "createInMemoryAdminHeaderProvider: disposable in-memory apikey/Authorization getters",
+        "createA02AuthCreator.adminHeaderProvider: explicitly injected memory provider",
+        "createA02AuthAdminTransport: pinned Development HTTPS destination"
+      ],
+      "upstreamCredentialIssuer": "UNBOUND",
+      "limits": "No automatic Dashboard/secret-store/environment credential retrieval exists in this channel; no real credential read or authority verified."
+    },
+    "authoritativeCompletionSourceInspection": {
+      "verdict": "UNVERIFIED",
+      "availableMechanism": "createA02TerminalReceiptReader consumes externally reviewed exact-ID/hash receipt files, followed by independent observer state.",
+      "authoritativeSourceAvailableInRepository": false,
+      "limits": "Importer, executor response, hash or absent row is not an authoritative commit/drain source. No real Auth-create or provisioning finality producer was identified."
+    }
+  },
+  "reviewedArtifactSha256": {
+    "scripts/a02-logging-evidence.mjs": "fba4c5081249f08065986318a9883086c78fded79971ddb17018f2ec7e70e7af",
+    "scripts/a02-logging-evidence.test.mjs": "1cd1c60b53a9940ee1b14878e094d8b29efd62084e5e799f732bfc6793b0a1a2",
+    "scripts/a02-independent-observer.mjs": "e0df0a44da760e58d5d754797ef4574d6ec75bd0c8938024ba2d594602716d85",
+    "scripts/a02-independent-observer.test.mjs": "6e1b62224548662b1fea76f462384e7a167f7f37211f00c4344e63038473852c",
+    "scripts/a02-reconciliation.mjs": "c4ba143b885cf30d3520bafe76b8b17dbb0874e2666907247da5b12d771bd603",
+    "scripts/a02-packet-readiness.mjs": "a588da389eef3c48f0a240be26111fd8fd0e9735dc7e1b266123e2a5f3068090",
+    "scripts/a02-packet-readiness.test.mjs": "fa8c99287593f9ebfdc04f642c3b2d2a88dcdd841fc6338bcee2a2237ee34c02",
+    "docs/canonical-acceptance/a02-temporary/postgresql-logging-observation.json": "ed2cc9bc005f0e91dcb7f3787384159ed7a8598d19ccdedb727e7d7c02270be6",
+    "docs/canonical-acceptance/a02-temporary/observer-reconciliation-integration.md": "f959e57f70391f52844fdb6778a07886d46551e1b74215a7e7226795c0689626"
+  },
+  "tests": {
+    "command": "node --test scripts/a02-logging-evidence.test.mjs scripts/a02-security-blockers.test.mjs scripts/a02-independent-observer.test.mjs scripts/a02-auth-create.test.mjs scripts/a02-packet-readiness.test.mjs scripts/a02-private-input.test.mjs scripts/a02-gate2-preflight.test.mjs scripts/a02-temporary-cohort.test.mjs scripts/a02-identity-inventory.test.mjs scripts/a02-private-evidence.test.mjs",
+    "passed": 103,
+    "failed": 0,
+    "liveCalls": 0
+  },
+  "liveExecutionAuthorized": false,
+  "privateFilesModified": false,
+  "lint": {
+    "command": "npx --no-install eslint --config packages/infrastructure/database/eslint.config.mjs scripts/a02-logging-evidence.mjs scripts/a02-logging-evidence.test.mjs scripts/a02-independent-observer.mjs scripts/a02-independent-observer.test.mjs scripts/a02-reconciliation.mjs scripts/a02-packet-readiness.mjs scripts/a02-packet-readiness.test.mjs --max-warnings=0",
+    "exitCode": 0
+  }
+}

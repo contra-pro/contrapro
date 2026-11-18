@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "scope": "CHECK8_OFFLINE_POLICY_APPROVAL_RECORDING_ONLY",
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "approval": {
+    "path": "docs/canonical-acceptance/a02-temporary/option-b-policy-approval.json",
+    "sha256": "174a63c4aebccb42a20d19a5c9acc2c47b2be04451df3519c81744d1b718aa26",
+    "decision": "APPROVED_OPTION_B_POLICY_ONLY",
+    "approvalTime": "UNVERIFIED",
+    "independentAttestation": false
+  },
+  "mode": "strict",
+  "automaticModeSelection": false,
+  "gate2": "BLOCKED_UNAUTHORIZED",
+  "liveExecutionAuthorized": false,
+  "provisioningActivationAuthorized": false,
+  "liveOperationsPerformed": 0,
+  "privateTemplatesModified": false,
+  "originalPrivateHashes": "5/5 MATCH via existing regression tests",
+  "tests": {
+    "focused": {
+      "command": "node --test --test-name-pattern Check8 scripts/a02-packet-readiness.test.mjs",
+      "passed": 5,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "a02": {
+      "command": "node --test scripts/a02-state-acceptance.test.mjs scripts/a02-authoritative-completion.test.mjs scripts/a02-logging-evidence.test.mjs scripts/a02-security-blockers.test.mjs scripts/a02-independent-observer.test.mjs scripts/a02-auth-create.test.mjs scripts/a02-packet-readiness.test.mjs scripts/a02-private-input.test.mjs scripts/a02-gate2-preflight.test.mjs scripts/a02-temporary-cohort.test.mjs scripts/a02-identity-inventory.test.mjs scripts/a02-private-evidence.test.mjs",
+      "passed": 155,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0
+    }
+  },
+  "lint": {
+    "command": "npx --no-install eslint --config packages/infrastructure/database/eslint.config.mjs scripts/a02-packet-readiness.mjs scripts/a02-packet-readiness.test.mjs scripts/a02-state-acceptance.test.mjs --max-warnings=0",
+    "exitCode": 0
+  },
+  "blockerRegister": "docs/canonical-acceptance/a02-temporary/check8-blocker-register.md",
+  "filesChanged": [
+    "scripts/a02-packet-readiness.mjs",
+    "scripts/a02-packet-readiness.test.mjs",
+    "scripts/a02-state-acceptance.test.mjs",
+    "docs/canonical-acceptance/a02-temporary/option-b-state-acceptance.md",
+    "docs/canonical-acceptance/a02-temporary/option-b-policy-approval.json",
+    "docs/canonical-acceptance/a02-temporary/check8-blocker-register.md",
+    "docs/canonical-acceptance/a02-temporary/gate2-execution-packet.json",
+    "docs/canonical-acceptance/a02-temporary/check8-policy-approval-review.json"
+  ],
+  "sourceArtifactSha256": {
+    "scripts/a02-packet-readiness.mjs": "4a9bad7f05fe932f010adb09003284efc2d299cc398f0e98613211371864cc5c",
+    "scripts/a02-packet-readiness.test.mjs": "49967113529bfd4cde49e78c9c4c94d04673d24e9ed94d45a6607f39bc30bfdb",
+    "scripts/a02-state-acceptance.test.mjs": "887bc437b30a8d11993a1d5af12f34ff650d8ef89501eb5fecb36b7c6baf3a17",
+    "docs/canonical-acceptance/a02-temporary/option-b-state-acceptance.md": "740ebd1d191c24f0bf094b8798e1f3987d574de5c0cd682f6df0762899e61b23",
+    "docs/canonical-acceptance/a02-temporary/option-b-policy-approval.json": "174a63c4aebccb42a20d19a5c9acc2c47b2be04451df3519c81744d1b718aa26",
+    "docs/canonical-acceptance/a02-temporary/check8-blocker-register.md": "4aa67fcd350ee2e8870776b1e58d9fcec8ccc0a63176609399a44fbeedf509c4"
+  },
+  "limitations": [
+    "Reported policy approval is not independently attested; no approval timestamp or authority proof invented.",
+    "Strict remains selected; approved Option B can be explicitly evaluated offline but runtime policy bindings and security prerequisites remain unsatisfied.",
+    "No live evidence collected; historical provider/database observations and Check7 reviews remain historical.",
+    "Web/TypeScript checks not repeated: no application or TypeScript change."
+  ],
+  "packetValidation": {
+    "command": "node scripts/a02-packet-readiness.mjs",
+    "exitCode": 0,
+    "offlineValidation": "PASS",
+    "sourceHashesVerified": 51,
+    "policyApproval": "RECORDED_POLICY_ONLY",
+    "selectedMode": "strict",
+    "statePolicyStatus": "NOT_SELECTED",
+    "executionReadiness": "FAIL_UNBOUND_OR_UNAUTHORIZED",
+    "liveExecutionAuthorized": false
+  }
+}

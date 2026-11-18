@@ -1,0 +1,35 @@
+{
+  "status": "BLOCKED_PENDING_OPERATOR_EVIDENCE",
+  "environment": "development",
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "cliVersion": "3.1.0",
+  "cliReleaseCommitPrefix": "d4fc0e5",
+  "target": {
+    "host": "aws-0-eu-west-1.pooler.supabase.com",
+    "port": 5432,
+    "database": "postgres",
+    "routingUser": "postgres.gllsiklbvqpxzucvkehw",
+    "sqlSessionUser": "postgres",
+    "sqlCurrentUser": "postgres",
+    "postgresMajorVersion": 17,
+    "connectionMode": "session_pooler_requires_operator_confirmation",
+    "sslmode": "verify-full",
+    "trustedCaSha256": null,
+    "cliBinarySha256": null,
+    "databaseOid": null,
+    "backendAddress": null,
+    "backendPort": null
+  },
+  "expectedRemoteBefore": ["20261115000000", "20261115000100", "20261115000200", "20261115000300", "20261115000400", "20261115000500", "20261115000600"],
+  "requiredPending": ["20261116000700"],
+  "migrations": [
+    {"file": "supabase/migrations/20261115000000_bootstrap_baseline.sql", "sha256": "d0287974cff9e5f7dc1ab701213956d7ff0c36408bd58b5b6398c39e1b12d7ca"},
+    {"file": "supabase/migrations/20261115000100_foundation_schema.sql", "sha256": "bcaa4561353b718e4b53860cd1a3ebb302e2e767d96ab702e2db6276019c9ae7"},
+    {"file": "supabase/migrations/20261115000200_foundation_context.sql", "sha256": "86078c4321a6ace7c0a04a8e613e72768833105da73ebd3ad624fa23e138019a"},
+    {"file": "supabase/migrations/20261115000300_foundation_rls_grants.sql", "sha256": "7862a3c60a589a4a36d638aa0b321c422fe8276db3eac5aa6dd0b86137518065"},
+    {"file": "supabase/migrations/20261115000400_supabase_auth.sql", "sha256": "22c62651d62eff34aaf79a3cde02afa2d53de073000e355fdb3d56fb66bd6c94"},
+    {"file": "supabase/migrations/20261115000500_agency_management.sql", "sha256": "33839631a9120b400e4e9e95bb86886c9ccb9e561e74f8006cdd11cb76cefe23"},
+    {"file": "supabase/migrations/20261115000600_clients.sql", "sha256": "4713123741c3b606f5bd8f50c8948004469f5df18ee1da116f2a183a797f5a53"},
+    {"file": "supabase/migrations/20261116000700_canonical_provisioning.sql", "sha256": "bdd01b22180cd805f2bef1f80863c22d2c5857c3cad10f97f392fa55161e53bc"}
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "environment": "development",
+  "source": "offline-fixture",
+  "authorizedCategories": ["A"],
+  "observations": [
+    {"id":"A01","facts":{"frAndArChecked":true,"emptySameOriginPostBlocked503":true,"noProvisioningRpc":true,"csrfRejected403":true,"nonemptyBodyRejected400":true,"getCannotProvision":true}}
+  ]
+}

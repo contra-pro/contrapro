@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "decision": "APPROVED_OPTION_B_POLICY_ONLY",
+  "target": {
+    "projectRef": "gllsiklbvqpxzucvkehw",
+    "environment": "development"
+  },
+  "scope": "state-based acceptance for the synthetic A02 cohort",
+  "proposal": {
+    "path": "docs/canonical-acceptance/a02-temporary/option-b-state-based-acceptance.PROPOSAL.md",
+    "sha256": "300637c39bb0a78f14e8baa543b965a15677d589f6d807502517275606de34ca"
+  },
+  "residualRisks": [
+    {
+      "id": "STATE_NOT_REQUEST_FINALITY",
+      "accepted": true,
+      "statement": "Committed state at a snapshot does not establish exact-request attribution, backend termination, drained work or future stability."
+    },
+    {
+      "id": "STABLE_SNAPSHOTS_NOT_DRAIN",
+      "accepted": true,
+      "statement": "Two stable snapshots, elapsed time, expiry, revocation, hashes and local counters cannot prove all work drained."
+    },
+    {
+      "id": "LATE_WRITES_AND_RECREATION",
+      "accepted": true,
+      "statement": "Late creation/provisioning and cleanup/recreation races remain possible after UNKNOWN; conservative quarantine can leave fixtures pending review."
+    },
+    {
+      "id": "ADOPTION_NOT_TRANSACTION_RECEIPT",
+      "accepted": true,
+      "statement": "Owner adoption accepts an observed effect while its producer and future side effects remain uncertain; it supplies neither a provider transaction receipt nor cleanup authority."
+    },
+    {
+      "id": "SCOPED_VISIBILITY_LIMITS",
+      "accepted": true,
+      "statement": "Exact-ID observations cannot exclude unrelated/transient writes or unknown unlinked canonical orphans; suspected orphans need separate investigation."
+    },
+    {
+      "id": "SAME_OWNER_OBSERVATION",
+      "accepted": true,
+      "statement": "Separate captures, provenance and private hashes do not supply an independent human or tamper-proof audit service when the owner also observes."
+    },
+    {
+      "id": "DRIFT_AND_OPERATIONAL_ASSUMPTIONS",
+      "accepted": true,
+      "statement": "Auth/configuration drift, concurrent administrators, stale sessions, clock disagreement or incomplete visibility can undermine the baseline; stop on drift and retain unknowns."
+    },
+    {
+      "id": "DEVELOPMENT_SYNTHETIC_SCOPE_ONLY",
+      "accepted": true,
+      "statement": "Acceptance applies only to this Development synthetic cohort and implies no Production security claim, provisioning activation, grants or commercial-user acceptance."
+    }
+  ],
+  "approvalSource": {
+    "kind": "operator-reported-conversation-statement",
+    "statement": "Explicit operator approval in this conversation, as reported by the operator in A02 Check 8; policy and documented residual risks only.",
+    "independentlyAttested": false
+  },
+  "approvalTime": "UNVERIFIED",
+  "gate2ExecutionAuthorized": false,
+  "provisioningActivationAuthorized": false,
+  "authorizedLiveOperations": []
+}

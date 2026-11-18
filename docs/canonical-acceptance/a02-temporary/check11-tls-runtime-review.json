@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "check": "A02_CHECK11_OFFLINE_TLS_TRANSPORT_RUNTIME_REVIEW",
+  "target": {
+    "projectRef": "gllsiklbvqpxzucvkehw",
+    "environment": "development",
+    "liveIdentityVerified": false
+  },
+  "reviewRecordedAtUtc": "2026-11-17T12:10:13.070Z",
+  "recordingTimeProvenance": "Local receipt recording time only; not a live handshake, process observation or execution-window binding",
+  "sources": [
+    {
+      "path": "scripts/a02-auth-create.mjs",
+      "sha256": "e49a5fb70c98795bf0163558f13602bfe8f124e24c5f539fe18a1d4cb56a8c2b",
+      "provenance": "local source/evidence inspection, not a runtime attestation"
+    },
+    {
+      "path": "scripts/a02-session-transport.mjs",
+      "sha256": "c1bd123cbc351b2cd55ca999253b908f77aa06997d1498963ef469b9fcc0ef19",
+      "provenance": "local source/evidence inspection, not a runtime attestation"
+    },
+    {
+      "path": "scripts/a02-independent-observer.mjs",
+      "sha256": "bfef4defb4ec9f711941ac1d659a1be1705915023205529caa64a4fe1c857a27",
+      "provenance": "local source/evidence inspection, not a runtime attestation"
+    },
+    {
+      "path": "scripts/a02-private-input.mjs",
+      "sha256": "da4a73fc6dc747eae5ccf3f5d688b72bb524ba683fb53bf9b329ff741f82f3cd",
+      "provenance": "local source/evidence inspection, not a runtime attestation"
+    },
+    {
+      "path": "scripts/a02-cohort-artifacts.mjs",
+      "sha256": "88fb72aac0c13e4c4d908c571c4d1b0cd1593b56299bf392a16635cf76e5d62a",
+      "provenance": "local source/evidence inspection, not a runtime attestation"
+    },
+    {
+      "path": "scripts/a02-state-acceptance.mjs",
+      "sha256": "fc4e5ade0cd7a362a459dddd58592c5f3e43db51936580902cd8ad1fc2d787e1",
+      "provenance": "local source/evidence inspection, not a runtime attestation"
+    },
+    {
+      "path": "scripts/a02-packet-readiness.mjs",
+      "sha256": "4a9bad7f05fe932f010adb09003284efc2d299cc398f0e98613211371864cc5c",
+      "provenance": "local source/evidence inspection, not a runtime attestation"
+    },
+    {
+      "path": "scripts/a02-auth-create.test.mjs",
+      "sha256": "c33070b99ee0738946ba1425b57705db1d9b3b5dece295c4d39e8e839478ac84",
+      "provenance": "existing offline test execution and source inspection"
+    },
+    {
+      "path": "scripts/a02-private-input.test.mjs",
+      "sha256": "4b198aa747eeb28f69ad20ff9f47c75d6f461c7a27cba5e78e65adcf26d27f0a",
+      "provenance": "existing offline test execution and source inspection"
+    },
+    {
+      "path": "scripts/a02-independent-observer.test.mjs",
+      "sha256": "3881eea672a677af2716c3de2fce6fa40a07096a4efe51d57a4a3461d3acabdd",
+      "provenance": "existing offline test execution and source inspection"
+    },
+    {
+      "path": "scripts/a02-temporary-cohort.test.mjs",
+      "sha256": "2e7253462aafe7526ab9dd9535c8cce471cec5a6b3e0762fbe3fed188278eae6",
+      "provenance": "existing offline test execution and source inspection"
+    },
+    {
+      "path": "scripts/a02-state-acceptance.test.mjs",
+      "sha256": "887bc437b30a8d11993a1d5af12f34ff650d8ef89501eb5fecb36b7c6baf3a17",
+      "provenance": "existing offline test execution and source inspection"
+    },
+    {
+      "path": "scripts/a02-security-blockers.test.mjs",
+      "sha256": "e46146eb3915364aed81f21e36bf919264ae7d60b70c205864b2fbf00ce64083",
+      "provenance": "existing offline test execution and source inspection"
+    },
+    {
+      "path": "scripts/a02-packet-readiness.test.mjs",
+      "sha256": "49967113529bfd4cde49e78c9c4c94d04673d24e9ed94d45a6607f39bc30bfdb",
+      "provenance": "existing offline test execution and source inspection"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/cleanup.sql.in",
+      "sha256": "88aad12142041e47c9bda7498512ab4b5072647a4295888032dcd559be5cfcb0",
+      "provenance": "local source/evidence inspection, not a runtime attestation"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/observer-reconciliation-integration.md",
+      "sha256": "f959e57f70391f52844fdb6778a07886d46551e1b74215a7e7226795c0689626",
+      "provenance": "local source/evidence inspection, not a runtime attestation"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/README.md",
+      "sha256": "6dff0d8f059d58055532151c5cc0ff575b4145533987e95f2235e92945333acb",
+      "provenance": "local source/evidence inspection, not a runtime attestation"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/gate2-execution-packet.json",
+      "sha256": "efcbdd5f8e3e73ee9a4f1fcd57075a2b24b10f496b9414bd097dd8239fae66af",
+      "provenance": "local source/evidence inspection, not a runtime attestation"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/check9-logging-review.json",
+      "sha256": "bce0f47fd2d4d5e90f21a4a9292534ca568f09dfadc20ed275915a019384bf46",
+      "provenance": "prior local review receipt, not new live evidence"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/check10-admin-authority-review.json",
+      "sha256": "d9a4ff7cd221c2d6bda6c887f1d0a9e9da57c4025cd0c4e794c89bc53fe65a55",
+      "provenance": "prior local review receipt, not new live evidence"
+    }
+  ],
+  "findings": [
+    {
+      "id": "EXACT_DEVELOPMENT_BINDING",
+      "classification": "VERIFIED",
+      "scope": "Reviewed source destinations only",
+      "facts": "HTTP factories fix the exact Development host and allowlisted paths/methods. The PostgreSQL observer fixes its pooler route, project-qualified user, port and database. There is no alternate Production destination in these factories.",
+      "sources": [
+        "scripts/a02-auth-create.mjs:3",
+        "scripts/a02-auth-create.mjs:9",
+        "scripts/a02-session-transport.mjs:15",
+        "scripts/a02-independent-observer.mjs:9",
+        "scripts/a02-independent-observer.mjs:40"
+      ]
+    },
+    {
+      "id": "HTTP_TLS_CONFIGURATION",
+      "classification": "VERIFIED",
+      "scope": "Native factory options, not a live handshake",
+      "facts": "Both reviewed HTTPS factories explicitly enable peer verification and set the Development TLS servername, with agent:false and no redirects. They use Node HTTPS certificate/hostname verification rather than an insecure fallback. HTTP trust uses the Node trust configuration, not the pinned PostgreSQL CA bytes.",
+      "sources": [
+        "scripts/a02-auth-create.mjs:21",
+        "scripts/a02-session-transport.mjs:45"
+      ]
+    },
+    {
+      "id": "POSTGRES_TLS_CONFIGURATION",
+      "classification": "VERIFIED",
+      "scope": "Fixed observer factory options and pinned CA-byte check only",
+      "facts": "Observer requires memory-provided CA bytes matching the fixed approved SHA-256, uses rejectUnauthorized:true, explicit servername and checkServerIdentity. The recorded verify-full requirement is implemented by these TLS options; no verify-ca/insecure fallback is configured.",
+      "sources": [
+        "scripts/a02-independent-observer.mjs:32",
+        "scripts/a02-independent-observer.mjs:41"
+      ]
+    },
+    {
+      "id": "ACTUAL_TLS_TARGET_AND_CREDENTIAL_CHANNEL",
+      "classification": "UNVERIFIED",
+      "scope": "Actual intended Development connection/host process",
+      "facts": "No handshake, DNS/endpoint observation, current certificate-chain validation or credential-channel check occurred. Source pins and historical CA references do not establish the current session identity. A shared pooler certificate is not project identity proof by itself.",
+      "sources": [
+        "docs/canonical-acceptance/a02-temporary/gate2-execution-packet.json",
+        "docs/canonical-acceptance/a02-temporary/check9-logging-review.json"
+      ],
+      "nextOperatorAction": "Keep the live safeguard UNVERIFIED until a separately authorized exact-target connection receipt establishes hostname/chain validation, project routing and protected credential transport; do not connect under this offline check."
+    },
+    {
+      "id": "HIDDEN_TTY_INPUT",
+      "classification": "VERIFIED",
+      "scope": "Input helper source and injected terminal tests only",
+      "facts": "Input is explicit, hidden and bounded to at most 180 seconds; non-TTY input, competing readers, cancellation/EOF/error and timeout fail closed. Imports do not prompt or retrieve secrets.",
+      "sources": [
+        "scripts/a02-private-input.mjs:41",
+        "scripts/a02-private-input.mjs:44",
+        "scripts/a02-private-input.mjs:59",
+        "scripts/a02-private-input.test.mjs"
+      ]
+    },
+    {
+      "id": "NO_AMBIENT_DISCOVERY_OR_CREDENTIAL_PERSISTENCE",
+      "classification": "VERIFIED",
+      "scope": "Reviewed credential and transport modules only",
+      "facts": "No environment/argv/file/secret-store credential lookup or credential-file write exists in the reviewed ports. Required providers explicitly supply memory values. Disposal clears retained references and invalidates handles, but cannot zeroize previous strings, copies or operating-system buffers.",
+      "sources": [
+        "scripts/a02-private-input.mjs",
+        "scripts/a02-auth-create.mjs",
+        "scripts/a02-session-transport.mjs",
+        "scripts/a02-independent-observer.mjs",
+        "scripts/a02-security-blockers.test.mjs"
+      ]
+    },
+    {
+      "id": "SOURCE_LOGGING_AND_ERRORS",
+      "classification": "VERIFIED",
+      "scope": "Exact reviewed modules and synthetic error/diagnostic tests only",
+      "facts": "Credential handles redact default JSON/inspection; transport failures use fixed sanitized messages and source has no request/body/credential logging sink. Deliberate extraction/spreading, external middleware, debugging or provider logs can still expose plaintext. Intentional wire serialization contains credentials in memory and is not a persistence guarantee.",
+      "sources": [
+        "scripts/a02-private-input.mjs:5",
+        "scripts/a02-auth-create.mjs",
+        "scripts/a02-session-transport.mjs",
+        "scripts/a02-security-blockers.test.mjs"
+      ]
+    },
+    {
+      "id": "BOUNDED_TIMEOUTS_AND_CANCELLATION",
+      "classification": "VERIFIED",
+      "scope": "Configured cooperative asynchronous source bounds and injected tests",
+      "facts": "HTTP timers are 7s; Auth creation and session bootstrap phases 30s; Admin absence callback/body parsing 2s; mapping confirmation 2s. Observer has 2s connect, 5s query/statement, 2s lock, 10s idle transaction and 20s general/2s mapping capture bounds, including close checks. Abort signals propagate and failures close/destroy clients. TTY input has its separate <=180s ceiling.",
+      "sources": [
+        "scripts/a02-auth-create.mjs:32",
+        "scripts/a02-auth-create.mjs:56",
+        "scripts/a02-session-transport.mjs:60",
+        "scripts/a02-session-transport.mjs:114",
+        "scripts/a02-session-transport.mjs:180",
+        "scripts/a02-independent-observer.mjs:42",
+        "scripts/a02-independent-observer.mjs:73"
+      ]
+    },
+    {
+      "id": "NO_AUTOMATIC_RETRY",
+      "classification": "VERIFIED",
+      "scope": "Existing local executors/observer/state controller",
+      "facts": "Create and provisioning attempts are one-shot; observer checkpoints are consumed; uncertain writes stop forward mutations in explicit state mode. There is no transport retry, refresh fallback or automatic compensation. Client destruction/cancellation/expiry and stable snapshots do not prove backend termination or rollback, and restarting a process is not retry authority.",
+      "sources": [
+        "scripts/a02-auth-create.mjs",
+        "scripts/a02-session-transport.mjs",
+        "scripts/a02-independent-observer.mjs",
+        "scripts/a02-state-acceptance.mjs",
+        "scripts/a02-state-acceptance.test.mjs"
+      ]
+    },
+    {
+      "id": "ACTUAL_RUNTIME_AND_LOGGING_SAFEGUARDS",
+      "classification": "PARTIAL",
+      "scope": "Source/test evidence exists; actual protected process and hard deadline evidence missing",
+      "facts": "JavaScript timers/Promise races depend on event-loop scheduling and are not an external hard process deadline or backend drain proof. Injected send/clientFactory/requestImpl ports must be composed with the reviewed native adapters; arbitrary or preloaded replacements can defeat source assumptions. Actual debugger/preload/transcription/request logging, trust-store overrides, executable/dependency integrity and credential custody remain unverified. Check9 logging clearance remains BLOCKED.",
+      "sources": [
+        "docs/canonical-acceptance/a02-temporary/observer-reconciliation-integration.md",
+        "docs/canonical-acceptance/a02-temporary/check9-logging-review.json",
+        "docs/canonical-acceptance/a02-temporary/check10-admin-authority-review.json"
+      ],
+      "nextOperatorAction": "Owner supplies a non-secret, reviewable launch/runtime safeguard record for the intended dedicated execution process: exact reviewed entrypoint/adapters and hashes, debugger/preload/transcription/body logging disabled, and the configured overall-deadline mechanism. Do not enter credentials or make a connection."
+    },
+    {
+      "id": "GATE4_CANONICAL_CLEANUP_PATH",
+      "classification": "PARTIAL",
+      "scope": "Offline renderer/template and state guards, not an executed or authorized cleanup",
+      "facts": "renderCleanup validates exact IDs/counts and an explicit privileged-bypass acknowledgement. The SERIALIZABLE template locks identity tables/rows, checks wrapper absence/original RPC denial, dependencies, Auth presence and exact mappings, then deletes links before canonical users with affected-row assertions. It deliberately bypasses RLS administratively; the rendering boolean is not approval. State mode requires separately bound Gate4 approval/ownership/dependency evidence and blocks unresolved UNKNOWN. No Auth users are deleted by this SQL.",
+      "sources": [
+        "scripts/a02-cohort-artifacts.mjs:30",
+        "docs/canonical-acceptance/a02-temporary/cleanup.sql.in",
+        "scripts/a02-state-acceptance.mjs:229",
+        "docs/canonical-acceptance/a02-temporary/README.md"
+      ],
+      "nextOperatorAction": "Before any separately authorized Gate4 cleanup, bind actual independently observed owned canonical IDs, exact Auth presence, dependency/privilege evidence, rendered artifact hash and explicit administrative RLS-bypass/lock-impact approval; do not render or execute it here."
+    },
+    {
+      "id": "GATE4_AUTH_USER_DELETION",
+      "classification": "BLOCKED",
+      "scope": "Complete executable and separately authorized Auth deletion path",
+      "facts": "Current Admin transport permits only create POST. Gate4 beginDelete/acceptDelete evaluate evidence and enforce exact nominated IDs/once-only/UNKNOWN barriers but issue no HTTP DELETE. README SDK deletion steps describe a future procedure, not an implemented A02 delete executor. Gate4 approval, actual canonical IDs, ownership/Auth presence and cleanup artifact remain UNBOUND; existing SDK availability is not execution authority.",
+      "sources": [
+        "scripts/a02-auth-create.mjs:9",
+        "scripts/a02-state-acceptance.mjs:252",
+        "docs/canonical-acceptance/a02-temporary/README.md",
+        "docs/canonical-acceptance/a02-temporary/gate2-execution-packet.json",
+        "docs/canonical-acceptance/a02-temporary/check10-admin-authority-review.json"
+      ],
+      "nextOperatorAction": "Keep deletion BLOCKED. Separately review and approve the exact-ID Auth-delete execution procedure and its authority, budgets, lost-response reconciliation and independent post-delete evidence before any Gate4 execution; no deletion implementation or approval is provided by Check11."
+    }
+  ],
+  "overallExecutionStatus": "BLOCKED",
+  "actualAdminAuthority": "UNVERIFIED",
+  "loggingClearance": "BLOCKED",
+  "selectedMode": "strict",
+  "nextOperatorAction": "Owner supplies a non-secret, reviewable launch/runtime safeguard record for the intended dedicated execution process: exact reviewed entrypoint/adapters and hashes, debugger/preload/transcription/body logging disabled, and the configured overall-deadline mechanism. Do not enter credentials or make a connection.",
+  "remainingGaps": [
+    "Actual runtime launch/diagnostic/transport-composition and overall-deadline evidence",
+    "Current exact-target TLS/CA-chain/hostname and private credential-channel evidence under separate live authorization",
+    "Actual Development Admin capability and custody evidence",
+    "Provider/database logging clearance from Check9",
+    "Exact run/window/expiry/artifact/ownership bindings and separate Gate2 approval",
+    "Complete separately approved Gate4 Auth-delete path and exact-ID cleanup evidence"
+  ],
+  "verification": {
+    "tests": {
+      "command": "node --test scripts/a02-auth-create.test.mjs scripts/a02-private-input.test.mjs scripts/a02-independent-observer.test.mjs scripts/a02-temporary-cohort.test.mjs scripts/a02-state-acceptance.test.mjs scripts/a02-security-blockers.test.mjs scripts/a02-packet-readiness.test.mjs",
+      "passed": 120,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "scope": "Injected fictional inputs/clients/HTTPS events; cleanup rendering/SQL parsing only, not live SQL or HTTP"
+    },
+    "lint": {
+      "command": "npx --no-install eslint --config packages/infrastructure/database/eslint.config.mjs scripts/a02-auth-create.mjs scripts/a02-session-transport.mjs scripts/a02-independent-observer.mjs scripts/a02-private-input.mjs scripts/a02-cohort-artifacts.mjs scripts/a02-state-acceptance.mjs scripts/a02-auth-create.test.mjs scripts/a02-private-input.test.mjs scripts/a02-independent-observer.test.mjs scripts/a02-temporary-cohort.test.mjs scripts/a02-state-acceptance.test.mjs --max-warnings=0",
+      "exitCode": 0
+    },
+    "packet": {
+      "command": "node scripts/a02-packet-readiness.mjs",
+      "offlineValidation": "PASS",
+      "exitCode": 0,
+      "sourceHashesVerified": 51,
+      "executionReadiness": "FAIL_UNBOUND_OR_UNAUTHORIZED",
+      "selectedMode": "strict"
+    },
+    "receiptValidation": {
+      "status": "PASS",
+      "method": "Local structural, provenance, classification, invariant, source-integrity and accidental-secret-shape consistency checks; not live TLS/runtime assurance",
+      "negativeChecksRejected": 3,
+      "sourceHashesVerified": 20
+    },
+    "originalPrivateTemplates": "5/5 original SHA256 MATCH via existing tests; not modified; no new ACL attestation"
+  },
+  "invariants": {
+    "liveExecutionAuthorized": false,
+    "provisioningActivationAuthorized": false,
+    "actualCredentialsAccessed": false,
+    "sqlOrHttpExecuted": false,
+    "authOrProvisioningOperationsPerformed": false,
+    "configurationOrMigrationsChanged": false,
+    "packetOrExecutableSourceChanged": false,
+    "originalPrivateTemplatesChanged": false,
+    "productionAccess": false,
+    "commitOrPush": false,
+    "applicationProvisioningRecorded": "OFF"
+  }
+}

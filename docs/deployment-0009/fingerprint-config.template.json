@@ -1,0 +1,11 @@
+{
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "scope": "P3_READ_ONLY_FINGERPRINT_ACQUISITION",
+  "authorizationReference": "UNBOUND",
+  "targetEvidenceReference": "docs/deployment-0009/step227-operator-binding.json#dashboard",
+  "tlsEvidenceReference": "docs/deployment-0009/step227-operator-binding.json#ca",
+  "windowStart": "UNBOUND",
+  "windowEnd": "UNBOUND",
+  "caPath": "C:/Users/lenovo/Downloads/prod-ca-2021.crt",
+  "caSha256": "700723581420dd1ac98fd7e9ac529f0ef210eadcaf87fc868a3ad7d114c2f3b7"
+}

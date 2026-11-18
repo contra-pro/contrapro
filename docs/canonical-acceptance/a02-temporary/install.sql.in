@@ -1,0 +1,86 @@
+-- DRAFT DEVELOPMENT-ONLY MIGRATION TEMPLATE. NOT deployable until rendered/reviewed.
+-- One native executor-owned transaction MUST include ALL statements and history.
+-- No explicit transaction boundaries; never execute piecemeal or with plain psql -f.
+DO $guard$
+DECLARE core oid := to_regprocedure('public.contratpro_provision_identity()');
+BEGIN
+ IF session_user <> 'postgres' OR current_user <> 'postgres' OR current_database() <> 'postgres'
+ OR current_setting('server_version_num')::integer NOT BETWEEN 170000 AND 179999
+ OR pg_is_in_recovery() OR core IS NULL
+ OR to_regprocedure('public.contratpro_a02_fixture_provision()') IS NOT NULL
+ OR EXISTS(SELECT 1 FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
+   WHERE n.nspname='public' AND p.proname='contratpro_a02_fixture_provision')
+ OR '{{EXPIRES}}'::timestamptz <= clock_timestamp()
+ OR '{{EXPIRES}}'::timestamptz > clock_timestamp() + interval '15 minutes'
+ THEN RAISE EXCEPTION 'A02 deployment guard failed'; END IF;
+ IF NOT EXISTS (SELECT 1 FROM pg_proc WHERE oid=core AND proowner='contratpro_identity_writer'::regrole
+   AND prosecdef AND pronargs=0 AND prokind='f' AND provolatile='v' AND prorettype='text'::regtype
+   AND cardinality(proconfig)=2 AND proconfig @> ARRAY['search_path=pg_catalog','row_security=on'])
+ OR NOT has_function_privilege('contratpro_identity_writer',core,'EXECUTE')
+ OR has_function_privilege('authenticated',core,'EXECUTE')
+ OR EXISTS(SELECT 1 FROM pg_proc p,LATERAL aclexplode(COALESCE(p.proacl,acldefault('f',p.proowner))) acl
+   WHERE p.oid=core AND (acl.grantee<>'contratpro_identity_writer'::regrole OR acl.privilege_type<>'EXECUTE' OR acl.is_grantable))
+ OR NOT has_function_privilege('contratpro_identity_writer','app_private.provisioning_subject()','EXECUTE')
+ OR EXISTS (SELECT 1 FROM pg_roles WHERE rolname='contratpro_identity_writer'
+   AND (rolcanlogin OR rolsuper OR rolbypassrls OR rolcreatedb OR rolcreaterole OR rolinherit OR rolreplication))
+ OR EXISTS (SELECT 1 FROM pg_class WHERE oid IN ('identity.users'::regclass,'identity.supabase_users'::regclass)
+   AND (NOT relrowsecurity OR NOT relforcerowsecurity OR relowner <> 'postgres'::regrole))
+ OR NOT EXISTS (SELECT 1 FROM pg_auth_members WHERE roleid='contratpro_identity_writer'::regrole
+   AND member='postgres'::regrole AND admin_option AND NOT inherit_option AND NOT set_option)
+ OR EXISTS (SELECT 1 FROM pg_auth_members WHERE roleid='contratpro_identity_writer'::regrole
+   AND member='postgres'::regrole AND grantor='postgres'::regrole)
+ OR has_schema_privilege('contratpro_identity_writer','public','CREATE')
+ THEN RAISE EXCEPTION 'A02 authority or baseline mismatch'; END IF;
+END;
+$guard$;
+
+-- Mirrors 0007's temporary ownership-installation path. Live authority is a prerequisite.
+-- Same-transaction revocation below restores the pre-existing supabase_admin grant.
+GRANT contratpro_identity_writer TO postgres WITH ADMIN FALSE, INHERIT FALSE, SET TRUE GRANTED BY postgres;
+GRANT CREATE ON SCHEMA public TO contratpro_identity_writer;
+SET LOCAL ROLE contratpro_identity_writer;
+
+CREATE FUNCTION public.contratpro_a02_fixture_provision() RETURNS text
+LANGUAGE plpgsql VOLATILE SECURITY DEFINER SET search_path=pg_catalog SET row_security=on AS $a02$
+DECLARE subject uuid; canonical uuid; canonical_state text; result text;
+BEGIN
+ -- Real bridge verifies protected gateway context and the original pinned issuer.
+ subject := app_private.provisioning_subject();
+ IF subject NOT IN ('{{A}}'::uuid,'{{B}}'::uuid) OR subject IS NULL
+ OR clock_timestamp() >= '{{EXPIRES}}'::timestamptz
+ THEN RAISE EXCEPTION 'Denied' USING ERRCODE='42501'; END IF;
+ result := public.contratpro_provision_identity();
+ SELECT link.user_id INTO canonical FROM identity.supabase_users AS link WHERE link.supabase_user_id=subject;
+ SELECT u.state INTO canonical_state FROM identity.users AS u WHERE u.id=canonical;
+ IF result IS NULL OR result NOT IN ('created','existing') OR canonical IS NULL
+ OR canonical IN ('{{A}}'::uuid,'{{B}}'::uuid,'{{U}}'::uuid)
+ OR canonical_state IS DISTINCT FROM 'active' OR clock_timestamp() >= '{{EXPIRES}}'::timestamptz
+ THEN RAISE EXCEPTION 'Denied' USING ERRCODE='42501'; END IF;
+ RETURN result;
+EXCEPTION WHEN OTHERS THEN
+ -- The exception block rolls back this invocation's writes before sanitized denial.
+ RAISE EXCEPTION 'Denied' USING ERRCODE='42501';
+END;
+$a02$;
+REVOKE ALL ON FUNCTION public.contratpro_a02_fixture_provision() FROM PUBLIC,anon,authenticated,authenticator,service_role,contratpro_runtime,contratpro_platform_runtime,contratpro_agency_writer;
+GRANT EXECUTE ON FUNCTION public.contratpro_a02_fixture_provision() TO authenticated;
+RESET ROLE;
+REVOKE CREATE ON SCHEMA public FROM contratpro_identity_writer;
+REVOKE contratpro_identity_writer FROM postgres GRANTED BY postgres;
+
+DO $assert$
+BEGIN
+ IF NOT has_function_privilege('contratpro_identity_writer','public.contratpro_provision_identity()','EXECUTE')
+ OR has_function_privilege('authenticated','public.contratpro_provision_identity()','EXECUTE')
+ OR has_schema_privilege('contratpro_identity_writer','public','CREATE')
+ OR pg_has_role('postgres','contratpro_identity_writer','SET')
+ OR EXISTS (SELECT 1 FROM pg_proc p, LATERAL aclexplode(COALESCE(p.proacl,acldefault('f',p.proowner))) acl
+   WHERE p.oid='public.contratpro_a02_fixture_provision()'::regprocedure
+   AND (p.proowner<>'contratpro_identity_writer'::regrole OR NOT p.prosecdef
+     OR cardinality(COALESCE(p.proconfig,'{}'::text[]))<>2
+     OR NOT COALESCE(p.proconfig,'{}'::text[]) @> ARRAY['search_path=pg_catalog','row_security=on']
+     OR acl.grantee NOT IN ('contratpro_identity_writer'::regrole,'authenticated'::regrole)
+     OR acl.privilege_type<>'EXECUTE' OR acl.is_grantable))
+ THEN RAISE EXCEPTION 'A02 final boundary mismatch'; END IF;
+END;
+$assert$;

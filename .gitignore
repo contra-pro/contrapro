@@ -1,0 +1,27 @@
+node_modules/
+.npm-cache/
+.verification/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+.env*
+!.env.example
+*.pem
+*.key
+npm-debug.log*
+
+# Local operational evidence and unrelated workspace artifacts
+supabase/.temp/
+/p12n-evidence*/
+/p12j-trigger-evidence.json
+/projects/
+/feedback.json
+/grammar_usage.json
+/heatmap.json
+*.dump
+*.backup
+*.bak
+*.zip
+*.log
+docs/deployment-0007/postflight-output.txt

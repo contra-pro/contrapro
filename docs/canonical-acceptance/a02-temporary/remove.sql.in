@@ -1,0 +1,32 @@
+-- DRAFT REMOVAL MIGRATION. Entire file and native history in one transaction.
+-- Drain/reconcile in-flight wrapper transactions FIRST; removal is not cancellation.
+DO $guard$
+BEGIN
+ IF session_user<>'postgres' OR current_user<>'postgres' OR current_database()<>'postgres'
+ OR has_function_privilege('authenticated','public.contratpro_provision_identity()','EXECUTE')
+ OR (SELECT count(*) FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace
+   WHERE n.nspname='public' AND p.proname='contratpro_a02_fixture_provision')<>1
+ OR NOT EXISTS (SELECT 1 FROM pg_proc WHERE oid=to_regprocedure('public.contratpro_a02_fixture_provision()')
+   AND proowner='contratpro_identity_writer'::regrole AND prosecdef
+   AND prosrc LIKE '%{{A}}%' AND prosrc LIKE '%{{B}}%' AND prosrc LIKE '%{{U}}%'
+   AND prosrc LIKE '%{{EXPIRES}}%')
+ OR EXISTS (SELECT 1 FROM pg_auth_members WHERE roleid='contratpro_identity_writer'::regrole
+   AND member='postgres'::regrole AND grantor='postgres'::regrole)
+ THEN RAISE EXCEPTION 'A02 removal guard failed'; END IF;
+END;
+$guard$;
+GRANT contratpro_identity_writer TO postgres WITH ADMIN FALSE, INHERIT FALSE, SET TRUE GRANTED BY postgres;
+SET LOCAL ROLE contratpro_identity_writer;
+REVOKE ALL ON FUNCTION public.contratpro_a02_fixture_provision() FROM authenticated;
+DROP FUNCTION public.contratpro_a02_fixture_provision() RESTRICT;
+RESET ROLE;
+REVOKE contratpro_identity_writer FROM postgres GRANTED BY postgres;
+DO $assert$
+BEGIN
+ IF to_regprocedure('public.contratpro_a02_fixture_provision()') IS NOT NULL
+ OR has_function_privilege('authenticated','public.contratpro_provision_identity()','EXECUTE')
+ OR pg_has_role('postgres','contratpro_identity_writer','SET')
+ OR has_schema_privilege('contratpro_identity_writer','public','CREATE')
+ THEN RAISE EXCEPTION 'A02 removal incomplete'; END IF;
+END;
+$assert$;

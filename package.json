@@ -1,0 +1,24 @@
+{
+  "name": "contratpro",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["apps/web", "packages/infrastructure/database"],
+  "engines": { "node": ">=24 <25", "npm": ">=11 <12" },
+  "packageManager": "npm@11.12.1",
+  "overrides": {
+    "@esbuild-kit/core-utils": { "esbuild": "0.25.12" }
+  },
+  "scripts": {
+    "dev": "npm run dev --workspace=@contratpro/web",
+    "build": "npm run build --workspace=@contratpro/web",
+    "start": "npm run start --workspace=@contratpro/web",
+    "typecheck": "npm run typecheck --workspaces",
+    "lint": "npm run lint --workspaces",
+    "test": "npm run test --workspaces",
+    "test:sql": "npm run test:sql --workspace=@contratpro/database",
+    "test:runner": "npm run test:runner --workspace=@contratpro/database",
+    "verify:clean-install": "node scripts/verify-clean-install.mjs",
+    "verify": "npm run typecheck && npm run lint && npm test && npm run build",
+    "test:smoke": "node scripts/smoke.mjs"
+  }
+}

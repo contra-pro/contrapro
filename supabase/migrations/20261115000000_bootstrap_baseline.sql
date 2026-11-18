@@ -1,0 +1,4 @@
+-- ContratPro Bootstrap Baseline
+-- Bootstrap 0000 was previously applied outside Supabase native history.
+-- This file intentionally contains no executable SQL.
+-- Never rerun the original bootstrap migration.

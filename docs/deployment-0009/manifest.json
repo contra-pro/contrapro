@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "status": "PREPARED_OFFLINE_READY_FOR_SEPARATELY_AUTHORIZED_READ_ONLY_PREFLIGHT",
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "environment": "development",
+  "cliVersion": "3.1.0",
+  "cliExecutable": "UNBOUND",
+  "target": {
+    "host": "aws-0-eu-west-1.pooler.supabase.com",
+    "port": 5432,
+    "database": "postgres",
+    "routingUser": "postgres.gllsiklbvqpxzucvkehw",
+    "postgresMajorVersion": 17,
+    "sslmode": "verify-full",
+    "independentProjectBinding": "UNBOUND",
+    "caPath": "UNBOUND",
+    "credentialCustody": "UNBOUND",
+    "databaseFingerprint": "UNBOUND"
+  },
+  "requiredRemoteBefore": [
+    "20261115000000",
+    "20261115000100",
+    "20261115000200",
+    "20261115000300",
+    "20261115000400",
+    "20261115000500",
+    "20261115000600",
+    "20261116000700",
+    "20261118000800"
+  ],
+  "requiredPending": [
+    "20261118000900"
+  ],
+  "expectedMigrationOrdering": [
+    "20261115000000",
+    "20261115000100",
+    "20261115000200",
+    "20261115000300",
+    "20261115000400",
+    "20261115000500",
+    "20261115000600",
+    "20261116000700",
+    "20261118000800",
+    "20261118000900"
+  ],
+  "migrations": [
+    {
+      "version": "20261115000000",
+      "source": "supabase/migrations/20261115000000_bootstrap_baseline.sql",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\migrations\\20261115000000_bootstrap_baseline.sql",
+      "stagedFile": "supabase/migrations/20261115000000_bootstrap_baseline.sql",
+      "sha256": "d0287974cff9e5f7dc1ab701213956d7ff0c36408bd58b5b6398c39e1b12d7ca"
+    },
+    {
+      "version": "20261115000100",
+      "source": "supabase/migrations/20261115000100_foundation_schema.sql",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\migrations\\20261115000100_foundation_schema.sql",
+      "stagedFile": "supabase/migrations/20261115000100_foundation_schema.sql",
+      "sha256": "bcaa4561353b718e4b53860cd1a3ebb302e2e767d96ab702e2db6276019c9ae7"
+    },
+    {
+      "version": "20261115000200",
+      "source": "supabase/migrations/20261115000200_foundation_context.sql",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\migrations\\20261115000200_foundation_context.sql",
+      "stagedFile": "supabase/migrations/20261115000200_foundation_context.sql",
+      "sha256": "86078c4321a6ace7c0a04a8e613e72768833105da73ebd3ad624fa23e138019a"
+    },
+    {
+      "version": "20261115000300",
+      "source": "supabase/migrations/20261115000300_foundation_rls_grants.sql",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\migrations\\20261115000300_foundation_rls_grants.sql",
+      "stagedFile": "supabase/migrations/20261115000300_foundation_rls_grants.sql",
+      "sha256": "7862a3c60a589a4a36d638aa0b321c422fe8276db3eac5aa6dd0b86137518065"
+    },
+    {
+      "version": "20261115000400",
+      "source": "supabase/migrations/20261115000400_supabase_auth.sql",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\migrations\\20261115000400_supabase_auth.sql",
+      "stagedFile": "supabase/migrations/20261115000400_supabase_auth.sql",
+      "sha256": "22c62651d62eff34aaf79a3cde02afa2d53de073000e355fdb3d56fb66bd6c94"
+    },
+    {
+      "version": "20261115000500",
+      "source": "supabase/migrations/20261115000500_agency_management.sql",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\migrations\\20261115000500_agency_management.sql",
+      "stagedFile": "supabase/migrations/20261115000500_agency_management.sql",
+      "sha256": "33839631a9120b400e4e9e95bb86886c9ccb9e561e74f8006cdd11cb76cefe23"
+    },
+    {
+      "version": "20261115000600",
+      "source": "supabase/migrations/20261115000600_clients.sql",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\migrations\\20261115000600_clients.sql",
+      "stagedFile": "supabase/migrations/20261115000600_clients.sql",
+      "sha256": "4713123741c3b606f5bd8f50c8948004469f5df18ee1da116f2a183a797f5a53"
+    },
+    {
+      "version": "20261116000700",
+      "source": "supabase/migrations/20261116000700_canonical_provisioning.sql",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\migrations\\20261116000700_canonical_provisioning.sql",
+      "stagedFile": "supabase/migrations/20261116000700_canonical_provisioning.sql",
+      "sha256": "bdd01b22180cd805f2bef1f80863c22d2c5857c3cad10f97f392fa55161e53bc"
+    },
+    {
+      "version": "20261118000800",
+      "source": "supabase/migration-drafts/20261118000800_vehicles.sql",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\migration-drafts\\20261118000800_vehicles.sql",
+      "stagedFile": "supabase/migrations/20261118000800_vehicles.sql",
+      "sha256": "11e948603bdfa765d35867e2fd88d94f4cb0434e058c1766b64a42d82634c023"
+    },
+    {
+      "version": "20261118000900",
+      "source": "supabase/migration-drafts/20261118000900_client_creation_idempotency.sql",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\migration-drafts\\20261118000900_client_creation_idempotency.sql",
+      "stagedFile": "supabase/migrations/20261118000900_client_creation_idempotency.sql",
+      "sha256": "4080c240ae99bb24f4e798d4cf6fd095ca78108a4c1a7d3b0abe65a7cfe05da3"
+    }
+  ],
+  "ancillaryArtifacts": [
+    {
+      "source": "supabase/config.toml",
+      "stagedFile": "supabase/config.toml",
+      "sha256": "3b180de883c9cb290cdf6652e166356dbbbdb52a754c5598d627c985656a68e6",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\supabase\\config.toml"
+    },
+    {
+      "source": "scripts/preflight-client-idempotency-0009.sql",
+      "stagedFile": "scripts/preflight-client-idempotency-0009.sql",
+      "sha256": "4c78d4fe7af4cc29b78c609ba50b5d98f9928968812a6d2987d28e1943fdc0ac",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\scripts\\preflight-client-idempotency-0009.sql"
+    },
+    {
+      "source": "scripts/p3-readonly-preflight.mjs",
+      "stagedFile": "scripts/p3-readonly-preflight.mjs",
+      "sha256": "eb77bf6a3c1cf85f336f7e8331a1f5b0a72085b3338416ff0dc511c63c76da21",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\scripts\\p3-readonly-preflight.mjs"
+    },
+    {
+      "source": "scripts/p3-readonly-preflight.test.mjs",
+      "stagedFile": "scripts/p3-readonly-preflight.test.mjs",
+      "sha256": "138e684ed7de842be4f4955ed1947dd46dec5b78edd9a55cc57261b00953c092",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\scripts\\p3-readonly-preflight.test.mjs"
+    },
+    {
+      "source": "docs/deployment-0009/README.md",
+      "stagedFile": "README.md",
+      "sha256": "1d4d77b847c652f872a03333417de10a21cb9f81dc89b2b7ef9e61a29a33da1a",
+      "sourceAbsolutePath": "C:\\Users\\lenovo\\contratpro\\docs\\deployment-0009\\README.md"
+    }
+  ],
+  "preparedWorkdir": {
+    "absolutePath": "C:\\Users\\lenovo\\AppData\\Local\\Temp\\contratpro-clients-0009-rSd0pd",
+    "migrationFilesVerified": 10,
+    "sourceAndDestinationHashesVerified": true,
+    "outsideRepository": true,
+    "cliInvoked": false
+  },
+  "dryRun": {
+    "procedure": "docs/deployment-0009/README.md",
+    "command": "& $p3Cli db push \"--remote=$p3Target\" --workdir $p3Stage --profile supabase --dns-resolver native --skip-vault --include-seed=false --include-roles=false --dry-run",
+    "requiredPendingFilename": "20261118000900_client_creation_idempotency.sql",
+    "requiresSeparateLiveAuthorization": true
+  },
+  "deployed0008BytesIndependentlyVerified": false,
+  "livePrerequisitesVerified": false,
+  "liveExecutionAuthorized": false,
+  "provisioningActivationAuthorized": false,
+  "vehiclesActivationAuthorized": false,
+  "liveOperationsPerformed": 0,
+  "preflightSupervisor": {
+    "stagedFile": "scripts/p3-readonly-preflight.mjs",
+    "command": "& $verifiedNode24 \"$p3Stage/scripts/p3-readonly-preflight.mjs\" --run-reviewed-preflight $approvedPrivatePreflightConfig",
+    "wallClockDeadlineMs": 20000,
+    "stdoutLimitBytes": 4194304,
+    "stderrLimitBytes": 16384,
+    "configuration": "UNBOUND_OPERATOR_NON_SECRET_PRIVATE_JSON",
+    "credentialChannel": "UNBOUND_APPROVED_PROCESS_PGPASSWORD",
+    "nativeProcessTerminationVerified": false,
+    "liveExecuted": false
+  }
+}

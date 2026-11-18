@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "reviewedAtUtc": "2026-11-17T08:42:10.849Z",
+  "scope": "Offline implementation/static review and synthetic injected tests only",
+  "components": {
+    "adminChannelImplementation": {
+      "verdict": "PASS",
+      "evidence": [
+        "Shared hidden TTY primitive reused; separate disposable memory-only Admin header provider",
+        "Exact existing apikey/Authorization contract; pinned Development label; header-control rejection",
+        "Default inspect/JSON redacted, disposal invalidates existing handles; no files/env/argv/network/import-time prompt",
+        "Focused synthetic tests cover hidden input, redaction, abort, disposal and Auth executor integration"
+      ],
+      "notProven": [
+        "Actual credential source, project authority, validity or Gateway header acceptance",
+        "Protected process/debugger/transcript state at runtime"
+      ]
+    },
+    "clientParameterLogging": {
+      "verdict": "PASS",
+      "scope": "Static reviewed client paths plus synthetic error/redaction tests",
+      "evidence": [
+        "No console/logger/persistence sinks in reviewed security-critical modules",
+        "Fixed protocol parameterized email query, no SQL interpolation of private values",
+        "Adapter errors sanitized; no credential/header/response payload captured"
+      ],
+      "notProven": [
+        "Global runtime preload/debug/trace/dumps/transcripts or provider observability settings"
+      ]
+    },
+    "serverParameterLogging": {
+      "verdict": "UNVERIFIED",
+      "reason": "No deployed effective settings or provider/audit logging evidence; local config absence does not establish protections",
+      "requiresLive": [
+        "Effective bind-parameter/error/audit logging settings",
+        "Provider/proxy capture/retention policy review"
+      ]
+    },
+    "authoritativeAuthTerminalSource": {
+      "verdict": "FAIL",
+      "liveStatus": "UNVERIFIED",
+      "reason": "No independently evidenced source for exact Auth request backend completion/commit; importer/source label/audit/access log assumption is insufficient"
+    },
+    "authoritativeProvisioningTerminalSource": {
+      "verdict": "FAIL",
+      "liveStatus": "UNVERIFIED",
+      "reason": "No independently evidenced correlated provisioning backend completion/commit source; state snapshot is not drain proof"
+    },
+    "independentExactIdStateRequirement": {
+      "verdict": "PASS",
+      "evidence": [
+        "Reconciler requires FINISHED then snapshot starting after completion, exact subject and actual state",
+        "COMMITTED/ROLLED_BACK declarations alone never confirm; missing/in-flight/partial/mismatched observations block",
+        "Observer uses independent fixed read-only pg transaction and validates scoped canonical/business invariants"
+      ],
+      "notProven": [
+        "Any real commit, rollback, session, mapping or completion during this offline task"
+      ]
+    }
+  },
+  "reviewedArtifactSha256": {
+    "scripts/a02-private-input.mjs": "da4a73fc6dc747eae5ccf3f5d688b72bb524ba683fb53bf9b329ff741f82f3cd",
+    "scripts/a02-private-input.test.mjs": "4b198aa747eeb28f69ad20ff9f47c75d6f461c7a27cba5e78e65adcf26d27f0a",
+    "scripts/a02-security-blockers.test.mjs": "e46146eb3915364aed81f21e36bf919264ae7d60b70c205864b2fbf00ce64083",
+    "scripts/a02-auth-create.mjs": "c66df965c556e5d6521f4d7f0072445370b7fb1c070731aa800d5ad892a1836b",
+    "scripts/a02-independent-observer.mjs": "62f23fb2ef6fc2d309c6e95162c02c18158da6b35be65dd87fd373f0c6357a34",
+    "scripts/a02-reconciliation.mjs": "65a1045bf67e12c587da10fea2cbd07bc1334efc20ddcf2b67a47386a31345cc",
+    "docs/canonical-acceptance/a02-temporary/security-blockers.md": "63924636c925cba8118000c1e1ce969032e513498679ebe3133fa7e6ea240410"
+  },
+  "tests": {
+    "command": "node --test scripts/a02-security-blockers.test.mjs scripts/a02-independent-observer.test.mjs scripts/a02-auth-create.test.mjs scripts/a02-packet-readiness.test.mjs scripts/a02-private-input.test.mjs scripts/a02-gate2-preflight.test.mjs scripts/a02-temporary-cohort.test.mjs scripts/a02-identity-inventory.test.mjs scripts/a02-private-evidence.test.mjs",
+    "passed": 97,
+    "failed": 0,
+    "realCredentials": false,
+    "liveCalls": 0
+  },
+  "privateFilesModified": false,
+  "realCredentialsCollected": false,
+  "liveExecutionAuthorized": false,
+  "lint": {
+    "command": "npx --no-install eslint --config packages/infrastructure/database/eslint.config.mjs scripts/a02-private-input.mjs scripts/a02-private-input.test.mjs scripts/a02-security-blockers.test.mjs scripts/a02-packet-readiness.mjs scripts/a02-packet-readiness.test.mjs --max-warnings=0",
+    "exitCode": 0
+  }
+}

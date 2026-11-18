@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "kind": "independent-local-private-template-verification",
+  "observedAtUtc": "2026-11-17T02:08:22.647Z",
+  "absoluteDirectory": "C:\\Users\\lenovo\\AppData\\Local\\Contratpro-A02-Evidence",
+  "fileCount": 5,
+  "filesSha256": {
+    "ownership-reference.json": "08f4b66973ca4c786751fd47a04dff5713e9ed898bf66820c36405cb8836a922",
+    "credential-channel-reference.json": "f384fb20e2ab3afa2eca28b5845aba518917ccd191caafe9bfdbeed3eace1652",
+    "destination-reference.json": "e542db7cd26f1f2c7c582322a33c65936e0c3f8c53738fa3da96cee87bf568fc",
+    "execution-manifest.json": "106508c4d0319e43938b5bfd660788f333354189d0e225dbf8af6ee5cc5b28e9",
+    "observation-manifest.json": "bd9fda16e2979f203ad75d50db95cc3e711318dabbd97dd7d728463e56057c8d"
+  },
+  "verification": {
+    "outsideGitAndWorkspace": true,
+    "ancestorReparsePointsAbsent": true,
+    "fileSystem": "NTFS",
+    "ownerMatchesCurrentWindowsUser": true,
+    "directoryProtected": true,
+    "directoryExplicitOwnerOnlyFullControl": true,
+    "filesSameOwner": true,
+    "filesSingleInheritedOwnerFullControl": true,
+    "fileReparsePointsAbsent": true,
+    "exactTemplateFieldSets": true,
+    "templatesNotLiveEvidence": true
+  },
+  "operatorReported": {
+    "status": "PASS",
+    "permissionVerification": "OWNER_ONLY_NTFS_DACL_PASS",
+    "fileCount": 5,
+    "liveExecutionAuthorized": false,
+    "hashesSupplied": false
+  },
+  "operatorReceiptHashComparison": "UNVERIFIED_NO_OPERATOR_HASH_VALUES_SUPPLIED",
+  "privateFilesModified": false,
+  "permissionVerification": "PASS",
+  "liveExecutionAuthorized": false,
+  "scope": "Current local ACL and template-byte snapshot only; no database or live execution evidence; recheck before use"
+}

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "reviewedAtUtc": "2026-11-17T09:31:20.629Z",
+  "scope": "Offline independently reviewed receipt contract validation; no provider source discovered or fabricated",
+  "components": {
+    "adapterValidation": {
+      "verdict": "PASS",
+      "evidence": [
+        "Explicit out-of-band authority policy and finite exact operation ledger required; no default source",
+        "Pinned target/run/gate/subject/request/operation/source hash and transaction outcome correlation",
+        "Fresh finite-window completed transaction proof required; ambiguous, unknown, missing, timeout-only, stale and duplicate receipts rejected",
+        "Private file reader requires two bounded exact-ID files and adapter validation lineage",
+        "Existing reconciler refuses unvalidated JSON/verified flags; still requires independent exact-ID post-completion observation",
+        "Gate 4 deletion evidence is validated separately and remains refused by Gate 2 reconciler"
+      ],
+      "limits": [
+        "Policy source authenticity and transaction semantics require independent actual review; shapes and hashes alone are not authority",
+        "No raw Supabase provider exporter/parser or commit guarantee is invented",
+        "Deletion state confirmation and all cleanup remain separate Gate 4 operations"
+      ]
+    },
+    "availableSources": {
+      "authCreate": {
+        "current": "Auth SDK POST acknowledgement and independent auth.users/getUserById current-state reads",
+        "authoritativeCompletionExport": "UNVERIFIED_NOT_AVAILABLE_FROM_REPOSITORY"
+      },
+      "authDelete": {
+        "current": "SDK fetches user before DELETE and returns prior user data; independent post-delete read still required",
+        "authoritativeCompletionExport": "UNVERIFIED_NOT_AVAILABLE_FROM_REPOSITORY"
+      },
+      "canonicalProvisioning": {
+        "current": "Migration 0007 transactional identity/user mapping logic and independent exact-ID table reads",
+        "authoritativeCompletionExport": "UNVERIFIED_NOT_AVAILABLE_FROM_REPOSITORY"
+      },
+      "commitRollback": {
+        "authority": "Actual database transaction outcome",
+        "accessibleReviewedExporter": "UNBOUND",
+        "notProof": [
+          "HTTP status",
+          "timeout/cancellation",
+          "hash match",
+          "executor success log",
+          "point-in-time row absence"
+        ]
+      }
+    }
+  },
+  "localSourceReferences": [
+    "node_modules/@supabase/auth-js/src/GoTrueAdminApi.ts:480",
+    "node_modules/@supabase/auth-js/src/GoTrueAdminApi.ts:623",
+    "node_modules/@supabase/auth-js/src/GoTrueAdminApi.ts:843",
+    "supabase/migrations/20261116000700_canonical_provisioning.sql:75"
+  ],
+  "reviewedArtifactSha256": {
+    "scripts/a02-authoritative-completion.mjs": "0c1577f86455c3af736e5b2b98542d5e8f8a015315a732a4b66d46551ee4b2b3",
+    "scripts/a02-authoritative-completion.test.mjs": "7335badd19f39b27cc2a090c872d051a538d91de7fd3dc867ee4df1581a3e069",
+    "scripts/a02-completion-fixtures.mjs": "ab197157d44cacc84738e3a4b2cd9e4f30e7c0151fa5984a4091106d634a98ab",
+    "scripts/a02-reconciliation.mjs": "cca11bc609fc5aebeb882c1c332bda2d52e9db0838377f762476c5715ec70c09",
+    "scripts/a02-independent-observer.test.mjs": "3881eea672a677af2716c3de2fce6fa40a07096a4efe51d57a4a3461d3acabdd",
+    "scripts/a02-packet-readiness.mjs": "8a59cae5e3b7d3cef474132bfe1b6cbd4543f682e9b62f42b90816ef8347d252",
+    "scripts/a02-packet-readiness.test.mjs": "d5d9d5d4e64a3badc9b9f19de8ac354bfbfb6617258769dabfb039814727a516",
+    "docs/canonical-acceptance/a02-temporary/authoritative-completion-adapter.md": "8e533055f5956b35caa71f778f2acc7a1f15fe3af15aaa19fb6a0d2e8324600c"
+  },
+  "tests": {
+    "command": "node --test scripts/a02-authoritative-completion.test.mjs scripts/a02-logging-evidence.test.mjs scripts/a02-security-blockers.test.mjs scripts/a02-independent-observer.test.mjs scripts/a02-auth-create.test.mjs scripts/a02-packet-readiness.test.mjs scripts/a02-private-input.test.mjs scripts/a02-gate2-preflight.test.mjs scripts/a02-temporary-cohort.test.mjs scripts/a02-identity-inventory.test.mjs scripts/a02-private-evidence.test.mjs",
+    "passed": 116,
+    "failed": 0,
+    "newAdapterTests": 12,
+    "liveCalls": 0
+  },
+  "actualAuthorityPolicyCreated": false,
+  "actualReceiptCreated": false,
+  "syntheticFixturesOnly": true,
+  "privateFilesModified": false,
+  "liveExecutionAuthorized": false,
+  "lint": {
+    "command": "npx --no-install eslint --config packages/infrastructure/database/eslint.config.mjs scripts/a02-authoritative-completion.mjs scripts/a02-authoritative-completion.test.mjs scripts/a02-completion-fixtures.mjs scripts/a02-reconciliation.mjs scripts/a02-independent-observer.test.mjs scripts/a02-packet-readiness.mjs scripts/a02-packet-readiness.test.mjs --max-warnings=0",
+    "exitCode": 0
+  }
+}

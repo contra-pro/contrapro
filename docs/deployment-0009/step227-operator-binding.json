@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "step": 227,
+  "authorization": {
+    "status": "AUTHORIZED_READ_ONLY_ONLY",
+    "source": "Explicit owner statement in STEP 227 of this conversation",
+    "sourceType": "OPERATOR_STATEMENT",
+    "approvalTime": "UNVERIFIED",
+    "signature": "NOT_SUPPLIED",
+    "scope": "P3_READ_ONLY_CATALOG_PREFLIGHT",
+    "migrationAuthorized": false,
+    "acceptanceAuthorized": false,
+    "fixtureCreationAuthorized": false,
+    "flagChangesAuthorized": false
+  },
+  "dashboard": {
+    "status": "OWNER_REPORTED_DASHBOARD_CONFIRMATION",
+    "independentlyInspected": false,
+    "projectRef": "gllsiklbvqpxzucvkehw",
+    "organization": "contra-pro",
+    "region": "eu-west-1",
+    "regionLabel": "Ireland",
+    "connectionMode": "session_pooler",
+    "host": "aws-0-eu-west-1.pooler.supabase.com",
+    "port": 5432,
+    "database": "postgres",
+    "qualifiedUsername": "postgres.gllsiklbvqpxzucvkehw",
+    "dashboardLabel": "main/PRODUCTION",
+    "environmentUse": "Development/Test",
+    "environmentClassificationAuthority": "Explicit project-owner confirmation in STEP 227",
+    "environmentClassificationStatus": "CONFIRMED_BY_OWNER",
+    "providerDevelopmentClassificationClaimed": false,
+    "originalCaptureReference": "UNBOUND",
+    "captureTime": "UNVERIFIED"
+  },
+  "fingerprint": {
+    "status": "UNVERIFIED_CURRENT_SAME_ROUTE_BINDING",
+    "executionValuesBound": false,
+    "historicalCandidate": {
+      "source": "docs/deployment-0007/postflight-output.txt",
+      "sourceSha256": "7fcf4622d9840b6213cc3a59b272fea368cc063f322d9b8fb9b7110bc9840c27",
+      "line": 33,
+      "database": "postgres",
+      "databaseOid": "5",
+      "sessionUser": "postgres",
+      "currentUser": "postgres",
+      "serverAddress": "2a05:d018:184f:1e01:cea0:7ef7:7fd2:c39e",
+      "serverPort": 5432,
+      "observationTime": "UNVERIFIED",
+      "clientTlsEvidence": "UNBOUND",
+      "sameRouteAttestation": "UNBOUND"
+    },
+    "newReadPerformed": false,
+    "procedure": "docs/deployment-0009/fingerprint-only-procedure.md"
+  },
+  "ca": {
+    "filePath": "C:/Users/lenovo/Downloads/prod-ca-2021.crt",
+    "fileSha256": "700723581420dd1ac98fd7e9ac529f0ef210eadcaf87fc868a3ad7d114c2f3b7",
+    "supervisorPinMatches": true,
+    "certificateSha256": "80:70:25:AD:50:D4:ED:21:9D:2C:9C:7D:29:9C:00:4F:82:4E:B0:0C:F7:F6:5A:FE:F6:07:D0:7B:72:E6:CA:FA",
+    "validFrom": "Apr 28 10:56:53 2021 GMT",
+    "validTo": "Apr 26 10:56:53 2031 GMT",
+    "timeValidity": "PASS_LOCAL_CHECK",
+    "sourceFromLocalDownloadMetadata": "https://supabase-downloads.s3-ap-southeast-1.amazonaws.com/prod/ssl/prod-ca-2021.crt",
+    "referrerOriginFromLocalDownloadMetadata": "https://supabase.com",
+    "downloadMetadataStatus": "LOCAL_CORROBORATION_NOT_PUBLISHER_ATTESTATION",
+    "independentOfficialSourceRecord": "UNBOUND",
+    "currentClientHandshakeVerified": false
+  },
+  "proposedExecutables": {
+    "node": {
+      "path": "C:/Program Files/nodejs/node.exe",
+      "sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+      "status": "PROPOSED_REVIEWED_NOT_APPROVED"
+    },
+    "psql": {
+      "path": "C:/Program Files/PostgreSQL/17/bin/psql.exe",
+      "sha256": "c290c7f0a3335f290f8c18011a1e5afa03ee3cdd628697a5f3e767e5f1d3d10d",
+      "status": "PROPOSED_REVIEWED_NOT_APPROVED",
+      "versionMetadata": "17.11 (Step 224 file metadata)"
+    }
+  },
+  "proposedWindow": {
+    "status": "PROPOSED_AWAITING_OWNER_CONFIRMATION",
+    "clockSource": "2026-11-18 16:03:30 UTC",
+    "startUtc": "2026-11-18T16:30:00.000Z",
+    "endUtc": "2026-11-18T16:40:00.000Z",
+    "startEpochMs": 1795019400000,
+    "endEpochMs": 1795020000000,
+    "durationMinutes": 10,
+    "supervisorDeadlineSeconds": 20,
+    "automaticallySelected": false,
+    "expiredProposalMayNotBeReused": true
+  },
+  "custody": {
+    "sourceArgumentsAndFailureRedaction": "PASS_SOURCE_ONLY",
+    "credentialPresenceInAgentProcess": "ABSENT_FROM_ENVIRONMENT_NAME_CHECK",
+    "operatorCredentialProcess": "UNBOUND",
+    "runtimeTranscriptionDebuggerTracing": "UNVERIFIED",
+    "providerLogging": "UNVERIFIED",
+    "credentialValueRead": false
+  },
+  "overallGate": "NO_GO",
+  "liveOperations": 0
+}

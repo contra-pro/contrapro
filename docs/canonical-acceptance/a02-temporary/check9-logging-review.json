@@ -1,0 +1,393 @@
+{
+  "schemaVersion": 1,
+  "check": "A02_CHECK9_BOUNDED_LOGGING_REVIEW",
+  "target": {
+    "projectRef": "gllsiklbvqpxzucvkehw",
+    "environment": "development",
+    "liveProjectIdentityVerified": false
+  },
+  "reviewRecordedAtUtc": "2026-11-17T11:54:04.103Z",
+  "reviewTimeProvenance": "local recording clock, not independently attested and not the historical database observation time",
+  "scope": "Read-only local source, public official documentation and browser-capability inspection only; one sanitized local receipt created",
+  "localSources": [
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/check8-blocker-register.md",
+      "sha256": "4aa67fcd350ee2e8870776b1e58d9fcec8ccc0a63176609399a44fbeedf509c4",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/postgresql-logging-observation.json",
+      "sha256": "ed2cc9bc005f0e91dcb7f3787384159ed7a8598d19ccdedb727e7d7c02270be6",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/security-blocker-closure-review.json",
+      "sha256": "04e4027b1b317d225dba5006436226f4a5924bd4dedd150f458c97fde1e1d515",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/gate2-execution-packet.json",
+      "sha256": "efcbdd5f8e3e73ee9a4f1fcd57075a2b24b10f496b9414bd097dd8239fae66af",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "scripts/a02-logging-evidence.mjs",
+      "sha256": "fba4c5081249f08065986318a9883086c78fded79971ddb17018f2ec7e70e7af",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "scripts/a02-packet-readiness.mjs",
+      "sha256": "4a9bad7f05fe932f010adb09003284efc2d299cc398f0e98613211371864cc5c",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "scripts/a02-logging-evidence.test.mjs",
+      "sha256": "1cd1c60b53a9940ee1b14878e094d8b29efd62084e5e799f732bfc6793b0a1a2",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "scripts/a02-security-blockers.test.mjs",
+      "sha256": "e46146eb3915364aed81f21e36bf919264ae7d60b70c205864b2fbf00ce64083",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "scripts/a02-packet-readiness.test.mjs",
+      "sha256": "49967113529bfd4cde49e78c9c4c94d04673d24e9ed94d45a6607f39bc30bfdb",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "scripts/a02-auth-create.mjs",
+      "sha256": "e49a5fb70c98795bf0163558f13602bfe8f124e24c5f539fe18a1d4cb56a8c2b",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "scripts/a02-session-transport.mjs",
+      "sha256": "c1bd123cbc351b2cd55ca999253b908f77aa06997d1498963ef469b9fcc0ef19",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "scripts/a02-private-input.mjs",
+      "sha256": "da4a73fc6dc747eae5ccf3f5d688b72bb524ba683fb53bf9b329ff741f82f3cd",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "scripts/a02-independent-observer.mjs",
+      "sha256": "bfef4defb4ec9f711941ac1d659a1be1705915023205529caa64a4fe1c857a27",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "scripts/a02-reconciliation.mjs",
+      "sha256": "cca11bc609fc5aebeb882c1c332bda2d52e9db0838377f762476c5715ec70c09",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "scripts/a01-server-trace.cjs",
+      "sha256": "b32f9efde0c97d11ef3f4c8e48e108a1a02c4c58f258dc2c99322b22fdbf362b",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "apps/web/src/auth/handlers.ts",
+      "sha256": "be6200342f5db487c9de184d6e2bbcc60f0942c221f60e08d19ffc5e407af60f",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "apps/web/src/auth/provisioning-handler.ts",
+      "sha256": "93b39ceb0b4897b4633b0e513db4805c288047be94ebb8de1f5f2a47e2bba2b3",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "apps/web/src/auth/canonical-provisioning.ts",
+      "sha256": "48c039dc23728f26fec562bce26bfa8184742725f358b5f8a62d768dc31ecb7f",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "apps/web/src/auth/server.ts",
+      "sha256": "3127665b2d21c6413feae7219b51efb88457c2afcebe2bd5c2f1e50f311acf12",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "apps/web/src/auth/identity.ts",
+      "sha256": "c67fecb59a153325a1aa1951e36c840d9787fe37619b3c4d5d2660fe3a959a41",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "apps/web/src/auth/access-probe.ts",
+      "sha256": "35415b85ec0899438d2809ae28965efb000a4585fc8aada5deed9b2e1ceb5565",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "apps/web/src/proxy.ts",
+      "sha256": "e2ac350cb5c5191d540ec64b47271833959936c0228c21b525cacbaac3f246eb",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "apps/web/next.config.ts",
+      "sha256": "3c7466e5d662defcd7fd85cb62883cdad222cb3c607ad1c329a53f5f8a9e055d",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    },
+    {
+      "path": "apps/web/package.json",
+      "sha256": "3ac5819781582c7be7180d329b9528ae4a2a715eed4a0ada2ceee20999006cda",
+      "provenance": "local-source-inspection-not-deployed-runtime-attestation"
+    }
+  ],
+  "publicSources": [
+    {
+      "url": "https://supabase.com/docs/guides/observability/log-field-reference",
+      "scope": "Header projection, service sources and schema limits",
+      "provenance": "official public documentation read during this review; not project-specific metadata"
+    },
+    {
+      "url": "https://supabase.com/docs/guides/database/postgres/postgres-log-config",
+      "scope": "Supported logging controls and separate emitter categories, not actual project values",
+      "provenance": "official public documentation read during this review; not project-specific metadata"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/17/runtime-config-logging.html",
+      "scope": "PostgreSQL17 bind/error logging setting semantics",
+      "provenance": "official public documentation read during this review; not project-specific metadata"
+    },
+    {
+      "url": "https://www.postgresql.org/docs/17/auto-explain.html",
+      "scope": "Separate auto_explain plan/parameter logging controls",
+      "provenance": "official public documentation read during this review; not project-specific metadata"
+    },
+    {
+      "url": "https://supabase.com/docs/guides/auth/audit-logs",
+      "scope": "Audit identity metadata, not a credential-redaction guarantee",
+      "provenance": "official public documentation read during this review; not project-specific metadata"
+    },
+    {
+      "url": "https://supabase.com/docs/guides/observability/log-drains",
+      "scope": "Project Settings > Log Drains; configuration not inspected",
+      "provenance": "official public documentation read during this review; not project-specific metadata"
+    }
+  ],
+  "databaseObservation": {
+    "provenance": "operator-reported prior observation and Check9 baseline; not re-executed",
+    "observedAtUtc": "UNVERIFIED",
+    "settings": {
+      "log_parameter_max_length": "-1",
+      "log_parameter_max_length_on_error": "0",
+      "log_statement": "ddl",
+      "log_duration": "off",
+      "log_min_duration_statement": "-1",
+      "pgaudit.log": "none",
+      "pgaudit.log_parameter": "off"
+    },
+    "reportedRollback": true,
+    "tlsIdentity": "UNVERIFIED",
+    "credentialTransport": "UNVERIFIED",
+    "overall20SecondDeadline": "UNVERIFIED"
+  },
+  "accessLimitations": {
+    "supabaseConnectorAvailable": false,
+    "browserHost": "UNAVAILABLE",
+    "authenticatedDevelopmentDashboardEstablished": false,
+    "projectProviderMetadata": "UNVERIFIED",
+    "runtimeMetadata": "UNAVAILABLE_LOCAL_TOOL_DENIAL_NO_BYPASS",
+    "actualRequestOrLogContentInspected": false
+  },
+  "findings": [
+    {
+      "id": "STATIC_APPLICATION_ERROR_AND_LOGGING_PATHS",
+      "classification": "VERIFIED_SAFE",
+      "scope": "Inspected local source only",
+      "facts": "Auth/provisioning handlers use fixed sanitized failures; no console/logger/body/header logging sink was found in the reviewed paths. No deployed-runtime guarantee follows.",
+      "sources": [
+        "apps/web/src/auth/handlers.ts",
+        "apps/web/src/auth/provisioning-handler.ts",
+        "apps/web/src/auth/canonical-provisioning.ts",
+        "apps/web/src/auth/server.ts"
+      ]
+    },
+    {
+      "id": "STATIC_A02_DIAGNOSTICS",
+      "classification": "VERIFIED_SAFE",
+      "scope": "Reviewed exact A02 modules and injected offline tests only",
+      "facts": "Default credential diagnostics redact; fixed transport errors omit raw responses; private email collision values use bound SQL parameters. Deliberate property reads or external body/header logging are not protected by diagnostic redaction.",
+      "sources": [
+        "scripts/a02-private-input.mjs",
+        "scripts/a02-auth-create.mjs",
+        "scripts/a02-session-transport.mjs",
+        "scripts/a02-independent-observer.mjs",
+        "scripts/a02-security-blockers.test.mjs"
+      ]
+    },
+    {
+      "id": "STATIC_A01_TRACE_SCHEMA",
+      "classification": "VERIFIED_SAFE",
+      "scope": "Existing optional preload source, not an attestation that it is loaded",
+      "facts": "Trace emits correlation/time/fixed route/method/status and outbound counters; it does not serialize request headers, bodies or credentials. No A01 rerun occurred.",
+      "sources": [
+        "scripts/a01-server-trace.cjs"
+      ]
+    },
+    {
+      "id": "CONFIGURED_LOCAL_REQUEST_MIDDLEWARE",
+      "classification": "VERIFIED_SAFE",
+      "scope": "Checked-in proxy, Next configuration and direct web dependencies only",
+      "facts": "No configured request/response logger or telemetry logger was found. Proxy refresh/cookie handling is not logging and its matcher omits the provisioning route. Framework/default/hosting logs remain separately unverified.",
+      "sources": [
+        "apps/web/src/proxy.ts",
+        "apps/web/next.config.ts",
+        "apps/web/package.json"
+      ]
+    },
+    {
+      "id": "PUBLISHED_GATEWAY_HEADER_PROJECTION",
+      "classification": "VERIFIED_SAFE",
+      "scope": "Published Gateway header projection specification only, not project-wide provider assurance",
+      "facts": "Official documentation limits captured Gateway headers to an allowlist excluding credential-bearing authorization/API-key/cookie headers. It does not establish Auth service body/error or downstream logging redaction.",
+      "sources": [
+        "https://supabase.com/docs/guides/observability/log-field-reference"
+      ]
+    },
+    {
+      "id": "CALLER_IDENTITY_RPC_ARGUMENTS",
+      "classification": "NOT_APPLICABLE",
+      "scope": "Identity argument body of the reviewed parameter-free provisioning/auth-access RPC calls only",
+      "facts": "These reviewed call sites supply no identity RPC parameters. Auth Admin/password bodies, JWT context and observer private SQL bind parameters remain in scope and are not covered by this classification.",
+      "sources": [
+        "apps/web/src/auth/canonical-provisioning.ts",
+        "apps/web/src/auth/identity.ts",
+        "apps/web/src/auth/access-probe.ts",
+        "scripts/a02-session-transport.mjs"
+      ]
+    },
+    {
+      "id": "DATABASE_BIND_VALUE_SUPPRESSION",
+      "classification": "UNVERIFIED",
+      "scope": "Current effective Development sessions and roles",
+      "facts": "Operator-reported non-error length -1 permits full bind values when a qualifying statement is logged. Reported ddl/off/-1 duration controls do not themselves prove a sensitive SELECT was logged; error length 0 and pgAudit off are favorable reported facts only. The current conservative clearance rule still fails.",
+      "reportedConfigurationAssessment": "FAILS_REQUIRED_SUPPRESSION_RULE_NOT_PROOF_OF_LEAK",
+      "sources": [
+        "docs/canonical-acceptance/a02-temporary/postgresql-logging-observation.json",
+        "operator-reported Check9 baseline",
+        "https://www.postgresql.org/docs/17/runtime-config-logging.html"
+      ],
+      "nextOperatorAction": "Ask Supabase to identify the supported Development project/role control for non-error bind suppression and provide sanitized effective-configuration confirmation. Do not change it without separate explicit authorization."
+    },
+    {
+      "id": "DATABASE_OTHER_LOGGING_PATHS",
+      "classification": "UNVERIFIED",
+      "scope": "auto_explain, query/error logging and role-specific provider paths",
+      "facts": "Public PostgreSQL documentation exposes a separate auto_explain parameter-value setting. Its effective value/activation and other service-role/query/error logging coverage are not established by the existing reported settings; pgAudit off alone is insufficient.",
+      "sources": [
+        "https://www.postgresql.org/docs/17/auto-explain.html",
+        "https://supabase.com/docs/guides/database/postgres/postgres-log-config"
+      ],
+      "nextOperatorAction": "Obtain provider confirmation of effective auto_explain parameter suppression/activation and Auth/PostgREST role/error logging coverage for this Development project; inspect only genuinely missing settings if later needed, not the established query again."
+    },
+    {
+      "id": "PROVIDER_AUTH_BODY_AND_ERROR_REDACTION",
+      "classification": "UNVERIFIED",
+      "scope": "Actual Development Auth Admin, Auth audit, Gateway and PostgREST service persistence/export",
+      "facts": "Public schemas include free-form event/error fields and identity metadata, not an end-to-end promise that passwords, session tokens or sensitive bodies can never reach logs. No project metadata or actual log content was inspected.",
+      "sources": [
+        "https://supabase.com/docs/guides/observability/log-field-reference",
+        "https://supabase.com/docs/guides/auth/audit-logs"
+      ],
+      "nextOperatorAction": "Obtain written Supabase confirmation for the exact Development project covering credential headers, Admin/password bodies, token/error redaction and audit metadata before persistence or export, without sending keys or request/log samples."
+    },
+    {
+      "id": "PROJECT_LOG_DRAINS_AND_PROVIDER_CONFIGURATION",
+      "classification": "UNVERIFIED",
+      "scope": "Current Development configuration",
+      "facts": "No Supabase connector was available; browser access host was unavailable and no authenticated target Dashboard was established. Public docs describe configuration, not this project actual settings.",
+      "sources": [
+        "read-only browser surface inventory",
+        "https://supabase.com/docs/guides/observability/log-drains"
+      ],
+      "nextOperatorAction": "Owner inspects this project Project Settings > Log Drains read-only and records only configured/not-configured, destination types and redaction/retention controls; omit endpoint secrets, headers, keys and payloads."
+    },
+    {
+      "id": "ACTUAL_RUNTIME_DIAGNOSTICS",
+      "classification": "UNVERIFIED",
+      "scope": "Inspection host and future Gate2 execution process",
+      "facts": "The local runtime rejected the node:process metadata import before any runtime indicators were returned. No fallback/bypass was attempted. Debugger/preload/tracing/transcription/body logging and OS monitoring cannot be attested from static source.",
+      "sources": [
+        "local Node REPL capability rejection"
+      ],
+      "nextOperatorAction": "Owner reviews the actual dedicated execution process for debugger/preload/tracing/transcription/request-body logging and records booleans only before any credential entry."
+    },
+    {
+      "id": "FRAMEWORK_HOSTING_ACCESS_LOGS",
+      "classification": "UNVERIFIED",
+      "scope": "Running Next/framework/reverse-proxy/hosting request logs",
+      "facts": "Absence of application console calls is not absence of framework/hosting access logs. Callback query-string and request/response capture policy was not established; no callback or sensitive request was sent.",
+      "sources": [
+        "apps/web/next.config.ts",
+        "apps/web/src/auth/handlers.ts"
+      ],
+      "nextOperatorAction": "Owner reviews the actual local/hosting access-log configuration and confirms sensitive callback query strings, headers and bodies are suppressed/redacted, without producing sensitive requests or reading log bodies."
+    },
+    {
+      "id": "CURRENT_TLS_IDENTITY_AND_CREDENTIAL_TRANSPORT",
+      "classification": "UNVERIFIED",
+      "scope": "Actual Development observer connection, not static transport defaults",
+      "facts": "Existing code pins routes and validates TLS, but no connection/handshake or credential-channel observation was made in Check9; historical observation explicitly leaves these facts unverified.",
+      "sources": [
+        "scripts/a02-independent-observer.mjs",
+        "scripts/a02-auth-create.mjs",
+        "scripts/a02-session-transport.mjs",
+        "docs/canonical-acceptance/a02-temporary/postgresql-logging-observation.json"
+      ],
+      "nextOperatorAction": "Owner supplies a sanitized receipt from the existing verified Development observer procedure proving exact target/hostname verification and private credential transport before any sensitive parameter query; no credential values or connection strings are required."
+    },
+    {
+      "id": "HISTORICAL_INSPECTION_TIME_AND_OVERALL_DEADLINE",
+      "classification": "UNVERIFIED",
+      "scope": "Previously reported PostgreSQL inspection",
+      "facts": "ROLLBACK and SQL timeout settings are operator-reported. Actual observation time and enforced overall 20-second deadline are not independently supported. Recording time is not database observation time.",
+      "sources": [
+        "docs/canonical-acceptance/a02-temporary/postgresql-logging-observation.json",
+        "operator-reported Check9 baseline"
+      ],
+      "nextOperatorAction": "Recover the original independently reviewable target/TLS/deadline/time receipt if it exists; otherwise leave the historical facts unverified and bind an enforced overall deadline to the next specifically justified read-only inspection."
+    }
+  ],
+  "loggingClearance": "BLOCKED",
+  "clearanceBasis": "The reported -1 condition fails the current suppression policy; provider/runtime/current inspection safeguards remain unverified. No observed absence of secrets is treated as suppression evidence.",
+  "actualSensitiveLeak": "NOT_ESTABLISHED_NO_LOG_CONTENT_OR_SENSITIVE_REQUESTS_INSPECTED",
+  "nextOperatorAction": "Project owner: obtain a written Supabase support confirmation for Development gllsiklbvqpxzucvkehw covering Auth Admin/password/token redaction before persistence/export, PostgREST/SQL bind and auto_explain/error logging, and the supported control for the reported -1 suppression condition. Provide no keys, bodies or log samples; make no setting change.",
+  "verification": {
+    "tests": {
+      "command": "node --test scripts/a02-logging-evidence.test.mjs scripts/a02-security-blockers.test.mjs scripts/a02-packet-readiness.test.mjs",
+      "passed": 25,
+      "failed": 0,
+      "exitCode": 0
+    },
+    "packet": {
+      "command": "node scripts/a02-packet-readiness.mjs",
+      "offlineValidation": "PASS",
+      "sourceHashesVerified": 51,
+      "executionReadiness": "FAIL_UNBOUND_OR_UNAUTHORIZED",
+      "selectedMode": "strict",
+      "exitCode": 0
+    },
+    "receiptValidation": {
+      "status": "PASS",
+      "method": "Local structural, classification, provenance, invariant, source-integrity and accidental secret-shape checks; no new executable validator or schema framework",
+      "negativeChecksRejected": 3
+    }
+  },
+  "invariants": {
+    "liveExecutionAuthorized": false,
+    "provisioningActivationAuthorized": false,
+    "packetChanged": false,
+    "configurationChanged": false,
+    "existingPrivateTemplatesChanged": false,
+    "sqlStatementsExecuted": 0,
+    "projectHttpRequestsPerformed": 0,
+    "authOperationsPerformed": 0,
+    "provisioningOperationsPerformed": 0,
+    "credentialsRetrieved": false,
+    "publicDocumentationRead": true,
+    "productionAccess": false,
+    "commitOrPush": false,
+    "applicationProvisioningRecorded": "OFF",
+    "originalAuthenticatedExecuteRecorded": "DENIED throughout",
+    "runningProvisioningFlagIndependentlyVerified": false
+  }
+}

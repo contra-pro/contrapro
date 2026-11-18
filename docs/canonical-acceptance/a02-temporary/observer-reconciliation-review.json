@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "reviewedAtUtc": "2026-11-17T02:31:37.918Z",
+  "scope": "Offline adapter implementation and deterministic injected/file-fixture evidence only",
+  "components": {
+    "observerIntegration": {
+      "verdict": "PASS",
+      "evidence": [
+        "Existing pg dependency; fixed Development route, approved CA hash and read-only connection options",
+        "Independent transaction/session guard, exact parameterized UUID/email absence query and original six cohort metadata/result SELECTs",
+        "Existing Auth executor and fixture provisioner integration tested with independent DB fixtures",
+        "Capture requires successful rollback/close; no raw credentials/email/response logging; private canonical facts only",
+        "Checkpoint budgets, two-second mapping confirmation, advancing-clock timeout, cancellation, guard/query/rollback failure and malformed/partial mapping rejection tested"
+      ],
+      "limits": [
+        "Live client/server parameter logging review and actual read-only authorization required",
+        "Definition/ACL hashes are drift evidence, not substitute for post-install semantic approval",
+        "Live TLS/DB/SQL behavior remains unverified; no live query executed"
+      ]
+    },
+    "reconciliationIntegration": {
+      "verdict": "PASS",
+      "evidence": [
+        "Read-only exact operation ID/hash terminal receipt importer outside Git/reparse paths",
+        "Terminal target/run/kind/label/subject binding and completion-before-snapshot checks",
+        "Fresh independent cohort snapshot validates commit/rollback state and scoped business references",
+        "In-flight, unknown, missing, invalid, canceled and partial-state evidence blocks; no absence-implies-rollback shortcut",
+        "One reconciliation per attempted ID; shared single Auth-phase recovery snapshot; no write/retry/cleanup capability"
+      ],
+      "limits": [
+        "Receipt shape/hash does not authenticate completion claims",
+        "Actual independently reviewed authoritative terminal source, source review and receipt directory remain UNBOUND",
+        "If a platform source cannot prove exact backend completion/commit, remain blocked; no invented Gateway guarantee",
+        "Scoped captures cannot prove arbitrary unrelated/transient writes or orphan absence globally"
+      ]
+    },
+    "adminCredentialChannel": {
+      "verdict": "FAIL",
+      "reason": "Actual approved memory-only Admin header supplier/reference remains UNBOUND; not changed by observer work"
+    }
+  },
+  "reviewedArtifactSha256": {
+    "scripts/a02-independent-observer.mjs": "62f23fb2ef6fc2d309c6e95162c02c18158da6b35be65dd87fd373f0c6357a34",
+    "scripts/a02-reconciliation.mjs": "65a1045bf67e12c587da10fea2cbd07bc1334efc20ddcf2b67a47386a31345cc",
+    "scripts/a02-independent-observer.test.mjs": "c3768ea85365d39fd3cd29defa2db7e1843ac7ffec437aaf16db621c4a02a2de",
+    "docs/canonical-acceptance/a02-temporary/cohort-observation.sql": "3cecb5cafc6adcd2117c23b99a0c52177c80ef9b3ac14d7415ed34f8a52b03e5",
+    "docs/canonical-acceptance/a02-temporary/observer-reconciliation-integration.md": "c8cb8ffabc9f16711f41450d4be50a71689dd27978bfb89cb288952be99c542a"
+  },
+  "tests": {
+    "command": "node --test scripts/a02-independent-observer.test.mjs scripts/a02-auth-create.test.mjs scripts/a02-packet-readiness.test.mjs scripts/a02-private-input.test.mjs scripts/a02-gate2-preflight.test.mjs scripts/a02-temporary-cohort.test.mjs scripts/a02-identity-inventory.test.mjs scripts/a02-private-evidence.test.mjs",
+    "passed": 91,
+    "failed": 0,
+    "newObserverReconciliationTests": 18,
+    "transport": "Injected synthetic clients/HTTPS events and local synthetic terminal files only; no live SQL/HTTP"
+  },
+  "liveExecutionAuthorized": false,
+  "privateFilesModified": false,
+  "lint": {
+    "command": "npx --no-install eslint --config packages/infrastructure/database/eslint.config.mjs scripts/a02-independent-observer.mjs scripts/a02-reconciliation.mjs scripts/a02-independent-observer.test.mjs scripts/a02-packet-readiness.mjs scripts/a02-packet-readiness.test.mjs --max-warnings=0",
+    "exitCode": 0
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "schemaVersion": 1,
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "scope": "OFFLINE source and injected-fixture review only; no live execution authorization",
+  "reviewedAtUtc": "2026-11-17T02:12:44.282Z",
+  "reviewer": "Codex offline source review",
+  "originalReceiptComparison": {
+    "status": "5/5 MATCH",
+    "files": [
+      {
+        "file": "ownership-reference.json",
+        "original": "08f4b66973ca4c786751fd47a04dff5713e9ed898bf66820c36405cb8836a922",
+        "current": "08f4b66973ca4c786751fd47a04dff5713e9ed898bf66820c36405cb8836a922",
+        "packet": "08f4b66973ca4c786751fd47a04dff5713e9ed898bf66820c36405cb8836a922",
+        "result": "MATCH"
+      },
+      {
+        "file": "credential-channel-reference.json",
+        "original": "f384fb20e2ab3afa2eca28b5845aba518917ccd191caafe9bfdbeed3eace1652",
+        "current": "f384fb20e2ab3afa2eca28b5845aba518917ccd191caafe9bfdbeed3eace1652",
+        "packet": "f384fb20e2ab3afa2eca28b5845aba518917ccd191caafe9bfdbeed3eace1652",
+        "result": "MATCH"
+      },
+      {
+        "file": "destination-reference.json",
+        "original": "e542db7cd26f1f2c7c582322a33c65936e0c3f8c53738fa3da96cee87bf568fc",
+        "current": "e542db7cd26f1f2c7c582322a33c65936e0c3f8c53738fa3da96cee87bf568fc",
+        "packet": "e542db7cd26f1f2c7c582322a33c65936e0c3f8c53738fa3da96cee87bf568fc",
+        "result": "MATCH"
+      },
+      {
+        "file": "execution-manifest.json",
+        "original": "106508c4d0319e43938b5bfd660788f333354189d0e225dbf8af6ee5cc5b28e9",
+        "current": "106508c4d0319e43938b5bfd660788f333354189d0e225dbf8af6ee5cc5b28e9",
+        "packet": "106508c4d0319e43938b5bfd660788f333354189d0e225dbf8af6ee5cc5b28e9",
+        "result": "MATCH"
+      },
+      {
+        "file": "observation-manifest.json",
+        "original": "bd9fda16e2979f203ad75d50db95cc3e711318dabbd97dd7d728463e56057c8d",
+        "current": "bd9fda16e2979f203ad75d50db95cc3e711318dabbd97dd7d728463e56057c8d",
+        "packet": "bd9fda16e2979f203ad75d50db95cc3e711318dabbd97dd7d728463e56057c8d",
+        "result": "MATCH"
+      }
+    ]
+  },
+  "reviewedArtifactSha256": {
+    "scripts/a02-auth-create.mjs": "c66df965c556e5d6521f4d7f0072445370b7fb1c070731aa800d5ad892a1836b",
+    "scripts/a02-session-transport.mjs": "df217d4a87c142899488c75399e082d21f5c00358d7ca051c3e9e8dc1b334694",
+    "scripts/a02-private-input.mjs": "68b978ba9becb686073f8fb6674bc92a6562a13994569f3f00c71f68ffad99bd",
+    "docs/canonical-acceptance/a02-temporary/cohort-observation.sql": "3cecb5cafc6adcd2117c23b99a0c52177c80ef9b3ac14d7415ed34f8a52b03e5",
+    "docs/canonical-acceptance/a02-temporary/executor-observer-procedure.md": "dabbd1128e529b5a657712b2db3b2d8dd693b99dee0375062f55715fa88cd5a4",
+    "docs/canonical-acceptance/a02-temporary/private-evidence-verification.json": "eee70e74f4e784d38a3f1ea661c1c4ed27795df7588d07bf98ce5710f796b047"
+  },
+  "components": {
+    "authExecutor": {
+      "verdict": "PASS",
+      "scope": "Bounded one-shot code contract, not a completed operator composition",
+      "evidence": [
+        "scripts/a02-auth-create.mjs:42: fixed nominations, scoped receipt guards, one-shot and three-call ceiling",
+        "scripts/a02-auth-create.mjs:66: exact UUID/email/run absence receipt before attempt",
+        "scripts/a02-auth-create.mjs:77: attempted writes remain uncertain on failure; no retry or compensation",
+        "scripts/a02-auth-create.test.mjs: offline injected create, denial, wrong-subject, redirect and cancellation cases"
+      ],
+      "limits": [
+        "Approval references are trusted operator assertions, not cryptographic authorization",
+        "Actual Admin credential channel and independent absence adapter still unbound"
+      ]
+    },
+    "adminTransport": {
+      "verdict": "PASS",
+      "scope": "Offline code boundaries; no live TLS/Gateway claim",
+      "evidence": [
+        "scripts/a02-auth-create.mjs:9: only fixed Development POST admin/users and nominated IDs",
+        "scripts/a02-auth-create.mjs:22: peer/hostname validation, no agent/proxy, header/body limits",
+        "scripts/a02-auth-create.mjs:32: finite deadline and sanitized native errors",
+        "scripts/a02-auth-create.test.mjs: injected native TLS-option and forbidden-route/error tests"
+      ],
+      "limits": [
+        "No live credentials, TLS handshake or Admin authority verification"
+      ]
+    },
+    "sessionHandling": {
+      "verdict": "PASS",
+      "scope": "Existing injected transport/session contracts",
+      "evidence": [
+        "scripts/a02-session-transport.mjs:101: six-call bootstrap with Auth GET subject verification, pinned issuer/claims and freshness",
+        "scripts/a02-session-transport.mjs:152: one A/B attempt each; independent mapping required; post-write failures uncertain",
+        "scripts/a02-temporary-cohort.test.mjs: mismatch, anonymous, expiry/lost-response and noncooperative observer tests"
+      ],
+      "limits": [
+        "Synthetic JWTs do not prove live Gateway claims",
+        "Existing operator composition must dispose credentials and preserve session freshness"
+      ]
+    },
+    "interactiveCredentialInput": {
+      "verdict": "PASS",
+      "scope": "Hidden A/B/U input and default diagnostic redaction only",
+      "evidence": [
+        "scripts/a02-private-input.mjs:14: private Map provider, duplicate rejection and disposal",
+        "scripts/a02-private-input.mjs:41: dedicated raw TTY, hidden fields, cancellation and bounded input",
+        "scripts/a02-private-input.test.mjs: injected TTY, generic errors and console/JSON redaction tests"
+      ],
+      "limits": [
+        "Explicit field extraction, hostile same-process code, dumps and request logging remain unsafe",
+        "JavaScript strings cannot be securely zeroized"
+      ]
+    },
+    "observer": {
+      "verdict": "FAIL",
+      "scope": "Complete execution integration; static SQL capture design passes",
+      "evidence": [
+        "docs/canonical-acceptance/a02-temporary/cohort-observation.sql:6: read-only transaction and bounded timeouts/results, exact nominated scope",
+        "scripts/a02-auth-create.test.mjs: observer static read-only/bounded tests",
+        "docs/canonical-acceptance/a02-temporary/executor-observer-procedure.md:28: absenceCheck is a required independent port",
+        "docs/canonical-acceptance/a02-temporary/executor-observer-procedure.md:91: full mutation/in-flight evidence source unbound"
+      ],
+      "required": [
+        "Reviewed independent parameterized private-email/absence adapter and its client/server logging protections",
+        "Reviewed mapping-capture-to-confirmMapping adapter and runtime freshness/in-flight evidence source"
+      ],
+      "limits": [
+        "SQL was not executed or compiled on live Development",
+        "Scoped snapshots cannot prove unrelated or transient writes absent"
+      ]
+    },
+    "credentialChannel": {
+      "verdict": "FAIL",
+      "scope": "Actual privileged Admin channel; hidden user input itself passes",
+      "evidence": [
+        "docs/canonical-acceptance/a02-temporary/executor-observer-procedure.md:20: actual Admin channel reference unbound",
+        "scripts/a02-auth-create.mjs:42: requires injected adminHeaderProvider; no credential discovery",
+        "Private credential-channel template retains UNBOUND Admin channel and review, with original SHA-256 matching"
+      ],
+      "required": [
+        "Operator designates approved memory-only Admin header supplier and non-secret channel reference",
+        "Review provider acquisition/redaction/disposal and confirm Development-only Admin authority without persisting secrets"
+      ]
+    },
+    "evidenceDestination": {
+      "verdict": "PASS",
+      "scope": "Recorded local NTFS ACL and matching five-template byte snapshot; recheck before use",
+      "evidence": [
+        "docs/canonical-acceptance/a02-temporary/private-evidence-verification.json: previously independent owner-only directory/file ACL checks",
+        "Current five hashes match both operator originals and packet bindings"
+      ],
+      "limits": [
+        "Templates are not ownership, channel, execution or observation receipts",
+        "ACLs do not exclude elevated administrators or same-user processes; backup/sync policy is not attested"
+      ]
+    },
+    "writeAndInFlightReconciliation": {
+      "verdict": "FAIL",
+      "scope": "Complete independent runtime reconciliation; fail-closed controller behavior passes offline",
+      "evidence": [
+        "scripts/a02-auth-create.test.mjs: ambiguous write/cancellation stop without retries",
+        "scripts/a02-temporary-cohort.test.mjs: lost response, post-write expiry and malformed read-back remain uncertain",
+        "docs/canonical-acceptance/a02-temporary/executor-observer-procedure.md:102: bounded recovery ceilings but actual finished-session evidence source unbound"
+      ],
+      "required": [
+        "Bind an independently reviewed source/procedure that correlates and establishes completion of each attempted operation",
+        "Obtain actual completion/commit/mapping/business-reference evidence only during separately authorized execution"
+      ],
+      "limits": [
+        "HTTP timeout, expiry, cancellation or a point-in-time snapshot alone never proves rollback or absence of in-flight work",
+        "No new mechanism or live success is invented by this review"
+      ]
+    }
+  },
+  "testVerification": {
+    "tests": {
+      "command": "node --test scripts/a02-auth-create.test.mjs scripts/a02-packet-readiness.test.mjs scripts/a02-private-input.test.mjs scripts/a02-gate2-preflight.test.mjs scripts/a02-temporary-cohort.test.mjs scripts/a02-identity-inventory.test.mjs scripts/a02-private-evidence.test.mjs",
+      "passed": 73,
+      "failed": 0,
+      "liveCalls": 0
+    },
+    "lint": {
+      "command": "npx --no-install eslint --config packages/infrastructure/database/eslint.config.mjs scripts/a02-auth-create.mjs scripts/a02-auth-create.test.mjs scripts/a02-session-transport.mjs scripts/a02-private-input.mjs scripts/a02-packet-readiness.mjs scripts/a02-packet-readiness.test.mjs --max-warnings=0",
+      "exitCode": 0
+    },
+    "limits": "Injected transports/synthetic fixtures and static SQL checks only; no live SQL/HTTP or PowerShell initializer execution"
+  },
+  "liveExecutionAuthorized": false,
+  "privateFilesModified": false
+}

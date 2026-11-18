@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "step": 228,
+  "source": "Explicit conditional owner approval in STEP 228 of this conversation",
+  "approvalTime": "UNVERIFIED",
+  "binaries": [
+    {
+      "role": "node",
+      "path": "C:/Program Files/nodejs/node.exe",
+      "sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+      "status": "APPROVED_EXACT_PATH_AND_SHA256_REVERIFIED",
+      "source": "Explicit conditional owner approval in STEP 228; local hash condition satisfied",
+      "approvalTime": "UNVERIFIED"
+    },
+    {
+      "role": "psql",
+      "path": "C:/Program Files/PostgreSQL/17/bin/psql.exe",
+      "sha256": "c290c7f0a3335f290f8c18011a1e5afa03ee3cdd628697a5f3e767e5f1d3d10d",
+      "status": "APPROVED_EXACT_PATH_AND_SHA256_REVERIFIED",
+      "source": "Explicit conditional owner approval in STEP 228; local hash condition satisfied",
+      "approvalTime": "UNVERIFIED"
+    }
+  ],
+  "selectedNodePath": "C:/Program Files/nodejs/node.exe",
+  "selectedPsqlPath": "C:/Program Files/PostgreSQL/17/bin/psql.exe",
+  "scope": "Local preparation and exact executable selection; no native psql launch or database operation in this task",
+  "fingerprintExecutionAuthorizedByThisStep": false,
+  "preflightExecutionAuthorizedByThisStep": false,
+  "executionWindow": "UNBOUND",
+  "priorProposedWindow": "NOT_APPROVED_DO_NOT_USE",
+  "credentialValueRead": false,
+  "liveOperations": 0,
+  "fingerprintAcquisition": {
+    "status": "PREPARED_OFFLINE_NOT_EXECUTED",
+    "scope": "P3_READ_ONLY_FINGERPRINT_ACQUISITION",
+    "separateFromExpectedFingerprintVerification": true,
+    "noHistoricalFingerprintInputs": true,
+    "executionAuthorization": "UNBOUND_FOR_SEPARATE_READ",
+    "window": "UNBOUND_NO_PRIOR_PROPOSAL_APPROVED",
+    "nativeCancellationVerified": false,
+    "projectIdentityVerifiedBySql": false,
+    "serverRollbackIndependentlyVerified": false
+  },
+  "remainingPrerequisites": {
+    "independentControlPlaneCapture": "UNVERIFIED; owner-reported Step 227 Dashboard values retained",
+    "officialCaSourceReceipt": "UNVERIFIED; local file pin/time validity and download metadata corroboration available",
+    "intendedOperatorCredentialProcess": "UNBOUND; source uses only approved process PGPASSWORD without persistence",
+    "runtimeAndProviderLogging": "UNVERIFIED",
+    "actualClientToPoolerHandshake": "NOT_PERFORMED"
+  },
+  "fingerprintArtifacts": [
+    {
+      "file": "scripts/p3-fingerprint-only.mjs",
+      "sha256": "54ae9bd7351dcdd739e63d36d8eb9c04a35d76e82456171f43f33ac117eee4cf"
+    },
+    {
+      "file": "scripts/p3-fingerprint-only.sql",
+      "sha256": "f53c1dc15b3f699582804fda64191d112dab8dc7091314dab1e101065185efc5"
+    },
+    {
+      "file": "scripts/p3-fingerprint-only.test.mjs",
+      "sha256": "8f2061057d187ac9fc8a03ee5c60afebb74ea06fdd670d9637ccb3f3effc765f"
+    },
+    {
+      "file": "docs/deployment-0009/fingerprint-config.template.json",
+      "sha256": "a3c4e702299f47e354505224a2a02004163bba5667d729da6678441e34b5e283"
+    },
+    {
+      "file": "docs/deployment-0009/fingerprint-only-procedure.md",
+      "sha256": "d53a4c2e46cebfe96bf0c11961ec20739f8b41f4a898cf934ff2919000e19634"
+    }
+  ]
+}

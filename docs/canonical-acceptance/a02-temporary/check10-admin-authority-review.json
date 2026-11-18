@@ -1,0 +1,271 @@
+{
+  "schemaVersion": 1,
+  "check": "A02_CHECK10_OFFLINE_ADMIN_AUTHORITY_REVIEW",
+  "target": {
+    "projectRef": "gllsiklbvqpxzucvkehw",
+    "environment": "development",
+    "liveIdentityVerified": false
+  },
+  "reviewRecordedAtUtc": "2026-11-17T12:02:43.261Z",
+  "recordingTimeProvenance": "Local recording clock only; no live authority observation or independently attested approval time",
+  "sources": [
+    {
+      "path": "scripts/a02-auth-create.mjs",
+      "sha256": "e49a5fb70c98795bf0163558f13602bfe8f124e24c5f539fe18a1d4cb56a8c2b",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "scripts/a02-private-input.mjs",
+      "sha256": "da4a73fc6dc747eae5ccf3f5d688b72bb524ba683fb53bf9b329ff741f82f3cd",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "scripts/a02-session-transport.mjs",
+      "sha256": "c1bd123cbc351b2cd55ca999253b908f77aa06997d1498963ef469b9fcc0ef19",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "scripts/a02-state-acceptance.mjs",
+      "sha256": "fc4e5ade0cd7a362a459dddd58592c5f3e43db51936580902cd8ad1fc2d787e1",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "scripts/a02-packet-readiness.mjs",
+      "sha256": "4a9bad7f05fe932f010adb09003284efc2d299cc398f0e98613211371864cc5c",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "scripts/a02-auth-create.test.mjs",
+      "sha256": "c33070b99ee0738946ba1425b57705db1d9b3b5dece295c4d39e8e839478ac84",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "scripts/a02-private-input.test.mjs",
+      "sha256": "4b198aa747eeb28f69ad20ff9f47c75d6f461c7a27cba5e78e65adcf26d27f0a",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "scripts/a02-security-blockers.test.mjs",
+      "sha256": "e46146eb3915364aed81f21e36bf919264ae7d60b70c205864b2fbf00ce64083",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "scripts/a02-packet-readiness.test.mjs",
+      "sha256": "49967113529bfd4cde49e78c9c4c94d04673d24e9ed94d45a6607f39bc30bfdb",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "scripts/a02-state-acceptance.test.mjs",
+      "sha256": "887bc437b30a8d11993a1d5af12f34ff650d8ef89501eb5fecb36b7c6baf3a17",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/gate2-execution-packet.json",
+      "sha256": "efcbdd5f8e3e73ee9a4f1fcd57075a2b24b10f496b9414bd097dd8239fae66af",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/secure-credential-input.md",
+      "sha256": "53a390f77a1fa76926fae7abfc4d701d9200ea6db158f3c661cb67be9f62b990",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/security-blockers.md",
+      "sha256": "63924636c925cba8118000c1e1ce969032e513498679ebe3133fa7e6ea240410",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/security-blockers-review.json",
+      "sha256": "1e4c69b79e9c0b13b5ab21705c2ad75e1349189ebc0feeb96c4de703ac64ceee",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/security-blocker-closure-review.json",
+      "sha256": "04e4027b1b317d225dba5006436226f4a5924bd4dedd150f458c97fde1e1d515",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/executor-observer-procedure.md",
+      "sha256": "dabbd1128e529b5a657712b2db3b2d8dd693b99dee0375062f55715fa88cd5a4",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "docs/canonical-acceptance/a02-temporary/check9-logging-review.json",
+      "sha256": "bce0f47fd2d4d5e90f21a4a9292534ca568f09dfadc20ed275915a019384bf46",
+      "provenance": "local source/evidence inspection; historical receipts remain historical"
+    },
+    {
+      "path": "node_modules/@supabase/auth-js/src/GoTrueAdminApi.ts",
+      "sha256": "b814cbec50ccfb2b411718eb284ff4af2f9fba59b1f5b8bb091b1c751b5851f2",
+      "provenance": "local installed SDK source/documentation; not a credential capability attestation"
+    }
+  ],
+  "credentialSupplyDuringFutureApprovedExecution": [
+    "Owner privately selects an approved source only after authority, logging, custody and execution prerequisites pass; no source is selected by this review.",
+    "In the separately approved isolated local Node process, readA02AdminCredentials uses the dedicated hidden TTY for two opaque inputs: API-key field and raw bearer-token field. No environment/argv/file secret source is used.",
+    "The returned disposable provider is supplied directly as adminHeaderProvider to createA02AuthCreator. The existing transport sends only to the pinned Development route; raw payload/header serialization is intentional at the wire boundary and must not be logged.",
+    "Dispose providers in finally and terminate the protected process. This releases retained references, not guaranteed zeroization of previous copies or operating-system buffers."
+  ],
+  "capabilityMetadata": {
+    "credentialSourceReference": "UNBOUND",
+    "actualCredentialAuthority": "UNVERIFIED",
+    "providerIssuedCapabilityReceiptBound": false,
+    "proofMechanismEvidencedLocally": false,
+    "installedSdkContract": "Local SDK documents server-only Admin create/delete contracts and required privileged credentials; it does not attest any particular source or actual credential.",
+    "metadataLimit": "No supported, independently authoritative credential-capability proof is established in the existing local package without provider evidence. This is not a claim that Supabase has no metadata interface; no live interface was inspected or invented.",
+    "sourceCustodyLimit": "Even source/type capability metadata cannot prove which bytes are later entered, their present validity or successful Gateway acceptance. Custody and actual approved execution remain separate.",
+    "postgresAuthorityLimit": "Historical PostgreSQL role/cleanup privileges do not establish HTTP Auth Admin credential authority."
+  },
+  "findings": [
+    {
+      "id": "CREDENTIAL_SOURCE_ARCHITECTURE",
+      "classification": "VERIFIED",
+      "scope": "Source-code architecture and synthetic tests only",
+      "facts": "Explicit operator hidden-TTY input produces a disposable in-memory Admin header provider; imports are inert. There is no credential-source lookup or automatic discovery.",
+      "sources": [
+        "scripts/a02-private-input.mjs:41",
+        "scripts/a02-private-input.mjs:44",
+        "scripts/a02-private-input.mjs:45",
+        "scripts/a02-private-input.test.mjs"
+      ]
+    },
+    {
+      "id": "DEVELOPMENT_TARGET_BINDING",
+      "classification": "VERIFIED",
+      "scope": "Static destination and input project label only",
+      "facts": "The Admin transport fixes the exact Development HTTPS host, POST route, TLS hostname and nominated IDs, rejecting alternate URLs/methods. The provider requires the exact project label. These checks do not authenticate the issuer or project of opaque credential bytes and do not prove a live handshake.",
+      "sources": [
+        "scripts/a02-auth-create.mjs:3",
+        "scripts/a02-auth-create.mjs:9",
+        "scripts/a02-private-input.mjs:45",
+        "scripts/a02-auth-create.test.mjs"
+      ]
+    },
+    {
+      "id": "NO_AMBIENT_OR_PRODUCTION_FALLBACK",
+      "classification": "VERIFIED",
+      "scope": "Inspected A02 implementation only",
+      "facts": "No key lookup from environment, argv, files, browser, secret store or alternate project exists. The fixed Development transport has no Production destination fallback. A wrongly sourced credential manually supplied by the operator is not identifiable from the validated string shape.",
+      "sources": [
+        "scripts/a02-private-input.mjs",
+        "scripts/a02-auth-create.mjs",
+        "scripts/a02-session-transport.mjs",
+        "scripts/a02-private-input.test.mjs"
+      ]
+    },
+    {
+      "id": "ACTUAL_ADMIN_AUTHORITY",
+      "classification": "UNVERIFIED",
+      "scope": "Actual intended Development credential source, create capability and current validity",
+      "facts": "Packet credentialSourceReference is UNBOUND; actualCredentialAuthority and securityVerification.adminCredentialAuthority are UNVERIFIED. No provider-issued, independently verifiable non-secret capability record is bound. Prompts, a project label, key syntax, offline fixtures and owner project access do not prove authority.",
+      "sources": [
+        "docs/canonical-acceptance/a02-temporary/gate2-execution-packet.json",
+        "docs/canonical-acceptance/a02-temporary/security-blockers-review.json",
+        "docs/canonical-acceptance/a02-temporary/security-blocker-closure-review.json"
+      ],
+      "nextOperatorAction": "Owner supplies a sanitized provider-originated record identifying the intended Development credential source/type, exact project and Auth Admin create-user capability, with provenance and custody reference; no key or token value and no credential probe."
+    },
+    {
+      "id": "RUNTIME_CREDENTIAL_HANDLING",
+      "classification": "PARTIAL",
+      "scope": "Verified source behavior; actual future terminal/process unverified",
+      "facts": "TTY input is non-echoing, rejects pipes/competing readers and handles cancellation/timeouts; handles redact default JSON/inspection and disposal invalidates retained handles. No module persistence sink exists. Strings/copies cannot be reliably zeroized; spreading/getter reads, HTTP buffers, debugging, heap dumps, transcription and external logging can still expose plaintext.",
+      "sources": [
+        "scripts/a02-private-input.mjs",
+        "scripts/a02-private-input.test.mjs",
+        "docs/canonical-acceptance/a02-temporary/secure-credential-input.md",
+        "docs/canonical-acceptance/a02-temporary/check9-logging-review.json"
+      ],
+      "nextOperatorAction": "Before any separately approved credential entry, owner verifies the dedicated local process/TTY has no recording, debugger/preload/body logging and binds that non-secret review; logging clearance must be resolved independently."
+    },
+    {
+      "id": "AUTHORIZATION_BOUNDARIES",
+      "classification": "PARTIAL",
+      "scope": "Local orchestration checks, not cryptographically authenticated execution authority",
+      "facts": "The create executor requires a bounded approval object, exact project/run references, three-create ceiling, 120-minute window, <=15-minute remaining wrapper lifetime and fresh exact absence evidence. Option B additionally binds its reviewed run/ledger and freeze. Approval references are caller assertions; the low-level HTTPS transport does not verify an operator approval record or independently establish Admin authority. No automatic live CLI entry point was found.",
+      "sources": [
+        "scripts/a02-auth-create.mjs:42",
+        "scripts/a02-state-acceptance.mjs:105",
+        "scripts/a02-packet-readiness.mjs",
+        "docs/canonical-acceptance/a02-temporary/executor-observer-procedure.md"
+      ],
+      "nextOperatorAction": "Owner must review and bind the complete Gate2 execution approval to the exact run/artifacts/limits before invoking the executor; do not substitute the policy-only approval or a fabricated reference string."
+    },
+    {
+      "id": "AUTH_DELETION_BOUNDARY",
+      "classification": "BLOCKED",
+      "scope": "No deletion execution is available or authorized through the current Gate2 Admin transport",
+      "facts": "The transport permits only create POST. No Auth-delete call site was found in the scoped project scripts/application source. The installed SDK has deleteUser, but it is not an A02 delete executor. Gate4 state methods only evaluate exact-ID cleanup/delete evidence; they make no HTTP deletion. Gate4 approval remains UNBOUND.",
+      "sources": [
+        "scripts/a02-auth-create.mjs:9",
+        "scripts/a02-state-acceptance.mjs:252",
+        "node_modules/@supabase/auth-js/src/GoTrueAdminApi.ts:843",
+        "docs/canonical-acceptance/a02-temporary/gate2-execution-packet.json"
+      ],
+      "nextOperatorAction": "Keep Auth deletion out of Gate2. Any eventual Gate4 execution must separately bind and review its exact-ID deletion procedure, authority and approval; do not use the presence of an SDK method as permission."
+    },
+    {
+      "id": "AMBIGUOUS_OUTCOME_RETRIES",
+      "classification": "VERIFIED",
+      "scope": "Existing executor/state tooling; not global backend cancellation or cross-process quiescence",
+      "facts": "The creator is one-shot and stops on uncertain attempts without retry/compensation. Explicit state mode freezes subsequent mutations, rejects repeated in-process run controllers and retains UNKNOWN until reviewed state adoption; adoption grants no retry or cleanup. A new process is not retry authorization.",
+      "sources": [
+        "scripts/a02-auth-create.mjs",
+        "scripts/a02-state-acceptance.mjs:17",
+        "scripts/a02-state-acceptance.test.mjs",
+        "scripts/a02-auth-create.test.mjs"
+      ]
+    }
+  ],
+  "actualAdminAuthority": "UNVERIFIED",
+  "overallExecutionStatus": "BLOCKED",
+  "nextOperatorAction": "Owner supplies a sanitized provider-originated record identifying the intended Development credential source/type, exact project and Auth Admin create-user capability, with provenance and custody reference; no key or token value and no credential probe.",
+  "remainingBlockers": [
+    "Actual Development Admin source/capability provenance and custody",
+    "Check9 logging clearance and actual runtime/transport safeguards",
+    "Ownership, exact run/window/expiry, final artifacts and independently captured evidence",
+    "Separate Gate2 execution approval; separate Gate3/Gate4 scope as applicable"
+  ],
+  "verification": {
+    "tests": {
+      "command": "node --test scripts/a02-private-input.test.mjs scripts/a02-auth-create.test.mjs scripts/a02-security-blockers.test.mjs scripts/a02-packet-readiness.test.mjs scripts/a02-state-acceptance.test.mjs",
+      "passed": 71,
+      "failed": 0,
+      "skipped": 0,
+      "exitCode": 0,
+      "fixtures": "Injected fictional values only; no actual credential or session"
+    },
+    "lint": {
+      "command": "npx --no-install eslint --config packages/infrastructure/database/eslint.config.mjs scripts/a02-private-input.mjs scripts/a02-auth-create.mjs scripts/a02-session-transport.mjs scripts/a02-state-acceptance.mjs scripts/a02-packet-readiness.mjs scripts/a02-private-input.test.mjs scripts/a02-auth-create.test.mjs scripts/a02-security-blockers.test.mjs scripts/a02-packet-readiness.test.mjs scripts/a02-state-acceptance.test.mjs --max-warnings=0",
+      "exitCode": 0
+    },
+    "packet": {
+      "command": "node scripts/a02-packet-readiness.mjs",
+      "exitCode": 0,
+      "offlineValidation": "PASS",
+      "sourceHashesVerified": 51,
+      "selectedMode": "strict",
+      "executionReadiness": "FAIL_UNBOUND_OR_UNAUTHORIZED"
+    },
+    "receiptValidation": {
+      "status": "PASS",
+      "method": "Local structural, provenance, classification, invariant, source-integrity and accidental-secret-shape consistency checks; no new executable schema/adapter",
+      "negativeChecksRejected": 3,
+      "sourceHashesVerified": 18
+    },
+    "originalPrivateTemplates": "5/5 original SHA256 MATCH via existing tests; not modified; no new ACL attestation"
+  },
+  "invariants": {
+    "liveExecutionAuthorized": false,
+    "provisioningActivationAuthorized": false,
+    "actualCredentialsReadPrintedHashedOrValidated": false,
+    "sqlOrHttpExecuted": false,
+    "authOrProvisioningOperationsPerformed": false,
+    "configurationOrMigrationsChanged": false,
+    "packetOrExecutableSourcesChanged": false,
+    "originalPrivateTemplatesChanged": false,
+    "productionAccess": false,
+    "commitOrPush": false,
+    "applicationProvisioningRecorded": "OFF"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "projectRef": "gllsiklbvqpxzucvkehw",
+  "scope": "P3_READ_ONLY_CATALOG_PREFLIGHT",
+  "authorizationReference": "docs/deployment-0009/step227-operator-binding.json#authorization",
+  "targetEvidenceReference": "docs/deployment-0009/step227-operator-binding.json#dashboard",
+  "tlsEvidenceReference": "docs/deployment-0009/step227-operator-binding.json#ca",
+  "windowStart": "UNBOUND",
+  "windowEnd": "UNBOUND",
+  "psqlPath": "C:/Program Files/PostgreSQL/17/bin/psql.exe",
+  "psqlSha256": "c290c7f0a3335f290f8c18011a1e5afa03ee3cdd628697a5f3e767e5f1d3d10d",
+  "psqlMajor": 17,
+  "caPath": "C:/Users/lenovo/Downloads/prod-ca-2021.crt",
+  "caSha256": "700723581420dd1ac98fd7e9ac529f0ef210eadcaf87fc868a3ad7d114c2f3b7",
+  "manifestPath": "C:\\Users\\lenovo\\AppData\\Local\\Temp\\contratpro-clients-0009-rSd0pd\\manifest.json",
+  "manifestSha256": "c0f1a07c13ff719e596897146e8f27b235ed21b8b3897bcc15700986f49316f9",
+  "databaseOid": "UNBOUND",
+  "serverAddress": "UNBOUND",
+  "serverPort": "UNBOUND"
+}

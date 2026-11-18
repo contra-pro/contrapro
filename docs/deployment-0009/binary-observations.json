@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "step": 225,
+  "targetIntent": {
+    "projectRef": "gllsiklbvqpxzucvkehw",
+    "environment": "development",
+    "independentIdentityVerified": false
+  },
+  "provenance": "Local file-byte hashes remeasured in Step 225; not publisher approval, executable selection or a live connection.",
+  "executables": [
+    {
+      "role": "psql",
+      "path": "C:/Program Files/PostgreSQL/17/bin/psql.exe",
+      "sha256": "c290c7f0a3335f290f8c18011a1e5afa03ee3cdd628697a5f3e767e5f1d3d10d",
+      "classification": "APPROVED_EXACT_PATH_AND_SHA256_REVERIFIED",
+      "matchesStep224": true,
+      "operatorApproval": "docs/deployment-0009/step228-binary-approval.json#binaries",
+      "selectedForExecution": true
+    },
+    {
+      "role": "node_candidate",
+      "path": "C:/Program Files/nodejs/node.exe",
+      "sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+      "classification": "APPROVED_EXACT_PATH_AND_SHA256_REVERIFIED",
+      "matchesStep224": true,
+      "operatorApproval": "docs/deployment-0009/step228-binary-approval.json#binaries",
+      "selectedForExecution": true
+    },
+    {
+      "role": "alternate_node_candidate",
+      "path": "C:/Users/lenovo/AppData/Local/hermes/node/node.exe",
+      "sha256": "0d0f5e39f9f3d9587bc19f73eab3c2c9c4903fd02d6dbf9c853dd81b3d95fad4",
+      "classification": "OBSERVED_NOT_APPROVED",
+      "matchesStep224": true,
+      "operatorApproval": "UNBOUND",
+      "selectedForExecution": false
+    }
+  ],
+  "previousMetadataObservations": {
+    "psql": {
+      "version": "17.11",
+      "source": "Step 224 Windows file metadata; native psql not launched",
+      "signature": "NotSigned; trusted package provenance remains unverified"
+    },
+    "pathSelectedNode": {
+      "version": "24.15.0",
+      "source": "Step 224 node --version via PATH; not an explicit operator selection",
+      "programFilesSignature": "Valid in Step 224 local Windows signature check; not re-attested here"
+    }
+  },
+  "operatorNodeSelection": {
+    "path": "C:/Program Files/nodejs/node.exe",
+    "sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+    "status": "APPROVED",
+    "reference": "docs/deployment-0009/step228-binary-approval.json#binaries"
+  },
+  "executionWindow": "UNBOUND",
+  "credentialValuesRead": false,
+  "executablesLaunched": false,
+  "liveOperations": 0,
+  "proposedExecutionSelection": {
+    "node": {
+      "path": "C:/Program Files/nodejs/node.exe",
+      "sha256": "3331e1ffe19874215472217c5e94f5a0c6d8e18c4ac7111d3937aa0ad5e9b4a5",
+      "status": "APPROVED",
+      "reference": "docs/deployment-0009/step228-binary-approval.json#binaries"
+    },
+    "psql": {
+      "path": "C:/Program Files/PostgreSQL/17/bin/psql.exe",
+      "sha256": "c290c7f0a3335f290f8c18011a1e5afa03ee3cdd628697a5f3e767e5f1d3d10d",
+      "status": "APPROVED",
+      "reference": "docs/deployment-0009/step228-binary-approval.json#binaries"
+    }
+  },
+  "proposedWindowReference": "docs/deployment-0009/step227-operator-binding.json#proposedWindow",
+  "priorProposedWindowStatus": "NOT_APPROVED_DO_NOT_USE"
+}

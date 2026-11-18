@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "check": "A02_CHECK15_OFFLINE_ADMIN_SOURCE_NOMINATION",
+  "target": {
+    "environment": "development",
+    "projectRef": "gllsiklbvqpxzucvkehw",
+    "liveIdentityVerified": false
+  },
+  "nomination": {
+    "status": "OPERATOR_NOMINATED_PROPOSAL_ONLY",
+    "credentialType": "legacy_service_role_JWT",
+    "credentialOrigin": "Existing Development Dashboard legacy service_role source; existence operator-reported in Check14, not independently observed",
+    "intendedInputMechanism": "readA02AdminCredentials -> createInMemoryAdminHeaderProvider -> createA02AuthCreator.adminHeaderProvider",
+    "mechanismSource": "scripts/a02-private-input.mjs:44",
+    "mechanismRole": "Hidden-TTY is the credential input channel, not proof of provider origin, custody, validity or capability",
+    "provenance": "Explicit operator nomination in this conversation; no signature, conversation identifier or independent attestation fabricated",
+    "nominationTime": "UNVERIFIED",
+    "executionWindow": "UNBOUND",
+    "actualCredentialValidity": "UNVERIFIED",
+    "actualAdminAuthority": "UNVERIFIED",
+    "actualCredentialSourceOrCustodyProof": "UNBOUND",
+    "credentialRetrievedOrEntered": false
+  },
+  "futureBinding": "Only during separately authorized execution after safeguards pass: operator supplies approved Development raw credential privately through existing hidden TTY; no credentials in arguments, environment discovery, repository or receipts. Header contract reviewed in Check14 remains unchanged. Nomination is not execution or capability verification.",
+  "priorReceipt": {
+    "path": "docs/canonical-acceptance/a02-temporary/check14-credential-source-review.json",
+    "sha256": "2b1cfda48fcfe66514e51fa616a02f3e2148998c8e39790feb27f2c7091d2776",
+    "comparison": "MATCH"
+  },
+  "artifactSha256": {
+    "scripts/a02-private-input.mjs": "da4a73fc6dc747eae5ccf3f5d688b72bb524ba683fb53bf9b329ff741f82f3cd",
+    "scripts/a02-auth-create.mjs": "e49a5fb70c98795bf0163558f13602bfe8f124e24c5f539fe18a1d4cb56a8c2b",
+    "docs/canonical-acceptance/a02-temporary/gate2-execution-packet.json": "ddf23743fcdecd0ef4a46bdeaa993e580eed51bd9108747d0b5c65cb2d976967"
+  },
+  "verification": {
+    "check14ArtifactHashes": "9/9 MATCH",
+    "packetCommand": "node scripts/a02-packet-readiness.mjs",
+    "packetExitCode": 0,
+    "offlineValidation": "PASS",
+    "packetSourceHashesVerified": 56,
+    "executionReadiness": "FAIL_UNBOUND_OR_UNAUTHORIZED",
+    "acceptanceMode": "strict",
+    "receiptValidation": "STRUCTURAL_ASSERTIONS_AND_REFERENCE_HASHES_PASS",
+    "tests": "Not rerun; receipt-only nomination, no executable or packet change",
+    "originalPrivateTemplates": "Not modified"
+  },
+  "remainingExternalBlockers": [
+    "Independent non-secret Development source/capability and custody evidence remains absent; nominated type does not prove actual Admin authority or validity.",
+    "Provider/database/runtime logging clearance and current protected-runtime/TLS/credential-transport evidence remain blocked or unverified.",
+    "Actual run/window/artifact/ownership bindings and separate execution approvals remain outstanding."
+  ],
+  "nextOperatorAction": "Supply a sanitized, non-secret Development Dashboard source/capability reference identifying this project and legacy service_role type, with key value hidden; do not retrieve, disclose or test the credential.",
+  "gate2": "BLOCKED_UNAUTHORIZED",
+  "gate3": "NOT_AUTHORIZED",
+  "gate4": "NOT_AUTHORIZED",
+  "applicationProvisioning": "OFF_IN_LOCAL_PACKET_NOT_REVERIFIED_LIVE",
+  "liveExecutionAuthorized": false,
+  "provisioningActivationAuthorized": false,
+  "liveOperationsPerformed": 0,
+  "credentialAccess": false,
+  "packetModified": false,
+  "executableCodeChanged": false,
+  "privateTemplatesModified": false,
+  "commitOrPush": false
+}
