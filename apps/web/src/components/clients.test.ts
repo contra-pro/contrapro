@@ -75,4 +75,9 @@ describe("client FR/AR UI and page wiring — no browser or live transport", () 
     await expect(ClientsPage({ params: Promise.resolve({ locale: "en" }) })).rejects.toThrow("NOT_FOUND");
     expect(getClientScope).not.toHaveBeenCalled();
   });
+  it("keys the new-client draft by its trusted agency so agency switches reset draft state", async () => {
+    vi.mocked(getClientScope).mockResolvedValue({ status: "ready", agencyId, permissions, client: {} as SupabaseClient });
+    const page = await NewClient({ params: Promise.resolve({ locale: "fr" }) });
+    expect(page.props.children.key).toBe(agencyId);
+  });
 });

@@ -12,6 +12,6 @@ export default async function NewClient({ params }: { params: Promise<{ locale: 
   if (scope.status !== "ready") return <ClientGate locale={locale} scope={scope} />;
   const copy = clientMessages(locale);
   return <AgencyWorkspace locale={locale} title={copy.createTitle}>
-    {scope.permissions.create ? <ClientForm locale={locale} permissions={scope.permissions} requestId={randomUUID()} /> : <p role="status">{copy.forbidden}</p>}
+    {scope.permissions.create ? <ClientForm key={scope.agencyId} locale={locale} permissions={scope.permissions} requestId={randomUUID()} /> : <p role="status">{copy.forbidden}</p>}
   </AgencyWorkspace>;
 }

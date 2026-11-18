@@ -11,6 +11,8 @@ export function ClientForm({ locale, permissions, initial, requestId }: {
   locale: Locale; permissions: ClientPermissions; initial?: ClientRecord; requestId: string;
 }) {
   const copy = clientMessages(locale); const router = useRouter();
+  // Server refreshes generate a new prop, but retries belong to this same draft.
+  const [creationKey] = useState(requestId);
   const [busy, setBusy] = useState(false); const [errors, setErrors] = useState<ClientErrors>({});
   const [status, setStatus] = useState<ClientMessageCode | "saved" | null>(null);
   const [version, setVersion] = useState(initial?.version ?? 1);
@@ -42,7 +44,7 @@ export function ClientForm({ locale, permissions, initial, requestId }: {
     if (!parsed.ok) { setErrors(parsed.errors); setStatus("invalid"); return; }
     setBusy(true); setErrors({}); setStatus(null);
     try {
-      const result = await send(initial ? { action: "update", id: initial.id, version, data: parsed.value } : { action: "create", requestId, data: parsed.value });
+      const result = await send(initial ? { action: "update", id: initial.id, version, data: parsed.value } : { action: "create", requestId: creationKey, data: parsed.value });
       if (!result) return;
       if (!isUuid(result.id) || typeof result.version !== "number" || !Number.isSafeInteger(result.version) || result.version < 1 || (initial && (result.id !== initial.id || result.version !== version + 1))) { setStatus("uncertain"); return; }
       if (!initial) { router.replace(`/${locale}/app/clients/${result.id}`); return; }
