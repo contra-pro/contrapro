@@ -1,0 +1,11 @@
+.root{display:grid;gap:1rem;max-inline-size:70rem;padding:1rem;overflow-wrap:anywhere;margin-inline:auto;}
+.root article,.root form,.root fieldset{display:grid;gap:.75rem;min-inline-size:0;}
+.root fieldset,.root article{border:1px solid #a3b6c4;padding:1rem;}
+.root label{display:grid;gap:.4rem;}
+.root input,.root select,.root textarea,.root button,.root a{min-block-size:2.75rem;max-inline-size:100%;}
+.root button,.root a{padding:.5rem .75rem;}
+.root textarea{inline-size:100%;}
+.root input[type=checkbox]{inline-size:1.5rem;block-size:1.5rem;}
+.root :focus-visible{outline:3px solid #186496;outline-offset:3px;}
+.preview{inline-size:100%;block-size:75vh;border:1px solid #a3b6c4;}
+@media(max-width:40rem){.root{padding:.5rem;}.root fieldset{padding:.5rem;}}

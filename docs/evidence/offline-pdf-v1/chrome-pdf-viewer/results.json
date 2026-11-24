@@ -1,0 +1,102 @@
+{
+  "out": "C:/Users/lenovo/contratpro/docs/evidence/offline-pdf-v1/chrome-pdf-viewer",
+  "browserPid": 17212,
+  "viewports": [],
+  "console": [],
+  "exceptions": [],
+  "requests": [
+    {
+      "url": "file:///C:/Users/lenovo/contratpro/docs/evidence/offline-pdf-v1/classic.pdf",
+      "type": "Document"
+    },
+    {
+      "url": "chrome-extension://mhjfbmdgcfjbbpaeojofohoefgiehjai/index.html",
+      "type": "Document"
+    },
+    {
+      "url": "file:///C:/Users/lenovo/contratpro/docs/evidence/offline-pdf-v1/luxury.pdf",
+      "type": "Document"
+    },
+    {
+      "url": "chrome-extension://mhjfbmdgcfjbbpaeojofohoefgiehjai/index.html",
+      "type": "Document"
+    },
+    {
+      "url": "file:///C:/Users/lenovo/contratpro/docs/evidence/offline-pdf-v1/modern.pdf",
+      "type": "Document"
+    },
+    {
+      "url": "chrome-extension://mhjfbmdgcfjbbpaeojofohoefgiehjai/index.html",
+      "type": "Document"
+    },
+    {
+      "url": "file:///C:/Users/lenovo/contratpro/docs/evidence/offline-pdf-v1/detailed.pdf",
+      "type": "Document"
+    },
+    {
+      "url": "chrome-extension://mhjfbmdgcfjbbpaeojofohoefgiehjai/index.html",
+      "type": "Document"
+    },
+    {
+      "url": "file:///C:/Users/lenovo/contratpro/docs/evidence/offline-pdf-v1/bilingual.pdf",
+      "type": "Document"
+    },
+    {
+      "url": "chrome-extension://mhjfbmdgcfjbbpaeojofohoefgiehjai/index.html",
+      "type": "Document"
+    }
+  ],
+  "blocked": [],
+  "calls": [],
+  "checks": {},
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/158.0.8127.36",
+    "revision": "@14d6f648e8cd7ad750a4044200ce94d3321be260",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+    "jsVersion": "15.8.62.31"
+  },
+  "pdfs": [
+    {
+      "template": "classic",
+      "title": "",
+      "type": "application/pdf",
+      "embeds": [],
+      "body": "",
+      "screenshot": "C:/Users/lenovo/contratpro/docs/evidence/offline-pdf-v1/chrome-pdf-viewer/classic.png"
+    },
+    {
+      "template": "luxury",
+      "title": "",
+      "type": "application/pdf",
+      "embeds": [],
+      "body": "",
+      "screenshot": "C:/Users/lenovo/contratpro/docs/evidence/offline-pdf-v1/chrome-pdf-viewer/luxury.png"
+    },
+    {
+      "template": "modern",
+      "title": "",
+      "type": "application/pdf",
+      "embeds": [],
+      "body": "",
+      "screenshot": "C:/Users/lenovo/contratpro/docs/evidence/offline-pdf-v1/chrome-pdf-viewer/modern.png"
+    },
+    {
+      "template": "detailed",
+      "title": "",
+      "type": "application/pdf",
+      "embeds": [],
+      "body": "",
+      "screenshot": "C:/Users/lenovo/contratpro/docs/evidence/offline-pdf-v1/chrome-pdf-viewer/detailed.png"
+    },
+    {
+      "template": "bilingual",
+      "title": "",
+      "type": "application/pdf",
+      "embeds": [],
+      "body": "",
+      "screenshot": "C:/Users/lenovo/contratpro/docs/evidence/offline-pdf-v1/chrome-pdf-viewer/bilingual.png"
+    }
+  ],
+  "completed": true
+}

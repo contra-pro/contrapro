@@ -1,6 +1,14 @@
 import type { Locale } from "./locales";
 const messages = {
   fr: {
+    persistedHint: "Les cinq champs de la fiche sont obligatoires. L’immatriculation doit être unique dans cette agence, y compris parmi les véhicules archivés.",
+    search: "Rechercher par immatriculation, marque ou modèle", searchButton: "Rechercher", reset: "Réinitialiser", noResults: "Aucun véhicule ne correspond à cette recherche.", results: "Résultats", page: "Page",
+    archive: "Archiver ce véhicule", archiveQuestion: "Confirmer l’archivage ?", archiveHint: "Le véhicule sera masqué. Son immatriculation restera réservée dans cette agence. Un véhicule indiqué comme loué doit d’abord être restitué.",
+    confirmArchive: "Confirmer l’archivage", cancel: "Annuler", statusHint: "Statut de parc renseigné manuellement : ne garantit pas la disponibilité pour une réservation.",
+    attributes: { category: "Catégorie", fuelType: "Carburant", transmission: "Transmission", rentalStatus: "Statut locatif" },
+    options: { unspecified: "Non renseigné", unknown: "À vérifier", economy: "Économique", compact: "Compacte", sedan: "Berline", suv: "SUV", van: "Utilitaire / monospace", luxury: "Luxe", other: "Autre",
+      petrol: "Essence", diesel: "Diesel", hybrid: "Hybride", electric: "Électrique", lpg: "GPL", manual: "Manuelle", automatic: "Automatique",
+      available: "Disponible", rented: "Loué", maintenance: "En maintenance", unavailable: "Indisponible" },
     title: "Véhicules", prepare: "Préparer une fiche véhicule", review: "Vérifier la fiche", reviewTitle: "Fiche vérifiée localement — non enregistrée",
     notice: "La gestion du parc n’est pas encore disponible. Cette fiche reste uniquement dans cette page et disparaît si vous la quittez ou la rechargez. Aucun véhicule ne sera enregistré.",
     hint: "Tous les champs sont obligatoires. Le format de l’immatriculation est vérifié, mais ni sa validité légale ni son unicité.",
@@ -16,6 +24,14 @@ const messages = {
     errors: { required: "Ce champ est obligatoire.", invalid: "La valeur saisie est invalide.", "too-long": "La valeur saisie est trop longue." },
   },
   ar: {
+    persistedHint: "حقول البطاقة الخمسة إلزامية. يجب أن يكون رقم التسجيل فريداً في الوكالة، بما فيها السيارات المؤرشفة.",
+    search: "البحث برقم التسجيل أو العلامة التجارية أو الطراز", searchButton: "بحث", reset: "إعادة تعيين", noResults: "لا توجد سيارات مطابقة للبحث.", results: "النتائج", page: "الصفحة",
+    archive: "أرشفة السيارة", archiveQuestion: "تأكيد الأرشفة؟", archiveHint: "ستُخفى السيارة وسيبقى رقم تسجيلها محجوزاً في الوكالة. يجب تأكيد إرجاع السيارة المسجلة كمؤجرة أولاً.",
+    confirmArchive: "تأكيد الأرشفة", cancel: "إلغاء", statusHint: "حالة الأسطول مدخلة يدوياً ولا تضمن توفر السيارة للحجز.",
+    attributes: { category: "الفئة", fuelType: "نوع الوقود", transmission: "ناقل الحركة", rentalStatus: "حالة التأجير" },
+    options: { unspecified: "غير محدد", unknown: "يتطلب التحقق", economy: "اقتصادية", compact: "مدمجة", sedan: "سيدان", suv: "دفع رباعي", van: "نفعية / عائلية", luxury: "فاخرة", other: "أخرى",
+      petrol: "بنزين", diesel: "ديزل", hybrid: "هجينة", electric: "كهربائية", lpg: "غاز بترولي مسال", manual: "يدوي", automatic: "أوتوماتيكي",
+      available: "متاحة", rented: "مؤجرة", maintenance: "صيانة", unavailable: "غير متاحة" },
     title: "السيارات", prepare: "إعداد بطاقة سيارة", review: "التحقق من البطاقة", reviewTitle: "تم التحقق محلياً — لم تُحفظ البطاقة",
     notice: "إدارة السيارات غير متاحة بعد. تبقى هذه البطاقة في هذه الصفحة فقط وتختفي عند مغادرتها أو إعادة تحميلها. لن تُحفظ أي سيارة.",
     hint: "جميع الحقول إلزامية. يتم التحقق من صيغة رقم التسجيل فقط، دون تأكيد صحته القانونية أو عدم تكراره.",
@@ -31,6 +47,6 @@ const messages = {
     errors: { required: "هذا الحقل إلزامي.", invalid: "القيمة المدخلة غير صالحة.", "too-long": "القيمة المدخلة طويلة جداً." },
   },
 };
-export const vehicleMessages = (locale: Locale) => messages[locale];
-export const vehicleFailureCodes = ["invalid", "forbidden", "unavailable", "uncertain", "conflict", "not-found", "signed-out"] as const;
+export const vehicleMessages = (locale: Locale) => ({...messages[locale],quota:locale === "ar" ? "تم بلوغ حد الاشتراك. راجع صفحة الفوترة." : "Limite de l’abonnement atteinte. Consultez la facturation.",restricted:locale === "ar" ? "الاشتراك مقيد. تبقى السجلات محفوظة." : "Abonnement restreint. Les données restent conservées."});
+export const vehicleFailureCodes = ["quota", "restricted", "invalid", "forbidden", "unavailable", "uncertain", "conflict", "not-found", "signed-out"] as const;
 export type VehicleMessageCode = typeof vehicleFailureCodes[number];

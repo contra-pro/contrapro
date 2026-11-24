@@ -1,0 +1,13 @@
+{
+  "scope": "Temporary copy outside repository; production source unchanged",
+  "mutation": "Remove finalized-source guard for signing-pending target",
+  "result": "caught",
+  "failedTests": 4,
+  "passedTests": 30,
+  "failedCases": [
+    "existing invalid sequence test",
+    "draft -> signing-pending",
+    "signing-pending -> signing-pending",
+    "repeated pending test"
+  ]
+}

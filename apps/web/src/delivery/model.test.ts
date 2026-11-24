@@ -1,0 +1,9 @@
+import { expect,it } from "vitest";
+import { phone,separate,type Material } from "./model";
+import { seal,unseal } from "./secrets";
+import { message,whatsapp } from "./messages";
+const key="a".repeat(64),expiry="2030-01-01T00:00:00Z";
+it("validates international and Moroccan phone numbers and rejects URL injection",()=>{expect(phone("+212 6 12 34 56 78")).toBe("+212612345678");expect(phone("0044 7700 900123")).toBe("+447700900123");for(const p of ["0612345678","+2120612345678","+2121234","+212612345678?text=x","javascript:alert(1)"])expect(()=>phone(p)).toThrow();});
+it("enforces channel separation",()=>{separate("email","manual-whatsapp");separate("manual-whatsapp","manual-out-of-band");expect(()=>separate("manual-whatsapp","manual-whatsapp")).toThrow();expect(()=>separate("email","email")).toThrow();});
+it("encrypts sensitive material with tenant/job/expiry binding",()=>{const envelope=seal({token:"private",code:"12345678"},key,"v1","agency|job",expiry);expect(JSON.stringify(envelope)).not.toContain("private");expect(unseal(envelope,key,"v1","agency|job")).toEqual({token:"private",code:"12345678"});expect(()=>unseal(envelope,key,"v1","other|job")).toThrow();expect(()=>unseal(envelope,key,"v1","agency|job",Date.parse(expiry))).toThrow("expired");});
+it.each(["fr","ar"] as const)("generates escaped branded messages and safe WhatsApp links in %s",locale=>{const m:Material={version:1,locale,agencyName:"Agence <test>",recipient:"+212612345678",replyTo:null,purpose:"invitation",link:"https://example.test/fr/sign#token=secret",code:null,expiresAt:expiry,reference:"CTR-2026-0001"};expect(message(m).html).toContain("&lt;test&gt;");expect(message(m).html).toContain(`dir="${locale==="ar"?"rtl":"ltr"}"`);expect(new URL(whatsapp(m).url).hostname).toBe("wa.me");expect(whatsapp(m).url).toContain("%23token%3Dsecret");expect(()=>message({...m,code:"12345678"})).toThrow();});

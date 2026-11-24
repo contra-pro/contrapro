@@ -1,0 +1,216 @@
+{
+  "before": {
+    "bilingual": {
+      "pages": 2,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 0,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          381.55078125,
+          27.830698013305664,
+          567.0750732421875,
+          65.11861419677734
+        ],
+        [
+          28.5,
+          27.69952964782715,
+          564.184814453125,
+          50.11861038208008
+        ]
+      ]
+    },
+    "classic": {
+      "pages": 1,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 0,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          28.5,
+          27.830698013305664,
+          214.02113342285156,
+          76.36861419677734
+        ]
+      ]
+    },
+    "detailed": {
+      "pages": 1,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 0,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          28.5,
+          27.830698013305664,
+          214.02113342285156,
+          76.36861419677734
+        ]
+      ]
+    },
+    "long-conditions": {
+      "pages": 4,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 180,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          381.55078125,
+          27.830698013305664,
+          567.0750732421875,
+          65.11861419677734
+        ],
+        [
+          28.5,
+          27.69952964782715,
+          215.8814239501953,
+          808.3685913085938
+        ],
+        [
+          28.5,
+          27.69952964782715,
+          215.8814239501953,
+          808.3685913085938
+        ],
+        [
+          28.5,
+          27.69952964782715,
+          289.4664611816406,
+          272.8686218261719
+        ]
+      ]
+    },
+    "luxury": {
+      "pages": 1,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 0,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          31.32421875,
+          30.830698013305664,
+          216.84535217285156,
+          79.36861419677734
+        ]
+      ]
+    },
+    "modern": {
+      "pages": 1,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 0,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          36.41015625,
+          27.830698013305664,
+          221.93128967285156,
+          76.36861419677734
+        ]
+      ]
+    }
+  },
+  "after": {
+    "bilingual": {
+      "pages": 1,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 0,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          381.55078125,
+          27.830698013305664,
+          567.0750732421875,
+          65.11861419677734
+        ]
+      ]
+    },
+    "classic": {
+      "pages": 1,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 0,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          28.5,
+          27.830698013305664,
+          214.02113342285156,
+          76.36861419677734
+        ]
+      ]
+    },
+    "detailed": {
+      "pages": 1,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 0,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          28.5,
+          27.830698013305664,
+          214.02113342285156,
+          76.36861419677734
+        ]
+      ]
+    },
+    "long-conditions": {
+      "pages": 4,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 180,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          381.55078125,
+          27.830698013305664,
+          567.0750732421875,
+          65.11861419677734
+        ],
+        [
+          28.5,
+          27.69952964782715,
+          215.8814239501953,
+          808.3685913085938
+        ],
+        [
+          28.5,
+          27.69952964782715,
+          215.8814239501953,
+          808.3685913085938
+        ],
+        [
+          28.5,
+          27.69952964782715,
+          289.4664611816406,
+          203.8686065673828
+        ]
+      ]
+    },
+    "luxury": {
+      "pages": 1,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 0,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          31.32421875,
+          30.830698013305664,
+          216.84535217285156,
+          79.36861419677734
+        ]
+      ]
+    },
+    "modern": {
+      "pages": 1,
+      "minimumFontPt": 10.0,
+      "conditionsLines": 0,
+      "replacementGlyphs": 0,
+      "textBounds": [
+        [
+          36.41015625,
+          27.830698013305664,
+          221.93128967285156,
+          76.36861419677734
+        ]
+      ]
+    }
+  }
+}

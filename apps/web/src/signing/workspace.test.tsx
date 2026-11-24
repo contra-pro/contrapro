@@ -1,0 +1,4 @@
+import { renderToStaticMarkup } from "react-dom/server";
+import { expect,it } from "vitest";
+import { AgencySigning,ClientSigning,SignatureCapture } from "./workspace";
+it.each(["fr","ar"] as const)("renders accessible signing controls and unchecked consent in %s",locale=>{const html=renderToStaticMarkup(<SignatureCapture locale={locale} documentLocale={locale} checksum={"a".repeat(64)} disabled={false} onSign={()=>{}}/>);expect(html).toContain('type="checkbox"');expect(html).not.toContain('checked=""');expect(html).toContain("disabled");expect(html).toContain("<label>");const guest=renderToStaticMarkup(<ClientSigning locale={locale}/>);expect(guest).toContain(locale==="ar"?'dir="rtl"':'dir="ltr"');expect(guest).not.toContain("supabase");const agency=renderToStaticMarkup(<AgencySigning locale={locale} rentalId="rental" artifacts={[]}/>);expect(agency).toContain('value="external-advanced"');expect(agency).toContain('role="status"');});

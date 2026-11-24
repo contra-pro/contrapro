@@ -1,0 +1,156 @@
+{
+  "out": "C:/Users/lenovo/contratpro/docs/evidence/single-page-a4-v1",
+  "browserPid": 14252,
+  "viewports": [],
+  "console": [
+    {
+      "level": "error",
+      "text": "Connecting to 'ws://127.0.0.1:4179/?token=[redacted]' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked."
+    },
+    {
+      "level": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "exceptions": [],
+  "requests": [],
+  "blocked": [],
+  "calls": [],
+  "checks": {},
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/158.0.8127.36",
+    "revision": "@14d6f648e8cd7ad750a4044200ce94d3321be260",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+    "jsVersion": "15.8.62.31"
+  },
+  "templates": [
+    {
+      "template": "classic",
+      "screens": [
+        {
+          "width": 320,
+          "scrollWidth": 305,
+          "status": "fits"
+        },
+        {
+          "width": 1440,
+          "scrollWidth": 1425,
+          "status": "fits"
+        }
+      ],
+      "print": {
+        "height": 1016.1875,
+        "width": 718.109375,
+        "svgs": 10,
+        "footers": 1,
+        "font": "13.3333px",
+        "conditions": "Conditions de démonstration à configurer par l’agence. Aucune validité juridique.",
+        "hidden": 0
+      }
+    },
+    {
+      "template": "luxury",
+      "screens": [
+        {
+          "width": 320,
+          "scrollWidth": 305,
+          "status": "fits"
+        },
+        {
+          "width": 1440,
+          "scrollWidth": 1425,
+          "status": "fits"
+        }
+      ],
+      "print": {
+        "height": 1019.953125,
+        "width": 718.109375,
+        "svgs": 10,
+        "footers": 1,
+        "font": "13.3333px",
+        "conditions": "Conditions de démonstration à configurer par l’agence. Aucune validité juridique.",
+        "hidden": 0
+      }
+    },
+    {
+      "template": "modern",
+      "screens": [
+        {
+          "width": 320,
+          "scrollWidth": 305,
+          "status": "fits"
+        },
+        {
+          "width": 1440,
+          "scrollWidth": 1425,
+          "status": "fits"
+        }
+      ],
+      "print": {
+        "height": 1010.1875,
+        "width": 718.109375,
+        "svgs": 10,
+        "footers": 1,
+        "font": "13.3333px",
+        "conditions": "Conditions de démonstration à configurer par l’agence. Aucune validité juridique.",
+        "hidden": 0
+      }
+    },
+    {
+      "template": "detailed",
+      "screens": [
+        {
+          "width": 320,
+          "scrollWidth": 305,
+          "status": "fits"
+        },
+        {
+          "width": 1440,
+          "scrollWidth": 1425,
+          "status": "fits"
+        }
+      ],
+      "print": {
+        "height": 1023.90625,
+        "width": 718.109375,
+        "svgs": 10,
+        "footers": 1,
+        "font": "13.3333px",
+        "conditions": "Conditions de démonstration à configurer par l’agence. Aucune validité juridique.",
+        "hidden": 0
+      }
+    },
+    {
+      "template": "bilingual",
+      "screens": [
+        {
+          "width": 320,
+          "scrollWidth": 305,
+          "status": "overflow"
+        },
+        {
+          "width": 1440,
+          "scrollWidth": 1425,
+          "status": "overflow"
+        }
+      ],
+      "print": {
+        "height": 1168.234375,
+        "width": 718.109375,
+        "svgs": 10,
+        "footers": 1,
+        "font": "13.3333px",
+        "conditions": "Conditions de démonstration à configurer par l’agence. Aucune validité juridique.",
+        "hidden": 0
+      }
+    }
+  ],
+  "overflow": {
+    "status": "overflow",
+    "length": 5940,
+    "sourceLength": 5940,
+    "alert": "NEEDS REVISION — dépassement A4. Le contenu intégral est conservé ; document non prêt sur une page."
+  },
+  "completed": true
+}

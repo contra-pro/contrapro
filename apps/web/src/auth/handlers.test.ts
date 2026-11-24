@@ -19,7 +19,7 @@ function fixture() {
     signOut: vi.fn(async () => ({ error: null as unknown })),
   };
   const client = vi.fn<(cookies: CookieMethodsServer) => SupabaseClient>(() => ({ auth }) as unknown as SupabaseClient);
-  return { auth, client, dependencies: { origin: () => origin, client, nonce: () => flow, now: () => 1000 } };
+  return { auth, client, dependencies: { origin: () => origin, client, nonce: () => flow, now: () => 1000, googleEnabled: () => true } };
 }
 function post(body: string, path = "/fr/auth/start", requestOrigin = origin) {
   return new NextRequest(`${origin}${path}`, { method: "POST", headers: { origin: requestOrigin,
@@ -32,6 +32,20 @@ function callback(query = `code=test-code&flow=${flow}`, cookie = flow, locale =
 }
 
 describe("auth HTTP flows — injected SDK only, never live Auth", () => {
+  it("confirms logout to the fetch UI without a redirect or raw provider error", async () => {
+    const f = fixture(), request = post("", "/fr/auth/sign-out");
+    request.headers.set("accept", "application/json");
+    const response = await handleAuth(request, "fr", "sign-out", f.dependencies);
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({ ok: true, destination: "/fr/sign-in?status=signed-out" });
+    expect(response.headers.get("location")).toBeNull();
+    expect(response.cookies.get("contratpro-password-recovery")?.maxAge).toBe(0);
+  });
+  it("rejects Google when the provider is not explicitly enabled", async () => {
+    const f = fixture();
+    await handleAuth(post("method=google"), "fr", "start", { ...f.dependencies, googleEnabled: () => false });
+    expect(f.auth.signInWithOAuth).not.toHaveBeenCalled();
+  });
   for (const locale of ["fr", "ar"] as const) {
     it(`${locale}: initiates same-browser Magic Link without linking or granting membership`, async () => {
       const f = fixture();

@@ -1,0 +1,1593 @@
+{
+  "schemaId": "cp-native-schema-proposals-draft1",
+  "status": "PROPOSED",
+  "ownerApproved": false,
+  "notation": "Native typed schema DSL, NOT JSON Schema and NOT a runtime validator",
+  "profiles": {
+    "codec": {
+      "id": "cp-c14n-typed-json-draft1",
+      "status": "PROPOSED"
+    },
+    "root": {
+      "id": "cp-binding-manifest-draft1",
+      "status": "PROPOSED"
+    },
+    "assets": {
+      "id": "cp-render-assets-draft1",
+      "status": "PROPOSED"
+    },
+    "party": {
+      "id": "cp-party-plan-draft1",
+      "status": "PROPOSED"
+    },
+    "raw": {
+      "id": "cp-pdf-raw-sha256-draft1",
+      "status": "PROPOSED"
+    }
+  },
+  "domains": {
+    "snapshot": "cp.snapshot.typed-json.draft1",
+    "pdf": "cp.pdf.exact-bytes.draft1",
+    "asset": "cp.asset.exact-bytes.draft1",
+    "assets": "cp.render-assets.typed-json.draft1",
+    "party": "cp.party-plan.typed-json.draft1",
+    "root": "cp.binding-manifest.typed-json.draft1"
+  },
+  "resultProfile": "cp-integrity-result-draft1",
+  "printProfile": "cp-a4-print-draft1",
+  "budgets": {
+    "snapshotBytes": 2097152,
+    "coreBytes": 262144,
+    "pdfBytes": 16777216,
+    "assetBytes": 4194304,
+    "assets": 128,
+    "packageBytes": 67108864,
+    "depth": 32,
+    "nodes": 50000,
+    "members": 256,
+    "entries": 1024,
+    "keyBytes": 256,
+    "stringBytes": 524288,
+    "bigintDigits": 256
+  },
+  "errorPrecedence": [
+    "unsupported-profile",
+    "invalid-input",
+    "ambiguous-input",
+    "unavailable-input",
+    "binding-mismatch",
+    "digest-mismatch"
+  ],
+  "reasonCodes": {
+    "unsupported-profile": "profile-not-supported",
+    "invalid-input": "malformed-or-limit",
+    "ambiguous-input": "conflicting-or-cyclic",
+    "unavailable-input": "required-input-missing",
+    "binding-mismatch": "scope-or-revision",
+    "digest-mismatch": "computed-digest-differs",
+    "integrity-match-unverified": "reference-match"
+  },
+  "newDecisionStatus": {
+    "sidecar-field-inventory": "OPEN-owner-review",
+    "error-precedence": "OPEN-owner-review",
+    "trim-validation-view": "OPEN-owner-review",
+    "asset-coverage-and-logo-transform": "OPEN-owner-review",
+    "lineage-eligibility": "OPEN-owner-review",
+    "source-business-ranges": "OPEN-owner-review",
+    "node-accounting-includes-context": "OPEN-owner-review"
+  },
+  "profileDomainRegistry": {
+    "registryVersion": 1,
+    "status": "PROPOSED",
+    "ownerApproved": false,
+    "entries": [
+      {
+        "id": "cp-c14n-typed-json-draft1",
+        "status": "PROPOSED",
+        "category": "codec",
+        "schemaRef": null,
+        "domain": null,
+        "algorithm": null,
+        "encoding": null
+      },
+      {
+        "id": "cp-binding-manifest-draft1",
+        "status": "PROPOSED",
+        "category": "record",
+        "schemaRef": "root",
+        "domain": "cp.binding-manifest.typed-json.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp-render-assets-draft1",
+        "status": "PROPOSED",
+        "category": "record",
+        "schemaRef": "assets",
+        "domain": "cp.render-assets.typed-json.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp-party-plan-draft1",
+        "status": "PROPOSED",
+        "category": "record",
+        "schemaRef": "party",
+        "domain": "cp.party-plan.typed-json.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp-pdf-raw-sha256-draft1",
+        "status": "PROPOSED",
+        "category": "checksum",
+        "schemaRef": "rawPdfChecksum",
+        "domain": null,
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp.snapshot.typed-json.draft1",
+        "status": "PROPOSED",
+        "category": "domain",
+        "schemaRef": null,
+        "domain": "cp.snapshot.typed-json.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp.pdf.exact-bytes.draft1",
+        "status": "PROPOSED",
+        "category": "domain",
+        "schemaRef": null,
+        "domain": "cp.pdf.exact-bytes.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp.asset.exact-bytes.draft1",
+        "status": "PROPOSED",
+        "category": "domain",
+        "schemaRef": null,
+        "domain": "cp.asset.exact-bytes.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp.render-assets.typed-json.draft1",
+        "status": "PROPOSED",
+        "category": "domain",
+        "schemaRef": "assets",
+        "domain": "cp.render-assets.typed-json.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp.party-plan.typed-json.draft1",
+        "status": "PROPOSED",
+        "category": "domain",
+        "schemaRef": "party",
+        "domain": "cp.party-plan.typed-json.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp.binding-manifest.typed-json.draft1",
+        "status": "PROPOSED",
+        "category": "domain",
+        "schemaRef": "root",
+        "domain": "cp.binding-manifest.typed-json.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp-integrity-result-draft1",
+        "status": "PROPOSED",
+        "category": "result",
+        "schemaRef": "result",
+        "domain": null,
+        "algorithm": null,
+        "encoding": null
+      },
+      {
+        "id": "cp-a4-print-draft1",
+        "status": "PROPOSED",
+        "category": "print",
+        "schemaRef": "printProfile",
+        "domain": null,
+        "algorithm": null,
+        "encoding": null
+      },
+      {
+        "id": "cp-budget-draft1",
+        "status": "PROPOSED",
+        "category": "budget",
+        "schemaRef": null,
+        "domain": null,
+        "algorithm": null,
+        "encoding": null
+      },
+      {
+        "id": "cp-native-snapshot-v1-untagged-draft1",
+        "status": "PROPOSED",
+        "category": "source-schema",
+        "schemaRef": "snapshot-v1-untagged",
+        "domain": "cp.snapshot.typed-json.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp-native-snapshot-v1-tagged-draft1",
+        "status": "PROPOSED",
+        "category": "source-schema",
+        "schemaRef": "snapshot-v1-tagged",
+        "domain": "cp.snapshot.typed-json.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp-native-snapshot-v2-draft1",
+        "status": "PROPOSED",
+        "category": "source-schema",
+        "schemaRef": "snapshot-v2",
+        "domain": "cp.snapshot.typed-json.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      },
+      {
+        "id": "cp-native-snapshot-v3-draft1",
+        "status": "PROPOSED",
+        "category": "source-schema",
+        "schemaRef": "snapshot-v3",
+        "domain": "cp.snapshot.typed-json.draft1",
+        "algorithm": "sha-256",
+        "encoding": "hex"
+      }
+    ]
+  },
+  "definitions": {
+    "text": {
+      "kind": "string",
+      "maxUtf8": 524288
+    },
+    "null": {
+      "kind": "null"
+    },
+    "true": {
+      "kind": "literal",
+      "value": true
+    },
+    "false": {
+      "kind": "literal",
+      "value": false
+    },
+    "token": {
+      "kind": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$"
+    },
+    "uuid": {
+      "kind": "string",
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+      "not": "00000000-0000-0000-0000-000000000000"
+    },
+    "positive": {
+      "kind": "number",
+      "integer": true,
+      "min": 1,
+      "max": 9007199254740991
+    },
+    "nonnegative": {
+      "kind": "number",
+      "integer": true,
+      "min": 0,
+      "max": 9007199254740991
+    },
+    "settingsRevision": {
+      "kind": "number",
+      "integer": true,
+      "min": 0,
+      "max": 9007199254740990
+    },
+    "finite": {
+      "kind": "number"
+    },
+    "coordinate": {
+      "kind": "number",
+      "min": 0,
+      "max": 100
+    },
+    "bigint": {
+      "kind": "bigint",
+      "maxDigits": 256
+    },
+    "byteLength": {
+      "kind": "bigint",
+      "minDecimal": "0",
+      "maxDigits": 256
+    },
+    "template": {
+      "kind": "enum",
+      "values": [
+        "classic",
+        "luxury",
+        "modern",
+        "detailed",
+        "bilingual"
+      ]
+    },
+    "mode": {
+      "kind": "literal",
+      "value": "offline-synthetic"
+    },
+    "one": {
+      "kind": "literal",
+      "value": 1
+    },
+    "two": {
+      "kind": "literal",
+      "value": 2
+    },
+    "three": {
+      "kind": "literal",
+      "value": 3
+    },
+    "nullableText": {
+      "kind": "union",
+      "alternatives": [
+        "null",
+        "text"
+      ]
+    },
+    "nullableToken": {
+      "kind": "union",
+      "alternatives": [
+        "null",
+        "token"
+      ]
+    },
+    "color": {
+      "kind": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$"
+    },
+    "logo": {
+      "kind": "union",
+      "alternatives": [
+        "null",
+        {
+          "kind": "string",
+          "maxUtf16": 280000,
+          "pattern": "^data:image/png;base64,[A-Za-z0-9+/]+={0,2}$",
+          "predicate": "png-structural-screen"
+        }
+      ]
+    },
+    "conditions": {
+      "kind": "string",
+      "maxUtf16": 8000,
+      "predicate": "conditions-text"
+    },
+    "footer": {
+      "kind": "string",
+      "maxUtf16": 500,
+      "predicate": "source-text-controls"
+    },
+    "company": {
+      "kind": "object",
+      "fields": {
+        "name": "text",
+        "ice": "text",
+        "ifNumber": "text",
+        "rc": "text",
+        "address": "text",
+        "city": "text",
+        "phone": "text",
+        "email": "text"
+      },
+      "optional": [],
+      "closed": true,
+      "predicate": "agency-profile-validation-view"
+    },
+    "oldDriver": {
+      "kind": "object",
+      "fields": {
+        "name": "text",
+        "identity": "text",
+        "licence": "text",
+        "licenceDates": "text",
+        "address": "text"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "driver": {
+      "kind": "object",
+      "fields": {
+        "fullName": "text",
+        "cin": "nullableText",
+        "passportNumber": "nullableText",
+        "drivingLicenseNumber": "nullableText",
+        "city": "nullableText",
+        "nationality": "nullableText",
+        "licenceDates": "nullableText",
+        "address": "nullableText"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "oldVehicle": {
+      "kind": "object",
+      "fields": {
+        "registration": "text",
+        "makeModel": "text",
+        "vin": "text"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "vehicle": {
+      "kind": "object",
+      "fields": {
+        "make": "nullableText",
+        "model": "nullableText",
+        "registrationNumber": "nullableText",
+        "vin": "nullableText"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "rental": {
+      "kind": "object",
+      "fields": {
+        "start": "text",
+        "end": "text",
+        "duration": "text",
+        "pickup": "text",
+        "returnLocation": "text",
+        "mileage": "text",
+        "allowance": "text",
+        "dailyRateMinor": "bigint",
+        "amountMinor": "bigint",
+        "depositMinor": "bigint"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "oldMarker": {
+      "kind": "object",
+      "fields": {
+        "view": {
+          "kind": "enum",
+          "values": [
+            "avant",
+            "arri\u00e8re",
+            "gauche",
+            "droite"
+          ]
+        },
+        "x": "finite",
+        "y": "finite"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "marker": {
+      "kind": "object",
+      "fields": {
+        "id": {
+          "kind": "string",
+          "pattern": "^[a-zA-Z0-9_-]{1,40}$"
+        },
+        "view": {
+          "kind": "enum",
+          "values": [
+            "top",
+            "front",
+            "rear",
+            "left",
+            "right"
+          ]
+        },
+        "category": {
+          "kind": "enum",
+          "values": [
+            "scratch",
+            "dent",
+            "other"
+          ]
+        },
+        "x": "coordinate",
+        "y": "coordinate"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "oldInspection": {
+      "kind": "object",
+      "fields": {
+        "fuel": {
+          "kind": "enum",
+          "values": [
+            "vide",
+            "quart",
+            "demi",
+            "trois-quarts",
+            "plein"
+          ]
+        },
+        "notes": "text",
+        "damage": {
+          "kind": "array",
+          "items": "oldMarker",
+          "maximum": 1024
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "notes": {
+      "kind": "union",
+      "alternatives": [
+        "null",
+        {
+          "kind": "string",
+          "maxUtf16": 2000,
+          "predicate": "source-text-controls"
+        }
+      ]
+    },
+    "signatures": {
+      "kind": "object",
+      "fields": {
+        "customer": {
+          "kind": "literal",
+          "value": "not-signed"
+        },
+        "agency": {
+          "kind": "literal",
+          "value": "not-signed"
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "settings": {
+      "kind": "object",
+      "fields": {
+        "agencyId": "uuid",
+        "revision": "settingsRevision",
+        "template": "template",
+        "logo": "logo",
+        "primary": "color",
+        "accent": "color",
+        "company": "company",
+        "conditions": "conditions",
+        "footer": "footer"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "departure": {
+      "kind": "object",
+      "fields": {
+        "stage": {
+          "kind": "literal",
+          "value": "departure"
+        },
+        "provenance": {
+          "kind": "enum",
+          "values": [
+            "demonstration",
+            "recorded"
+          ]
+        },
+        "fuelLevel": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            {
+              "kind": "enum",
+              "values": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          ]
+        },
+        "mileageKm": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            "nonnegative"
+          ]
+        },
+        "notes": "notes",
+        "damage": {
+          "kind": "array",
+          "items": "marker",
+          "maximum": 50
+        }
+      },
+      "optional": [],
+      "closed": true,
+      "predicate": "unique-marker-ids"
+    },
+    "return": {
+      "kind": "object",
+      "fields": {
+        "stage": {
+          "kind": "literal",
+          "value": "return"
+        },
+        "provenance": {
+          "kind": "enum",
+          "values": [
+            "demonstration",
+            "recorded"
+          ]
+        },
+        "fuelLevel": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            {
+              "kind": "enum",
+              "values": [
+                0,
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          ]
+        },
+        "mileageKm": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            "nonnegative"
+          ]
+        },
+        "notes": "notes",
+        "damage": {
+          "kind": "array",
+          "items": "marker",
+          "maximum": 50
+        }
+      },
+      "optional": [],
+      "closed": true,
+      "predicate": "unique-marker-ids"
+    },
+    "inspection": {
+      "kind": "object",
+      "fields": {
+        "departure": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            "departure"
+          ]
+        },
+        "return": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            "return"
+          ]
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "document-v1-untagged": {
+      "kind": "object",
+      "fields": {
+        "demonstration": "true",
+        "agencyId": "uuid",
+        "rentalId": "uuid",
+        "number": "nullableText",
+        "primaryDriver": "oldDriver",
+        "secondaryDriver": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            "oldDriver"
+          ]
+        },
+        "vehicle": "oldVehicle",
+        "rental": "rental",
+        "inspection": "oldInspection",
+        "signatures": "signatures"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "snapshot-v1-untagged": {
+      "kind": "object",
+      "fields": {
+        "demonstration": "true",
+        "settings": "settings",
+        "document": "document-v1-untagged"
+      },
+      "optional": [],
+      "closed": true,
+      "predicate": "snapshot-agency-equality"
+    },
+    "document-v1-tagged": {
+      "kind": "object",
+      "fields": {
+        "demonstration": "true",
+        "agencyId": "uuid",
+        "rentalId": "uuid",
+        "number": "nullableText",
+        "primaryDriver": "oldDriver",
+        "secondaryDriver": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            "oldDriver"
+          ]
+        },
+        "vehicle": "oldVehicle",
+        "rental": "rental",
+        "inspection": "oldInspection",
+        "signatures": "signatures",
+        "schemaVersion": {
+          "kind": "literal",
+          "value": 1
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "snapshot-v1-tagged": {
+      "kind": "object",
+      "fields": {
+        "demonstration": "true",
+        "settings": "settings",
+        "document": "document-v1-tagged"
+      },
+      "optional": [],
+      "closed": true,
+      "predicate": "snapshot-agency-equality"
+    },
+    "document-v2": {
+      "kind": "object",
+      "fields": {
+        "demonstration": "true",
+        "agencyId": "uuid",
+        "rentalId": "uuid",
+        "number": "nullableText",
+        "primaryDriver": "driver",
+        "secondaryDriver": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            "driver"
+          ]
+        },
+        "vehicle": "vehicle",
+        "rental": "rental",
+        "inspection": "oldInspection",
+        "signatures": "signatures",
+        "schemaVersion": {
+          "kind": "literal",
+          "value": 2
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "snapshot-v2": {
+      "kind": "object",
+      "fields": {
+        "demonstration": "true",
+        "settings": "settings",
+        "document": "document-v2"
+      },
+      "optional": [],
+      "closed": true,
+      "predicate": "snapshot-agency-equality"
+    },
+    "document-v3": {
+      "kind": "object",
+      "fields": {
+        "demonstration": "true",
+        "agencyId": "uuid",
+        "rentalId": "uuid",
+        "number": "nullableText",
+        "primaryDriver": "driver",
+        "secondaryDriver": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            "driver"
+          ]
+        },
+        "vehicle": "vehicle",
+        "rental": "rental",
+        "inspection": "inspection",
+        "signatures": "signatures",
+        "schemaVersion": {
+          "kind": "literal",
+          "value": 3
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "snapshot-v3": {
+      "kind": "object",
+      "fields": {
+        "demonstration": "true",
+        "settings": "settings",
+        "document": "document-v3"
+      },
+      "optional": [],
+      "closed": true,
+      "predicate": "snapshot-agency-equality"
+    },
+    "internalDigest": {
+      "kind": "object",
+      "fields": {
+        "algorithm": {
+          "kind": "literal",
+          "value": "sha-256"
+        },
+        "encoding": {
+          "kind": "literal",
+          "value": "hex"
+        },
+        "domainVersion": {
+          "kind": "enum",
+          "values": [
+            "cp.snapshot.typed-json.draft1",
+            "cp.pdf.exact-bytes.draft1",
+            "cp.asset.exact-bytes.draft1",
+            "cp.render-assets.typed-json.draft1",
+            "cp.party-plan.typed-json.draft1",
+            "cp.binding-manifest.typed-json.draft1"
+          ]
+        },
+        "value": {
+          "kind": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "digest-snapshot": {
+      "kind": "object",
+      "fields": {
+        "algorithm": {
+          "kind": "literal",
+          "value": "sha-256"
+        },
+        "encoding": {
+          "kind": "literal",
+          "value": "hex"
+        },
+        "domainVersion": {
+          "kind": "literal",
+          "value": "cp.snapshot.typed-json.draft1"
+        },
+        "value": {
+          "kind": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "digest-pdf": {
+      "kind": "object",
+      "fields": {
+        "algorithm": {
+          "kind": "literal",
+          "value": "sha-256"
+        },
+        "encoding": {
+          "kind": "literal",
+          "value": "hex"
+        },
+        "domainVersion": {
+          "kind": "literal",
+          "value": "cp.pdf.exact-bytes.draft1"
+        },
+        "value": {
+          "kind": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "digest-asset": {
+      "kind": "object",
+      "fields": {
+        "algorithm": {
+          "kind": "literal",
+          "value": "sha-256"
+        },
+        "encoding": {
+          "kind": "literal",
+          "value": "hex"
+        },
+        "domainVersion": {
+          "kind": "literal",
+          "value": "cp.asset.exact-bytes.draft1"
+        },
+        "value": {
+          "kind": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "digest-assets": {
+      "kind": "object",
+      "fields": {
+        "algorithm": {
+          "kind": "literal",
+          "value": "sha-256"
+        },
+        "encoding": {
+          "kind": "literal",
+          "value": "hex"
+        },
+        "domainVersion": {
+          "kind": "literal",
+          "value": "cp.render-assets.typed-json.draft1"
+        },
+        "value": {
+          "kind": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "digest-party": {
+      "kind": "object",
+      "fields": {
+        "algorithm": {
+          "kind": "literal",
+          "value": "sha-256"
+        },
+        "encoding": {
+          "kind": "literal",
+          "value": "hex"
+        },
+        "domainVersion": {
+          "kind": "literal",
+          "value": "cp.party-plan.typed-json.draft1"
+        },
+        "value": {
+          "kind": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "digest-root": {
+      "kind": "object",
+      "fields": {
+        "algorithm": {
+          "kind": "literal",
+          "value": "sha-256"
+        },
+        "encoding": {
+          "kind": "literal",
+          "value": "hex"
+        },
+        "domainVersion": {
+          "kind": "literal",
+          "value": "cp.binding-manifest.typed-json.draft1"
+        },
+        "value": {
+          "kind": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "rawPdfChecksum": {
+      "kind": "object",
+      "fields": {
+        "profileId": {
+          "kind": "literal",
+          "value": "cp-pdf-raw-sha256-draft1"
+        },
+        "algorithm": {
+          "kind": "literal",
+          "value": "sha-256"
+        },
+        "encoding": {
+          "kind": "literal",
+          "value": "hex"
+        },
+        "value": {
+          "kind": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "assetEntry": {
+      "kind": "object",
+      "fields": {
+        "assetId": "token",
+        "role": {
+          "kind": "enum",
+          "values": [
+            "renderer",
+            "css",
+            "font",
+            "diagram",
+            "image"
+          ]
+        },
+        "version": "token",
+        "byteLength": "byteLength",
+        "digest": "digest-asset"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "printProfile": {
+      "kind": "object",
+      "fields": {
+        "profileId": {
+          "kind": "literal",
+          "value": "cp-a4-print-draft1"
+        },
+        "paper": {
+          "kind": "literal",
+          "value": "A4"
+        },
+        "marginMm": {
+          "kind": "object",
+          "fields": {
+            "top": {
+              "kind": "literal",
+              "value": 10
+            },
+            "right": {
+              "kind": "literal",
+              "value": 10
+            },
+            "bottom": {
+              "kind": "literal",
+              "value": 10
+            },
+            "left": {
+              "kind": "literal",
+              "value": 10
+            }
+          },
+          "optional": [],
+          "closed": true
+        },
+        "scale": {
+          "kind": "literal",
+          "value": 1
+        },
+        "backgrounds": "true",
+        "browserHeadersFooters": "false"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "assets": {
+      "kind": "object",
+      "fields": {
+        "schemaVersion": "one",
+        "mode": "mode",
+        "agencyId": "uuid",
+        "contractId": "uuid",
+        "documentRevisionId": "token",
+        "profileId": {
+          "kind": "literal",
+          "value": "cp-render-assets-draft1"
+        },
+        "assetManifestId": "token",
+        "rendererVersion": "token",
+        "templateId": "template",
+        "templateVersion": "token",
+        "locale": {
+          "kind": "enum",
+          "values": [
+            "fr",
+            "ar",
+            "fr-ar"
+          ]
+        },
+        "timeZone": {
+          "kind": "enum",
+          "values": [
+            "UTC",
+            "Africa/Casablanca"
+          ]
+        },
+        "printProfile": "printProfile",
+        "entries": {
+          "kind": "array",
+          "items": "assetEntry",
+          "maximum": 128
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "party-0": {
+      "kind": "object",
+      "fields": {
+        "partyInstanceId": "token",
+        "role": {
+          "kind": "literal",
+          "value": "agency-representative"
+        },
+        "subjectRef": "token",
+        "required": "true",
+        "sequenceIndex": {
+          "kind": "literal",
+          "value": 0
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "party-1": {
+      "kind": "object",
+      "fields": {
+        "partyInstanceId": "token",
+        "role": {
+          "kind": "literal",
+          "value": "customer"
+        },
+        "subjectRef": "token",
+        "required": "true",
+        "sequenceIndex": {
+          "kind": "literal",
+          "value": 1
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "party": {
+      "kind": "object",
+      "fields": {
+        "schemaVersion": "one",
+        "mode": "mode",
+        "agencyId": "uuid",
+        "contractId": "uuid",
+        "documentRevisionId": "token",
+        "profileId": {
+          "kind": "literal",
+          "value": "cp-party-plan-draft1"
+        },
+        "partyPlanId": "token",
+        "planVersion": "token",
+        "requiredParties": {
+          "kind": "tuple",
+          "items": [
+            "party-0",
+            "party-1"
+          ]
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "priorEdition": {
+      "kind": "union",
+      "alternatives": [
+        "null",
+        {
+          "kind": "object",
+          "fields": {
+            "documentRevisionId": "token",
+            "manifestRef": "token",
+            "manifestDigest": "digest-root"
+          },
+          "optional": [],
+          "closed": true
+        }
+      ]
+    },
+    "root": {
+      "kind": "object",
+      "fields": {
+        "schemaVersion": "one",
+        "mode": "mode",
+        "agencyId": "uuid",
+        "contractId": "uuid",
+        "documentRevisionId": "token",
+        "profileId": {
+          "kind": "literal",
+          "value": "cp-binding-manifest-draft1"
+        },
+        "manifestId": "token",
+        "canonicalizationProfile": {
+          "kind": "literal",
+          "value": "cp-c14n-typed-json-draft1"
+        },
+        "aggregateRevisionAtFinalization": "positive",
+        "sourceSchema": {
+          "kind": "enum",
+          "values": [
+            "v1-untagged",
+            "v1-tagged",
+            "v2",
+            "v3"
+          ]
+        },
+        "sourceTagPresence": {
+          "kind": "enum",
+          "values": [
+            "absent",
+            "explicit"
+          ]
+        },
+        "snapshotRef": "token",
+        "snapshotDigest": "digest-snapshot",
+        "baseArtifactRef": "token",
+        "baseArtifactDigest": "digest-pdf",
+        "rawPdfChecksum": "rawPdfChecksum",
+        "byteLength": "byteLength",
+        "mediaType": {
+          "kind": "literal",
+          "value": "application/pdf"
+        },
+        "assetManifestRef": "token",
+        "assetManifestDigest": "digest-assets",
+        "partyPlanRef": "token",
+        "partyPlanDigest": "digest-party",
+        "policyBinding": "null",
+        "priorEdition": "priorEdition"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "expectedContext": {
+      "kind": "object",
+      "fields": {
+        "schemaVersion": "one",
+        "mode": "mode",
+        "agencyId": "uuid",
+        "contractId": "uuid",
+        "documentRevisionId": "token",
+        "aggregateRevisionAtFinalization": "positive",
+        "liveAggregateRevision": "positive",
+        "capturedSettingsRevision": "settingsRevision"
+      },
+      "optional": [],
+      "closed": true
+    },
+    "result": {
+      "kind": "union",
+      "alternatives": [
+        {
+          "kind": "object",
+          "fields": {
+            "schemaVersion": "one",
+            "profileId": {
+              "kind": "literal",
+              "value": "cp-integrity-result-draft1"
+            },
+            "status": {
+              "kind": "literal",
+              "value": "unsupported-profile"
+            },
+            "trust": {
+              "kind": "literal",
+              "value": "unverified"
+            },
+            "canActivateSigned": "false",
+            "reasonCode": {
+              "kind": "literal",
+              "value": "profile-not-supported"
+            },
+            "targetIds": {
+              "kind": "array",
+              "items": "token",
+              "maximum": 128
+            },
+            "digests": {
+              "kind": "array",
+              "items": "internalDigest",
+              "maximum": 128
+            }
+          },
+          "optional": [],
+          "closed": true
+        },
+        {
+          "kind": "object",
+          "fields": {
+            "schemaVersion": "one",
+            "profileId": {
+              "kind": "literal",
+              "value": "cp-integrity-result-draft1"
+            },
+            "status": {
+              "kind": "literal",
+              "value": "invalid-input"
+            },
+            "trust": {
+              "kind": "literal",
+              "value": "unverified"
+            },
+            "canActivateSigned": "false",
+            "reasonCode": {
+              "kind": "literal",
+              "value": "malformed-or-limit"
+            },
+            "targetIds": {
+              "kind": "array",
+              "items": "token",
+              "maximum": 128
+            },
+            "digests": {
+              "kind": "array",
+              "items": "internalDigest",
+              "maximum": 128
+            }
+          },
+          "optional": [],
+          "closed": true
+        },
+        {
+          "kind": "object",
+          "fields": {
+            "schemaVersion": "one",
+            "profileId": {
+              "kind": "literal",
+              "value": "cp-integrity-result-draft1"
+            },
+            "status": {
+              "kind": "literal",
+              "value": "ambiguous-input"
+            },
+            "trust": {
+              "kind": "literal",
+              "value": "unverified"
+            },
+            "canActivateSigned": "false",
+            "reasonCode": {
+              "kind": "literal",
+              "value": "conflicting-or-cyclic"
+            },
+            "targetIds": {
+              "kind": "array",
+              "items": "token",
+              "maximum": 128
+            },
+            "digests": {
+              "kind": "array",
+              "items": "internalDigest",
+              "maximum": 128
+            }
+          },
+          "optional": [],
+          "closed": true
+        },
+        {
+          "kind": "object",
+          "fields": {
+            "schemaVersion": "one",
+            "profileId": {
+              "kind": "literal",
+              "value": "cp-integrity-result-draft1"
+            },
+            "status": {
+              "kind": "literal",
+              "value": "unavailable-input"
+            },
+            "trust": {
+              "kind": "literal",
+              "value": "unverified"
+            },
+            "canActivateSigned": "false",
+            "reasonCode": {
+              "kind": "literal",
+              "value": "required-input-missing"
+            },
+            "targetIds": {
+              "kind": "array",
+              "items": "token",
+              "maximum": 128
+            },
+            "digests": {
+              "kind": "array",
+              "items": "internalDigest",
+              "maximum": 128
+            }
+          },
+          "optional": [],
+          "closed": true
+        },
+        {
+          "kind": "object",
+          "fields": {
+            "schemaVersion": "one",
+            "profileId": {
+              "kind": "literal",
+              "value": "cp-integrity-result-draft1"
+            },
+            "status": {
+              "kind": "literal",
+              "value": "binding-mismatch"
+            },
+            "trust": {
+              "kind": "literal",
+              "value": "unverified"
+            },
+            "canActivateSigned": "false",
+            "reasonCode": {
+              "kind": "literal",
+              "value": "scope-or-revision"
+            },
+            "targetIds": {
+              "kind": "array",
+              "items": "token",
+              "maximum": 128
+            },
+            "digests": {
+              "kind": "array",
+              "items": "internalDigest",
+              "maximum": 128
+            }
+          },
+          "optional": [],
+          "closed": true
+        },
+        {
+          "kind": "object",
+          "fields": {
+            "schemaVersion": "one",
+            "profileId": {
+              "kind": "literal",
+              "value": "cp-integrity-result-draft1"
+            },
+            "status": {
+              "kind": "literal",
+              "value": "digest-mismatch"
+            },
+            "trust": {
+              "kind": "literal",
+              "value": "unverified"
+            },
+            "canActivateSigned": "false",
+            "reasonCode": {
+              "kind": "literal",
+              "value": "computed-digest-differs"
+            },
+            "targetIds": {
+              "kind": "array",
+              "items": "token",
+              "maximum": 128
+            },
+            "digests": {
+              "kind": "array",
+              "items": "internalDigest",
+              "maximum": 128
+            }
+          },
+          "optional": [],
+          "closed": true
+        },
+        {
+          "kind": "object",
+          "fields": {
+            "schemaVersion": "one",
+            "profileId": {
+              "kind": "literal",
+              "value": "cp-integrity-result-draft1"
+            },
+            "status": {
+              "kind": "literal",
+              "value": "integrity-match-unverified"
+            },
+            "trust": {
+              "kind": "literal",
+              "value": "unverified"
+            },
+            "canActivateSigned": "false",
+            "reasonCode": {
+              "kind": "literal",
+              "value": "reference-match"
+            },
+            "targetIds": {
+              "kind": "array",
+              "items": "token",
+              "maximum": 128
+            },
+            "digests": {
+              "kind": "array",
+              "items": "internalDigest",
+              "maximum": 128
+            }
+          },
+          "optional": [],
+          "closed": true
+        }
+      ]
+    },
+    "registryEntry": {
+      "kind": "object",
+      "fields": {
+        "id": "token",
+        "status": {
+          "kind": "literal",
+          "value": "PROPOSED"
+        },
+        "category": {
+          "kind": "enum",
+          "values": [
+            "codec",
+            "record",
+            "domain",
+            "checksum",
+            "source-schema",
+            "print",
+            "result",
+            "budget"
+          ]
+        },
+        "schemaRef": "nullableToken",
+        "domain": "nullableToken",
+        "algorithm": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            {
+              "kind": "literal",
+              "value": "sha-256"
+            }
+          ]
+        },
+        "encoding": {
+          "kind": "union",
+          "alternatives": [
+            "null",
+            {
+              "kind": "literal",
+              "value": "hex"
+            }
+          ]
+        }
+      },
+      "optional": [],
+      "closed": true
+    },
+    "registry": {
+      "kind": "object",
+      "fields": {
+        "registryVersion": "one",
+        "status": {
+          "kind": "literal",
+          "value": "PROPOSED"
+        },
+        "ownerApproved": "false",
+        "entries": {
+          "kind": "array",
+          "items": "registryEntry",
+          "maximum": 128
+        }
+      },
+      "optional": [],
+      "closed": true
+    }
+  }
+}

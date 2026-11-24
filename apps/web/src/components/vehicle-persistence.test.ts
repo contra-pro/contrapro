@@ -14,8 +14,8 @@ vi.mock("../vehicles/server", () => ({ getVehicleScope: vi.fn() }));
 vi.mock("../auth/session-sync", () => ({ SessionSync: () => null }));
 vi.mock("next/navigation", () => ({ useRouter: () => ({ replace: vi.fn(), refresh: vi.fn() }), useParams: () => ({ locale: "ar" }), notFound: () => { throw Error("NOT_FOUND"); } }));
 const id = "30000000-0000-4000-8000-000000000001", agencyId = "10000000-0000-4000-8000-000000000001";
-const record = { id, version: 2, registration: "AB-123", make: "Dacia", model: "<script>unsafe</script>", year: "2026", mileage: "300" };
-const permissions = { read: true, create: true, update: true };
+const record = { category: "unspecified" as const, fuelType: "unspecified" as const, transmission: "unspecified" as const, rentalStatus: "unknown" as const, state: "active", id, version: 2, registration: "AB-123", make: "Dacia", model: "<script>unsafe</script>", year: "2026", mileage: "300" };
+const permissions = { read: true, create: true, update: true, archive: false, contractVersion: 2 };
 const rpc = vi.fn(); const client = { rpc } as unknown as SupabaseClient;
 describe("vehicle persistence FR/AR screens — injected server scope only", () => {
   beforeEach(() => { vi.resetAllMocks(); vi.mocked(getVehicleScope).mockResolvedValue({ status: "ready", client, agencyId, permissions }); });
@@ -44,7 +44,7 @@ describe("vehicle persistence FR/AR screens — injected server scope only", () 
       rpc.mockResolvedValue({ data: { total: 21, items: [{ ...record, agencyId }] }, error: null });
       vi.mocked(getVehicleScope).mockResolvedValue({ status: "ready", client, agencyId, permissions: { ...permissions, create: false } });
       const html = renderToStaticMarkup(await VehiclesPage({ params }));
-      expect(html).toContain(`/${locale}/app/vehicles/${id}`); expect(html).toContain(`/${locale}/app/vehicles?page=2`);
+      expect(html).toContain(`/${locale}/app/vehicles/${id}`); expect(html).toContain(vehicleMessages(locale).next);
       expect(html).not.toContain(`/${locale}/app/vehicles/new`); expect(html).not.toContain("<script>unsafe");
     });
     it(`${locale}: database failure and unavailable capability cannot masquerade as empty/success`, async () => {

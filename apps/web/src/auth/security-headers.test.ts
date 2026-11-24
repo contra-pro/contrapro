@@ -6,7 +6,7 @@ vi.mock("./config", () => ({ validatePublicConfig: vi.fn() }));
 import nextConfig from "../../next.config";
 
 describe("native sign-in document referrer policy", () => {
-  it.each(["/fr/sign-in", "/ar/sign-in", "/fr/sign-in?status=sent", "/ar/sign-in?status=error"])("overrides only the referrer policy on %s using Next's actual header matcher", async path => {
+  it.each(["/fr/sign-in", "/ar/sign-in", "/fr/sign-in?status=sent", "/ar/sign-in?status=error", "/fr/sign-up", "/ar/forgot-password", "/fr/reset-password"])("overrides only the referrer policy on %s using Next's actual header matcher", async path => {
     const response = await unstable_getResponseFromNextConfig({ url: `http://localhost:3000${path}`, nextConfig });
     expect(response.headers.get("referrer-policy")).toBe("strict-origin-when-cross-origin");
     expect(response.headers.get("cache-control")).toBe("private, no-store, max-age=0, must-revalidate");

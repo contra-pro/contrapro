@@ -1,0 +1,57 @@
+# Electronic signing threat model V1
+
+Status: **PROPOSED — DESIGN ONLY**, 2026-11-21 UTC. This is not a security certification or authorization to integrate a provider. No attacks against a provider, real captures, events or evidence are performed. **Production and real signing remain NO-GO.**
+
+Applies to the [architecture](rental-contracts-electronic-signature-architecture-v1.md), [evidence proposal](rental-contracts-signing-evidence-schema-v1.md), [provider boundary](rental-contracts-signing-provider-boundary-v1.md) and existing [audit-event contract](rental-contracts-future-audit-event-contract-v1.md).
+
+## Assets and trust assumptions
+
+Protect agency/contract boundaries; signer identity and representative authority; exact FR/AR conditions, amounts and document bytes; consent/intent provenance; credential/private-key material; raw and verified evidence; state/revision/idempotency integrity; audit availability and privacy.
+
+Assume malicious clients, forwarded/stolen links, stale tabs, retries, hostile callbacks, duplicated/reordered delivery, partial provider failures and potentially dishonest/overprivileged agency users. A configured provider can still be wrong or compromised. An authenticated message proves its source only to the strength of its key/profile; it does not make every content claim true.
+
+The future trusted command/verification/runtime boundary must be separately secured. Tenant filters alone cannot contain a fully compromised privileged runtime or a stolen evidence-encryption root. Least privilege, isolated workers, key separation, external integrity anchors, recovery and incident response reduce exposure but do not justify an absolute compromise-proof claim.
+
+## Threats, controls and independently testable cases
+
+| Threat / failure | Proposed controls | Required negative/fault acceptance | Residual / gate |
+| --- | --- | --- | --- |
+| Cross-agency ID guessing or identical UUIDs | Authenticated agency membership/capability checks, composite agency + contract identity, scoped storage/evidence/operation mapping, generic errors | Swap agency IDs, artifact refs, idempotency keys and provider-account bindings; same rental UUID in two agencies never shares evidence | Existing offline context is not authenticated production tenancy; G1/G3 |
+| Signer impersonation through a forwarded invitation | Link is a locator only; independent proofed subject, assigned-party binding and fresh approved authentication | Forwarded link, different authenticated subject, channel OTP without required proofing and guessed party IDs all fail capture access | Proofing-method adequacy and recovery require G0/G1 |
+| Agency operator impersonating customer/representative | Separate operator and signer identities/capabilities; verified representative mandate; no admin “mark signed” control | Owner login cannot self-assert a customer's consent; Staff cannot acquire signing authority from a role label | Malicious authorized insiders and disputed authority need governance |
+| Stolen/expired/revoked session or recovery downgrade | Server expiry/revocation, protected sessions, step-up, challenge invalidation, controlled re-proofing | Old token, removed membership, recovered lower-assurance account and expired challenge deny new signing actions | Timely historical captures vs later compromise require evidence review, not guessed ordering |
+| CSRF, XSS, clickjacking or deceptive signing UI | Origin/CSRF checks, protected cookies, no framing, strict content handling, independent displayed package/party/purpose confirmation | Cross-origin action, injected terms/script and hidden/prechecked consent cannot generate a capture permit | Compromised client display remains a risk; approved authentication/display profile needed |
+| Replay of request, consent, challenge or proof | Scoped idempotency/fingerprint, purpose-bound one-use challenges, attempt-generation fences and decision deduplication | Reuse across actor, party, agency, revision or purpose rejects; same accepted decision cannot increment twice | Distributed enforcement requires G3, not only current Map revisions |
+| Forged/tampered callback | Raw-byte authenticated message profile, pinned configured keys/algorithms, freshness/replay checks, durable admission | Invalid MAC/signature, changed body/target, wrong account, unknown/revoked key and forged event ID reject/quarantine | Provider-key compromise requires incident response and independent proof checks |
+| Evidence substitution or forged verifier result | Immutable refs/digests, authenticated internal verifier, exact source/party/package/operation bindings | Swapped evidence packages, client `verified` flags, fake time refs and a report from an untrusted issuer never authorize Signed | An integrity hash without a trusted binding/anchor is not proof |
+| Stale document revision or modified terms after finalization | New immutable revision/package; local supersession fence before dispatch/cancellation; no partial-proof carryover | Old callback or consent for changed price/FR/AR text/party plan cannot sign the replacement revision | An old captured signature may have legal effects; application supersession does not decide them |
+| Re-rendered/altered PDF, malicious incremental update | Freeze exact bytes; bind manifest/renderer/assets; verify agency-first/customer-second artifact chain and permitted modifications | Same data with different PDF, injected page/terms, altered byte range, unauthorized signature appearance or provider typesetting fails | Signature-format/parser validation must be independently reviewed |
+| Customer-first, missing party or agency seal substituted for a person | Frozen party plan/order, verified natural-person authority and per-party decisions | Customer-first chain, one party only, extra unbound signer or logo/seal used as intent remains Pending | Approved party/formality policy requires G0 |
+| Duplicate signing/capture or worker race | Command receipts, operation IDs, lease/fence + idempotency, one aggregate CAS acceptance; preserve conflicting evidence | Two dispatch workers, two distinct proofs for one party, concurrent callbacks or repeated decisions cannot silently replace/double-commit | Exactly-once external effects cannot be assumed |
+| Partial provider outage / timeout after acceptance | Uncertain substatus, original key retention, authenticated read-only reconciliation, no automatic write retry or weaker fallback | Provider accepts then response is lost; no new key/request and no inferred success/rollback | Provider lookup/support capabilities are selection gates |
+| Lost/delayed/out-of-order webhook | Durable inbox, deduplication, bounded read-only reconciliation, causal operation/chain checks | Missing callback recovered via authenticated read; late failure/completion cannot overwrite by timestamp/arrival order | Polling/read endpoint can also fail; remain unknown and escalate |
+| Cancel/expiry/revocation vs capture race | Local eligibility fence, authority history, trusted capture-time/permit verification, quarantine uncertain order | Capture arriving after cancellation or an old-generation event cannot sign current revision; ambiguous ordering holds | No claim of retroactively voiding a real signature; legal review may be necessary |
+| Fabricated or unavailable time/trust material | Bound trusted-time proof, pinned verification profile, retained certificate/status material where applicable, fail closed | Browser/PDF dates, unauthenticated provider `completed_at`, missing timestamp proof or unavailable trust does not pass | Long-term validation and compromise/revocation policy require G4 |
+| Audit deletion/reordering or false audit identity | Append-only restricted writer, consistent state/event commit, independent integrity anchors, corrections by reference, actor provenance | Missing applied event blocks completed commit; rewritten chain/anchor mismatch and fabricated actor/recording source are detectable | Full control of writer plus anchors remains a residual trust compromise |
+| Data leakage through provider, logs, files or downloads | Least privilege, encrypted scoped artifacts/evidence, reference-only logs, approved hosting/transfers, access auditing/no-store responses | Another tenant, stale invitation, public cache, diagnostic logs or arbitrary export cannot reveal evidence/identity data | Retention/legal hold/deletion and CNDP review are unresolved gates |
+| SSRF, active/malicious artifacts or oversized callback | Allowlisted configured retrieval, no caller-controlled key/URL fetches, no active content, bounded isolated parsing | Redirect to internal address, decompression bomb, oversized body/PDF and active attachments reject/quarantine | Parser/runtime patching and operational isolation remain necessary |
+| Later compromised evidence after Signed | Append-only reverification/discrepancy, suspend reliance, separate historical state from current assurance | Trust/key compromise does not silently delete history or preserve an unconditional verified badge | Human/security/legal adjudication cannot be replaced by a state label |
+
+## Security invariants to enforce together
+
+1. No Signed commitment can depend solely on a browser action, provider status, null/missing evidence or a synthetic verifier.
+2. Evidence scope equals immutable package scope, assigned party, attempt generation and configured operation/account; lookup never falls back to another agency.
+3. All mandatory parties are complete, in the preserved order, with verified identity/authority, approved consent and intent, valid signature/artifact chain and trusted time.
+4. A content or required-party-plan change creates a new revision/package and fences old pending intent before new signing can proceed.
+5. Unknown outcomes remain unknown. Cancellation, expiry and local flags do not manufacture facts about external captures.
+6. Rejections/replays cannot alter content or advance revisions; a repeated accepted intent returns its authorized receipt without repeating the side effect.
+7. Recording time, rental dates, authentication time, capture time and legal validity remain separate concepts with explicit sources.
+8. Signed history and current evidence reliance are distinct; later compromise adds a visible disposition, not silent rewriting.
+
+## Review gates and residual risks
+
+No provider/trust profile, proofing method, Moroccan legal sufficiency, retention period or operational authorization infrastructure is approved here. The current system is intentionally an offline simulation. These prerequisites block real integration, even though its existing bounded lifecycle acceptance passed.
+
+Prioritize identity/tenancy, exact immutable artifact binding, durable idempotency and independent verification before adding network dispatch. Review credential compromise, malicious insider actions, recovery, unavailable trust services and loss of provider evidence as explicit residual risks. Require fault drills, incident ownership, monitoring, restore/export tests and a reliance-suspension procedure before any release gate.
+
+Offline milestones in the architecture may model these cases with explicitly synthetic fixtures. They must not collect real signatures/consent or convert mock success into operational proof. A later sandbox or real-provider assessment requires separate authorization and its own data/credential/call scope.

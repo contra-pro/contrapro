@@ -1,0 +1,16 @@
+{
+  "baselineVectorCount": 153,
+  "newVectorCount": 53,
+  "pngCases": 20,
+  "baselineReadOnly": true,
+  "originalScripts": {
+    "reference-node.mjs": "88b38b9ef2daec56ea5f31ba9ebb8cfb87a3e3245ebf87f8650cb75609f25996",
+    "reference-python.py": "ca4dc4667a39cf30b9bd81ab3a82508cea201132ff503798001149e35b8bee69"
+  },
+  "transformations": [
+    "New isolated output directory",
+    "Read original schema proposal in place",
+    "Local PNG predicate",
+    "Additional fixed-corpus combined-fault/lineage cases; original codec/framing untouched"
+  ]
+}

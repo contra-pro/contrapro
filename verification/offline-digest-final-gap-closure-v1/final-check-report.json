@@ -1,0 +1,44 @@
+{
+  "status": "REFERENCE-CHECKS-PASSED-NOT-APPROVAL",
+  "ownerApproved": false,
+  "protectedFilesUnchanged": 190,
+  "originalCodecAndFramingBlocksUnchanged": 2,
+  "baselineVectorsUnchanged": 153,
+  "newVectors": 53,
+  "comparedVectors": 206,
+  "discrepancies": 0,
+  "schemaDefinitions": 67,
+  "boundedResourceProbes": 42,
+  "wallMs": {
+    "min": 126.87879999430152,
+    "max": 1140.7537999984925
+  },
+  "peakResidentBytes": {
+    "min": 41041920,
+    "max": 112709632
+  },
+  "inventory": {
+    "README.md": "c52299bf25e776d579a176972007062717e17b378a0edcf93fec92a561e1433b",
+    "check-final.mjs": "2fe4c342c94087bc2009646be01b61aa9e40caf398f9e68bacfef3745bd7b11f",
+    "corpus-input.json": "83f7fb4497a9a689b12b25546d443748044aeebb78e2915013815e6c92c1888d",
+    "gap-node.mjs": "f2e84b1df9a67f5d320e8d5bd33beb96046eb7ef745f97a41e3ba1c01fcf811a",
+    "gap_python.py": "c2c85bbc84a1ab446fcf07f1d8215c4c0e7a2b67e94e41b278149f27e1ac2fa3",
+    "independent-python-report.json": "46edcb0473085c794c97a89808b9525892c4545c44c7d7d4757f5220fa37f1a6",
+    "known-answers.json": "7752e48699d12505ceb67758bef97c039da88c2c67e58ffe2ca2f1903678ec0b",
+    "native-accepted-inputs.json": "e7733d46a5cca543a4300aadeb550fef756e8aed32ce0650159ba80609932d23",
+    "native-boundary.mjs": "b4300c45d78d88b62b6f226ba7ddda6690399c5ae1d75426acbd75e6e5dbc65c",
+    "native-report.json": "6a8fa57be00969e1fcb37740801ea7c08233ff43b83d040f482f638213953ea1",
+    "png-fixtures.json": "b2a85852d6ce6399e1dd5e2a8cdfee47025cb53bac4b98ad483981f7a91ed326",
+    "preflight.mjs": "f84ad2d0192d5f6534b790313aa3547659e1ad5e4b845bcd710dfde80a56fbd2",
+    "preparation-report.json": "a7a855b4e94a40aabeec89037f44664eb4ab2697592482ea4f6a8dc72cf1c144",
+    "prepare.py": "f2d9f6e9c342efad255f3fd92b634c080fd99ed24e138da3677e55eb8ce4d7e8",
+    "protected-before.json": "e44219c940dbc147b528caf2e610d682f5b7d0509c8c6b549bbc77c88300ed00",
+    "replay-node.mjs": "0d3a5af554f8fbcb1055eb9e090b87ac6e487df56ffb64e1e659f222ca5131d4",
+    "replay-python.py": "5411b27c68315ee615ed03793d590c094661b88c55be5a9eec0aaeaf0be14842",
+    "resource-initial-report.json": "4b6781689bed31e364b8577410714b0bfb9d53bd199c192a256e09d31dfd3e6e",
+    "resource-report.json": "7639191fd48b70109ba355f71373342e15b765303104c74d101da14c766e670f",
+    "resource-worker.mjs": "1c10eacf640dd47b722030480099270765a61375f01d2572473cc79bf1732cd8",
+    "resource_probes.py": "d17a8a320cafd5c4d7135418578c3b83867087e2bf48ecdc4855e6377f81a268",
+    "test_final.py": "7f34eb2eccbd0c23d115a606cc3c5d25c4d42be847622bb60938e4f6630b1ff8"
+  }
+}

@@ -1,5 +1,8 @@
 export const AUTH_PROJECT_URL = "https://gllsiklbvqpxzucvkehw.supabase.co";
 
+// Enable only after the operator configures Google in this Supabase project.
+export function googleAuthEnabled() { return process.env.CONTRATPRO_GOOGLE_AUTH_ENABLED === "true"; }
+
 // Only public values are read here; Next inlines these named browser variables.
 export function publicAuthConfig() {
   return validatePublicConfig(process.env.NEXT_PUBLIC_SUPABASE_URL,

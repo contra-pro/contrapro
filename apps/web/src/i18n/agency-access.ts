@@ -15,7 +15,7 @@ const copy: Record<Locale, Copy> = {
     retry: "Vérifier à nouveau mon accès",
     states: {
       "signed-out": { title: "Connectez-vous pour continuer", description: "Une session valide est nécessaire pour accéder à votre agence." },
-      unmapped: { title: "Votre compte doit être associé", description: "Votre connexion est valide, mais aucun compte ContratPro n’y est associé. Contactez l’équipe ContratPro. Aucune agence ne vous est attribuée automatiquement." },
+      unmapped: { title: "Configurez votre compte", description: "Votre connexion est valide. Continuez la configuration pour créer votre première agence. Aucune agence ne vous est attribuée automatiquement." },
       forbidden: { title: "Accès à l’agence indisponible", description: "Votre compte ou votre adhésion ne permet pas l’accès à une agence active. Contactez le responsable de votre agence." },
       onboarding: { title: "Bienvenue sur ContratPro", description: "Votre compte n’est associé à aucune agence. Créez votre agence pour commencer." },
       "selection-required": { title: "Choisissez votre agence", description: "Sélectionnez une agence parmi vos adhésions actives pour continuer." },
@@ -29,7 +29,7 @@ const copy: Record<Locale, Copy> = {
     retry: "التحقق من صلاحية الدخول مجدداً",
     states: {
       "signed-out": { title: "سجّل الدخول للمتابعة", description: "يتطلب الدخول إلى وكالتك جلسة صالحة." },
-      unmapped: { title: "يجب ربط حسابك", description: "تسجيل دخولك صالح، لكنه غير مرتبط بحساب ContratPro. تواصل مع فريق ContratPro. لا تُمنح عضوية أي وكالة تلقائياً." },
+      unmapped: { title: "أكمل إعداد حسابك", description: "تسجيل دخولك صالح. تابع الإعداد لإنشاء وكالتك الأولى. لا تُمنح أي وكالة تلقائياً." },
       forbidden: { title: "الدخول إلى الوكالة غير متاح", description: "حسابك أو عضويتك لا يسمحان بالدخول إلى وكالة نشطة. تواصل مع مسؤول وكالتك." },
       onboarding: { title: "مرحباً بك في ContratPro", description: "حسابك غير مرتبط بأي وكالة. أنشئ وكالتك للبدء." },
       "selection-required": { title: "اختر وكالتك", description: "اختر وكالة من بين عضوياتك النشطة للمتابعة." },

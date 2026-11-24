@@ -1,0 +1,1630 @@
+{
+  "out": "C:/Users/lenovo/contratpro/docs/evidence/bilingual-a4-fix/before",
+  "browserPid": 8580,
+  "viewports": [],
+  "console": [
+    {
+      "level": "error",
+      "text": "Connecting to 'ws://127.0.0.1:4179/?token=[redacted]' violates the following Content Security Policy directive: \"connect-src 'none'\". The action has been blocked."
+    },
+    {
+      "level": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)"
+    }
+  ],
+  "exceptions": [],
+  "requests": [],
+  "blocked": [],
+  "calls": [],
+  "checks": {},
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/158.0.8127.36",
+    "revision": "@14d6f648e8cd7ad750a4044200ce94d3321be260",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/158.0.0.0 Safari/537.36",
+    "jsVersion": "15.8.62.31"
+  },
+  "templates": [
+    {
+      "template": "classic",
+      "screens": [
+        {
+          "width": 320,
+          "scrollWidth": 305,
+          "status": "fits"
+        },
+        {
+          "width": 1440,
+          "scrollWidth": 1425,
+          "status": "fits"
+        }
+      ],
+      "print": {
+        "height": 1016.1875,
+        "width": 718.109375,
+        "svgs": 10,
+        "footers": 1,
+        "font": "13.3333px",
+        "conditions": "Conditions de démonstration à configurer par l’agence. Aucune validité juridique.",
+        "hidden": 0
+      }
+    },
+    {
+      "template": "luxury",
+      "screens": [
+        {
+          "width": 320,
+          "scrollWidth": 305,
+          "status": "fits"
+        },
+        {
+          "width": 1440,
+          "scrollWidth": 1425,
+          "status": "fits"
+        }
+      ],
+      "print": {
+        "height": 1019.953125,
+        "width": 718.109375,
+        "svgs": 10,
+        "footers": 1,
+        "font": "13.3333px",
+        "conditions": "Conditions de démonstration à configurer par l’agence. Aucune validité juridique.",
+        "hidden": 0
+      }
+    },
+    {
+      "template": "modern",
+      "screens": [
+        {
+          "width": 320,
+          "scrollWidth": 305,
+          "status": "fits"
+        },
+        {
+          "width": 1440,
+          "scrollWidth": 1425,
+          "status": "fits"
+        }
+      ],
+      "print": {
+        "height": 1010.1875,
+        "width": 718.109375,
+        "svgs": 10,
+        "footers": 1,
+        "font": "13.3333px",
+        "conditions": "Conditions de démonstration à configurer par l’agence. Aucune validité juridique.",
+        "hidden": 0
+      }
+    },
+    {
+      "template": "detailed",
+      "screens": [
+        {
+          "width": 320,
+          "scrollWidth": 305,
+          "status": "fits"
+        },
+        {
+          "width": 1440,
+          "scrollWidth": 1425,
+          "status": "fits"
+        }
+      ],
+      "print": {
+        "height": 1023.90625,
+        "width": 718.109375,
+        "svgs": 10,
+        "footers": 1,
+        "font": "13.3333px",
+        "conditions": "Conditions de démonstration à configurer par l’agence. Aucune validité juridique.",
+        "hidden": 0
+      }
+    },
+    {
+      "template": "bilingual",
+      "screens": [
+        {
+          "width": 320,
+          "scrollWidth": 305,
+          "status": "overflow"
+        },
+        {
+          "width": 1440,
+          "scrollWidth": 1425,
+          "status": "overflow"
+        }
+      ],
+      "print": {
+        "height": 1168.234375,
+        "width": 718.109375,
+        "svgs": 10,
+        "footers": 1,
+        "font": "13.3333px",
+        "conditions": "Conditions de démonstration à configurer par l’agence. Aucune validité juridique.",
+        "hidden": 0
+      },
+      "diagnosis": {
+        "availableHeight": 1046.921875,
+        "overflow": 121.3125,
+        "font": "13.3333px / 14.6667px Arial, sans-serif",
+        "sections": [
+          {
+            "tag": "HEADER",
+            "height": 70.265625,
+            "width": 718.109375,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "0px 0px 3.77953px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "P",
+            "height": 14.65625,
+            "width": 718.109375,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "H2",
+            "height": 20.53125,
+            "width": 718.109375,
+            "marginTop": "7.55906px",
+            "marginBottom": "7.55906px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "P",
+            "height": 14.65625,
+            "width": 718.109375,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "DIV",
+            "heading": "Conducteur principal / السائق الرئيسي",
+            "height": 317.21875,
+            "width": 718.109375,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "DIV",
+            "heading": "État du véhicule / حالة السيارة — Départ / المغادرة",
+            "height": 305.015625,
+            "width": 718.109375,
+            "marginTop": "3.77953px",
+            "marginBottom": "3.77953px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "SECTION",
+            "heading": "Conditions générales de location / الشروط العامة للكراء",
+            "height": 35.953125,
+            "width": 718.109375,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "SECTION",
+            "heading": "Signatures — aperçu non signé / التوقيعات — معاينة غير موقعة",
+            "height": 245.953125,
+            "width": 718.109375,
+            "marginTop": "3.77953px",
+            "marginBottom": "0px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "FOOTER",
+            "height": 113.828125,
+            "width": 718.109375,
+            "marginTop": "3.77953px",
+            "marginBottom": "0px",
+            "padding": "3.77953px 0px 0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          }
+        ],
+        "gridSections": [
+          {
+            "tag": "SECTION",
+            "heading": "Conducteur principal / السائق الرئيسي",
+            "height": 142.3125,
+            "width": 353.390625,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "SECTION",
+            "heading": "Conducteur secondaire / السائق الإضافي",
+            "height": 142.3125,
+            "width": 353.390625,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "SECTION",
+            "heading": "Véhicule / السيارة",
+            "height": 98.34375,
+            "width": 353.390625,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "SECTION",
+            "heading": "Période et lieux / المدة والأماكن",
+            "height": 98.34375,
+            "width": 353.390625,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "SECTION",
+            "heading": "Location / ثمن الكراء",
+            "height": 69.03125,
+            "width": 353.390625,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          },
+          {
+            "tag": "SECTION",
+            "heading": "Kilométrage / المسافة",
+            "height": 69.03125,
+            "width": 353.390625,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "0px",
+            "breakInside": "auto",
+            "breakBefore": "auto",
+            "breakAfter": "auto"
+          }
+        ],
+        "signatures": [
+          {
+            "party": "customer",
+            "tag": "SECTION",
+            "heading": "Signature client / توقيع الزبون",
+            "height": 198.21875,
+            "width": 355.28125,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "3.77953px",
+            "breakInside": "avoid",
+            "breakBefore": "auto",
+            "breakAfter": "auto",
+            "children": [
+              {
+                "tag": "H3",
+                "height": 17.53125,
+                "width": 345.75,
+                "marginTop": "3.77953px",
+                "marginBottom": "3.77953px",
+                "padding": "0px 0px 1.88976px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              },
+              {
+                "tag": "P",
+                "height": 29.3125,
+                "width": 345.75,
+                "marginTop": "0px",
+                "marginBottom": "0px",
+                "padding": "0px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              },
+              {
+                "tag": "P",
+                "height": 29.3125,
+                "width": 345.75,
+                "marginTop": "0px",
+                "marginBottom": "0px",
+                "padding": "0px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              },
+              {
+                "tag": "DIV",
+                "height": 38.84375,
+                "width": 345.75,
+                "marginTop": "3.77953px",
+                "marginBottom": "3.77953px",
+                "padding": "3.77953px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              },
+              {
+                "tag": "P",
+                "height": 29.3125,
+                "width": 345.75,
+                "marginTop": "0px",
+                "marginBottom": "0px",
+                "padding": "0px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              },
+              {
+                "tag": "P",
+                "height": 29.3125,
+                "width": 345.75,
+                "marginTop": "0px",
+                "marginBottom": "0px",
+                "padding": "0px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              }
+            ]
+          },
+          {
+            "party": "agency",
+            "tag": "SECTION",
+            "heading": "Signature agence / توقيع الوكالة",
+            "height": 198.21875,
+            "width": 355.28125,
+            "marginTop": "0px",
+            "marginBottom": "0px",
+            "padding": "3.77953px",
+            "breakInside": "avoid",
+            "breakBefore": "auto",
+            "breakAfter": "auto",
+            "children": [
+              {
+                "tag": "H3",
+                "height": 17.53125,
+                "width": 345.75,
+                "marginTop": "3.77953px",
+                "marginBottom": "3.77953px",
+                "padding": "0px 0px 1.88976px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              },
+              {
+                "tag": "P",
+                "height": 29.3125,
+                "width": 345.75,
+                "marginTop": "0px",
+                "marginBottom": "0px",
+                "padding": "0px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              },
+              {
+                "tag": "P",
+                "height": 29.3125,
+                "width": 345.75,
+                "marginTop": "0px",
+                "marginBottom": "0px",
+                "padding": "0px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              },
+              {
+                "tag": "DIV",
+                "height": 38.84375,
+                "width": 345.75,
+                "marginTop": "3.77953px",
+                "marginBottom": "3.77953px",
+                "padding": "3.77953px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              },
+              {
+                "tag": "P",
+                "height": 29.3125,
+                "width": 345.75,
+                "marginTop": "0px",
+                "marginBottom": "0px",
+                "padding": "0px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              },
+              {
+                "tag": "P",
+                "height": 29.3125,
+                "width": 345.75,
+                "marginTop": "0px",
+                "marginBottom": "0px",
+                "padding": "0px",
+                "breakInside": "auto",
+                "breakBefore": "auto",
+                "breakAfter": "auto"
+              }
+            ]
+          }
+        ],
+        "wrapping": [
+          {
+            "text": "Adresse fictive · Casablanca",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "+212600000000 · demo@example.invalid",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "ICE — · IF — · RC —",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "DÉMONSTRATION · NON SIGNÉ · AUCUN ENREGISTREMENT",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Contrat de location / عقد كراء سيارة",
+            "height": 20.53125,
+            "lineHeight": "20.5333px",
+            "lines": 0.999900162175588
+          },
+          {
+            "text": "Numéro : Brouillon — numéro non attribué",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Conducteur principal / السائق الرئيسي",
+            "height": 17.53125,
+            "lineHeight": "14.6667px",
+            "lines": 1.195309783386856
+          },
+          {
+            "text": "Nom complet / الاسم الكامل : Conducteur fictif",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "CIN / رقم البطاقة الوطنية : CIN-DEMO",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "N° de passeport / رقم جواز السفر : Non renseigné / غير متوفر",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "N° permis de conduire / رقم رخصة السياقة : PERMIS-DEMO",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Ville / المدينة : Ville fictive",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Nationalité / الجنسية : Non renseigné / غير متوفر",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Conducteur secondaire / السائق الإضافي",
+            "height": 17.53125,
+            "lineHeight": "14.6667px",
+            "lines": 1.195309783386856
+          },
+          {
+            "text": "Conducteur facultatif non renseigné / السائق الإضافي غير متوفر",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Nom complet / الاسم الكامل : Non renseigné / غير متوفر",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "CIN / رقم البطاقة الوطنية : Non renseigné / غير متوفر",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "N° de passeport / رقم جواز السفر : Non renseigné / غير متوفر",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "N° permis de conduire / رقم رخصة السياقة : Non renseigné / غير متوفر",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Ville / المدينة : Non renseigné / غير متوفر",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Nationalité / الجنسية : Non renseigné / غير متوفر",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Véhicule / السيارة",
+            "height": 17.53125,
+            "lineHeight": "14.6667px",
+            "lines": 1.195309783386856
+          },
+          {
+            "text": "Marque / العلامة التجارية : Marque fictive",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Modèle / الطراز : Modèle fictif",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Immatriculation / رقم التسجيل : DEMO-01",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Période et lieux / المدة والأماكن",
+            "height": 17.53125,
+            "lineHeight": "14.6667px",
+            "lines": 1.195309783386856
+          },
+          {
+            "text": "Départ : 20/11/2026 09:00 · Africa/Casablanca (exemple)",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Retour : 22/11/2026 09:00 (exemple)",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Durée facturée : 2 × 24 h",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Prise en charge : Agence fictive",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Restitution : Agence fictive",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Location / ثمن الكراء",
+            "height": 17.53125,
+            "lineHeight": "14.6667px",
+            "lines": 1.195309783386856
+          },
+          {
+            "text": "Tarif / 24 h : 300,00 MAD",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Montant location : 600,00 MAD",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Dépôt de garantie distinct : 2 000,00 MAD",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Kilométrage / المسافة",
+            "height": 17.53125,
+            "lineHeight": "14.6667px",
+            "lines": 1.195309783386856
+          },
+          {
+            "text": "Compteur : 10 000 km (fictif)",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Forfait journalier : 200 km / jour (fictif)",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "État du véhicule / حالة السيارة — Départ / المغادرة",
+            "height": 15.65625,
+            "lineHeight": "14.6667px",
+            "lines": 1.0674691648428072
+          },
+          {
+            "text": "DONNÉES FICTIVES — aucune inspection réelle / بيانات تجريبية — لا يوجد فحص فعلي",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Aucune inspection achevée ni acceptation du client attestée par cet aperçu / هذه المعاينة لا تثبت اكتمال الفحص أو موافقة الزبون",
+            "height": 43.96875,
+            "lineHeight": "14.6667px",
+            "lines": 2.9978625048579435
+          },
+          {
+            "text": "Dessus / من الأعلى",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Avant / الأمام",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Arrière / الخلف",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Gauche / اليسار",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Droite / اليمين",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Carburant / الوقود — Départ / المغادرة : 3/4",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Compteur (km) / عداد المسافة (كم) : 10000",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Repères des dommages / علامات الأضرار",
+            "height": 17.53125,
+            "lineHeight": "14.6667px",
+            "lines": 1.195309783386856
+          },
+          {
+            "text": "Notes / ملاحظات : Exemple fictif. Aucun constat réel.",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "État du véhicule / حالة السيارة — Retour / الإرجاع",
+            "height": 15.65625,
+            "lineHeight": "14.6667px",
+            "lines": 1.0674691648428072
+          },
+          {
+            "text": "DONNÉES FICTIVES — aucune inspection réelle / بيانات تجريبية — لا يوجد فحص فعلي",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Aucune inspection achevée ni acceptation du client attestée par cet aperçu / هذه المعاينة لا تثبت اكتمال الفحص أو موافقة الزبون",
+            "height": 43.96875,
+            "lineHeight": "14.6667px",
+            "lines": 2.9978625048579435
+          },
+          {
+            "text": "Dessus / من الأعلى",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Avant / الأمام",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Arrière / الخلف",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Gauche / اليسار",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Droite / اليمين",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Carburant / الوقود — Retour / الإرجاع : 1/4",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Compteur (km) / عداد المسافة (كم) : 10200",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Repères des dommages / علامات الأضرار",
+            "height": 17.53125,
+            "lineHeight": "14.6667px",
+            "lines": 1.195309783386856
+          },
+          {
+            "text": "Notes / ملاحظات : Retour fictif uniquement — aucune restitution réelle.",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Conditions générales de location / الشروط العامة للكراء",
+            "height": 17.53125,
+            "lineHeight": "14.6667px",
+            "lines": 1.195309783386856
+          },
+          {
+            "text": "Conditions de démonstration à configurer par l’agence. Aucune validité juridique.",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Signatures — aperçu non signé / التوقيعات — معاينة غير موقعة",
+            "height": 14.65625,
+            "lineHeight": "14.6667px",
+            "lines": 0.9992875016193145
+          },
+          {
+            "text": "Signature client / توقيع الزبون",
+            "height": 17.53125,
+            "lineHeight": "14.6667px",
+            "lines": 1.195309783386856
+          },
+          {
+            "text": "Signataire client : identité non renseignée / الموقع الزبون: الهوية غير متوفرة",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Non signé — en attente (aperçu uniquement) / غير موقع — قيد الانتظار (معاينة فقط)",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Date et heure de signature : non renseignées / تاريخ ووقت التوقيع: غير متوفرين",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Acceptation des conditions : non renseignée / قبول الشروط: غير متوفر",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Signature agence / توقيع الوكالة",
+            "height": 17.53125,
+            "lineHeight": "14.6667px",
+            "lines": 1.195309783386856
+          },
+          {
+            "text": "Représentant de l’agence : identité non renseignée / ممثل الوكالة: الهوية غير متوفرة",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Non signé — en attente (aperçu uniquement) / غير موقع — قيد الانتظار (معاينة فقط)",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Date et heure de signature : non renseignées / تاريخ ووقت التوقيع: غير متوفرين",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Acceptation des conditions : non renseignée / قبول الشروط: غير متوفر",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Aucun consentement ni contrôle d’identité attesté. Aucun acte de signature déclenché par cet aperçu. / لا يوجد إثبات للموافقة أو التحقق من الهوية. هذه المعاينة لا تبدأ أي إجراء توقيع.",
+            "height": 29.3125,
+            "lineHeight": "14.6667px",
+            "lines": 1.998575003238629
+          },
+          {
+            "text": "Raison sociale / الاسم القانوني",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "Agence fictive A",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "Adresse / العنوان",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "Adresse fictive",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "Ville / المدينة",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "Casablanca",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "Téléphone / الهاتف",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "+212600000000",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "E-mail / البريد الإلكتروني",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "demo@example.invalid",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "ICE / التعريف الموحد للمقاولة",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "Non renseigné / غير متوفر",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "RC / السجل التجاري",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "Non renseigné / غير متوفر",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "IF / التعريف الضريبي",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "Non renseigné / غير متوفر",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "Document de démonstration — non signé",
+            "height": 15.3125,
+            "lineHeight": "15.3333px",
+            "lines": 0.9986434753119029
+          },
+          {
+            "text": "Démonstration documentaire — non signé. Aucune validité juridique attestée par cet aperçu. / معاينة وثيقة — غير موقعة. هذه المعاينة لا تثبت أي صلاحية قانونية.",
+            "height": 30.625,
+            "lineHeight": "15.3333px",
+            "lines": 1.9972869506238058
+          }
+        ],
+        "arabic": [
+          {
+            "text": "عقد كراء سيارة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 18.6667px / 20.5333px Arial, sans-serif"
+          },
+          {
+            "text": "السائق الرئيسي",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الاسم الكامل",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "رقم البطاقة الوطنية",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "رقم جواز السفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "رقم رخصة السياقة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "المدينة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الجنسية",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "السائق الإضافي",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "السائق الإضافي غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الاسم الكامل",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "رقم البطاقة الوطنية",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "رقم جواز السفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "رقم رخصة السياقة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "المدينة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الجنسية",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "السيارة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "العلامة التجارية",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الطراز",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "رقم التسجيل",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "المدة والأماكن",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "ثمن الكراء",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "المسافة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "حالة السيارة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "المغادرة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "بيانات تجريبية — لا يوجد فحص فعلي",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "هذه المعاينة لا تثبت اكتمال الفحص أو موافقة الزبون",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "من الأعلى",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الأمام",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الخلف",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "اليسار",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "اليمين",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الوقود",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "المغادرة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "عداد المسافة (كم)",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "علامات الأضرار",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "خدش",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "اليسار",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "انبعاج",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "من الأعلى",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "ملاحظات",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "حالة السيارة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الإرجاع",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "بيانات تجريبية — لا يوجد فحص فعلي",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "هذه المعاينة لا تثبت اكتمال الفحص أو موافقة الزبون",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "من الأعلى",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الأمام",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الخلف",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "اليسار",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "اليمين",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الوقود",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الإرجاع",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "عداد المسافة (كم)",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "علامات الأضرار",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "آخر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الخلف",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "ملاحظات",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الشروط العامة للكراء",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "التوقيعات — معاينة غير موقعة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "توقيع الزبون",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الموقع الزبون: الهوية غير متوفرة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "غير موقع — قيد الانتظار (معاينة فقط)",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "مكان مخصص — لا يوجد توقيع",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "تاريخ ووقت التوقيع: غير متوفرين",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "قبول الشروط: غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "توقيع الوكالة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "ممثل الوكالة: الهوية غير متوفرة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "غير موقع — قيد الانتظار (معاينة فقط)",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "مكان مخصص — لا يوجد توقيع",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "تاريخ ووقت التوقيع: غير متوفرين",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "قبول الشروط: غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "لا يوجد إثبات للموافقة أو التحقق من الهوية. هذه المعاينة لا تبدأ أي إجراء توقيع.",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 14.6667px Arial, sans-serif"
+          },
+          {
+            "text": "الاسم القانوني",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 15.3333px Arial, sans-serif"
+          },
+          {
+            "text": "العنوان",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 15.3333px Arial, sans-serif"
+          },
+          {
+            "text": "المدينة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 15.3333px Arial, sans-serif"
+          },
+          {
+            "text": "الهاتف",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 15.3333px Arial, sans-serif"
+          },
+          {
+            "text": "البريد الإلكتروني",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 15.3333px Arial, sans-serif"
+          },
+          {
+            "text": "التعريف الموحد للمقاولة",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 15.3333px Arial, sans-serif"
+          },
+          {
+            "text": "غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 15.3333px Arial, sans-serif"
+          },
+          {
+            "text": "السجل التجاري",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 15.3333px Arial, sans-serif"
+          },
+          {
+            "text": "غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 15.3333px Arial, sans-serif"
+          },
+          {
+            "text": "التعريف الضريبي",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "700 13.3333px / 15.3333px Arial, sans-serif"
+          },
+          {
+            "text": "غير متوفر",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 15.3333px Arial, sans-serif"
+          },
+          {
+            "text": "معاينة وثيقة — غير موقعة. هذه المعاينة لا تثبت أي صلاحية قانونية.",
+            "direction": "rtl",
+            "unicodeBidi": "isolate",
+            "font": "13.3333px / 15.3333px Arial, sans-serif"
+          }
+        ]
+      },
+      "experiments": {
+        "margins": 1077.875,
+        "columns": 1138.03125,
+        "footerInline": 1168.234375,
+        "widerSecondDriver": 1153.578125
+      }
+    }
+  ],
+  "overflow": {
+    "status": "overflow",
+    "length": 5940,
+    "sourceLength": 5940,
+    "alert": "NEEDS REVISION — dépassement A4. Le contenu intégral est conservé ; document non prêt sur une page."
+  },
+  "completed": true
+}

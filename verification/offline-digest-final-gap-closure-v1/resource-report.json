@@ -1,0 +1,3709 @@
+{
+  "status": "BOUNDED-COMPONENT-RESOURCE-PROBES-NOT-APPROVAL",
+  "ownerApproved": false,
+  "environment": {
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "node": "v24.15.0"
+  },
+  "scope": "Actual ASCII codec/component byte workloads, not full-schema package rendering or production engine cost acceptance",
+  "controls": "Anonymous Windows Job process-commit limit 384 MiB + kill-on-close; Node old-space 128 MiB; 15-second parent wall timeout, one fixture per process",
+  "rows": [
+    {
+      "metric": "snapshotBytes",
+      "value": 2097151,
+      "cap": 2097152,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "snapshotBytes",
+        "value": 2097151,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 2097151,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 2097210,
+        "components": [
+          {
+            "name": "snapshotBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 2097151,
+            "frameBytes": 2097210,
+            "offset": 0,
+            "digest": "c3aaa5ca5543ea6034b0153ebcf45f19412242ab5ebad461149ccba79d422a41"
+          }
+        ],
+        "workerWallMs": 38.10640000000001
+      },
+      "peakResidentBytes": 50126848,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 183.32640000153333,
+      "byteComparisonCount": 2097210
+    },
+    {
+      "metric": "snapshotBytes",
+      "value": 2097152,
+      "cap": 2097152,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "snapshotBytes",
+        "value": 2097152,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 2097152,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 2097211,
+        "components": [
+          {
+            "name": "snapshotBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 2097152,
+            "frameBytes": 2097211,
+            "offset": 0,
+            "digest": "2893e9fbc08fe33fcd5ebbdf36dcc2441f0917c8c28de919740613349c461b13"
+          }
+        ],
+        "workerWallMs": 40.7144
+      },
+      "peakResidentBytes": 50155520,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 182.13960000139195,
+      "byteComparisonCount": 2097211
+    },
+    {
+      "metric": "snapshotBytes",
+      "value": 2097153,
+      "cap": 2097152,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "snapshotBytes",
+        "value": 2097153,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 2097153,
+        "partialSuccess": false,
+        "workerWallMs": 19.4182
+      },
+      "peakResidentBytes": 45928448,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 148.32559999922523,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "coreBytes",
+      "value": 262143,
+      "cap": 262144,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "coreBytes",
+        "value": 262143,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 262143,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 262202,
+        "components": [
+          {
+            "name": "coreBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 262143,
+            "frameBytes": 262202,
+            "offset": 0,
+            "digest": "719f34639a8a99ffd466d6cf4eeea7765a47c0b4aa880d2b9a48f3854d137360"
+          }
+        ],
+        "workerWallMs": 85.13000000000001
+      },
+      "peakResidentBytes": 42188800,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 250.38140000106068,
+      "byteComparisonCount": 262202
+    },
+    {
+      "metric": "coreBytes",
+      "value": 262144,
+      "cap": 262144,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "coreBytes",
+        "value": 262144,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 262144,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 262203,
+        "components": [
+          {
+            "name": "coreBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262203,
+            "offset": 0,
+            "digest": "2c332528c180f94850b54161da0e77b490c56724265a614cf60fb80b7dc93e83"
+          }
+        ],
+        "workerWallMs": 10.02940000000001
+      },
+      "peakResidentBytes": 42291200,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 149.33169999858364,
+      "byteComparisonCount": 262203
+    },
+    {
+      "metric": "coreBytes",
+      "value": 262145,
+      "cap": 262144,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "coreBytes",
+        "value": 262145,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 262145,
+        "partialSuccess": false,
+        "workerWallMs": 2.9583999999999975
+      },
+      "peakResidentBytes": 41644032,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 131.94579999981215,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "pdfBytes",
+      "value": 16777215,
+      "cap": 16777216,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "pdfBytes",
+        "value": 16777215,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 16777215,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 1,
+        "witnessBytes": 16777270,
+        "components": [
+          {
+            "name": "pdfBytes",
+            "domain": "cp.pdf.exact-bytes.draft1",
+            "payloadBytes": 16777215,
+            "frameBytes": 16777270,
+            "offset": 0,
+            "digest": "4862557efd127c93ac1fbf1e1f0ea6b86a23fcc924f654da9b9cb0497f2f30c4"
+          }
+        ],
+        "workerWallMs": 102.7475
+      },
+      "peakResidentBytes": 57921536,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 328.44659999682335,
+      "byteComparisonCount": 16777270
+    },
+    {
+      "metric": "pdfBytes",
+      "value": 16777216,
+      "cap": 16777216,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "pdfBytes",
+        "value": 16777216,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 16777216,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 1,
+        "witnessBytes": 16777271,
+        "components": [
+          {
+            "name": "pdfBytes",
+            "domain": "cp.pdf.exact-bytes.draft1",
+            "payloadBytes": 16777216,
+            "frameBytes": 16777271,
+            "offset": 0,
+            "digest": "eee108b187993ad320337d14443ad8cc37b58318014e5fdb15c62084e2164fa9"
+          }
+        ],
+        "workerWallMs": 84.82620000000001
+      },
+      "peakResidentBytes": 57966592,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 292.1037999985856,
+      "byteComparisonCount": 16777271
+    },
+    {
+      "metric": "pdfBytes",
+      "value": 16777217,
+      "cap": 16777216,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "pdfBytes",
+        "value": 16777217,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 4.700800000000001
+      },
+      "peakResidentBytes": 57888768,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 126.87879999430152,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "assetBytes",
+      "value": 4194303,
+      "cap": 4194304,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "assetBytes",
+        "value": 4194303,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 4194303,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 1,
+        "witnessBytes": 4194360,
+        "components": [
+          {
+            "name": "assetBytes",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194303,
+            "frameBytes": 4194360,
+            "offset": 0,
+            "digest": "47c360032e685d06923c72ab7c2fbac42ac16c3dcef7a7964efdc5d055d33c83"
+          }
+        ],
+        "workerWallMs": 24.163200000000003
+      },
+      "peakResidentBytes": 45375488,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 310.4590000002645,
+      "byteComparisonCount": 4194360
+    },
+    {
+      "metric": "assetBytes",
+      "value": 4194304,
+      "cap": 4194304,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "assetBytes",
+        "value": 4194304,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 4194304,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 1,
+        "witnessBytes": 4194361,
+        "components": [
+          {
+            "name": "assetBytes",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 0,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          }
+        ],
+        "workerWallMs": 23.487100000000012
+      },
+      "peakResidentBytes": 45424640,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 179.5713000028627,
+      "byteComparisonCount": 4194361
+    },
+    {
+      "metric": "assetBytes",
+      "value": 4194305,
+      "cap": 4194304,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "assetBytes",
+        "value": 4194305,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 2.022199999999998
+      },
+      "peakResidentBytes": 45334528,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 170.3711000009207,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "assets",
+      "value": 127,
+      "cap": 128,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "assets",
+        "value": 127,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 127,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 127,
+        "witnessBytes": 7366,
+        "components": [
+          {
+            "name": "asset-0",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 0,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-1",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 58,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-2",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 116,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-3",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 174,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-4",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 232,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-5",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 290,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-6",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 348,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-7",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 406,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-8",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 464,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-9",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 522,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-10",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 580,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-11",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 638,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-12",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 696,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-13",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 754,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-14",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 812,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-15",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 870,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-16",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 928,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-17",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 986,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-18",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1044,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-19",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1102,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-20",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1160,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-21",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1218,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-22",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1276,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-23",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1334,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-24",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1392,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-25",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1450,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-26",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1508,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-27",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1566,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-28",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1624,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-29",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1682,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-30",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1740,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-31",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1798,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-32",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1856,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-33",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1914,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-34",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1972,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-35",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2030,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-36",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2088,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-37",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2146,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-38",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2204,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-39",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2262,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-40",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2320,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-41",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2378,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-42",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2436,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-43",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2494,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-44",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2552,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-45",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2610,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-46",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2668,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-47",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2726,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-48",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2784,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-49",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2842,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-50",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2900,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-51",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2958,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-52",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3016,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-53",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3074,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-54",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3132,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-55",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3190,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-56",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3248,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-57",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3306,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-58",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3364,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-59",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3422,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-60",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3480,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-61",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3538,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-62",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3596,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-63",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3654,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-64",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3712,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-65",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3770,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-66",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3828,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-67",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3886,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-68",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3944,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-69",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4002,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-70",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4060,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-71",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4118,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-72",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4176,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-73",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4234,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-74",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4292,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-75",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4350,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-76",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4408,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-77",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4466,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-78",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4524,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-79",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4582,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-80",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4640,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-81",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4698,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-82",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4756,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-83",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4814,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-84",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4872,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-85",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4930,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-86",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4988,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-87",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5046,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-88",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5104,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-89",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5162,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-90",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5220,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-91",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5278,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-92",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5336,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-93",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5394,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-94",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5452,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-95",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5510,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-96",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5568,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-97",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5626,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-98",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5684,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-99",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5742,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-100",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5800,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-101",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5858,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-102",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5916,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-103",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5974,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-104",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6032,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-105",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6090,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-106",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6148,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-107",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6206,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-108",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6264,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-109",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6322,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-110",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6380,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-111",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6438,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-112",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6496,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-113",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6554,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-114",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6612,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-115",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6670,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-116",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6728,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-117",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6786,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-118",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6844,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-119",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6902,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-120",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6960,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-121",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7018,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-122",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7076,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-123",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7134,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-124",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7192,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-125",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7250,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-126",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7308,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          }
+        ],
+        "workerWallMs": 15.761499999999998
+      },
+      "peakResidentBytes": 42020864,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 197.81130000046687,
+      "byteComparisonCount": 7366
+    },
+    {
+      "metric": "assets",
+      "value": 128,
+      "cap": 128,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "assets",
+        "value": 128,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 128,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 128,
+        "witnessBytes": 7424,
+        "components": [
+          {
+            "name": "asset-0",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 0,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-1",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 58,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-2",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 116,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-3",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 174,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-4",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 232,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-5",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 290,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-6",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 348,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-7",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 406,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-8",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 464,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-9",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 522,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-10",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 580,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-11",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 638,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-12",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 696,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-13",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 754,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-14",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 812,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-15",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 870,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-16",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 928,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-17",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 986,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-18",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1044,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-19",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1102,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-20",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1160,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-21",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1218,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-22",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1276,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-23",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1334,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-24",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1392,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-25",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1450,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-26",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1508,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-27",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1566,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-28",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1624,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-29",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1682,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-30",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1740,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-31",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1798,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-32",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1856,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-33",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1914,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-34",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 1972,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-35",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2030,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-36",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2088,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-37",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2146,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-38",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2204,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-39",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2262,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-40",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2320,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-41",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2378,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-42",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2436,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-43",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2494,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-44",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2552,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-45",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2610,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-46",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2668,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-47",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2726,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-48",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2784,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-49",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2842,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-50",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2900,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-51",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 2958,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-52",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3016,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-53",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3074,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-54",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3132,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-55",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3190,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-56",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3248,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-57",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3306,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-58",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3364,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-59",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3422,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-60",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3480,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-61",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3538,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-62",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3596,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-63",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3654,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-64",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3712,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-65",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3770,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-66",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3828,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-67",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3886,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-68",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 3944,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-69",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4002,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-70",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4060,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-71",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4118,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-72",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4176,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-73",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4234,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-74",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4292,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-75",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4350,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-76",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4408,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-77",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4466,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-78",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4524,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-79",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4582,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-80",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4640,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-81",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4698,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-82",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4756,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-83",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4814,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-84",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4872,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-85",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4930,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-86",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 4988,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-87",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5046,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-88",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5104,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-89",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5162,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-90",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5220,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-91",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5278,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-92",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5336,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-93",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5394,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-94",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5452,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-95",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5510,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-96",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5568,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-97",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5626,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-98",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5684,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-99",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5742,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-100",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5800,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-101",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5858,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-102",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5916,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-103",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 5974,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-104",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6032,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-105",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6090,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-106",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6148,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-107",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6206,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-108",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6264,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-109",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6322,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-110",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6380,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-111",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6438,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-112",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6496,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-113",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6554,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-114",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6612,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-115",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6670,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-116",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6728,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-117",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6786,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-118",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6844,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-119",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6902,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-120",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 6960,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-121",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7018,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-122",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7076,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-123",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7134,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-124",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7192,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-125",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7250,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-126",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7308,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          },
+          {
+            "name": "asset-127",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1,
+            "frameBytes": 58,
+            "offset": 7366,
+            "digest": "16c290a5719508b1624eac42ae7aa24a4ebac2cf29401b14152fa6f744af4280"
+          }
+        ],
+        "workerWallMs": 20.463499999999996
+      },
+      "peakResidentBytes": 42086400,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 180.30910000379663,
+      "byteComparisonCount": 7424
+    },
+    {
+      "metric": "assets",
+      "value": 129,
+      "cap": 128,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "assets",
+        "value": 129,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 1.157999999999987
+      },
+      "peakResidentBytes": 41070592,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 338.6213000048883,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "packageBytes",
+      "value": 67108863,
+      "cap": 67108864,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "packageBytes",
+        "value": 67108863,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 67108863,
+        "nodes": 20,
+        "maxDepth": 2,
+        "hashCalls": 17,
+        "witnessBytes": 67109853,
+        "components": [
+          {
+            "name": "snapshot",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 2097152,
+            "frameBytes": 2097211,
+            "offset": 0,
+            "digest": "2893e9fbc08fe33fcd5ebbdf36dcc2441f0917c8c28de919740613349c461b13"
+          },
+          {
+            "name": "assets",
+            "domain": "cp.render-assets.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262208,
+            "offset": 2097211,
+            "digest": "f1e42a17d217637bede4ed1592f90c054f9c9eaf3d37037e9741032e98059f61"
+          },
+          {
+            "name": "party",
+            "domain": "cp.party-plan.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262205,
+            "offset": 2359419,
+            "digest": "deb600b56469164ce60863e8396c1a2da85e30fe9dfdbb5b2522f043417cf320"
+          },
+          {
+            "name": "root",
+            "domain": "cp.binding-manifest.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262211,
+            "offset": 2621624,
+            "digest": "5ba5c6585320d6d2a47cd8f1e54b33a2096cc0d11ac3d58188c194deada64a63"
+          },
+          {
+            "name": "pdf",
+            "domain": "cp.pdf.exact-bytes.draft1",
+            "payloadBytes": 16777216,
+            "frameBytes": 16777271,
+            "offset": 2883835,
+            "digest": "eee108b187993ad320337d14443ad8cc37b58318014e5fdb15c62084e2164fa9"
+          },
+          {
+            "name": "asset-0",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 19661106,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-1",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 23855467,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-2",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 28049828,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-3",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 32244189,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-4",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 36438550,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-5",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 40632911,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-6",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 44827272,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-7",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 49021633,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-8",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 53215994,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-9",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 57410355,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-10",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 61604716,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-11",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1310719,
+            "frameBytes": 1310776,
+            "offset": 65799077,
+            "digest": "be5df8336fe599a064460e990f41fe54a62bcddbe9f90773646f4b06e4306389"
+          }
+        ],
+        "workerWallMs": 433.5476
+      },
+      "peakResidentBytes": 109555712,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 1140.7537999984925,
+      "byteComparisonCount": 67109853
+    },
+    {
+      "metric": "packageBytes",
+      "value": 67108864,
+      "cap": 67108864,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "packageBytes",
+        "value": 67108864,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 67108864,
+        "nodes": 20,
+        "maxDepth": 2,
+        "hashCalls": 17,
+        "witnessBytes": 67109854,
+        "components": [
+          {
+            "name": "snapshot",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 2097152,
+            "frameBytes": 2097211,
+            "offset": 0,
+            "digest": "2893e9fbc08fe33fcd5ebbdf36dcc2441f0917c8c28de919740613349c461b13"
+          },
+          {
+            "name": "assets",
+            "domain": "cp.render-assets.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262208,
+            "offset": 2097211,
+            "digest": "f1e42a17d217637bede4ed1592f90c054f9c9eaf3d37037e9741032e98059f61"
+          },
+          {
+            "name": "party",
+            "domain": "cp.party-plan.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262205,
+            "offset": 2359419,
+            "digest": "deb600b56469164ce60863e8396c1a2da85e30fe9dfdbb5b2522f043417cf320"
+          },
+          {
+            "name": "root",
+            "domain": "cp.binding-manifest.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262211,
+            "offset": 2621624,
+            "digest": "5ba5c6585320d6d2a47cd8f1e54b33a2096cc0d11ac3d58188c194deada64a63"
+          },
+          {
+            "name": "pdf",
+            "domain": "cp.pdf.exact-bytes.draft1",
+            "payloadBytes": 16777216,
+            "frameBytes": 16777271,
+            "offset": 2883835,
+            "digest": "eee108b187993ad320337d14443ad8cc37b58318014e5fdb15c62084e2164fa9"
+          },
+          {
+            "name": "asset-0",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 19661106,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-1",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 23855467,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-2",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 28049828,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-3",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 32244189,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-4",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 36438550,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-5",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 40632911,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-6",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 44827272,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-7",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 49021633,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-8",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 53215994,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-9",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 57410355,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-10",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 61604716,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-11",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1310720,
+            "frameBytes": 1310777,
+            "offset": 65799077,
+            "digest": "41a490729479e7fd7f54a94f1fca735421d484f659ffffc6d11cb03c062aac6c"
+          }
+        ],
+        "workerWallMs": 414.1586
+      },
+      "peakResidentBytes": 112488448,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 912.9447000013897,
+      "byteComparisonCount": 67109854
+    },
+    {
+      "metric": "packageBytes",
+      "value": 67108865,
+      "cap": 67108864,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "packageBytes",
+        "value": 67108865,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 20,
+        "maxDepth": 2,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 262144,
+        "partialSuccess": false,
+        "workerWallMs": 63.30090000000001
+      },
+      "peakResidentBytes": 112709632,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 204.3227999965893,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "depth",
+      "value": 31,
+      "cap": 32,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "depth",
+        "value": 31,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 368,
+        "nodes": 31,
+        "maxDepth": 31,
+        "hashCalls": 1,
+        "witnessBytes": 427,
+        "components": [
+          {
+            "name": "depth",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 368,
+            "frameBytes": 427,
+            "offset": 0,
+            "digest": "9a8716c8317e8aac0d689d8e320b70db7c75cf8dab0399e87a0db85e556977ee"
+          }
+        ],
+        "workerWallMs": 2.3004000000000246
+      },
+      "peakResidentBytes": 41160704,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 230.27300000103423,
+      "byteComparisonCount": 427
+    },
+    {
+      "metric": "depth",
+      "value": 32,
+      "cap": 32,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "depth",
+        "value": 32,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 380,
+        "nodes": 32,
+        "maxDepth": 32,
+        "hashCalls": 1,
+        "witnessBytes": 439,
+        "components": [
+          {
+            "name": "depth",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 380,
+            "frameBytes": 439,
+            "offset": 0,
+            "digest": "1afcc4d4b93a2ee264b8e6d51eac4e7c8a4c177a236e38d39213e048c42a9346"
+          }
+        ],
+        "workerWallMs": 3.4132000000000033
+      },
+      "peakResidentBytes": 41181184,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 144.61709999886807,
+      "byteComparisonCount": 439
+    },
+    {
+      "metric": "depth",
+      "value": 33,
+      "cap": 32,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "depth",
+        "value": 33,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 33,
+        "maxDepth": 33,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 320,
+        "partialSuccess": false,
+        "workerWallMs": 1.2563999999999993
+      },
+      "peakResidentBytes": 41041920,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 165.910999996413,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "nodes",
+      "value": 49999,
+      "cap": 50000,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "nodes",
+        "value": 49999,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 450143,
+        "nodes": 49999,
+        "maxDepth": 3,
+        "hashCalls": 1,
+        "witnessBytes": 450202,
+        "components": [
+          {
+            "name": "nodes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 450143,
+            "frameBytes": 450202,
+            "offset": 0,
+            "digest": "460277f5f5623c2505bf459ee937c8f8365c10d73961baa553ea13fed81b1ebf"
+          }
+        ],
+        "workerWallMs": 99.1538
+      },
+      "peakResidentBytes": 47759360,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 422.63350000575883,
+      "byteComparisonCount": 450202
+    },
+    {
+      "metric": "nodes",
+      "value": 50000,
+      "cap": 50000,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "nodes",
+        "value": 50000,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 450152,
+        "nodes": 50000,
+        "maxDepth": 3,
+        "hashCalls": 1,
+        "witnessBytes": 450211,
+        "components": [
+          {
+            "name": "nodes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 450152,
+            "frameBytes": 450211,
+            "offset": 0,
+            "digest": "88a72805105bdca54c4fad362159e37813eb4fff55968633f2a7d4e26ac35c65"
+          }
+        ],
+        "workerWallMs": 33.776300000000006
+      },
+      "peakResidentBytes": 48062464,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 290.0140999990981,
+      "byteComparisonCount": 450211
+    },
+    {
+      "metric": "nodes",
+      "value": 50001,
+      "cap": 50000,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "nodes",
+        "value": 50001,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 50001,
+        "maxDepth": 3,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 450149,
+        "partialSuccess": false,
+        "workerWallMs": 17.986199999999997
+      },
+      "peakResidentBytes": 44326912,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 173.93920000176877,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "members",
+      "value": 255,
+      "cap": 256,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "members",
+        "value": 255,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 4857,
+        "nodes": 256,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 4916,
+        "components": [
+          {
+            "name": "members",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 4857,
+            "frameBytes": 4916,
+            "offset": 0,
+            "digest": "de1a13603ad088320cdb37f7bf8ed23a7ee8498b7f4af3bd6d93337bef615569"
+          }
+        ],
+        "workerWallMs": 8.231400000000008
+      },
+      "peakResidentBytes": 41549824,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 138.05020000290824,
+      "byteComparisonCount": 4916
+    },
+    {
+      "metric": "members",
+      "value": 256,
+      "cap": 256,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "members",
+        "value": 256,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 4876,
+        "nodes": 257,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 4935,
+        "components": [
+          {
+            "name": "members",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 4876,
+            "frameBytes": 4935,
+            "offset": 0,
+            "digest": "cfd950c5d92d05e38809f4024b699b215dd9b0d25e74410255dad6f562dcd3b4"
+          }
+        ],
+        "workerWallMs": 6.714299999999994
+      },
+      "peakResidentBytes": 42041344,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 137.4775000003865,
+      "byteComparisonCount": 4935
+    },
+    {
+      "metric": "members",
+      "value": 257,
+      "cap": 256,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "members",
+        "value": 257,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 1.3081999999999994
+      },
+      "peakResidentBytes": 41222144,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 136.26919999660458,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "entries",
+      "value": 1023,
+      "cap": 1024,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "entries",
+        "value": 1023,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 9218,
+        "nodes": 1024,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 9277,
+        "components": [
+          {
+            "name": "entries",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 9218,
+            "frameBytes": 9277,
+            "offset": 0,
+            "digest": "8cdc72aa2881f019cc30b2ac4d2ef8d62c2eaa864d3c13bbd877fbe7f643affd"
+          }
+        ],
+        "workerWallMs": 8.6216
+      },
+      "peakResidentBytes": 41373696,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 143.68169999943348,
+      "byteComparisonCount": 9277
+    },
+    {
+      "metric": "entries",
+      "value": 1024,
+      "cap": 1024,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "entries",
+        "value": 1024,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 9227,
+        "nodes": 1025,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 9286,
+        "components": [
+          {
+            "name": "entries",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 9227,
+            "frameBytes": 9286,
+            "offset": 0,
+            "digest": "f237ed10c41604f065402877a9f2a56845a8662b6cadcb94696bcd0ca4b0483a"
+          }
+        ],
+        "workerWallMs": 6.224699999999999
+      },
+      "peakResidentBytes": 41328640,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 174.39000000013039,
+      "byteComparisonCount": 9286
+    },
+    {
+      "metric": "entries",
+      "value": 1025,
+      "cap": 1024,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "entries",
+        "value": 1025,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 0.520700000000005
+      },
+      "peakResidentBytes": 41082880,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 159.59419999853708,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "keyBytes",
+      "value": 255,
+      "cap": 256,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "keyBytes",
+        "value": 255,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 281,
+        "nodes": 2,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 340,
+        "components": [
+          {
+            "name": "keyBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 281,
+            "frameBytes": 340,
+            "offset": 0,
+            "digest": "8dcc8ac095f10a3286311cbb3a53c315d478d27d4e371acefe3bae26356ea80b"
+          }
+        ],
+        "workerWallMs": 2.3533999999999935
+      },
+      "peakResidentBytes": 41164800,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 249.26840000262018,
+      "byteComparisonCount": 340
+    },
+    {
+      "metric": "keyBytes",
+      "value": 256,
+      "cap": 256,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "keyBytes",
+        "value": 256,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 282,
+        "nodes": 2,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 341,
+        "components": [
+          {
+            "name": "keyBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 282,
+            "frameBytes": 341,
+            "offset": 0,
+            "digest": "810b1c6468f0ff15b5e99e0fc2b8a675d9b765f41bb3b672f332c2b32a0ecbd6"
+          }
+        ],
+        "workerWallMs": 2.4779999999999944
+      },
+      "peakResidentBytes": 41320448,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 143.85990000300808,
+      "byteComparisonCount": 341
+    },
+    {
+      "metric": "keyBytes",
+      "value": 257,
+      "cap": 256,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "keyBytes",
+        "value": 257,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 11,
+        "partialSuccess": false,
+        "workerWallMs": 0.5180999999999898
+      },
+      "peakResidentBytes": 41099264,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 129.37529999908293,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "stringBytes",
+      "value": 524287,
+      "cap": 524288,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "stringBytes",
+        "value": 524287,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 524300,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 1,
+        "witnessBytes": 524359,
+        "components": [
+          {
+            "name": "stringBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 524300,
+            "frameBytes": 524359,
+            "offset": 0,
+            "digest": "1d337305345542184a2ae2c28166ba9502d62c3aa95aab91ea502ab89eadd5e2"
+          }
+        ],
+        "workerWallMs": 15.824399999999997
+      },
+      "peakResidentBytes": 43630592,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 145.72740000585327,
+      "byteComparisonCount": 524359
+    },
+    {
+      "metric": "stringBytes",
+      "value": 524288,
+      "cap": 524288,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "stringBytes",
+        "value": 524288,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 524301,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 1,
+        "witnessBytes": 524360,
+        "components": [
+          {
+            "name": "stringBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 524301,
+            "frameBytes": 524360,
+            "offset": 0,
+            "digest": "91b5a50de0202463860b45b3b26cd5dccaaee082a59ce6693ac6bbcf66146d5e"
+          }
+        ],
+        "workerWallMs": 13.01809999999999
+      },
+      "peakResidentBytes": 43712512,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 150.40160000353353,
+      "byteComparisonCount": 524360
+    },
+    {
+      "metric": "stringBytes",
+      "value": 524289,
+      "cap": 524288,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "stringBytes",
+        "value": 524289,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 1.9200999999999908
+      },
+      "peakResidentBytes": 41644032,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 156.93610000016633,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "bigintDigits",
+      "value": 255,
+      "cap": 256,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "bigintDigits",
+        "value": 255,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 268,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 1,
+        "witnessBytes": 327,
+        "components": [
+          {
+            "name": "bigintDigits",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 268,
+            "frameBytes": 327,
+            "offset": 0,
+            "digest": "43dabc9af34bcae12f2527116e4a526e6005f034d6a683359b4824ad60d64cf2"
+          }
+        ],
+        "workerWallMs": 2.3119000000000085
+      },
+      "peakResidentBytes": 41164800,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 128.50640000397107,
+      "byteComparisonCount": 327
+    },
+    {
+      "metric": "bigintDigits",
+      "value": 256,
+      "cap": 256,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "bigintDigits",
+        "value": 256,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 269,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 1,
+        "witnessBytes": 328,
+        "components": [
+          {
+            "name": "bigintDigits",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 269,
+            "frameBytes": 328,
+            "offset": 0,
+            "digest": "b2765af74a38974fd8fbe87b75530babf0dc3320529082c49ba0fdce91c8b533"
+          }
+        ],
+        "workerWallMs": 2.3962999999999965
+      },
+      "peakResidentBytes": 41144320,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 145.58930000202963,
+      "byteComparisonCount": 328
+    },
+    {
+      "metric": "bigintDigits",
+      "value": 257,
+      "cap": 256,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "bigintDigits",
+        "value": 257,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 0.5320999999999998
+      },
+      "peakResidentBytes": 41160704,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 226.35080000327434,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "contextNodes",
+      "value": 49999,
+      "cap": 50000,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "contextNodes",
+        "value": 49999,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 450062,
+        "nodes": 49999,
+        "maxDepth": 3,
+        "hashCalls": 1,
+        "witnessBytes": 450121,
+        "components": [
+          {
+            "name": "contextNodes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 450062,
+            "frameBytes": 450121,
+            "offset": 0,
+            "digest": "bb1a081645e8f1c24e771d7602739db5bc1eb99a1478485e5eb12bd35146e62f"
+          }
+        ],
+        "workerWallMs": 40.3712
+      },
+      "peakResidentBytes": 48410624,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 362.3011999952723,
+      "byteComparisonCount": 450121
+    },
+    {
+      "metric": "contextNodes",
+      "value": 50000,
+      "cap": 50000,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "contextNodes",
+        "value": 50000,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 450071,
+        "nodes": 50000,
+        "maxDepth": 3,
+        "hashCalls": 1,
+        "witnessBytes": 450130,
+        "components": [
+          {
+            "name": "contextNodes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 450071,
+            "frameBytes": 450130,
+            "offset": 0,
+            "digest": "2a34b44101901676ffbe98d6ea54ffaf1f4c83f02b44baaba219d266ab603eeb"
+          }
+        ],
+        "workerWallMs": 33.253399999999985
+      },
+      "peakResidentBytes": 48422912,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 249.47709999833023,
+      "byteComparisonCount": 450130
+    },
+    {
+      "metric": "contextNodes",
+      "value": 50001,
+      "cap": 50000,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "contextNodes",
+        "value": 50001,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 50001,
+        "maxDepth": 3,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 439,
+        "partialSuccess": false,
+        "workerWallMs": 25.10350000000001
+      },
+      "peakResidentBytes": 48414720,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 175.08619999716757,
+      "byteComparisonCount": 0
+    }
+  ],
+  "verified": 42,
+  "unverified": 0
+}

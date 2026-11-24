@@ -53,7 +53,7 @@ describe("vehicle draft validation and local review workflow", () => {
 describe("agency-gated vehicle draft — synthetic context only, no transport", () => {
   beforeEach(() => {
     vi.clearAllMocks(); vi.stubEnv("CONTRATPRO_VEHICLES_VERIFIED", "true"); vi.mocked(getAgencyContext).mockResolvedValue(context);
-    const rpc = vi.fn(async (name: string) => ({ error: null, data: name === "contratpro_vehicles_permissions" ? { read: true, create: true, update: true } : { total: 0, items: [] } }));
+    const rpc = vi.fn(async (name: string) => ({ error: null, data: name === "contratpro_vehicles_permissions" ? { read: true, create: true, update: true, archive: false, contractVersion: 2 } : { total: 0, items: [] } }));
     vi.mocked(componentAuthClient).mockResolvedValue({ rpc } as unknown as SupabaseClient);
   });
   afterEach(() => vi.unstubAllEnvs());

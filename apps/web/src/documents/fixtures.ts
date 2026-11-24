@@ -1,0 +1,2 @@
+export const config = { locale: "fr" as const, custom: [], signatures: [], mappings: [{ field: "agency.name", required: true, page: 1, x: 20, y: 20, width: 180, height: 30, fontSize: 12, rtl: false }] };
+export const snapshot = { schemaVersion: 1, agencyId: "11111111-1111-4111-8111-111111111111", rentalId: "22222222-2222-4222-8222-222222222222", version: 1, number: "CTR-2026-0001", parties: { agency: { name: "Agence été وكالة" } }, terms: { totalMinor: "9007199254740993", dailyRateMinor: "12345", depositMinor: "0" } };

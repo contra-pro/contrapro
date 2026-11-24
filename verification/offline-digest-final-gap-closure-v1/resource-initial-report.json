@@ -1,0 +1,1532 @@
+{
+  "status": "BOUNDED-COMPONENT-RESOURCE-PROBES-NOT-APPROVAL",
+  "ownerApproved": false,
+  "environment": {
+    "python": "3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "node": "v24.15.0"
+  },
+  "scope": "Actual ASCII codec/component byte workloads, not full-schema package rendering or production engine cost acceptance",
+  "controls": "Anonymous Windows Job process-commit limit 384 MiB + kill-on-close; Node old-space 128 MiB; 15-second parent wall timeout, one fixture per process",
+  "rows": [
+    {
+      "metric": "snapshotBytes",
+      "value": 2097151,
+      "cap": 2097152,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "snapshotBytes",
+        "value": 2097151,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 2097151,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 2097210,
+        "components": [
+          {
+            "name": "snapshotBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 2097151,
+            "frameBytes": 2097210,
+            "offset": 0,
+            "digest": "c3aaa5ca5543ea6034b0153ebcf45f19412242ab5ebad461149ccba79d422a41"
+          }
+        ],
+        "workerWallMs": 31.442999999999998
+      },
+      "peakResidentBytes": 50262016,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 241.00100000214297,
+      "byteComparisonCount": 2097210
+    },
+    {
+      "metric": "snapshotBytes",
+      "value": 2097152,
+      "cap": 2097152,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "snapshotBytes",
+        "value": 2097152,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 2097152,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 2097211,
+        "components": [
+          {
+            "name": "snapshotBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 2097152,
+            "frameBytes": 2097211,
+            "offset": 0,
+            "digest": "2893e9fbc08fe33fcd5ebbdf36dcc2441f0917c8c28de919740613349c461b13"
+          }
+        ],
+        "workerWallMs": 34.3267
+      },
+      "peakResidentBytes": 50331648,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 184.0449000010267,
+      "byteComparisonCount": 2097211
+    },
+    {
+      "metric": "snapshotBytes",
+      "value": 2097153,
+      "cap": 2097152,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "snapshotBytes",
+        "value": 2097153,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 2097153,
+        "partialSuccess": false,
+        "workerWallMs": 15.5702
+      },
+      "peakResidentBytes": 45977600,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 150.84019999630982,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "coreBytes",
+      "value": 262143,
+      "cap": 262144,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "coreBytes",
+        "value": 262143,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 262143,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 262202,
+        "components": [
+          {
+            "name": "coreBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 262143,
+            "frameBytes": 262202,
+            "offset": 0,
+            "digest": "719f34639a8a99ffd466d6cf4eeea7765a47c0b4aa880d2b9a48f3854d137360"
+          }
+        ],
+        "workerWallMs": 10.634100000000004
+      },
+      "peakResidentBytes": 42250240,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 140.54429999669082,
+      "byteComparisonCount": 262202
+    },
+    {
+      "metric": "coreBytes",
+      "value": 262144,
+      "cap": 262144,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "coreBytes",
+        "value": 262144,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 262144,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 262203,
+        "components": [
+          {
+            "name": "coreBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262203,
+            "offset": 0,
+            "digest": "2c332528c180f94850b54161da0e77b490c56724265a614cf60fb80b7dc93e83"
+          }
+        ],
+        "workerWallMs": 9.209700000000012
+      },
+      "peakResidentBytes": 42209280,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 140.98370000283467,
+      "byteComparisonCount": 262203
+    },
+    {
+      "metric": "coreBytes",
+      "value": 262145,
+      "cap": 262144,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "coreBytes",
+        "value": 262145,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 5,
+        "maxDepth": 2,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 262145,
+        "partialSuccess": false,
+        "workerWallMs": 2.6995000000000005
+      },
+      "peakResidentBytes": 41558016,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 127.00670000049286,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "pdfBytes",
+      "value": 16777215,
+      "cap": 16777216,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "pdfBytes",
+        "value": 16777215,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 16777215,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 1,
+        "witnessBytes": 16777270,
+        "components": [
+          {
+            "name": "pdfBytes",
+            "domain": "cp.pdf.exact-bytes.draft1",
+            "payloadBytes": 16777215,
+            "frameBytes": 16777270,
+            "offset": 0,
+            "digest": "4862557efd127c93ac1fbf1e1f0ea6b86a23fcc924f654da9b9cb0497f2f30c4"
+          }
+        ],
+        "workerWallMs": 82.57679999999999
+      },
+      "peakResidentBytes": 57970688,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 374.10169999930076,
+      "byteComparisonCount": 16777270
+    },
+    {
+      "metric": "pdfBytes",
+      "value": 16777216,
+      "cap": 16777216,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "pdfBytes",
+        "value": 16777216,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 16777216,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 1,
+        "witnessBytes": 16777271,
+        "components": [
+          {
+            "name": "pdfBytes",
+            "domain": "cp.pdf.exact-bytes.draft1",
+            "payloadBytes": 16777216,
+            "frameBytes": 16777271,
+            "offset": 0,
+            "digest": "eee108b187993ad320337d14443ad8cc37b58318014e5fdb15c62084e2164fa9"
+          }
+        ],
+        "workerWallMs": 89.53070000000001
+      },
+      "peakResidentBytes": 57925632,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 321.5570000029402,
+      "byteComparisonCount": 16777271
+    },
+    {
+      "metric": "pdfBytes",
+      "value": 16777217,
+      "cap": 16777216,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "pdfBytes",
+        "value": 16777217,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 5.609899999999996
+      },
+      "peakResidentBytes": 57761792,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 135.48309999896446,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "assetBytes",
+      "value": 4194303,
+      "cap": 4194304,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "assetBytes",
+        "value": 4194303,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 4194303,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 1,
+        "witnessBytes": 4194360,
+        "components": [
+          {
+            "name": "assetBytes",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194303,
+            "frameBytes": 4194360,
+            "offset": 0,
+            "digest": "47c360032e685d06923c72ab7c2fbac42ac16c3dcef7a7964efdc5d055d33c83"
+          }
+        ],
+        "workerWallMs": 26.0253
+      },
+      "peakResidentBytes": 45420544,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 177.8312999958871,
+      "byteComparisonCount": 4194360
+    },
+    {
+      "metric": "assetBytes",
+      "value": 4194304,
+      "cap": 4194304,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "assetBytes",
+        "value": 4194304,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 4194304,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 1,
+        "witnessBytes": 4194361,
+        "components": [
+          {
+            "name": "assetBytes",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 0,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          }
+        ],
+        "workerWallMs": 25.3048
+      },
+      "peakResidentBytes": 45404160,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 176.2278000023798,
+      "byteComparisonCount": 4194361
+    },
+    {
+      "metric": "assetBytes",
+      "value": 4194305,
+      "cap": 4194304,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "assetBytes",
+        "value": 4194305,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 1.7179000000000002
+      },
+      "peakResidentBytes": 45281280,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 148.75769999343902,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "assets",
+      "value": 127,
+      "cap": 128,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "UNVERIFIED",
+      "reason": "Probe wall limit reached",
+      "wallMs": 15000.593199998548
+    },
+    {
+      "metric": "assets",
+      "value": 128,
+      "cap": 128,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "UNVERIFIED",
+      "reason": "Probe wall limit reached",
+      "wallMs": 15003.102999995463
+    },
+    {
+      "metric": "assets",
+      "value": 129,
+      "cap": 128,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "assets",
+        "value": 129,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 0,
+        "maxDepth": 0,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 0.5313000000000017
+      },
+      "peakResidentBytes": 41328640,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 123.95700000342913,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "packageBytes",
+      "value": 67108863,
+      "cap": 67108864,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "packageBytes",
+        "value": 67108863,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 67108863,
+        "nodes": 20,
+        "maxDepth": 2,
+        "hashCalls": 17,
+        "witnessBytes": 67109853,
+        "components": [
+          {
+            "name": "snapshot",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 2097152,
+            "frameBytes": 2097211,
+            "offset": 0,
+            "digest": "2893e9fbc08fe33fcd5ebbdf36dcc2441f0917c8c28de919740613349c461b13"
+          },
+          {
+            "name": "assets",
+            "domain": "cp.render-assets.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262208,
+            "offset": 2097211,
+            "digest": "f1e42a17d217637bede4ed1592f90c054f9c9eaf3d37037e9741032e98059f61"
+          },
+          {
+            "name": "party",
+            "domain": "cp.party-plan.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262205,
+            "offset": 2359419,
+            "digest": "deb600b56469164ce60863e8396c1a2da85e30fe9dfdbb5b2522f043417cf320"
+          },
+          {
+            "name": "root",
+            "domain": "cp.binding-manifest.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262211,
+            "offset": 2621624,
+            "digest": "5ba5c6585320d6d2a47cd8f1e54b33a2096cc0d11ac3d58188c194deada64a63"
+          },
+          {
+            "name": "pdf",
+            "domain": "cp.pdf.exact-bytes.draft1",
+            "payloadBytes": 16777216,
+            "frameBytes": 16777271,
+            "offset": 2883835,
+            "digest": "eee108b187993ad320337d14443ad8cc37b58318014e5fdb15c62084e2164fa9"
+          },
+          {
+            "name": "asset-0",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 19661106,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-1",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 23855467,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-2",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 28049828,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-3",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 32244189,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-4",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 36438550,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-5",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 40632911,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-6",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 44827272,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-7",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 49021633,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-8",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 53215994,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-9",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 57410355,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-10",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 61604716,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-11",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1310719,
+            "frameBytes": 1310776,
+            "offset": 65799077,
+            "digest": "be5df8336fe599a064460e990f41fe54a62bcddbe9f90773646f4b06e4306389"
+          }
+        ],
+        "workerWallMs": 357.0853
+      },
+      "peakResidentBytes": 112545792,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 816.3934000040172,
+      "byteComparisonCount": 67109853
+    },
+    {
+      "metric": "packageBytes",
+      "value": 67108864,
+      "cap": 67108864,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "packageBytes",
+        "value": 67108864,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 67108864,
+        "nodes": 20,
+        "maxDepth": 2,
+        "hashCalls": 17,
+        "witnessBytes": 67109854,
+        "components": [
+          {
+            "name": "snapshot",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 2097152,
+            "frameBytes": 2097211,
+            "offset": 0,
+            "digest": "2893e9fbc08fe33fcd5ebbdf36dcc2441f0917c8c28de919740613349c461b13"
+          },
+          {
+            "name": "assets",
+            "domain": "cp.render-assets.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262208,
+            "offset": 2097211,
+            "digest": "f1e42a17d217637bede4ed1592f90c054f9c9eaf3d37037e9741032e98059f61"
+          },
+          {
+            "name": "party",
+            "domain": "cp.party-plan.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262205,
+            "offset": 2359419,
+            "digest": "deb600b56469164ce60863e8396c1a2da85e30fe9dfdbb5b2522f043417cf320"
+          },
+          {
+            "name": "root",
+            "domain": "cp.binding-manifest.typed-json.draft1",
+            "payloadBytes": 262144,
+            "frameBytes": 262211,
+            "offset": 2621624,
+            "digest": "5ba5c6585320d6d2a47cd8f1e54b33a2096cc0d11ac3d58188c194deada64a63"
+          },
+          {
+            "name": "pdf",
+            "domain": "cp.pdf.exact-bytes.draft1",
+            "payloadBytes": 16777216,
+            "frameBytes": 16777271,
+            "offset": 2883835,
+            "digest": "eee108b187993ad320337d14443ad8cc37b58318014e5fdb15c62084e2164fa9"
+          },
+          {
+            "name": "asset-0",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 19661106,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-1",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 23855467,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-2",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 28049828,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-3",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 32244189,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-4",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 36438550,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-5",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 40632911,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-6",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 44827272,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-7",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 49021633,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-8",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 53215994,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-9",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 57410355,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-10",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 4194304,
+            "frameBytes": 4194361,
+            "offset": 61604716,
+            "digest": "5bac31b2d7b526e88c34c9d760d65f929dc2415964c06bdbbf7f5f5edaa5cc7c"
+          },
+          {
+            "name": "asset-11",
+            "domain": "cp.asset.exact-bytes.draft1",
+            "payloadBytes": 1310720,
+            "frameBytes": 1310777,
+            "offset": 65799077,
+            "digest": "41a490729479e7fd7f54a94f1fca735421d484f659ffffc6d11cb03c062aac6c"
+          }
+        ],
+        "workerWallMs": 509.25659999999993
+      },
+      "peakResidentBytes": 109449216,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 991.2365999989561,
+      "byteComparisonCount": 67109854
+    },
+    {
+      "metric": "packageBytes",
+      "value": 67108865,
+      "cap": 67108864,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "packageBytes",
+        "value": 67108865,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 20,
+        "maxDepth": 2,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 262144,
+        "partialSuccess": false,
+        "workerWallMs": 62.7342
+      },
+      "peakResidentBytes": 112607232,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 215.0238000031095,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "depth",
+      "value": 31,
+      "cap": 32,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "depth",
+        "value": 31,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 368,
+        "nodes": 31,
+        "maxDepth": 31,
+        "hashCalls": 1,
+        "witnessBytes": 427,
+        "components": [
+          {
+            "name": "depth",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 368,
+            "frameBytes": 427,
+            "offset": 0,
+            "digest": "9a8716c8317e8aac0d689d8e320b70db7c75cf8dab0399e87a0db85e556977ee"
+          }
+        ],
+        "workerWallMs": 2.4279999999999973
+      },
+      "peakResidentBytes": 41267200,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 149.0166000003228,
+      "byteComparisonCount": 427
+    },
+    {
+      "metric": "depth",
+      "value": 32,
+      "cap": 32,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "depth",
+        "value": 32,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 380,
+        "nodes": 32,
+        "maxDepth": 32,
+        "hashCalls": 1,
+        "witnessBytes": 439,
+        "components": [
+          {
+            "name": "depth",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 380,
+            "frameBytes": 439,
+            "offset": 0,
+            "digest": "1afcc4d4b93a2ee264b8e6d51eac4e7c8a4c177a236e38d39213e048c42a9346"
+          }
+        ],
+        "workerWallMs": 5.918500000000009
+      },
+      "peakResidentBytes": 41189376,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 174.19649999646936,
+      "byteComparisonCount": 439
+    },
+    {
+      "metric": "depth",
+      "value": 33,
+      "cap": 32,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "depth",
+        "value": 33,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 33,
+        "maxDepth": 33,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 320,
+        "partialSuccess": false,
+        "workerWallMs": 1.6576000000000022
+      },
+      "peakResidentBytes": 41201664,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 188.09770000370918,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "nodes",
+      "value": 49999,
+      "cap": 50000,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "nodes",
+        "value": 49999,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 450143,
+        "nodes": 49999,
+        "maxDepth": 3,
+        "hashCalls": 1,
+        "witnessBytes": 450202,
+        "components": [
+          {
+            "name": "nodes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 450143,
+            "frameBytes": 450202,
+            "offset": 0,
+            "digest": "460277f5f5623c2505bf459ee937c8f8365c10d73961baa553ea13fed81b1ebf"
+          }
+        ],
+        "workerWallMs": 69.6022
+      },
+      "peakResidentBytes": 47788032,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 445.9091000026092,
+      "byteComparisonCount": 450202
+    },
+    {
+      "metric": "nodes",
+      "value": 50000,
+      "cap": 50000,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "nodes",
+        "value": 50000,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 450152,
+        "nodes": 50000,
+        "maxDepth": 3,
+        "hashCalls": 1,
+        "witnessBytes": 450211,
+        "components": [
+          {
+            "name": "nodes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 450152,
+            "frameBytes": 450211,
+            "offset": 0,
+            "digest": "88a72805105bdca54c4fad362159e37813eb4fff55968633f2a7d4e26ac35c65"
+          }
+        ],
+        "workerWallMs": 29.891199999999998
+      },
+      "peakResidentBytes": 47714304,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 312.2083000052953,
+      "byteComparisonCount": 450211
+    },
+    {
+      "metric": "nodes",
+      "value": 50001,
+      "cap": 50000,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "nodes",
+        "value": 50001,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 50001,
+        "maxDepth": 3,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 450149,
+        "partialSuccess": false,
+        "workerWallMs": 22.17710000000001
+      },
+      "peakResidentBytes": 44453888,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 176.5358999982709,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "members",
+      "value": 255,
+      "cap": 256,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "members",
+        "value": 255,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 4857,
+        "nodes": 256,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 4916,
+        "components": [
+          {
+            "name": "members",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 4857,
+            "frameBytes": 4916,
+            "offset": 0,
+            "digest": "de1a13603ad088320cdb37f7bf8ed23a7ee8498b7f4af3bd6d93337bef615569"
+          }
+        ],
+        "workerWallMs": 150.29410000000001
+      },
+      "peakResidentBytes": 41754624,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 290.8370000004652,
+      "byteComparisonCount": 4916
+    },
+    {
+      "metric": "members",
+      "value": 256,
+      "cap": 256,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "members",
+        "value": 256,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 4876,
+        "nodes": 257,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 4935,
+        "components": [
+          {
+            "name": "members",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 4876,
+            "frameBytes": 4935,
+            "offset": 0,
+            "digest": "cfd950c5d92d05e38809f4024b699b215dd9b0d25e74410255dad6f562dcd3b4"
+          }
+        ],
+        "workerWallMs": 23.692400000000006
+      },
+      "peakResidentBytes": 41988096,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 158.0720999991172,
+      "byteComparisonCount": 4935
+    },
+    {
+      "metric": "members",
+      "value": 257,
+      "cap": 256,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "members",
+        "value": 257,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 1.6054999999999922
+      },
+      "peakResidentBytes": 41250816,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 168.5862000013003,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "entries",
+      "value": 1023,
+      "cap": 1024,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "entries",
+        "value": 1023,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 9218,
+        "nodes": 1024,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 9277,
+        "components": [
+          {
+            "name": "entries",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 9218,
+            "frameBytes": 9277,
+            "offset": 0,
+            "digest": "8cdc72aa2881f019cc30b2ac4d2ef8d62c2eaa864d3c13bbd877fbe7f643affd"
+          }
+        ],
+        "workerWallMs": 8.77279999999999
+      },
+      "peakResidentBytes": 41365504,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 202.04369999555638,
+      "byteComparisonCount": 9277
+    },
+    {
+      "metric": "entries",
+      "value": 1024,
+      "cap": 1024,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "entries",
+        "value": 1024,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 9227,
+        "nodes": 1025,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 9286,
+        "components": [
+          {
+            "name": "entries",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 9227,
+            "frameBytes": 9286,
+            "offset": 0,
+            "digest": "f237ed10c41604f065402877a9f2a56845a8662b6cadcb94696bcd0ca4b0483a"
+          }
+        ],
+        "workerWallMs": 9.172200000000004
+      },
+      "peakResidentBytes": 41394176,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 183.73990000691265,
+      "byteComparisonCount": 9286
+    },
+    {
+      "metric": "entries",
+      "value": 1025,
+      "cap": 1024,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "entries",
+        "value": 1025,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 0.4333000000000027
+      },
+      "peakResidentBytes": 41115648,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 122.77270000049612,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "keyBytes",
+      "value": 255,
+      "cap": 256,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "keyBytes",
+        "value": 255,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 281,
+        "nodes": 2,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 340,
+        "components": [
+          {
+            "name": "keyBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 281,
+            "frameBytes": 340,
+            "offset": 0,
+            "digest": "8dcc8ac095f10a3286311cbb3a53c315d478d27d4e371acefe3bae26356ea80b"
+          }
+        ],
+        "workerWallMs": 3.0419999999999874
+      },
+      "peakResidentBytes": 41308160,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 138.92819999455241,
+      "byteComparisonCount": 340
+    },
+    {
+      "metric": "keyBytes",
+      "value": 256,
+      "cap": 256,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "keyBytes",
+        "value": 256,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 282,
+        "nodes": 2,
+        "maxDepth": 2,
+        "hashCalls": 1,
+        "witnessBytes": 341,
+        "components": [
+          {
+            "name": "keyBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 282,
+            "frameBytes": 341,
+            "offset": 0,
+            "digest": "810b1c6468f0ff15b5e99e0fc2b8a675d9b765f41bb3b672f332c2b32a0ecbd6"
+          }
+        ],
+        "workerWallMs": 2.4821000000000026
+      },
+      "peakResidentBytes": 41140224,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 138.09390000096755,
+      "byteComparisonCount": 341
+    },
+    {
+      "metric": "keyBytes",
+      "value": 257,
+      "cap": 256,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "keyBytes",
+        "value": 257,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 11,
+        "partialSuccess": false,
+        "workerWallMs": 0.522500000000008
+      },
+      "peakResidentBytes": 40996864,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 160.18089999852236,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "stringBytes",
+      "value": 524287,
+      "cap": 524288,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "stringBytes",
+        "value": 524287,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 524300,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 1,
+        "witnessBytes": 524359,
+        "components": [
+          {
+            "name": "stringBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 524300,
+            "frameBytes": 524359,
+            "offset": 0,
+            "digest": "1d337305345542184a2ae2c28166ba9502d62c3aa95aab91ea502ab89eadd5e2"
+          }
+        ],
+        "workerWallMs": 25.17440000000002
+      },
+      "peakResidentBytes": 43630592,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 328.09719999931986,
+      "byteComparisonCount": 524359
+    },
+    {
+      "metric": "stringBytes",
+      "value": 524288,
+      "cap": 524288,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "stringBytes",
+        "value": 524288,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 524301,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 1,
+        "witnessBytes": 524360,
+        "components": [
+          {
+            "name": "stringBytes",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 524301,
+            "frameBytes": 524360,
+            "offset": 0,
+            "digest": "91b5a50de0202463860b45b3b26cd5dccaaee082a59ce6693ac6bbcf66146d5e"
+          }
+        ],
+        "workerWallMs": 43.98150000000001
+      },
+      "peakResidentBytes": 43634688,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 312.347500002943,
+      "byteComparisonCount": 524360
+    },
+    {
+      "metric": "stringBytes",
+      "value": 524289,
+      "cap": 524288,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "stringBytes",
+        "value": 524289,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 1.5006999999999948
+      },
+      "peakResidentBytes": 41623552,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 122.75619999854825,
+      "byteComparisonCount": 0
+    },
+    {
+      "metric": "bigintDigits",
+      "value": 255,
+      "cap": 256,
+      "offset": -1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "bigintDigits",
+        "value": 255,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 268,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 1,
+        "witnessBytes": 327,
+        "components": [
+          {
+            "name": "bigintDigits",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 268,
+            "frameBytes": 327,
+            "offset": 0,
+            "digest": "43dabc9af34bcae12f2527116e4a526e6005f034d6a683359b4824ad60d64cf2"
+          }
+        ],
+        "workerWallMs": 2.3518000000000114
+      },
+      "peakResidentBytes": 41156608,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 129.3621999939205,
+      "byteComparisonCount": 327
+    },
+    {
+      "metric": "bigintDigits",
+      "value": 256,
+      "cap": 256,
+      "offset": 0,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "integrity-match-unverified",
+      "actual": {
+        "metric": "bigintDigits",
+        "value": 256,
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "chargedBytes": 269,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 1,
+        "witnessBytes": 328,
+        "components": [
+          {
+            "name": "bigintDigits",
+            "domain": "cp.snapshot.typed-json.draft1",
+            "payloadBytes": 269,
+            "frameBytes": 328,
+            "offset": 0,
+            "digest": "b2765af74a38974fd8fbe87b75530babf0dc3320529082c49ba0fdce91c8b533"
+          }
+        ],
+        "workerWallMs": 3.0964000000000027
+      },
+      "peakResidentBytes": 41140224,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 143.04730000003474,
+      "byteComparisonCount": 328
+    },
+    {
+      "metric": "bigintDigits",
+      "value": 257,
+      "cap": 256,
+      "offset": 1,
+      "memoryLimitBytes": 402653184,
+      "wallLimitSeconds": 15,
+      "status": "MEASURED-AND-INDEPENDENTLY-COMPARED",
+      "expectedDisposition": "invalid-input",
+      "actual": {
+        "metric": "bigintDigits",
+        "value": 257,
+        "status": "invalid-input",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "nodes": 1,
+        "maxDepth": 1,
+        "hashCalls": 0,
+        "lastAttemptedCanonicalBytes": 0,
+        "partialSuccess": false,
+        "workerWallMs": 0.4870999999999981
+      },
+      "peakResidentBytes": 41095168,
+      "memoryMeasurement": "Windows GetProcessMemoryInfo.PeakWorkingSetSize",
+      "wallMs": 133.96259999717586,
+      "byteComparisonCount": 0
+    }
+  ],
+  "verified": 37,
+  "unverified": 2
+}

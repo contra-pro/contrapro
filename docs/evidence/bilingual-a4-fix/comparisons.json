@@ -1,0 +1,27 @@
+{
+  "classic": {
+    "-320.png": true,
+    "-1440.png": true,
+    "-print.png": true
+  },
+  "luxury": {
+    "-320.png": true,
+    "-1440.png": true,
+    "-print.png": true
+  },
+  "modern": {
+    "-320.png": true,
+    "-1440.png": true,
+    "-print.png": true
+  },
+  "detailed": {
+    "-320.png": true,
+    "-1440.png": true,
+    "-print.png": true
+  },
+  "bilingualTextOrderPreserved": true,
+  "bilingualArabicRunsPreserved": true,
+  "arabicDirections": [
+    "rtl"
+  ]
+}

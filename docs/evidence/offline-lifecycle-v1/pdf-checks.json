@@ -1,0 +1,167 @@
+{
+  "bilingual-pending": {
+    "pages": 1,
+    "dimensionsMm": [
+      [
+        209.889,
+        297.011
+      ]
+    ],
+    "minimumFontPt": 10.0,
+    "conditionLines": 0,
+    "signatureClient": true,
+    "signatureAgency": true,
+    "legalFooter": true,
+    "replacementGlyphs": 0,
+    "blankPages": [],
+    "textOutsidePage": 0
+  },
+  "bilingual": {
+    "pages": 1,
+    "dimensionsMm": [
+      [
+        209.889,
+        297.011
+      ]
+    ],
+    "minimumFontPt": 10.0,
+    "conditionLines": 0,
+    "signatureClient": true,
+    "signatureAgency": true,
+    "legalFooter": true,
+    "replacementGlyphs": 0,
+    "blankPages": [],
+    "textOutsidePage": 0
+  },
+  "classic-pending": {
+    "pages": 1,
+    "dimensionsMm": [
+      [
+        209.889,
+        297.011
+      ]
+    ],
+    "minimumFontPt": 10.0,
+    "conditionLines": 0,
+    "signatureClient": true,
+    "signatureAgency": true,
+    "legalFooter": true,
+    "replacementGlyphs": 0,
+    "blankPages": [],
+    "textOutsidePage": 0
+  },
+  "classic": {
+    "pages": 1,
+    "dimensionsMm": [
+      [
+        209.889,
+        297.011
+      ]
+    ],
+    "minimumFontPt": 10.0,
+    "conditionLines": 0,
+    "signatureClient": true,
+    "signatureAgency": true,
+    "legalFooter": true,
+    "replacementGlyphs": 0,
+    "blankPages": [],
+    "textOutsidePage": 0
+  },
+  "detailed": {
+    "pages": 1,
+    "dimensionsMm": [
+      [
+        209.889,
+        297.011
+      ]
+    ],
+    "minimumFontPt": 10.0,
+    "conditionLines": 0,
+    "signatureClient": true,
+    "signatureAgency": true,
+    "legalFooter": true,
+    "replacementGlyphs": 0,
+    "blankPages": [],
+    "textOutsidePage": 0
+  },
+  "historical-classic": {
+    "pages": 1,
+    "dimensionsMm": [
+      [
+        209.889,
+        297.011
+      ]
+    ],
+    "minimumFontPt": 10.0,
+    "conditionLines": 0,
+    "signatureClient": true,
+    "signatureAgency": true,
+    "legalFooter": true,
+    "replacementGlyphs": 0,
+    "blankPages": [],
+    "textOutsidePage": 0
+  },
+  "long-conditions": {
+    "pages": 4,
+    "dimensionsMm": [
+      [
+        209.889,
+        297.011
+      ],
+      [
+        209.889,
+        297.011
+      ],
+      [
+        209.889,
+        297.011
+      ],
+      [
+        209.889,
+        297.011
+      ]
+    ],
+    "minimumFontPt": 10.0,
+    "conditionLines": 180,
+    "signatureClient": true,
+    "signatureAgency": true,
+    "legalFooter": true,
+    "replacementGlyphs": 0,
+    "blankPages": [],
+    "textOutsidePage": 0
+  },
+  "luxury": {
+    "pages": 1,
+    "dimensionsMm": [
+      [
+        209.889,
+        297.011
+      ]
+    ],
+    "minimumFontPt": 10.0,
+    "conditionLines": 0,
+    "signatureClient": true,
+    "signatureAgency": true,
+    "legalFooter": true,
+    "replacementGlyphs": 0,
+    "blankPages": [],
+    "textOutsidePage": 0
+  },
+  "modern": {
+    "pages": 1,
+    "dimensionsMm": [
+      [
+        209.889,
+        297.011
+      ]
+    ],
+    "minimumFontPt": 10.0,
+    "conditionLines": 0,
+    "signatureClient": true,
+    "signatureAgency": true,
+    "legalFooter": true,
+    "replacementGlyphs": 0,
+    "blankPages": [],
+    "textOutsidePage": 0
+  }
+}

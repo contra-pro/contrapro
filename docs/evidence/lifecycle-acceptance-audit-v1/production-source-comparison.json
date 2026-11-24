@@ -1,0 +1,45 @@
+{
+  "unchanged": true,
+  "files": {
+    "packages/application/src/rentals/contract-lifecycle.ts": {
+      "before": "7951b85076e6298d8053d87b6856dbe9c4a2b60789c0af9c1e12ac7f31b6e087",
+      "after": "7951b85076e6298d8053d87b6856dbe9c4a2b60789c0af9c1e12ac7f31b6e087",
+      "unchanged": true
+    },
+    "packages/application/src/rentals/contract-settings.ts": {
+      "before": "e21e378e1d057b096ab7e62ae124ced8906f7a441570ef069814d60fb0a218a3",
+      "after": "e21e378e1d057b096ab7e62ae124ced8906f7a441570ef069814d60fb0a218a3",
+      "unchanged": true
+    },
+    "packages/application/src/rentals/create.ts": {
+      "before": "025eac46de120fd882635041f0f60c94fcee888146ba3167fe5cf120556fed84",
+      "after": "025eac46de120fd882635041f0f60c94fcee888146ba3167fe5cf120556fed84",
+      "unchanged": true
+    },
+    "apps/web/src/rentals/contract-lifecycle-demo.tsx": {
+      "before": "31f98e44c63246429d2cd7e3f95022eff4607a54174c3f88cbe2d27db990d617",
+      "after": "31f98e44c63246429d2cd7e3f95022eff4607a54174c3f88cbe2d27db990d617",
+      "unchanged": true
+    },
+    "apps/web/src/rentals/contract-pdf-export.tsx": {
+      "before": "47a92515d9dce57b693113c4e3fc41366e60550e58fe00884f95ddf6b8200cf2",
+      "after": "47a92515d9dce57b693113c4e3fc41366e60550e58fe00884f95ddf6b8200cf2",
+      "unchanged": true
+    },
+    "apps/web/src/rentals/contract-document.tsx": {
+      "before": "c71d6a566e9f36fb51b45ca2175ced21ce63baab28a76ebd887d59cc766a8be4",
+      "after": "c71d6a566e9f36fb51b45ca2175ced21ce63baab28a76ebd887d59cc766a8be4",
+      "unchanged": true
+    },
+    "apps/web/src/rentals/contract-studio.module.css": {
+      "before": "138e097df19557d72d34b3c92fb9cc5df18622656e0898de0268f40b97121e05",
+      "after": "138e097df19557d72d34b3c92fb9cc5df18622656e0898de0268f40b97121e05",
+      "unchanged": true
+    },
+    "apps/web/preview/rental-create/studio-preview.tsx": {
+      "before": "03ee5271ae6d73979abd37c8959d917e5be3047a9b04c9e975ebce54bfa312b5",
+      "after": "03ee5271ae6d73979abd37c8959d917e5be3047a9b04c9e975ebce54bfa312b5",
+      "unchanged": true
+    }
+  }
+}

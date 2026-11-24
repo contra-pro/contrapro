@@ -2,8 +2,9 @@ import type { Locale } from "../i18n/locales";
 import { vehicleFailureCodes, type VehicleMessageCode } from "../i18n/vehicles";
 import { isRecord, isUuid } from "../../../../packages/application/src/agency-management";
 import type { VehicleDraft } from "../../../../packages/application/src/vehicle-draft";
+import type { VehicleAttributes } from "../../../../packages/application/src/vehicles";
 import { vehicleVersionLimit } from "../../../../packages/application/src/vehicles";
-type SaveInput = { action: "create"; requestId: string; data: VehicleDraft } | { action: "update"; id: string; version: number; data: VehicleDraft };
+type SaveInput = { action: "create"; requestId: string; data: VehicleDraft & Partial<VehicleAttributes> } | { action: "update"; id: string; version: number; data: VehicleDraft & Partial<VehicleAttributes> };
 export type VehicleSaveResult = { ok: true; id: string; version: number } | { ok: false; code: VehicleMessageCode };
 /** UI confirmation boundary: no retry, raw exception or caller-supplied tenant ID. */
 export async function saveVehicle(locale: Locale, body: SaveInput, send: typeof fetch): Promise<VehicleSaveResult> {

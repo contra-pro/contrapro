@@ -1,0 +1,24 @@
+.root { max-width: 76rem; margin-inline: auto; color: var(--ink, #18324b); }
+.notice { padding: .75rem 1rem; background: #fff4d8; color: #62440d; border-inline-start: 4px solid #936613; border-radius: 6px; font-size: .85rem; }
+.header { display: flex; align-items: start; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-block: 2rem; }
+.header h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-block: .5rem .75rem; }
+.header p { margin-block: 0; }
+.eyebrow { color: var(--blue, #174f8c); font-size: .75rem; font-weight: 700; letter-spacing: .08em; }
+.badge { padding: .4rem .85rem; background: #e9f1fa; color: var(--blue, #174f8c); border: 1px solid var(--line, #d7e1ea); border-radius: 6px; font-weight: 650; }
+.layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, 20rem); gap: 1.5rem; align-items: start; }
+.stack { display: grid; gap: 1.5rem; min-width: 0; }
+.panel { min-width: 0; padding: 1.5rem; background: white; border: 1px solid var(--line, #d7e1ea); border-radius: 10px; }
+.panel h2 { font-size: 1.05rem; margin-block: 0 1rem; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin: 0; }
+.root dt { color: var(--muted, #50677c); font-size: .85rem; }
+.root dd { margin: .35rem 0 0; overflow-wrap: anywhere; }
+.reference { display: block; font-size: .8rem; overflow-wrap: anywhere; }
+.utc { display: block; font-size: .75rem; color: var(--muted, #50677c); overflow-wrap: anywhere; margin-block-start: .25rem; }
+.hint { color: var(--muted, #50677c); font-size: .8rem; }
+.amounts { margin: 0; }
+.amounts > div { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem .75rem; padding-block: .75rem; border-bottom: 1px solid var(--line, #d7e1ea); }
+.amounts dd { font-weight: 650; }
+.total dd { color: var(--blue, #174f8c); font-size: 1.35rem; }
+.warning { padding: .75rem; background: #fff4d8; color: #62440d; font-size: .85rem; border-inline-start: 3px solid #936613; }
+@media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } .panel { padding: 1rem; } }

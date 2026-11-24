@@ -1,0 +1,20 @@
+import { afterEach,beforeEach,expect,it,vi } from "vitest";
+import { NextRequest } from "next/server";
+vi.mock("server-only",()=>({}));
+const mocks=vi.hoisted(()=>({context:vi.fn(),subject:vi.fn(),call:vi.fn()}));
+vi.mock("../auth/server",()=>({serverAuthClient:()=>({})}));
+vi.mock("../auth/identity",()=>({supabaseAgencyContext:mocks.context,verifiedSubject:mocks.subject}));
+vi.mock("./repository",()=>({BillingRepository:class {call=mocks.call;}}));
+import { handleBilling } from "./handler";
+import { BillingFault } from "./model";
+const origin="https://contratpro.example",aid="50000000-0000-4000-8000-000000000003";
+function request(action="dashboard",input:object={},from=origin){return new NextRequest(`${origin}/fr/app/billing/action`,{method:"POST",headers:{origin:from,"Content-Type":"application/json"},body:JSON.stringify({action,input})});}
+beforeEach(()=>{vi.resetAllMocks();vi.stubEnv("CONTRATPRO_APP_ORIGIN",origin);vi.stubEnv("CONTRATPRO_BILLING_VERIFIED","true");mocks.context.mockResolvedValue({access:{status:"authorized",agencyId:aid,userId:"user"},canonical:{userId:"user"}});mocks.subject.mockResolvedValue({subject:"admin"});mocks.call.mockResolvedValue({subscription:null});});
+afterEach(()=>vi.unstubAllEnvs());
+it("defaults closed without the separately verified billing gate",async()=>{vi.stubEnv("CONTRATPRO_BILLING_VERIFIED","");expect((await handleBilling(request(),"fr")).status).toBe(503);expect(mocks.call).not.toHaveBeenCalled();});
+it("rejects cross-origin billing changes before database calls",async()=>{expect((await handleBilling(request("cancel",{},"https://foreign.example"),"fr")).status).toBe(403);expect(mocks.call).not.toHaveBeenCalled();});
+it("uses canonical agency scope, ignoring browser-supplied scope",async()=>{await handleBilling(request("dashboard",{agencyId:"foreign",actor:"forged"}),"ar");expect(mocks.call).toHaveBeenCalledWith(aid,"dashboard",{agencyId:"foreign",actor:"forged"},false);});
+it("denies a missing or mismatched canonical identity",async()=>{mocks.context.mockResolvedValue({access:{status:"authorized",agencyId:aid,userId:"user"},canonical:null});expect((await handleBilling(request(),"fr")).status).toBe(403);expect(mocks.call).not.toHaveBeenCalled();});
+it("rejects malformed and oversized JSON before billing dispatch",async()=>{for(const body of ["{",JSON.stringify({action:"profile",input:{name:"x".repeat(33000)}})]){const r=await handleBilling(new NextRequest(`${origin}/fr/app/billing/action`,{method:"POST",headers:{origin,"Content-Type":"application/json"},body}),"fr");expect(r.status).toBe(422);}expect(mocks.call).not.toHaveBeenCalled();});
+it("platform uses verified auth and the independent platform RPC, never agency owner status",async()=>{const r=await handleBilling(request(),"ar",true);expect(r.status).toBe(200);expect(mocks.context).not.toHaveBeenCalled();expect(mocks.call).toHaveBeenCalledWith(null,"dashboard",{},true);});
+it.each([['forbidden',403],['quota',429],['restricted',402],['conflict',409]] as const)("returns sanitized %s denial and no success",async(code,status)=>{mocks.call.mockRejectedValue(new BillingFault(code));const r=await handleBilling(request(),"fr");expect(r.status).toBe(status);expect(await r.json()).toEqual({ok:false,code});expect(r.headers.get("cache-control")).toContain("no-store");});

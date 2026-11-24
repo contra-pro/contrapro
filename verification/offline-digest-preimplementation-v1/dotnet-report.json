@@ -1,0 +1,9 @@
+{
+  "status": "UNVERIFIED-TOOL-POLICY",
+  "ownerApproved": false,
+  "checks": 0,
+  "discrepancies": null,
+  "reason": "lean-ctx shell allowlist rejected pwsh before execution. Not retried, rerouted or allowlisted.",
+  "environment": null,
+  "scope": "Optional third primitive cross-check only; the two independent encoder/framer paths are Node and Python. No .NET verification is claimed."
+}

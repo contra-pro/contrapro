@@ -1,0 +1,32 @@
+{
+  "bilingual": {
+    "pages": 2,
+    "minimumFontPt": 10.0,
+    "conditionsRepeats": 0
+  },
+  "classic": {
+    "pages": 1,
+    "minimumFontPt": 10.0,
+    "conditionsRepeats": 0
+  },
+  "detailed": {
+    "pages": 1,
+    "minimumFontPt": 10.0,
+    "conditionsRepeats": 0
+  },
+  "long-conditions": {
+    "pages": 4,
+    "minimumFontPt": 10.0,
+    "conditionsRepeats": 180
+  },
+  "luxury": {
+    "pages": 1,
+    "minimumFontPt": 10.0,
+    "conditionsRepeats": 0
+  },
+  "modern": {
+    "pages": 1,
+    "minimumFontPt": 10.0,
+    "conditionsRepeats": 0
+  }
+}

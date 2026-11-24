@@ -17,6 +17,6 @@ export default async function VehiclesPage({ params, searchParams }: { params: P
   try { data = await listVehicles(scope.client, scope.agencyId, page); } catch { /* Sanitized unavailable state. */ }
   const copy = vehicleMessages(locale);
   return <AgencyWorkspace locale={locale} title={copy.title}>
-    {data ? <VehicleList locale={locale} data={data} canCreate={scope.permissions.create} /> : <p role="alert">{copy.unavailable}</p>}
+    {data ? <VehicleList key={scope.agencyId} locale={locale} data={data} canCreate={scope.permissions.create} /> : <p role="alert">{copy.unavailable}</p>}
   </AgencyWorkspace>;
 }

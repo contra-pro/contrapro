@@ -1,0 +1,1066 @@
+{
+  "status": "SPECIFICATION-CONSISTENCY-CHECKED-NOT-APPROVAL",
+  "ownerApproved": false,
+  "schemaDefinitions": 67,
+  "runnableVectorsCompared": 153,
+  "pendingUnverifiedVectors": [
+    {
+      "id": "native-js-property-boundary",
+      "status": "UNVERIFIED",
+      "scope": "Applicable: AST corpus does not independently verify native JS descriptors/prototypes/accessors"
+    },
+    {
+      "id": "populated-png-screen",
+      "status": "UNVERIFIED",
+      "scope": "Applicable: exact source predicate specified but non-null logo screening not independently exercised"
+    },
+    {
+      "id": "combined-error-precedence",
+      "status": "UNVERIFIED",
+      "scope": "Applicable: full multi-fault pipeline precedence not independently exercised"
+    },
+    {
+      "id": "actual-budget-cost-boundaries",
+      "status": "UNVERIFIED",
+      "scope": "Applicable: counter models do not prove allocations/work at all byte/node caps"
+    },
+    {
+      "id": "populated-prior-edition",
+      "status": "UNVERIFIED",
+      "scope": "Applicable: non-null lineage shape is specified but binding/history reference cases are not independently exercised"
+    },
+    {
+      "id": "raw-json-duplicate-import",
+      "status": "UNVERIFIED",
+      "scope": "Deferred/excluded raw importer, K04"
+    },
+    {
+      "id": "invalid-raw-utf8-admission",
+      "status": "UNVERIFIED",
+      "scope": "Deferred/excluded raw importer, U11"
+    },
+    {
+      "id": "rerendered-pdf-comparison",
+      "status": "UNVERIFIED",
+      "scope": "Deferred/excluded artifact generation, P03"
+    },
+    {
+      "id": "signed-incremental-update",
+      "status": "UNVERIFIED",
+      "scope": "Deferred real signing verifier, P05"
+    },
+    {
+      "id": "pdf-content-authorization",
+      "status": "UNVERIFIED",
+      "scope": "Deferred content/authority verification, P06"
+    }
+  ],
+  "classes": {
+    "exact-byte-reference": 83,
+    "rejection-reference": 28,
+    "graph-model-only": 3,
+    "counter-model-only": 39
+  },
+  "sourceRows": [
+    {
+      "sourceRow": "K01",
+      "vectorIds": [
+        "keys-ba",
+        "keys-ab",
+        "keys-scalar",
+        "keys-prefix",
+        "keys-numeric-keys"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "K02",
+      "vectorIds": [
+        "keys-ba",
+        "keys-ab",
+        "keys-scalar",
+        "keys-prefix",
+        "keys-numeric-keys"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "K03",
+      "vectorIds": [
+        "keys-ba",
+        "keys-ab",
+        "keys-scalar",
+        "keys-prefix",
+        "keys-numeric-keys",
+        "actual-key-bytes-255",
+        "actual-key-bytes-256",
+        "actual-key-bytes-257"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "K04",
+      "vectorIds": [
+        "duplicate-decoded-keys"
+      ],
+      "disposition": "PARTIAL-OR-DEFERRED-NOT-FULLY-VERIFIED",
+      "exclusion": "Raw JSON import is excluded; only duplicate decoded-key semantics probed"
+    },
+    {
+      "sourceRow": "K05",
+      "vectorIds": [
+        "empty-object",
+        "null-key",
+        "empty-array",
+        "array-ab",
+        "array-ba",
+        "tag-looking-data"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "U01",
+      "vectorIds": [
+        "french-precomposed",
+        "french-decomposed"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "U02",
+      "vectorIds": [
+        "french-precomposed"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "U03",
+      "vectorIds": [
+        "arabic-composed",
+        "arabic-decomposed"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "U04",
+      "vectorIds": [
+        "arabic-marks-a",
+        "arabic-marks-b"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "U05",
+      "vectorIds": [
+        "arabic-lam-alef",
+        "arabic-presentation"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "U06",
+      "vectorIds": [
+        "arabic-joiners"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "U07",
+      "vectorIds": [
+        "bidi"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "U08",
+      "vectorIds": [
+        "lf",
+        "crlf",
+        "nbsp"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "U09",
+      "vectorIds": [
+        "lf",
+        "escapes"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "U10",
+      "vectorIds": [
+        "astral",
+        "lone-high",
+        "lone-low"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "U11",
+      "vectorIds": [
+        "embedded-bom"
+      ],
+      "disposition": "PARTIAL-OR-DEFERRED-NOT-FULLY-VERIFIED",
+      "exclusion": "Raw UTF-8/canonical-byte admission not implemented; embedded-BOM preservation only"
+    },
+    {
+      "sourceRow": "V01",
+      "vectorIds": [
+        "empty-object",
+        "null-key",
+        "empty-array",
+        "array-ab",
+        "array-ba",
+        "tag-looking-data",
+        "own-undefined",
+        "actual-depth-31",
+        "actual-depth-32",
+        "actual-depth-33"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "V02",
+      "vectorIds": [
+        "v1-untagged-classic",
+        "v1-untagged-luxury",
+        "v1-untagged-modern",
+        "v1-untagged-detailed",
+        "v1-untagged-bilingual",
+        "v1-tagged-classic",
+        "v1-tagged-luxury",
+        "v1-tagged-modern",
+        "v1-tagged-detailed",
+        "v1-tagged-bilingual",
+        "v2-classic",
+        "v2-luxury",
+        "v2-modern",
+        "v2-detailed",
+        "v2-bilingual",
+        "v3-classic",
+        "v3-luxury",
+        "v3-modern",
+        "v3-detailed",
+        "v3-bilingual"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "V03",
+      "vectorIds": [
+        "v1-untagged-classic",
+        "v1-untagged-luxury",
+        "v1-untagged-modern",
+        "v1-untagged-detailed",
+        "v1-untagged-bilingual",
+        "v1-tagged-classic",
+        "v1-tagged-luxury",
+        "v1-tagged-modern",
+        "v1-tagged-detailed",
+        "v1-tagged-bilingual",
+        "v2-classic",
+        "v2-luxury",
+        "v2-modern",
+        "v2-detailed",
+        "v2-bilingual",
+        "v3-classic",
+        "v3-luxury",
+        "v3-modern",
+        "v3-detailed",
+        "v3-bilingual"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "V04",
+      "vectorIds": [
+        "v1-untagged-classic",
+        "v1-untagged-luxury",
+        "v1-untagged-modern",
+        "v1-untagged-detailed",
+        "v1-untagged-bilingual",
+        "v1-tagged-classic",
+        "v1-tagged-luxury",
+        "v1-tagged-modern",
+        "v1-tagged-detailed",
+        "v1-tagged-bilingual",
+        "v2-classic",
+        "v2-luxury",
+        "v2-modern",
+        "v2-detailed",
+        "v2-bilingual",
+        "v3-classic",
+        "v3-luxury",
+        "v3-modern",
+        "v3-detailed",
+        "v3-bilingual"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "V05",
+      "vectorIds": [
+        "unknown-source",
+        "unknown-domain"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "N01",
+      "vectorIds": [
+        "bigint-0",
+        "bigint-1",
+        "bigint--1",
+        "bigint-9007199254740992",
+        "bigint-9007199254740993",
+        "bigint-01",
+        "bigint-+1",
+        "bigint-1e0",
+        "bigint--0"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "N02",
+      "vectorIds": [
+        "number-0",
+        "number--0",
+        "number-1",
+        "number-1.0",
+        "number-1e0",
+        "number-12.5",
+        "number-12.500000000000002",
+        "number-5e-324",
+        "number-1.7976931348623157e308",
+        "number-NaN",
+        "number-Infinity",
+        "number--Infinity",
+        "bigint-0",
+        "bigint-1",
+        "bigint--1",
+        "bigint-9007199254740992",
+        "bigint-9007199254740993",
+        "bigint-01",
+        "bigint-+1",
+        "bigint-1e0",
+        "bigint--0",
+        "string-one"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "N03",
+      "vectorIds": [
+        "number-0",
+        "number--0",
+        "number-1",
+        "number-1.0",
+        "number-1e0",
+        "number-12.5",
+        "number-12.500000000000002",
+        "number-5e-324",
+        "number-1.7976931348623157e308",
+        "number-NaN",
+        "number-Infinity",
+        "number--Infinity"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "N04",
+      "vectorIds": [
+        "number-0",
+        "number--0",
+        "number-1",
+        "number-1.0",
+        "number-1e0",
+        "number-12.5",
+        "number-12.500000000000002",
+        "number-5e-324",
+        "number-1.7976931348623157e308",
+        "number-NaN",
+        "number-Infinity",
+        "number--Infinity"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "N05",
+      "vectorIds": [
+        "number-0",
+        "number--0",
+        "number-1",
+        "number-1.0",
+        "number-1e0",
+        "number-12.5",
+        "number-12.500000000000002",
+        "number-5e-324",
+        "number-1.7976931348623157e308",
+        "number-NaN",
+        "number-Infinity",
+        "number--Infinity"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "N06",
+      "vectorIds": [
+        "number-0",
+        "number--0",
+        "number-1",
+        "number-1.0",
+        "number-1e0",
+        "number-12.5",
+        "number-12.500000000000002",
+        "number-5e-324",
+        "number-1.7976931348623157e308",
+        "number-NaN",
+        "number-Infinity",
+        "number--Infinity",
+        "budget-snapshotBytes--1",
+        "budget-snapshotBytes-0",
+        "budget-snapshotBytes-1",
+        "budget-coreBytes--1",
+        "budget-coreBytes-0",
+        "budget-coreBytes-1",
+        "budget-pdfBytes--1",
+        "budget-pdfBytes-0",
+        "budget-pdfBytes-1",
+        "budget-assetBytes--1",
+        "budget-assetBytes-0",
+        "budget-assetBytes-1",
+        "budget-assets--1",
+        "budget-assets-0",
+        "budget-assets-1",
+        "budget-packageBytes--1",
+        "budget-packageBytes-0",
+        "budget-packageBytes-1",
+        "budget-depth--1",
+        "budget-depth-0",
+        "budget-depth-1",
+        "budget-nodes--1",
+        "budget-nodes-0",
+        "budget-nodes-1",
+        "budget-members--1",
+        "budget-members-0",
+        "budget-members-1",
+        "budget-entries--1",
+        "budget-entries-0",
+        "budget-entries-1",
+        "budget-keyBytes--1",
+        "budget-keyBytes-0",
+        "budget-keyBytes-1",
+        "budget-stringBytes--1",
+        "budget-stringBytes-0",
+        "budget-stringBytes-1",
+        "budget-bigintDigits--1",
+        "budget-bigintDigits-0",
+        "budget-bigintDigits-1",
+        "unsafe-revision",
+        "negative-revision",
+        "zero-settings-revision",
+        "unknown-result-key"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "N07",
+      "vectorIds": [
+        "bigint-0",
+        "bigint-1",
+        "bigint--1",
+        "bigint-9007199254740992",
+        "bigint-9007199254740993",
+        "bigint-01",
+        "bigint-+1",
+        "bigint-1e0",
+        "bigint--0",
+        "actual-bigint-digits-255",
+        "actual-bigint-digits-256",
+        "actual-bigint-digits-257"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "T01",
+      "vectorIds": [
+        "timestamp-0",
+        "timestamp-1",
+        "timestamp-2"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "T02",
+      "vectorIds": [
+        "timestamp-0",
+        "timestamp-1",
+        "timestamp-2"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "T03",
+      "vectorIds": [
+        "timestamp-0",
+        "timestamp-1",
+        "timestamp-2"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "R01",
+      "vectorIds": [
+        "new-edition",
+        "foreign-contract",
+        "stale-edition"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "R02",
+      "vectorIds": [
+        "v1-untagged-classic",
+        "v1-untagged-luxury",
+        "v1-untagged-modern",
+        "v1-untagged-detailed",
+        "v1-untagged-bilingual",
+        "v1-tagged-classic",
+        "v1-tagged-luxury",
+        "v1-tagged-modern",
+        "v1-tagged-detailed",
+        "v1-tagged-bilingual",
+        "v2-classic",
+        "v2-luxury",
+        "v2-modern",
+        "v2-detailed",
+        "v2-bilingual",
+        "v3-classic",
+        "v3-luxury",
+        "v3-modern",
+        "v3-detailed",
+        "v3-bilingual"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "R03",
+      "vectorIds": [
+        "v1-untagged-classic",
+        "v1-untagged-luxury",
+        "v1-untagged-modern",
+        "v1-untagged-detailed",
+        "v1-untagged-bilingual",
+        "v1-tagged-classic",
+        "v1-tagged-luxury",
+        "v1-tagged-modern",
+        "v1-tagged-detailed",
+        "v1-tagged-bilingual",
+        "v2-classic",
+        "v2-luxury",
+        "v2-modern",
+        "v2-detailed",
+        "v2-bilingual",
+        "v3-classic",
+        "v3-luxury",
+        "v3-modern",
+        "v3-detailed",
+        "v3-bilingual",
+        "asset-context-mismatch",
+        "render-template-mismatch",
+        "party-context-mismatch"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "R04",
+      "vectorIds": [
+        "foreign-context",
+        "foreign-contract",
+        "stale-edition",
+        "asset-context-mismatch",
+        "render-template-mismatch",
+        "party-context-mismatch"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "R05",
+      "vectorIds": [
+        "new-live-cas"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "P01",
+      "vectorIds": [
+        "v1-untagged-classic",
+        "v1-untagged-luxury",
+        "v1-untagged-modern",
+        "v1-untagged-detailed",
+        "v1-untagged-bilingual",
+        "v1-tagged-classic",
+        "v1-tagged-luxury",
+        "v1-tagged-modern",
+        "v1-tagged-detailed",
+        "v1-tagged-bilingual",
+        "v2-classic",
+        "v2-luxury",
+        "v2-modern",
+        "v2-detailed",
+        "v2-bilingual",
+        "v3-classic",
+        "v3-luxury",
+        "v3-modern",
+        "v3-detailed",
+        "v3-bilingual",
+        "bytes-pdf-empty",
+        "bytes-pdf-abc",
+        "bytes-pdf-metadata-change",
+        "bytes-asset-empty",
+        "bytes-asset-abc",
+        "bytes-asset-metadata-change",
+        "bytes-snapshot-empty",
+        "bytes-snapshot-abc",
+        "bytes-snapshot-metadata-change"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "P02",
+      "vectorIds": [
+        "bytes-pdf-empty",
+        "bytes-pdf-abc",
+        "bytes-pdf-metadata-change",
+        "bytes-asset-empty",
+        "bytes-asset-abc",
+        "bytes-asset-metadata-change",
+        "bytes-snapshot-empty",
+        "bytes-snapshot-abc",
+        "bytes-snapshot-metadata-change"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "P03",
+      "vectorIds": [],
+      "disposition": "PARTIAL-OR-DEFERRED-NOT-FULLY-VERIFIED",
+      "exclusion": "No PDF generation/re-rendering permitted"
+    },
+    {
+      "sourceRow": "P04",
+      "vectorIds": [
+        "bytes-pdf-empty",
+        "bytes-pdf-abc",
+        "bytes-pdf-metadata-change",
+        "bytes-asset-empty",
+        "bytes-asset-abc",
+        "bytes-asset-metadata-change",
+        "bytes-snapshot-empty",
+        "bytes-snapshot-abc",
+        "bytes-snapshot-metadata-change",
+        "missing-bytes"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "P05",
+      "vectorIds": [],
+      "disposition": "PARTIAL-OR-DEFERRED-NOT-FULLY-VERIFIED",
+      "exclusion": "Real signed incremental-update verifier deferred"
+    },
+    {
+      "sourceRow": "P06",
+      "vectorIds": [],
+      "disposition": "PARTIAL-OR-DEFERRED-NOT-FULLY-VERIFIED",
+      "exclusion": "Content/authority verifier deferred"
+    },
+    {
+      "sourceRow": "D01",
+      "vectorIds": [
+        "bytes-pdf-empty",
+        "bytes-pdf-abc",
+        "bytes-pdf-metadata-change",
+        "bytes-asset-empty",
+        "bytes-asset-abc",
+        "bytes-asset-metadata-change",
+        "bytes-snapshot-empty",
+        "bytes-snapshot-abc",
+        "bytes-snapshot-metadata-change"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "D02",
+      "vectorIds": [
+        "unknown-domain"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "D03",
+      "vectorIds": [
+        "expected-hash-mismatch"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "D04",
+      "vectorIds": [
+        "bytes-pdf-empty",
+        "bytes-pdf-abc",
+        "bytes-pdf-metadata-change",
+        "bytes-asset-empty",
+        "bytes-asset-abc",
+        "bytes-asset-metadata-change",
+        "bytes-snapshot-empty",
+        "bytes-snapshot-abc",
+        "bytes-snapshot-metadata-change",
+        "budget-snapshotBytes--1",
+        "budget-snapshotBytes-0",
+        "budget-snapshotBytes-1",
+        "budget-coreBytes--1",
+        "budget-coreBytes-0",
+        "budget-coreBytes-1",
+        "budget-pdfBytes--1",
+        "budget-pdfBytes-0",
+        "budget-pdfBytes-1",
+        "budget-assetBytes--1",
+        "budget-assetBytes-0",
+        "budget-assetBytes-1",
+        "budget-assets--1",
+        "budget-assets-0",
+        "budget-assets-1",
+        "budget-packageBytes--1",
+        "budget-packageBytes-0",
+        "budget-packageBytes-1",
+        "budget-depth--1",
+        "budget-depth-0",
+        "budget-depth-1",
+        "budget-nodes--1",
+        "budget-nodes-0",
+        "budget-nodes-1",
+        "budget-members--1",
+        "budget-members-0",
+        "budget-members-1",
+        "budget-entries--1",
+        "budget-entries-0",
+        "budget-entries-1",
+        "budget-keyBytes--1",
+        "budget-keyBytes-0",
+        "budget-keyBytes-1",
+        "budget-stringBytes--1",
+        "budget-stringBytes-0",
+        "budget-stringBytes-1",
+        "budget-bigintDigits--1",
+        "budget-bigintDigits-0",
+        "budget-bigintDigits-1"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "D05",
+      "vectorIds": [
+        "root-self-field",
+        "graph-acyclic",
+        "graph-cycle",
+        "graph-self-cycle"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "A01",
+      "vectorIds": [
+        "graph-acyclic",
+        "graph-cycle",
+        "graph-self-cycle"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    },
+    {
+      "sourceRow": "A02",
+      "vectorIds": [
+        "v1-untagged-classic",
+        "v1-untagged-luxury",
+        "v1-untagged-modern",
+        "v1-untagged-detailed",
+        "v1-untagged-bilingual",
+        "v1-tagged-classic",
+        "v1-tagged-luxury",
+        "v1-tagged-modern",
+        "v1-tagged-detailed",
+        "v1-tagged-bilingual",
+        "v2-classic",
+        "v2-luxury",
+        "v2-modern",
+        "v2-detailed",
+        "v2-bilingual",
+        "v3-classic",
+        "v3-luxury",
+        "v3-modern",
+        "v3-detailed",
+        "v3-bilingual",
+        "unsafe-revision",
+        "negative-revision",
+        "zero-settings-revision",
+        "unknown-result-key"
+      ],
+      "disposition": "SCOPED-REFERENCE-CASES-NOT-OWNER-ACCEPTED",
+      "exclusion": null
+    }
+  ],
+  "protectedFiles": [
+    {
+      "file": "packages/application/src/rentals/signing-evidence.ts",
+      "expectedGitBlobId": "52dee0a23b917f7c0d9559e03d5ed2d0f9d3ce15",
+      "actualGitBlobId": "52dee0a23b917f7c0d9559e03d5ed2d0f9d3ce15",
+      "unchanged": true
+    },
+    {
+      "file": "packages/application/src/rentals/signing-evidence-resolution.ts",
+      "expectedGitBlobId": "c17ef6dfe252126913bb05e44108de984e692c46",
+      "actualGitBlobId": "c17ef6dfe252126913bb05e44108de984e692c46",
+      "unchanged": true
+    },
+    {
+      "file": "packages/application/src/rentals/contract-lifecycle.ts",
+      "expectedGitBlobId": "bbe5ecbe33931a38fc3aa141bf5d612a37911bc7",
+      "actualGitBlobId": "bbe5ecbe33931a38fc3aa141bf5d612a37911bc7",
+      "unchanged": true
+    },
+    {
+      "file": "packages/application/src/rentals/contract-settings.ts",
+      "expectedGitBlobId": "b9bc58e744c80c7c8879644b2b8d3130e249f2be",
+      "actualGitBlobId": "b9bc58e744c80c7c8879644b2b8d3130e249f2be",
+      "unchanged": true
+    },
+    {
+      "file": "apps/web/src/rentals/contract-document.tsx",
+      "expectedGitBlobId": "855cb803d09c232b418370230b8f985d8eef3d31",
+      "actualGitBlobId": "855cb803d09c232b418370230b8f985d8eef3d31",
+      "unchanged": true
+    },
+    {
+      "file": "apps/web/src/rentals/contract-studio.module.css",
+      "expectedGitBlobId": "c3e03e2564a4845bd3139acdf43419c498fa2fcb",
+      "actualGitBlobId": "c3e03e2564a4845bd3139acdf43419c498fa2fcb",
+      "unchanged": true
+    },
+    {
+      "file": "apps/web/src/rentals/contract-pdf-export.tsx",
+      "expectedGitBlobId": "56cea4567c7430472de7467db8a9ebc619db88c0",
+      "actualGitBlobId": "56cea4567c7430472de7467db8a9ebc619db88c0",
+      "unchanged": true
+    },
+    {
+      "file": "apps/web/src/rentals/signing-evidence.test.ts",
+      "expectedGitBlobId": "660bf3a5a14546c50ce3e7a72d4249dc2fd57ffd",
+      "actualGitBlobId": "660bf3a5a14546c50ce3e7a72d4249dc2fd57ffd",
+      "unchanged": true
+    },
+    {
+      "file": "apps/web/src/rentals/signing-evidence-resolution.test.ts",
+      "expectedGitBlobId": "9fe44dd87bedd3674eacb419f418551799e9b39f",
+      "actualGitBlobId": "9fe44dd87bedd3674eacb419f418551799e9b39f",
+      "unchanged": true
+    }
+  ],
+  "baselineScope": "Nine Git blob IDs recorded earlier in this same workspace conversation; not a new all-workspace baseline or an integrity authority",
+  "scriptSha256": {
+    "author-corpus.py": "f50b1ef51b11bac190b140fe4db3c0445b7fe96aa289686338b3c5b91e474726",
+    "reference-node.mjs": "88b38b9ef2daec56ea5f31ba9ebb8cfb87a3e3245ebf87f8650cb75609f25996",
+    "reference-python.py": "ca4dc4667a39cf30b9bd81ab3a82508cea201132ff503798001149e35b8bee69",
+    "test_reference.py": "4ed5802a2abb736a0467843753b7826000e7658bc8ac21cbe3ac40342fa0016c",
+    "check-specification.mjs": "1968be0fb520913f683521a940cb0fcf7acfa690180d38fd390b89b19a9ae138"
+  },
+  "byteExamples": [
+    {
+      "id": "string-one",
+      "sourceRows": [
+        "N02"
+      ],
+      "result": {
+        "schemaVersion": 1,
+        "profileId": "cp-integrity-result-draft1",
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "reasonCode": "reference-match",
+        "targetIds": [],
+        "digests": []
+      },
+      "records": [
+        {
+          "name": "value",
+          "canonicalUtf8": "[\"string\",\"1\"]",
+          "canonicalHex": "5b22737472696e67222c2231225d",
+          "canonicalByteLength": 14,
+          "framedHex": "434f4e5452415450524f2d444947455354000000001d63702e736e617073686f742e74797065642d6a736f6e2e647261667431000000000000000e5b22737472696e67222c2231225d",
+          "framedByteLength": 73,
+          "digest": {
+            "algorithm": "sha-256",
+            "encoding": "hex",
+            "domainVersion": "cp.snapshot.typed-json.draft1",
+            "value": "f43855044209b647802252f22f36ff96577b81b499d557e1f1d2957e8d7c40eb"
+          },
+          "counts": {
+            "nodes": 1,
+            "depth": 1
+          }
+        }
+      ],
+      "evidenceClass": "exact-byte-reference"
+    },
+    {
+      "id": "number--0",
+      "sourceRows": [
+        "N02",
+        "N03",
+        "N04",
+        "N05",
+        "N06"
+      ],
+      "result": {
+        "schemaVersion": 1,
+        "profileId": "cp-integrity-result-draft1",
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "reasonCode": "reference-match",
+        "targetIds": [],
+        "digests": []
+      },
+      "records": [
+        {
+          "name": "value",
+          "canonicalUtf8": "[\"binary64\",\"8000000000000000\"]",
+          "canonicalHex": "5b2262696e6172793634222c2238303030303030303030303030303030225d",
+          "canonicalByteLength": 31,
+          "framedHex": "434f4e5452415450524f2d444947455354000000001d63702e736e617073686f742e74797065642d6a736f6e2e647261667431000000000000001f5b2262696e6172793634222c2238303030303030303030303030303030225d",
+          "framedByteLength": 90,
+          "digest": {
+            "algorithm": "sha-256",
+            "encoding": "hex",
+            "domainVersion": "cp.snapshot.typed-json.draft1",
+            "value": "908540750cb59b1389bf81872a35062f88d74737790875088ab6c9bd6cb37b22"
+          },
+          "counts": {
+            "nodes": 1,
+            "depth": 1
+          }
+        }
+      ],
+      "evidenceClass": "exact-byte-reference"
+    },
+    {
+      "id": "bytes-pdf-empty",
+      "sourceRows": [
+        "P01",
+        "P02",
+        "P04",
+        "D01",
+        "D04"
+      ],
+      "result": {
+        "schemaVersion": 1,
+        "profileId": "cp-integrity-result-draft1",
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "reasonCode": "reference-match",
+        "targetIds": [],
+        "digests": []
+      },
+      "payloadHex": "",
+      "payloadByteLength": 0,
+      "framedHex": "434f4e5452415450524f2d444947455354000000001963702e7064662e65786163742d62797465732e6472616674310000000000000000",
+      "framedByteLength": 55,
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "digest": {
+        "algorithm": "sha-256",
+        "encoding": "hex",
+        "domainVersion": "cp.pdf.exact-bytes.draft1",
+        "value": "e589b60d99ee19df8d41a81446fc795209b8e06ea5376d8f6e0a3789553f7a8f"
+      },
+      "evidenceClass": "exact-byte-reference"
+    },
+    {
+      "id": "bytes-pdf-abc",
+      "sourceRows": [
+        "P01",
+        "P02",
+        "P04",
+        "D01",
+        "D04"
+      ],
+      "result": {
+        "schemaVersion": 1,
+        "profileId": "cp-integrity-result-draft1",
+        "status": "integrity-match-unverified",
+        "trust": "unverified",
+        "canActivateSigned": false,
+        "reasonCode": "reference-match",
+        "targetIds": [],
+        "digests": []
+      },
+      "payloadHex": "616263",
+      "payloadByteLength": 3,
+      "framedHex": "434f4e5452415450524f2d444947455354000000001963702e7064662e65786163742d62797465732e6472616674310000000000000003616263",
+      "framedByteLength": 58,
+      "rawSha256": "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad",
+      "digest": {
+        "algorithm": "sha-256",
+        "encoding": "hex",
+        "domainVersion": "cp.pdf.exact-bytes.draft1",
+        "value": "bef77962cc03393bdc7e13ba787c2a84baca2343f1e688a7e4494d1a00f556e2"
+      },
+      "evidenceClass": "exact-byte-reference"
+    }
+  ],
+  "errors": []
+}

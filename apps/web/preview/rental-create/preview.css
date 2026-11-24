@@ -1,0 +1,5 @@
+.rental-preview { max-width: 86rem; margin-inline: auto; padding: clamp(1rem, 4vw, 3rem); }
+.preview-tools { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding-block-end: 1rem; font-size: .85rem; }
+.preview-tools label { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.preview-tools select { font: inherit; min-height: 44px; padding: .5rem; border: 1px solid var(--muted); border-radius: 6px; background: white; color: var(--ink); }
+.preview-tools select:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }

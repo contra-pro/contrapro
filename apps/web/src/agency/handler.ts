@@ -51,7 +51,9 @@ export async function handleAgencyAction(request: NextRequest, locale: string, d
   try {
     if (!isLocale(locale)) return failed("forbidden", 404);
     const origin = appOrigin(deps.origin());
-    if (request.method !== "POST" || request.nextUrl.origin !== origin || request.headers.get("origin") !== origin) return failed("forbidden", 403);
+    if (request.method !== "POST" || request.nextUrl.origin !== origin || request.headers.get("origin") !== origin) {
+      return failed("forbidden", 403);
+    }
     let input: unknown;
     try { input = await payload(request); } catch { return failed("invalid", 400, { form: "invalid" }); }
     if (!isRecord(input)) return failed("invalid", 400, { form: "invalid" });
@@ -64,7 +66,9 @@ export async function handleAgencyAction(request: NextRequest, locale: string, d
     const context = await deps.context(client, readSelection(request.cookies.get(selectionCookie)?.value));
     if (context.access.status === "signed-out") return failed("signed-out", 401);
     if (context.access.status === "unavailable") return failed("unavailable", 503);
-    if (!context.canonical || !["authorized", "onboarding", "selection-required"].includes(context.access.status)) return failed("forbidden", 403);
+    if (!context.canonical || !["authorized", "onboarding", "selection-required"].includes(context.access.status)) {
+      return failed("forbidden", 403);
+    }
     const select = (agencyId: string) => pending.set(selectionCookie, { value: `${context.canonical!.userId}:${agencyId}`,
       options: { path: "/", httpOnly: true, sameSite: "lax", secure: origin.startsWith("https:") } });
     if (selecting) {

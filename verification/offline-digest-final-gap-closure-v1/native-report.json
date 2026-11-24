@@ -1,0 +1,303 @@
+{
+  "status": "CANDIDATE-NATIVE-BOUNDARY-CHECKED-NOT-APPROVED",
+  "environment": {
+    "node": "v24.15.0",
+    "openssl": "3.5.5",
+    "platform": "win32"
+  },
+  "rows": [
+    {
+      "id": "plain-object",
+      "expected": "admitted-unverified",
+      "pathA": "admitted-unverified",
+      "pathB": "admitted-unverified",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "plain-array",
+      "expected": "admitted-unverified",
+      "pathA": "admitted-unverified",
+      "pathB": "admitted-unverified",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "frozen-object",
+      "expected": "admitted-unverified",
+      "pathA": "admitted-unverified",
+      "pathB": "admitted-unverified",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "shared-no-cycle",
+      "expected": "admitted-unverified",
+      "pathA": "admitted-unverified",
+      "pathB": "admitted-unverified",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "valid-surrogate-pair",
+      "expected": "admitted-unverified",
+      "pathA": "admitted-unverified",
+      "pathB": "admitted-unverified",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "null-prototype",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "OPEN: strict ordinary-prototype interpretation tested; null-prototype acceptance is NOT decided",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "custom-prototype",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "class-instance",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "own-undefined",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "array-undefined",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "non-enumerable",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "getter",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "setter",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "symbol-key",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "sparse-array",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "array-extra-key",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "array-hidden-key",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "self-cycle",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "mixed-cycle",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "invalid-surrogate-value",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "invalid-surrogate-key",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "date",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "map",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "set",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "typed-array",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "array-buffer",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "function",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "symbol-value",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "boxed-string",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "nan",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "infinity",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    },
+    {
+      "id": "proxy",
+      "expected": "invalid-input",
+      "pathA": "invalid-input",
+      "pathB": "invalid-input",
+      "policyStatus": "PROPOSED",
+      "trust": "unverified",
+      "canActivateSigned": false
+    }
+  ],
+  "getterCalls": 0,
+  "setterCalls": 0,
+  "note": "Two independently structured native-JS probes, not a Python claim about JS prototypes; Proxy rejection is an explicit candidate recommendation.",
+  "trust": "unverified",
+  "canActivateSigned": false
+}

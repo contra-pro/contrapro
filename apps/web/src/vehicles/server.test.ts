@@ -21,7 +21,7 @@ describe("vehicle scope — offline dependencies only", () => {
   });
   it("pins permission lookup to verified selected agency", async () => {
     vi.stubEnv("CONTRATPRO_VEHICLES_VERIFIED", "true"); vi.mocked(getAgencyContext).mockResolvedValue(context);
-    const rpc = vi.fn(async () => ({ data: { read: true, create: false, update: false }, error: null }));
+    const rpc = vi.fn(async () => ({ data: { read: true, create: false, update: false, archive: false, contractVersion: 2 }, error: null }));
     vi.mocked(componentAuthClient).mockResolvedValue({ rpc } as unknown as SupabaseClient);
     expect(await getVehicleScope()).toMatchObject({ status: "ready", agencyId, permissions: { create: false } });
     expect(rpc).toHaveBeenCalledExactlyOnceWith("contratpro_vehicles_permissions", { p_agency_id: agencyId });

@@ -9,13 +9,13 @@ vi.mock("server-only", () => ({}));
 const origin = "https://contratpro.example";
 const agencyId = "10000000-0000-4000-8000-000000000001", otherAgency = "10000000-0000-4000-8000-000000000002";
 const userId = "20000000-0000-4000-8000-000000000001", id = "30000000-0000-4000-8000-000000000001", key = "40000000-0000-4000-8000-000000000001";
-const input = { registration: "12345 أ 6", make: "Dacia", model: "Duster", year: "2026", mileage: "12000" };
-const record = { ...input, id, agencyId, version: 1 };
+const input = { category: "unspecified" as const, fuelType: "unspecified" as const, transmission: "unspecified" as const, rentalStatus: "unknown" as const, registration: "12345 أ 6", make: "Dacia", model: "Duster", year: "2026", mileage: "12000" };
+const record = { ...input, id, agencyId, version: 1, state: "active" };
 const context: AgencyContext = { access: { status: "authorized", userId, agencyId, membershipId: key, agencyName: "Atlas" },
   canonical: { userId, subject: key, expiresAt: 9999999999999 }, choices: [{ agencyId, name: "Atlas" }] };
 function fixture() {
   const rpc = vi.fn<(name: string, args: Record<string, unknown>) => Promise<{ data: unknown; error: unknown }>>(async name => {
-    if (name === "contratpro_vehicles_permissions") return { data: { read: true, create: true, update: true }, error: null };
+    if (name === "contratpro_vehicles_permissions") return { data: { read: true, create: true, update: true, archive: false, contractVersion: 2 }, error: null };
     if (name === "contratpro_vehicles_list") return { data: { total: 1, items: [record] }, error: null };
     if (name === "contratpro_vehicle_detail") return { data: record, error: null };
     return { data: name === "contratpro_vehicle_create" ? id : true, error: null };
@@ -29,16 +29,40 @@ const request = (body: unknown, suppliedOrigin = origin) => new NextRequest(`${o
 const create = { action: "create", requestId: key, data: input };
 
 describe("vehicle persistence boundary — injected RPC only, not live RLS evidence", () => {
+  it("rejects an old database contract before any mutation", async () => {
+    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: true, update: true }, error: null });
+    expect((await handleVehicles(request(create), "fr", f.deps)).status).toBe(503);
+    expect(f.rpc).toHaveBeenCalledTimes(1);
+  });
+  it("requires archive capability and independent active-detail disappearance", async () => {
+    const denied = fixture();
+    expect((await handleVehicles(request({ action: "archive", id, version: 1 }), "fr", denied.deps)).status).toBe(403);
+    for (const remaining of [null, record]) {
+      const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: false, update: false, archive: true, contractVersion: 2 }, error: null })
+        .mockResolvedValueOnce({ data: true, error: null }).mockResolvedValueOnce({ data: remaining, error: null });
+      const response = await handleVehicles(request({ action: "archive", id, version: 1 }), "ar", f.deps);
+      expect(await response.json()).toEqual(remaining ? { ok: false, code: "uncertain" } : { ok: true, destination: "/ar/app/vehicles" });
+      expect(f.rpc.mock.calls[1]).toEqual(["contratpro_vehicle_archive", { p_agency_id: agencyId, p_id: id, p_version: 1 }]);
+    }
+  });
+  it("forwards literal bounded search only within trusted scope", async () => {
+    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: false, update: false, archive: false, contractVersion: 2 }, error: null })
+      .mockResolvedValueOnce({ data: { items: [], total: 0 }, error: null });
+    const response = await handleVehicles(request({ action: "list", page: 1, search: "%_أ" }), "fr", f.deps);
+    expect(response.status).toBe(200);
+    expect(f.rpc.mock.calls[1]).toEqual(["contratpro_vehicles_search", { p_agency_id: agencyId, p_page: 1, p_search: "%_أ" }]);
+    expect((await handleVehicles(request({ action: "list", page: 1, search: "x".repeat(101) }), "fr", fixture().deps)).status).toBe(400);
+  });
   it("runs create → list → detail → edit → confirmed detail against a synthetic scoped store", async () => {
     const f = fixture(); let stored: typeof record | null = null;
     f.rpc.mockImplementation(async (name, args) => {
       if (args.p_agency_id !== agencyId) return { data: null, error: { code: "42501" } };
-      if (name === "contratpro_vehicles_permissions") return { data: { read: true, create: true, update: true }, error: null };
-      if (name === "contratpro_vehicle_create") { if (!stored) stored = { ...args.p_details as typeof input, id, agencyId, version: 1 }; return { data: id, error: null }; }
+      if (name === "contratpro_vehicles_permissions") return { data: { read: true, create: true, update: true, archive: false, contractVersion: 2 }, error: null };
+      if (name === "contratpro_vehicle_create") { if (!stored) stored = { ...args.p_details as typeof input, id, agencyId, version: 1, state: "active" }; return { data: id, error: null }; }
       if (name === "contratpro_vehicles_list") return { data: { total: stored ? 1 : 0, items: stored ? [stored] : [] }, error: null };
       if (name === "contratpro_vehicle_update") {
         if (!stored || args.p_version !== stored.version) return { data: null, error: { code: "40001" } };
-        stored = { ...args.p_details as typeof input, id, agencyId, version: stored.version + 1 }; return { data: true, error: null };
+        stored = { ...args.p_details as typeof input, id, agencyId, version: stored.version + 1, state: "active" }; return { data: true, error: null };
       }
       return { data: stored, error: null };
     });
@@ -75,14 +99,14 @@ describe("vehicle persistence boundary — injected RPC only, not live RLS evide
     expect((await handleVehicles(request(create), "fr", f.deps)).status).toBe(403); expect(f.rpc).not.toHaveBeenCalled();
   });
   it.each(["create", "update", "read"] as const)("requires fresh %s permission", async capability => {
-    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: capability !== "read", create: capability === "update", update: capability === "create" }, error: null });
+    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: capability !== "read", create: capability === "update", update: capability === "create", archive: false, contractVersion: 2 }, error: null });
     const body = capability === "update" ? { action: "update", id, version: 1, data: input } : create;
     expect((await handleVehicles(request(body), "fr", f.deps)).status).toBe(403); expect(f.rpc).toHaveBeenCalledTimes(1);
   });
   it("rejects client-controlled ownership and malformed values before mutation", async () => {
     for (const body of [{ ...create, agencyId: otherAgency }, { ...create, userId }, { ...create, data: { ...input, agencyId } },
       { ...create, data: { ...input, mileage: "-1" } }, { action: "update", id, version: 0, data: input }, { action: "archive", id }]) {
-      const f = fixture(); expect((await handleVehicles(request(body), "fr", f.deps)).status).toBe(400);
+      const f = fixture(); expect((await handleVehicles(request(body), "fr", f.deps)).status).toBe(body.action === "archive" ? 403 : 400);
       expect(f.rpc.mock.calls.some(([name]) => name === "contratpro_vehicle_create" || name === "contratpro_vehicle_update")).toBe(false);
     }
   });
@@ -98,7 +122,7 @@ describe("vehicle persistence boundary — injected RPC only, not live RLS evide
     expect(f.deps.context).not.toHaveBeenCalled();
   });
   it("cross-tenant and missing detail share no record; injected foreign rows fail closed", async () => {
-    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: false, update: false }, error: null }).mockResolvedValueOnce({ data: null, error: null });
+    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: false, update: false, archive: false, contractVersion: 2 }, error: null }).mockResolvedValueOnce({ data: null, error: null });
     expect((await handleVehicles(request({ action: "detail", id }), "fr", f.deps)).status).toBe(404);
     const g = fixture(); g.rpc.mockResolvedValueOnce({ data: { ...record, agencyId: otherAgency }, error: null });
     await expect(vehicleDetail(g.client, agencyId, id)).rejects.toThrow("unavailable");
@@ -106,7 +130,7 @@ describe("vehicle persistence boundary — injected RPC only, not live RLS evide
     await expect(listVehicles(g.client, agencyId, 1)).rejects.toThrow("unavailable");
   });
   it("updates with optimistic version and requires matching incremented read-back", async () => {
-    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: true, update: true }, error: null })
+    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: true, update: true, archive: false, contractVersion: 2 }, error: null })
       .mockResolvedValueOnce({ data: true, error: null }).mockResolvedValueOnce({ data: { ...record, version: 2 }, error: null });
     const result = await handleVehicles(request({ action: "update", id, version: 1, data: input }), "fr", f.deps);
     expect(await result.json()).toEqual({ ok: true, id, version: 2 });
@@ -122,19 +146,19 @@ describe("vehicle persistence boundary — injected RPC only, not live RLS evide
     await expect(vehicleDetail(f.client, agencyId, id)).rejects.toThrow("unavailable");
   });
   it.each(["23505", "40001"])("sanitizes duplicate/version %s as conflict", async code => {
-    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: true, update: true }, error: null })
+    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: true, update: true, archive: false, contractVersion: 2 }, error: null })
       .mockResolvedValueOnce({ data: null, error: { code, message: "PRIVATE registration" } });
     const response = await handleVehicles(request(create), "fr", f.deps); expect(response.status).toBe(409);
     expect(await response.json()).toEqual({ ok: false, code: "conflict" });
   });
   it("failed or mismatched confirmation never reports saving success; no retry", async () => {
     for (const detail of [null, { ...record, model: "Other" }, { ...record, agencyId: otherAgency }]) {
-      const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: true, update: true }, error: null })
+      const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: true, update: true, archive: false, contractVersion: 2 }, error: null })
         .mockResolvedValueOnce({ data: id, error: null }).mockResolvedValueOnce({ data: detail, error: null });
       expect(await (await handleVehicles(request(create), "fr", f.deps)).json()).toEqual({ ok: false, code: "uncertain" });
       expect(f.rpc).toHaveBeenCalledTimes(3);
     }
-    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: true, update: true }, error: null }).mockRejectedValueOnce(Error("PRIVATE"));
+    const f = fixture(); f.rpc.mockResolvedValueOnce({ data: { read: true, create: true, update: true, archive: false, contractVersion: 2 }, error: null }).mockRejectedValueOnce(Error("PRIVATE"));
     expect(await (await handleVehicles(request(create), "fr", f.deps)).json()).toEqual({ ok: false, code: "uncertain" }); expect(f.rpc).toHaveBeenCalledTimes(2);
   });
   it("permission lookup errors and malformed list responses are unavailable, never empty success", async () => {

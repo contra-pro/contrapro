@@ -1,0 +1,19 @@
+.root { display: grid; gap: 1.25rem; max-width: 70rem; }
+.root form, .panel { display: grid; gap: 1rem; padding: 1.25rem; border: 1px solid #b7c7d4; border-radius: .75rem; background: white; color: #173b56; }
+.root label { display: grid; gap: .4rem; font-weight: 600; }
+.root input, .root select, .root button { min-height: 44px; padding: .6rem; font: inherit; max-width: 100%; }
+.root input, .root select { width: 100%; border: 1px solid #698498; border-radius: .3rem; }
+.root button { cursor: pointer; border: 1px solid #173b56; border-radius: .3rem; color: #173b56; background: #f0f5fa; }
+.root :focus-visible { outline: 3px solid #176a9e; outline-offset: 3px; }
+.root button:disabled { cursor: wait; opacity: .65; }
+.grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.actions { display: flex; gap: .75rem; flex-wrap: wrap; align-items: center; }
+.root ul { list-style: none; padding: 0; display: grid; gap: .75rem; }
+.root li { border-block-end: 1px solid #b7c7d4; padding-block: .75rem; overflow-wrap: anywhere; }
+.root dl { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.root dd { margin: 0; overflow-wrap: anywhere; }
+.root pre { white-space: pre-wrap; overflow-wrap: anywhere; max-width: 100%; font-size: .8rem; }
+.root [role=alert] { color: #8e2030; }
+.check { display: flex !important; align-items: center; gap: .6rem; }
+.check input { width: 1.2rem; }
+@media(max-width:600px) { .grid { grid-template-columns: 1fr; } .root form, .panel { padding: .8rem; } }

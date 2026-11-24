@@ -4,7 +4,8 @@ import { NextRequest, NextResponse } from "next/server";
 import type { CookieMethodsServer, CookieOptions } from "@supabase/ssr";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { isLocale, type Locale } from "../i18n/locales";
-import { appOrigin, AUTH_PROJECT_URL } from "./config";
+import { appOrigin, AUTH_PROJECT_URL, googleAuthEnabled } from "./config";
+import { recoveryCookie } from "./password";
 import { serverAuthClient } from "./server";
 import { verifiedSubject } from "./identity";
 import { selectionCookie } from "../agency/selection";
@@ -15,9 +16,10 @@ type Dependencies = {
   client: (cookies: CookieMethodsServer) => SupabaseClient;
   nonce: () => string;
   now: () => number;
+  googleEnabled?: () => boolean;
 };
 const production: Dependencies = { origin: () => appOrigin(process.env.CONTRATPRO_APP_ORIGIN),
-  client: serverAuthClient, nonce: () => randomBytes(32).toString("hex"), now: Date.now };
+  client: serverAuthClient, nonce: () => randomBytes(32).toString("hex"), now: Date.now, googleEnabled: googleAuthEnabled };
 const flowCookie = (locale: Locale) => `contratpro-auth-flow-${locale}`;
 const noStore = (response: NextResponse) => {
   response.headers.set("Cache-Control", "private, no-store, max-age=0, must-revalidate");
@@ -106,8 +108,18 @@ export async function handleAuth(request: NextRequest, locale: string, operation
       if (values.size !== 0) return response;
       const result = await client.auth.signOut({ scope: "local" });
       response.cookies.set(selectionCookie, "", { path: "/", maxAge: 0, httpOnly: true, sameSite: "lax", secure: origin.startsWith("https:") });
+      response.cookies.set(recoveryCookie, "", { path: "/", maxAge: 0, httpOnly: true, sameSite: "lax", secure: origin.startsWith("https:") });
       for (const language of ["fr", "ar"] as const) response.cookies.set(flowCookie(language), "", {
         ...cookieOptions, path: `/${language}/auth/callback`, maxAge: 0 });
+      for (const language of ["fr", "ar"] as const) response.cookies.set(`contratpro-password-flow-${language}`, "", {
+        ...cookieOptions, path: `/${language}/auth/password-callback`, maxAge: 0 });
+      if (request.headers.get("accept") === "application/json") {
+        const headers = new Headers(response.headers); headers.delete("Location"); headers.delete("Set-Cookie");
+        const json = NextResponse.json(result.error ? { ok: false, code: "unavailable" } :
+          { ok: true, destination: `/${locale}/sign-in?status=signed-out` }, { status: result.error ? 503 : 200, headers });
+        for (const cookie of response.cookies.getAll()) json.cookies.set(cookie);
+        return noStore(json);
+      }
       return noStore(result.error ? response : finish(`/${locale}/sign-in?status=signed-out`));
     }
     const method = values.get("method");
@@ -124,6 +136,7 @@ export async function handleAuth(request: NextRequest, locale: string, operation
       return noStore(finish(`/${locale}/sign-in?status=sent`));
     }
     if (values.has("email")) return response;
+    if (!(dependencies.googleEnabled?.() ?? false)) return response;
     const result = await client.auth.signInWithOAuth({ provider: "google", options: { redirectTo, skipBrowserRedirect: true } });
     if (result.error || !result.data.url) return response;
     const target = new URL(result.data.url);

@@ -1,14 +1,17 @@
 # ContratPro — Development foundation
 
-Development bootstrap for a multi-tenant Moroccan car-rental SaaS. Every page is a
-public development placeholder. There is no authentication or tenant protection
-yet. Do not enter real agency, customer or platform data.
+Development foundation for a multi-tenant Moroccan car-rental SaaS. Authentication
+and gated agency/client workflows are implemented. Platform/signing remain placeholders.
+See [authentication setup and browser testing](docs/authentication-ux.md) for password
+registration, email confirmation, recovery and the existing authorization requirements.
 
 ## Requirements and setup
 
 - Node.js 24.x (reference version in `.node-version`: 24.15.0).
 - npm 11.x (reference version: 11.12.1).
-- No environment variables, database, Docker or provider account required.
+- Authentication requires the existing public Supabase configuration and application
+  origin in the ignored `apps/web/.env.local`; recovery also requires a server-only
+  flow secret. Static checks do not require a live database.
 
 From the workspace root:
 

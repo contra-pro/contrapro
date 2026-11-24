@@ -1,0 +1,144 @@
+[
+  {
+    "id": "native-plain-object",
+    "sourceRows": [
+      "V01",
+      "U10",
+      "N02"
+    ],
+    "kind": "codec",
+    "input": {
+      "type": "object",
+      "entries": [
+        [
+          "x",
+          {
+            "type": "number",
+            "decimal": "1"
+          }
+        ],
+        [
+          "text",
+          {
+            "type": "string",
+            "value": "é بَشّ"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": "native-plain-array",
+    "sourceRows": [
+      "V01",
+      "U10",
+      "N02"
+    ],
+    "kind": "codec",
+    "input": {
+      "type": "array",
+      "elements": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "type": "number",
+          "decimal": "-0"
+        },
+        {
+          "type": "bigint",
+          "decimal": "9007199254740993"
+        }
+      ]
+    }
+  },
+  {
+    "id": "native-frozen-object",
+    "sourceRows": [
+      "V01",
+      "U10",
+      "N02"
+    ],
+    "kind": "codec",
+    "input": {
+      "type": "object",
+      "entries": [
+        [
+          "x",
+          {
+            "type": "null"
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": "native-shared-no-cycle",
+    "sourceRows": [
+      "V01",
+      "U10",
+      "N02"
+    ],
+    "kind": "codec",
+    "input": {
+      "type": "object",
+      "entries": [
+        [
+          "a",
+          {
+            "type": "object",
+            "entries": [
+              [
+                "x",
+                {
+                  "type": "string",
+                  "value": "é أ"
+                }
+              ]
+            ]
+          }
+        ],
+        [
+          "b",
+          {
+            "type": "object",
+            "entries": [
+              [
+                "x",
+                {
+                  "type": "string",
+                  "value": "é أ"
+                }
+              ]
+            ]
+          }
+        ]
+      ]
+    }
+  },
+  {
+    "id": "native-valid-surrogate-pair",
+    "sourceRows": [
+      "V01",
+      "U10",
+      "N02"
+    ],
+    "kind": "codec",
+    "input": {
+      "type": "object",
+      "entries": [
+        [
+          "text",
+          {
+            "type": "string",
+            "value": "🚗"
+          }
+        ]
+      ]
+    }
+  }
+]

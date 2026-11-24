@@ -1,0 +1,62 @@
+.studio { color: #172b3a; max-width: 1500px; margin: auto; padding: 1.5rem; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-bottom: 1rem; }
+.documentSelector { min-width: 0; max-width: 100%; }
+.lifecycleControls { display: grid; gap: .75rem; margin-block: 1rem; padding: 1rem; border: 1px solid #cbd5df; background: white; min-width: 0; overflow-wrap: anywhere; }
+.lifecycleControls h2, .lifecycleControls p { margin: 0; }
+.lifecycleControls fieldset { display: grid; gap: .5rem; min-width: 0; }
+.lifecycleActions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.workspace { display: grid; grid-template-columns: minmax(260px, 360px) minmax(0, 1fr); gap: 1.5rem; align-items: start; }
+.editor { background: white; border: 1px solid #cbd5df; padding: 1.25rem; display: grid; gap: 1rem; }
+.studio label { display: grid; gap: .35rem; font-size: .9rem; font-weight: 600; }
+.studio input, .studio select, .studio textarea, .studio button { max-width: 100%; min-width: 0; min-height: 44px; border: 1px solid #8798a6; border-radius: 4px; padding: .6rem; font: inherit; }
+.studio button { cursor: pointer; background: #173b56; color: white; }
+.studio button:disabled { opacity: .6; cursor: default; }
+.studio :focus-visible { outline: 3px solid #2375b1; outline-offset: 3px; }
+.notice { padding: .8rem; background: #fff3d6; border-left: 3px solid #966500; }
+.document { color: #18232b; min-width: 0; }
+
+/* 190 × 277mm printable area: A4 with 10mm margins. No fixed content height. */
+.sheet { box-sizing: border-box; background: white; border: 1px solid #d4dce3; width: 190mm; max-width: 100%; padding: 0; margin: 0 auto; font: 10pt/1.1 Arial, sans-serif; overflow-wrap: anywhere; }
+.sheet h2 { font-size: 14pt; color: var(--brand); margin: 2mm 0; }
+.sheet h3 { font-size: 10pt; border-bottom: 1px solid var(--accent); margin: 1mm 0; padding-bottom: .5mm; }
+.sheet p { margin: 0; }
+.documentHeader { display: flex; gap: 3mm; align-items: center; border-bottom: 2px solid var(--brand); padding-bottom: 1mm; }
+.documentHeader strong { font-size: 14pt; }
+.documentHeader img { object-fit: contain; width: 18mm; height: 15mm; flex-shrink: 0; }
+.documentGrid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1mm 3mm; }
+.documentGrid section { min-width: 0; }
+.watermark { font-size: 10pt; color: #5a4c30; }
+.diagrams { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 1mm; }
+.diagrams figure { margin: 0; text-align: center; }
+.diagrams svg { width: 100%; max-height: 18mm; }
+.conditions { white-space: pre-wrap; }
+.luxury .documentHeader { background: #17232b; color: white; padding: 1mm; border-bottom: 2px solid var(--accent); print-color-adjust: exact; }
+.luxury .sheet > h2 { text-align: center; letter-spacing: .06em; }
+.modern .documentHeader { border-left: 3px solid var(--brand); padding-left: 2mm; }
+.modern .documentGrid { grid-template-columns: 2fr 3fr; }
+.modern .sheet h3 { border: 0; color: var(--brand); }
+.detailed .documentGrid { gap: 0; border-top: 1px solid #8798a6; border-left: 1px solid #8798a6; }
+.detailed .documentGrid section { border-right: 1px solid #8798a6; border-bottom: 1px solid #8798a6; padding: .5mm; }
+.bilingual .documentHeader { flex-direction: row-reverse; text-align: right; }
+.bilingual .sheet h3 { text-align: center; }
+/* Paired FR/AR labels wrap more than French alone. Reclaim decorative spacing
+   and give the secondary driver's longer missing-value labels more room.
+   These rules also apply to the A4 measurement copy; mobile still reflows below. */
+.bilingual .sheet h2, .bilingual .sheet h3 { margin-block: 0; padding-bottom: 0; }
+.bilingual .documentGrid { grid-template-columns: 46% minmax(0,1fr); gap: 0 1mm; }
+.bilingual .sheet > div, .bilingual .sheet > section, .bilingual .sheet > footer { margin-block: 0; }
+.bilingual [data-signature-party] { padding: .5mm; }
+.bilingual [data-signature-party] > div { padding: 0; margin-block: .5mm; }
+.bilingual [data-legal-footer] { padding-top: 0; line-height: 1.1; }
+.paginationStatus { padding: .5rem; border: 1px solid #966500; background: #fff3d6; }
+.measurement { position: fixed; left: -10000px; top: 0; width: 190mm; visibility: hidden; pointer-events: none; z-index: -1; }
+.measurement .sheet { width: 190mm; max-width: none; border: 0; margin: 0; }
+@media (max-width: 1000px) { .workspace { grid-template-columns: minmax(0,1fr); } .editor { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media screen and (max-width: 600px) { .studio { padding: .75rem; } .editor { grid-template-columns: 1fr; } .document:not(.measurement) .documentGrid { grid-template-columns: 1fr; } .document:not(.measurement) .documentHeader { flex-wrap: wrap; } }
+@page { size: A4; margin: 10mm; }
+@media print {
+  .studio { padding: 0; max-width: none; }
+  .studio > h1, .toolbar, .editor, .notice, .paginationStatus, .lifecycleControls { display: none; }
+  .workspace { display: block; }
+  .sheet { width: 190mm; max-width: none; padding: 0; margin: 0; border: 0; }
+}

@@ -12,6 +12,6 @@ export default async function Onboarding({ params }: { params: Promise<{ locale:
   if (!context.canonical) return <AgencyAccessView locale={locale} access={context.access} />;
   const copy = agencyManagementMessages(locale);
   return <AgencyWorkspace locale={locale} title={copy.createTitle} description={copy.createText}>
-    <AgencyForm locale={locale} action="create" requestId={randomUUID()} enabled={process.env.CONTRATPRO_AGENCY_WRITES_VERIFIED === "true"} isOwner />
+    <AgencyForm key={context.canonical.userId} locale={locale} action="create" requestId={randomUUID()} enabled={process.env.CONTRATPRO_AGENCY_WRITES_VERIFIED === "true"} isOwner />
   </AgencyWorkspace>;
 }

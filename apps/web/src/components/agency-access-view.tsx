@@ -7,6 +7,8 @@ import { authMessages } from "../i18n/auth";
 import { SessionSync } from "../auth/session-sync";
 import { AgencyNavigation } from "./agency-navigation";
 import { agencyManagementMessages } from "../i18n/agency-management";
+import { AccountSetup } from "./account-setup";
+import { SignOutForm } from "./sign-out-form";
 
 export function AgencyAccessView({ locale, access, children }: { locale: Locale; access: AgencyAccess; children?: React.ReactNode }) {
   const copy = agencyAccessMessages(locale);
@@ -25,11 +27,10 @@ export function AgencyAccessView({ locale, access, children }: { locale: Locale;
       </section> :
       <p><Link href={`/${locale}/app`} prefetch={false}>{copy.retry}</Link></p>}
     {access.status === "onboarding" && <p><Link href={`/${locale}/app/onboarding`} prefetch={false}>{agencyManagementMessages(locale).create}</Link></p>}
+    {access.status === "unmapped" && <AccountSetup locale={locale} enabled={process.env.CONTRATPRO_CANONICAL_PROVISIONING_VERIFIED === "true" && process.env.CONTRATPRO_AUTH_ACCESS_VERIFIED === "true"} />}
     {access.status === "selection-required" && <p><Link href={`/${locale}/app/select`} prefetch={false}>{agencyManagementMessages(locale).select}</Link></p>}
     {access.status === "signed-out" || access.status === "unavailable" ?
       <p><Link href={`/${locale}/sign-in`} prefetch={false}>{authMessages(locale).title}</Link></p> :
-      <form action={`/${locale}/auth/sign-out`} method="post">
-        <button type="submit">{authMessages(locale).signOut}</button>
-      </form>}
+      <SignOutForm locale={locale} />}
   </AreaShell>;
 }

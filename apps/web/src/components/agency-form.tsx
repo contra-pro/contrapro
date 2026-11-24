@@ -12,6 +12,8 @@ export type AgencyFormProps = { locale: Locale; action: "create" | "profile" | "
 export function AgencyForm({ locale, action, requestId, enabled, isOwner, profile, settings }: AgencyFormProps) {
   const copy = agencyManagementMessages(locale);
   const router = useRouter();
+  // Refreshes may replace the prop; creation retries still belong to this draft.
+  const [creationKey] = useState(requestId);
   const [busy, setBusy] = useState(false);
   const [errors, setErrors] = useState<FieldErrors>({});
   const [status, setStatus] = useState<"saved" | "unavailable" | "forbidden" | "signed-out" | "uncertain" | "invalid" | null>(null);
@@ -24,7 +26,7 @@ export function AgencyForm({ locale, action, requestId, enabled, isOwner, profil
     setErrors({}); setStatus(null); setBusy(true);
     try {
       const response = await fetch(`/${locale}/app/agency-action`, { method: "POST", credentials: "same-origin", cache: "no-store",
-        headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action, requestId, data: parsed.value }) });
+        headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action, requestId: action === "create" ? creationKey : requestId, data: parsed.value }) });
       const result: unknown = await response.json();
       if (!isRecord(result)) { setStatus("uncertain"); return; }
       if (response.ok && result.ok === true) {

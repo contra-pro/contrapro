@@ -1,0 +1,17 @@
+import { expect,it,vi } from "vitest";
+import { DeliveryWorker } from "./worker";
+import type { DeliveryConfig } from "./service";
+import type { DeliveryJob,DeliveryRepository,Material } from "./model";
+import { seal } from "./secrets";
+import type { EmailProvider } from "./resend";
+const aid="11111111-1111-4111-8111-111111111111",sid="22222222-2222-4222-8222-222222222222",jid="33333333-3333-4333-8333-333333333333";
+const config:DeliveryConfig={gatewaySecret:"a".repeat(64),encryptionKey:"b".repeat(64),signingSecret:"c".repeat(64),keyId:"v1",origin:"https://app.example.test"};
+const material:Material={version:1,locale:"fr",agencyName:"Agence",recipient:"client@example.test",replyTo:null,purpose:"invitation",link:"https://app.example.test/fr/sign#token=secret",code:null,expiresAt:"2030-01-01T00:00:00Z",reference:"CTR-1"};
+const job={id:jid,agencyId:aid,sessionId:sid,purpose:"invitation",channel:"email",state:"processing",attempts:1} as DeliveryJob;
+const envelope=seal(material,config.encryptionKey,"v1",`${aid}|${sid}|${jid}|invitation`,material.expiresAt);
+it("arms durably before sending and records acceptance without claiming delivery",async()=>{const calls:string[]=[],send=vi.fn(async()=>{calls.push("send");return {state:"accepted" as const,providerId:"provider-id"};});
+  const repo:DeliveryRepository={async call<T>(_a:string|null,action:string,input:object):Promise<T>{calls.push(action);if(action==="claim")return {job,lease:"lease",envelope} as T;if(action==="result")expect(input).toMatchObject({state:"accepted"});return null as T;}};
+  await new DeliveryWorker(repo,config,{send,reconcile:async()=>null}).runOnce();expect(calls).toEqual(["claim","arm","send","result"]);expect(send).toHaveBeenCalledTimes(1);});
+it("does not send when a lease or source binding is rejected",async()=>{const send=vi.fn();const repo:DeliveryRepository={async call<T>(_a:string|null,action:string):Promise<T>{if(action==="claim")return {job,lease:"lease",envelope} as T;throw Error("conflict");}};await expect(new DeliveryWorker(repo,config,{send,reconcile:async()=>null}).runOnce()).rejects.toThrow();expect(send).not.toHaveBeenCalled();});
+it("records network ambiguity and does not automatically resend",async()=>{const calls:{action:string;input:object}[]=[],send=vi.fn(async()=>{throw Error("private response");});const repo:DeliveryRepository={async call<T>(_a:string|null,action:string,input:object):Promise<T>{calls.push({action,input});return (action==="claim"?{job,lease:"lease",envelope}:null) as T;}};await new DeliveryWorker(repo,config,{send,reconcile:async()=>null}).runOnce();expect(calls.at(-1)?.input).toMatchObject({state:"uncertain",retryable:false});expect(JSON.stringify(calls)).not.toContain("private response");expect(send).toHaveBeenCalledTimes(1);});
+it("does not read provider state without a trusted provider identifier",async()=>{const provider={send:vi.fn(),reconcile:vi.fn()};const repo:DeliveryRepository={async call<T>():Promise<T>{return {providerId:null} as T;}};await expect(new DeliveryWorker(repo,config,provider as EmailProvider).reconcile(jid)).rejects.toThrow("uncertain");expect(provider.reconcile).not.toHaveBeenCalled();});
