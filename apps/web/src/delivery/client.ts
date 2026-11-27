@@ -1,0 +1,2 @@
+import type { Locale } from "../i18n/locales";
+export async function sendDelivery(locale:Locale,action:string,input:object){const response=await fetch(`/${locale}/app/delivery-action`,{method:"POST",credentials:"same-origin",cache:"no-store",headers:{"Content-Type":"application/json"},body:JSON.stringify({action,input})});if(response.redirected)throw Error("unavailable");const data=await response.json();if(!response.ok)throw Error(data.code??"unavailable");return data.value as unknown;}

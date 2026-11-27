@@ -1,0 +1,100 @@
+{
+  "schema": 1,
+  "profile": "independent-synthetic-only-not-faithful-upgrade",
+  "authorized": false,
+  "candidateManifestSha256": "c5f3bcaa94e92843e26a55b9069542cc9274800d003155e4aee4e4b7bfb2cdc8",
+  "target": {
+    "sessionRoot": "C:/Users/lenovo/AppData/Local/ContratPro-D2-native/pg17-54329",
+    "database": "contratpro_d2_native",
+    "port": 54329,
+    "pgVersion": "17.11",
+    "tls": true
+  },
+  "baseline": {
+    "model": true,
+    "selectsHistorical0009Variant": false,
+    "historyRowsAreSyntheticMarkers": true
+  },
+  "files": [
+    {
+      "path": "scripts/d2-native/baseline-sources.json",
+      "sha256": "fb5448987004c55eeade828e0cbabbc028cf96ceedc767601054004b4c5be5b2"
+    },
+    {
+      "path": "scripts/d2-native/baseline.mjs",
+      "sha256": "533cc571cd11837e1c94ba3199fd77353fcebc9123ada44339bf110160713f80"
+    },
+    {
+      "path": "scripts/d2-native/orchestrate.mjs",
+      "sha256": "2674dba90e6d4d957785170c706783b4097da1cfa1c38cda934f1f88184e353d"
+    },
+    {
+      "path": "scripts/d2-native/package.mjs",
+      "sha256": "9c10a883ce5e82a3aeeccbfa8f0319bbfeae8692a9aefa4b8cef83e5dae1a474"
+    },
+    {
+      "path": "scripts/d2-native/provider-fixture.sql",
+      "sha256": "6406db0f5876f72d5f26cfe74c2d616b8769170b40c92c774f53de9a786e0120"
+    },
+    {
+      "path": "scripts/d2-native/receipt-model.sql",
+      "sha256": "bd0c349700f4619f369491aec67d2df77bab0a0e09daf45694369cd9599ebfe7"
+    },
+    {
+      "path": "scripts/d2-native/resource-manifest.json",
+      "sha256": "48b3b18de9228ce9071064eab7ffe4506e2c027272503c78c2a1a96484682848"
+    },
+    {
+      "path": "scripts/d2-native/resources.mjs",
+      "sha256": "f5ced74c40b9c848e438fd56daf6446131cb3380e2740868bbece041eccf9d86"
+    },
+    {
+      "path": "scripts/d2-native/scenarios.mjs",
+      "sha256": "51041332daca332ccb830b7a5032055e052de69a1f87bf00cfb1b545affea7c9"
+    },
+    {
+      "path": "scripts/d2-native/session.ps1",
+      "sha256": "e1c124ed27476ee9f2745d50c6b73ae62d6c04cdc4c02885ee65aba65dda7b36"
+    },
+    {
+      "path": "scripts/d2-native/syntax.ps1",
+      "sha256": "2188a5e60fd579656d3fa09d182638c1bceb6fa3beda0184def5507666e7f2c6"
+    },
+    {
+      "path": "supabase/migrations/20261115000000_bootstrap_baseline.sql",
+      "sha256": "d0287974cff9e5f7dc1ab701213956d7ff0c36408bd58b5b6398c39e1b12d7ca"
+    },
+    {
+      "path": "supabase/migrations/20261115000100_foundation_schema.sql",
+      "sha256": "bcaa4561353b718e4b53860cd1a3ebb302e2e767d96ab702e2db6276019c9ae7"
+    },
+    {
+      "path": "supabase/migrations/20261115000200_foundation_context.sql",
+      "sha256": "86078c4321a6ace7c0a04a8e613e72768833105da73ebd3ad624fa23e138019a"
+    },
+    {
+      "path": "supabase/migrations/20261115000300_foundation_rls_grants.sql",
+      "sha256": "7862a3c60a589a4a36d638aa0b321c422fe8276db3eac5aa6dd0b86137518065"
+    },
+    {
+      "path": "supabase/migrations/20261115000400_supabase_auth.sql",
+      "sha256": "22c62651d62eff34aaf79a3cde02afa2d53de073000e355fdb3d56fb66bd6c94"
+    },
+    {
+      "path": "supabase/migrations/20261115000500_agency_management.sql",
+      "sha256": "33839631a9120b400e4e9e95bb86886c9ccb9e561e74f8006cdd11cb76cefe23"
+    },
+    {
+      "path": "supabase/migrations/20261115000600_clients.sql",
+      "sha256": "4713123741c3b606f5bd8f50c8948004469f5df18ee1da116f2a183a797f5a53"
+    },
+    {
+      "path": "supabase/migrations/20261116000700_canonical_provisioning.sql",
+      "sha256": "bdd01b22180cd805f2bef1f80863c22d2c5857c3cad10f97f392fa55161e53bc"
+    },
+    {
+      "path": "supabase/migration-drafts/20261118000800_vehicles.sql",
+      "sha256": "11e948603bdfa765d35867e2fd88d94f4cb0434e058c1766b64a42d82634c023"
+    }
+  ]
+}

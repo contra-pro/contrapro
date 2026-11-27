@@ -17,8 +17,8 @@ export async function RentalPage({ locale, mode, id }: { locale: string; mode: "
   if (process.env.CONTRATPRO_RENTALS_VERIFIED === "true" && context.canonical?.userId === context.access.userId) {
     try { await rentalCapabilities(await componentAuthClient(), context.access.agencyId); ready = true; } catch { /* Gate stays closed. */ }
   }
-  return <AgencyWorkspace locale={locale} title={copy.title}><div key={`${context.access.userId}:${context.access.agencyId}`}>
+  return <AgencyWorkspace locale={locale} agencyName={context.access.agencyName} agencyScope={context.access.agencyId+":"+context.access.userId} title={copy.title}><div key={`${context.access.userId}:${context.access.agencyId}`}>
     {!ready ? <p role="status">{copy.unavailable}</p> : mode === "list" ? <RentalListScreen locale={locale} /> : mode === "create" ?
-      <RentalEditor locale={locale} documentsEnabled={process.env.CONTRATPRO_DOCUMENTS_VERIFIED === "true"} /> : <RentalDetailScreen key={id} locale={locale} id={id!} documentsEnabled={process.env.CONTRATPRO_DOCUMENTS_VERIFIED === "true"} signingEnabled={process.env.CONTRATPRO_SIGNING_VERIFIED==="true"} deliveryEnabled={process.env.CONTRATPRO_DELIVERY_VERIFIED==="true"} sheetsEnabled={process.env.CONTRATPRO_SHEETS_VERIFIED==="true"} />}
+      <RentalEditor locale={locale} a1Enabled={process.env.CONTRATPRO_A1_VERIFIED==="true"} documentsEnabled={process.env.CONTRATPRO_DOCUMENTS_VERIFIED === "true"} /> : <RentalDetailScreen key={id} locale={locale} id={id!} a1Enabled={process.env.CONTRATPRO_A1_VERIFIED==="true"} a2Enabled={process.env.CONTRATPRO_A2_VERIFIED==="true"} documentsEnabled={process.env.CONTRATPRO_DOCUMENTS_VERIFIED === "true"} signingEnabled={process.env.CONTRATPRO_SIGNING_VERIFIED==="true"} deliveryEnabled={process.env.CONTRATPRO_DELIVERY_VERIFIED==="true"} sheetsEnabled={process.env.CONTRATPRO_SHEETS_VERIFIED==="true"} />}
   </div></AgencyWorkspace>;
 }

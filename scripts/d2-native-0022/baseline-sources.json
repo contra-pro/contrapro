@@ -1,0 +1,38 @@
+[
+  {
+    "path": "supabase/migrations/20261115000000_bootstrap_baseline.sql",
+    "sha256": "d0287974cff9e5f7dc1ab701213956d7ff0c36408bd58b5b6398c39e1b12d7ca"
+  },
+  {
+    "path": "supabase/migrations/20261115000100_foundation_schema.sql",
+    "sha256": "bcaa4561353b718e4b53860cd1a3ebb302e2e767d96ab702e2db6276019c9ae7"
+  },
+  {
+    "path": "supabase/migrations/20261115000200_foundation_context.sql",
+    "sha256": "86078c4321a6ace7c0a04a8e613e72768833105da73ebd3ad624fa23e138019a"
+  },
+  {
+    "path": "supabase/migrations/20261115000300_foundation_rls_grants.sql",
+    "sha256": "7862a3c60a589a4a36d638aa0b321c422fe8276db3eac5aa6dd0b86137518065"
+  },
+  {
+    "path": "supabase/migrations/20261115000400_supabase_auth.sql",
+    "sha256": "22c62651d62eff34aaf79a3cde02afa2d53de073000e355fdb3d56fb66bd6c94"
+  },
+  {
+    "path": "supabase/migrations/20261115000500_agency_management.sql",
+    "sha256": "33839631a9120b400e4e9e95bb86886c9ccb9e561e74f8006cdd11cb76cefe23"
+  },
+  {
+    "path": "supabase/migrations/20261115000600_clients.sql",
+    "sha256": "4713123741c3b606f5bd8f50c8948004469f5df18ee1da116f2a183a797f5a53"
+  },
+  {
+    "path": "supabase/migrations/20261116000700_canonical_provisioning.sql",
+    "sha256": "bdd01b22180cd805f2bef1f80863c22d2c5857c3cad10f97f392fa55161e53bc"
+  },
+  {
+    "path": "supabase/migration-drafts/20261118000800_vehicles.sql",
+    "sha256": "11e948603bdfa765d35867e2fd88d94f4cb0434e058c1766b64a42d82634c023"
+  }
+]

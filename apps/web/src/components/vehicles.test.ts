@@ -61,7 +61,11 @@ describe("agency-gated vehicle draft — synthetic context only, no transport", 
     it(`${locale}: authorized route shows localized navigation and a real empty result`, async () => {
       const html = renderToStaticMarkup(await VehiclesPage({ params: Promise.resolve({ locale }) }));
       expect(html).not.toContain("<script>unsafe");
-      expect(html).toContain(`href="/${locale}/app/vehicles"`); expect(html).toContain(`href="/${locale}/app/clients"`);
+      // Server markup has no module links until the independent navigation
+      // capability request resolves; vehicle access cannot imply client access.
+      expect(html).toContain(`href="/${locale}/app"`);
+      expect(html).toContain(`href="/${locale}/app/vehicles/new"`);
+      expect(html).not.toContain(`href="/${locale}/app/clients"`);
       expect(html).toContain(vehicleMessages(locale).empty); expect(html).not.toContain(vehicleMessages(locale).notice);
       expect(html).not.toContain(vehicleMessages(locale).reviewTitle);
       expect(getAgencyContext).toHaveBeenCalledTimes(1);

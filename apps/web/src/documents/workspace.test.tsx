@@ -2,6 +2,10 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { expect, it } from "vitest";
 import { MappingEditor, RentalDocuments, TemplateLibrary } from "./workspace";
 import { config } from "./fixtures";
+import { DraftPreview } from "./draft-workspace";
+import { ClauseManager } from "./clause-workspace";
+import { fields } from "./model";
+import { fieldLabel } from "./field-labels";
 it.each(["fr", "ar"] as const)("renders labelled mapping controls and document states in %s", locale => {
   const mapping = renderToStaticMarkup(<MappingEditor locale={locale} value={{ ...config, locale }} change={() => {}} />);
   expect(mapping).toContain("<label>"); expect(mapping).toContain('type="number"'); expect(mapping).toContain("agency.name");
@@ -9,4 +13,9 @@ it.each(["fr", "ar"] as const)("renders labelled mapping controls and document s
   expect(library).toContain(locale === "ar" ? 'dir="rtl"' : 'dir="ltr"'); expect(library).toContain('accept=".pdf,.docx"'); expect(library).toContain('role="status"');
   const documents = renderToStaticMarkup(<RentalDocuments locale={locale} rentalId="22222222-2222-4222-8222-222222222222" rentalVersion={1} />);
   expect(documents).toContain('type="date"'); expect(documents).toContain("disabled");
+  const draft=renderToStaticMarkup(<DraftPreview locale={locale} rentalId="22222222-2222-4222-8222-222222222222"/>);
+  expect(draft).toContain(locale==="ar"?"غير نهائية":"non final");expect(draft).toContain(locale==="ar"?"إعادة إنشاء المعاينة":"régénérer l’aperçu");
+  const clauses=renderToStaticMarkup(<ClauseManager locale={locale}/>);
+  expect(clauses).toContain('lang="ar" dir="rtl"');expect(clauses).toContain('maxLength="8000"');
+  for(const field of fields)expect(fieldLabel(field,locale).split(" / ")[1]).not.toBe(field.split(".")[1]);
 });

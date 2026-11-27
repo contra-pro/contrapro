@@ -1,0 +1,23 @@
+import {afterEach,expect,it,vi} from "vitest";
+import {NextRequest} from "next/server";
+import {runInNewContext} from "node:vm";
+import type {SupabaseClient} from "@supabase/supabase-js";
+import {isolatedLegalFixtures} from "./test-support/isolated-acceptance";
+import {approvedLegalRelease,registrationInput} from "./model";
+vi.mock("server-only",()=>({}));
+import {handlePasswordAuth} from "../auth/password";
+afterEach(()=>vi.unstubAllEnvs());
+it.each(["production","development",undefined])("rejects synthetic legal fixtures for environment %s",NODE_ENV=>{expect(()=>isolatedLegalFixtures({NODE_ENV,VITEST:"true"})).toThrow("ISOLATED_ACCEPTANCE_REQUIRED");});
+it("cannot spoof a test environment argument while the actual runtime is production",()=>{vi.stubEnv("NODE_ENV","production");expect(()=>isolatedLegalFixtures({NODE_ENV:"test",VITEST:"true"})).toThrow("ISOLATED_ACCEPTANCE_REQUIRED");});
+it("requires the test runner and preserves the null production legal release",()=>{expect(()=>isolatedLegalFixtures({NODE_ENV:"test"})).toThrow();expect(approvedLegalRelease).toBeNull();});
+it("fails closed in a test realm without the isolation preload marker",()=>{expect(()=>runInNewContext(`(${isolatedLegalFixtures.toString()})()`,{process:{env:{NODE_ENV:"test",VITEST:"true"}}})).toThrow("ISOLATED_ACCEPTANCE_REQUIRED");});
+it.each(["fr","ar"] as const)("%s: injected synthetic release exercises the real signup boundary without enabling production",async locale=>{
+ const f=isolatedLegalFixtures(),signup=vi.fn(async()=>({data:{session:null},error:null})),client=vi.fn(()=>({auth:{signUp:signup}}) as unknown as SupabaseClient),secret="synthetic-test-flow-secret-".repeat(3);
+ const fields={firstName:"Amina",lastName:"Test",email:"person@example.invalid",callingCode:"+212",phone:"0612345678",password:"synthetic password 123",confirmPassword:"synthetic password 123",acceptLegal:"on"};
+ const request=()=>new NextRequest(`${f.origin}/${locale}/auth/sign-up`,{method:"POST",headers:{origin:f.origin,"content-type":"application/x-www-form-urlencoded"},body:new URLSearchParams(fields)});
+ expect(registrationInput(fields,f.release)).toBeDefined();
+ const deps={origin:()=>f.origin,client,nonce:()=>"b".repeat(64),now:()=>1000,secret:()=>secret,legal:()=>f.release};
+ const response=await handlePasswordAuth(request(),locale,"sign-up",deps);expect(response.status).toBe(303);expect(response.headers.get("location")).toContain("confirmation-sent");expect(signup).toHaveBeenCalledTimes(1);
+ const payload=signup.mock.calls[0] as unknown as [{options:{data:{registrationProfile:unknown;registrationConsent:unknown}}}];expect(payload[0].options.data.registrationProfile).toMatchObject({phone:"+212612345678"});expect(JSON.stringify(payload)).not.toContain('"role"');expect(payload[0].options.data.registrationConsent).toBeTruthy();
+ signup.mockClear();client.mockClear();await handlePasswordAuth(request(),locale,"sign-up",{...deps,legal:()=>approvedLegalRelease});expect(client).not.toHaveBeenCalled();expect(signup).not.toHaveBeenCalled();
+});

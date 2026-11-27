@@ -6,6 +6,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { isLocale, type Locale } from "../i18n/locales";
 import { appOrigin, AUTH_PROJECT_URL, googleAuthEnabled } from "./config";
 import { recoveryCookie } from "./password";
+import {pendingInvitationCookie} from '../registration/invitation';
 import { serverAuthClient } from "./server";
 import { verifiedSubject } from "./identity";
 import { selectionCookie } from "../agency/selection";
@@ -105,6 +106,7 @@ export async function handleAuth(request: NextRequest, locale: string, operation
       for (const [key, value] of Object.entries(headers)) response!.headers.set(key, value);
     } });
     if (operation === "sign-out") {
+      response.cookies.set(pendingInvitationCookie,'',{path:'/',httpOnly:true,sameSite:'lax',secure:origin.startsWith('https:'),maxAge:0});
       if (values.size !== 0) return response;
       const result = await client.auth.signOut({ scope: "local" });
       response.cookies.set(selectionCookie, "", { path: "/", maxAge: 0, httpOnly: true, sameSite: "lax", secure: origin.startsWith("https:") });

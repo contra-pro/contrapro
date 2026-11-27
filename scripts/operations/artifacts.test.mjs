@@ -1,0 +1,8 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {readFile} from 'node:fs/promises';
+test('hosting artifacts isolate secrets and bound service shutdown/resources',async()=>{
+ const root=new URL('../../',import.meta.url),docker=await readFile(new URL('deploy/Dockerfile',root),'utf8'),compose=await readFile(new URL('deploy/compose.yaml',root),'utf8'),ignore=await readFile(new URL('.dockerignore',root),'utf8');
+ assert.ok(docker.includes('USER node'));assert.ok(docker.includes('AS worker'));assert.ok(!docker.includes('COPY .env'));assert.ok(ignore.includes('**/.env*'));assert.ok(compose.includes('127.0.0.1:3000:3000'));assert.ok(compose.includes('stop_grace_period: 150s'));assert.ok(compose.includes('mem_limit:'));assert.ok(!compose.includes('docker.sock'));
+ assert.ok(docker.includes('/app/apps/web/public ./apps/web/public'));assert.ok(docker.includes('scripts/application-start.mjs'));assert.ok(docker.includes('worker-health.mjs'));assert.ok(compose.includes('internal: true'));assert.ok(compose.includes('networks: [private]'));assert.ok(ignore.includes('**/.next-*'));
+ const worker=await readFile(new URL('deploy/worker.Dockerfile',root),'utf8'),template=await readFile(new URL('deploy/worker.env.template',root),'utf8');
+ for(const file of ['maintenance-worker.mjs','worker-health.mjs','deployment-environment.mjs'])assert.ok(worker.includes(file));assert.ok(worker.includes('USER node'));assert.ok(worker.includes('HEALTHCHECK'));assert.ok(!worker.includes('npm '));assert.ok(!template.includes('CONTRATPRO_RESEND_API_KEY'));assert.ok(!template.includes('CONTRATPRO_GOOGLE_CLIENT_SECRET'));assert.ok(template.includes('CONTRATPRO_A5_VERIFIED=false'));
+});

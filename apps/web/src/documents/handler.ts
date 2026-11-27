@@ -13,6 +13,7 @@ import { SupabasePrivateStorage } from "./storage";
 import { DocumentFault } from "./model";
 import { maxUpload, pdf } from "./uploads";
 import { ContainerDocxConverter } from "./converter";
+import { clause } from "./clauses";
 
 export async function boundedJson(request: NextRequest) {
   if (request.headers.get("content-type")?.split(";")[0] !== "application/json" || !request.body) throw new DocumentFault("invalid");
@@ -39,12 +40,15 @@ export async function handleDocuments(request: NextRequest, locale: string) {
     if (!isRecord(caps) || caps.contractVersion !== 1 || caps.privateStorage !== true) throw new DocumentFault("unavailable");
     const body = await boundedJson(request);
     if (!isRecord(body) || typeof body.action !== "string" || !isRecord(body.input)) throw new DocumentFault("invalid");
+    if (["clauses","clause-save","draft-configure","draft-input","preview-state","preview-generate","preview-download","confirmed-input"].includes(body.action) && process.env.CONTRATPRO_A2_VERIFIED !== "true") throw new DocumentFault("unavailable");
     const input = body.input;
-    const font = body.action === "generate" && process.env.CONTRATPRO_DOCUMENT_FONT_PATH ? new Uint8Array(await readFile(process.env.CONTRATPRO_DOCUMENT_FONT_PATH)) : new Uint8Array();
+    const font = ["generate","preview-generate"].includes(body.action) && process.env.CONTRATPRO_DOCUMENT_FONT_PATH ? new Uint8Array(await readFile(process.env.CONTRATPRO_DOCUMENT_FONT_PATH)) : new Uint8Array();
     const converter = process.env.CONTRATPRO_DOCX_IMAGE ? new ContainerDocxConverter(process.env.CONTRATPRO_DOCX_IMAGE) : undefined;
     const service = new Documents(agencyId, repo, store, font, converter, process.env.CONTRATPRO_DOCUMENT_RENDERER_SECRET);
     let value: unknown;
-    if (body.action === "list") value = await service.list();
+    if (body.action === "clauses") value = await repo.call(agencyId, "clauses", {});
+    else if (body.action === "clause-save") value = await repo.call(agencyId, "clause-save", { id: input.id, expectedRevision: input.expectedRevision, ...clause(input) });
+    else if (body.action === "list") value = await service.list();
     else if (body.action === "cleanup") value = await service.cleanupOrphans();
     else if (body.action === "save") {
       if (typeof input.templateId !== "string" || typeof input.name !== "string" || typeof input.expectedRevision !== "number") throw new DocumentFault("invalid");
@@ -58,16 +62,18 @@ export async function handleDocuments(request: NextRequest, locale: string) {
     } else if (body.action === "archive" || body.action === "default") {
       if (typeof input.templateId !== "string") throw new DocumentFault("invalid");
       value = body.action === "archive" ? await service.archive(input.templateId) : await service.setDefault(input.templateId);
-    } else if (body.action === "select" || body.action === "selection") value = await repo.call(agencyId, body.action, input);
+    } else if (["select","selection","draft-configure","draft-input","preview-state","confirmed-input"].includes(body.action)) value = await repo.call(agencyId, body.action, input);
+    else if (body.action === "preview-generate") value = await service.preview(String(input.rentalId),String(input.requestId));
     else if (body.action === "history") value = await service.history(String(input.rentalId));
     else if (body.action === "generate") {
       if (typeof input.rentalId !== "string" || typeof input.templateVersionId !== "string" || typeof input.rentalVersion !== "number" || typeof input.requestId !== "string" ||
         typeof input.issueDate !== "string" || !isRecord(input.custom) || !["draft", "issued"].includes(String(input.status))) throw new DocumentFault("invalid");
       value = await service.generate({ rentalId: input.rentalId, templateVersionId: input.templateVersionId, rentalVersion: input.rentalVersion, requestId: input.requestId,
         issueDate: input.issueDate, custom: input.custom as Record<string, string>, status: input.status as "draft" | "issued" });
-    } else if (body.action === "download" || body.action === "preview") {
+    } else if (["download","preview","preview-download"].includes(body.action)) {
       let bytes: Uint8Array;
-      if (body.action === "download") bytes = await service.download(String(input.id));
+      if (body.action === "preview-download") bytes = await service.downloadPreview(String(input.rentalId),String(input.requestId));
+      else if (body.action === "download") bytes = await service.download(String(input.id));
       else { const version = await repo.call<{ originalKey: string; format: string }>(agencyId, "version", { id: input.id });
         if (version.format !== "pdf") throw new DocumentFault("unsupported"); bytes = await store.get(version.originalKey); await pdf(bytes); }
       const response = new NextResponse(Buffer.from(bytes), { headers: { ...headers, "Content-Type": "application/pdf", "Content-Disposition": 'attachment; filename="contrat.pdf"' } });

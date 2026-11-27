@@ -18,7 +18,8 @@
     "test:sql": "npm run test:sql --workspace=@contratpro/database",
     "test:runner": "npm run test:runner --workspace=@contratpro/database",
     "verify:clean-install": "node scripts/verify-clean-install.mjs",
-    "verify": "npm run typecheck && npm run lint && npm test && npm run build",
-    "test:smoke": "node scripts/smoke.mjs"
+    "verify": "npm run typecheck && npm run lint && npm test && npm run test:operations && npm run build",
+    "test:smoke": "node scripts/smoke.mjs",
+    "test:operations": "node --test scripts/maintenance-worker.test.mjs scripts/operations/*.test.mjs"
   }
 }

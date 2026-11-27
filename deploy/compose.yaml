@@ -1,0 +1,48 @@
+# Future independent environment only. Never reuse the existing production VPS.
+# Inject reviewed image digests and a private operator-owned env file at deployment.
+services:
+  app:
+    image: ${CONTRATPRO_APP_IMAGE:?digest-pinned app image required}
+    env_file: ${CONTRATPRO_SECRET_ENV_FILE:?private environment file required}
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=128m,mode=1777
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - ${CONTRATPRO_FONT_DIRECTORY:?licensed font directory required}:/run/fonts:ro
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 128
+    mem_limit: 1g
+    cpus: 1.0
+    stop_grace_period: 150s
+    restart: unless-stopped
+    networks: [private, egress]
+  worker:
+    image: ${CONTRATPRO_WORKER_IMAGE:?digest-pinned worker image required}
+    env_file: ${CONTRATPRO_WORKER_ENV_FILE:?private worker environment file required}
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    pids_limit: 32
+    mem_limit: 128m
+    cpus: 0.25
+    stop_grace_period: 150s
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    networks: [private]
+networks:
+  private:
+    internal: true
+  egress: {}
+# Scheduler: maintenance_schedules in PostgreSQL, claimed by /internal/maintenance/run.
+# No cron-generated business events and no separate competing scheduling queue.
+# Terminate TLS at the future private reverse proxy. Restrict /api/internal and
+# /api/health/ready to the worker/monitor network; public traffic cannot read them.

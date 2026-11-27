@@ -1,6 +1,6 @@
 import { isUuid } from "../../../../packages/application/src/agency-management";
 export class DeliveryFault extends Error {constructor(readonly code:"invalid"|"forbidden"|"not-found"|"conflict"|"expired"|"unavailable"|"rate-limited"|"uncertain"){super(code);}}
-export type Purpose="invitation"|"verification-code"|"reminder"|"final-document"|"agency-notification";
+export type Purpose="invitation"|"verification-code"|"reminder"|"final-document"|"agency-notification"|"team-invitation";
 export type Channel="email"|"manual-whatsapp"|"manual-out-of-band";
 export type DeliveryState="queued"|"processing"|"accepted"|"delivered"|"failed"|"bounced"|"cancelled"|"uncertain";
 export type Envelope={version:1;keyId:string;nonce:string;tag:string;ciphertext:string;expiresAt:string};

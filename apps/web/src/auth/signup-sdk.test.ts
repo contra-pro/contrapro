@@ -17,15 +17,18 @@ describe("signup route with the installed Supabase SSR/Auth SDK and synthetic HT
       const body = JSON.parse(String(init.body));
       expect(body.code_challenge).toBeTypeOf("string");
       expect(body.code_challenge_method).toBe("s256");
+      expect(body.data.registrationProfile.phone).toBe('+212612345678');
+      expect(body.data.registrationConsent).toBeTypeOf('string');
       expect(url.searchParams.get("redirect_to")).toBe(`http://localhost:3000/fr/auth/password-callback?flow=${"a".repeat(64)}`);
       return Response.json({ id: "10000000-0000-4000-8000-000000000001", aud: "authenticated", identities: [], created_at: "2026-01-01" });
     };
     const request = new NextRequest("http://localhost:3000/fr/auth/sign-up", { method: "POST", headers: {
       Origin: "http://localhost:3000", "Content-Type": "application/x-www-form-urlencoded",
-    }, body: new URLSearchParams({ email: "synthetic@example.com", password: "a secure password", confirmPassword: "a secure password" }).toString() });
+    }, body: new URLSearchParams({ email: "synthetic@example.com", password: "a secure password", confirmPassword: "a secure password",firstName:'Amina',lastName:'Exemple',callingCode:'+212',phone:'0612345678',acceptLegal:'on' }).toString() });
     const response = await handlePasswordAuth(request, "fr", "sign-up", {
       origin: () => "http://localhost:3000", client: cookies => serverAuthClient(cookies, transport),
       nonce: () => "a".repeat(64), now: Date.now, secret: () => "s".repeat(64),
+      legal:()=>({terms:{version:'synthetic-v1',path:'/test-terms'},privacy:{version:'synthetic-v1',path:'/test-privacy'}}),
     });
     expect(calls).toEqual(["POST /auth/v1/signup"]);
     expect(response.headers.get("location")).toBe("http://localhost:3000/fr/sign-up?status=confirmation-sent");

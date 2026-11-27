@@ -23,7 +23,9 @@ export async function handleBilling(request: NextRequest, locale: string, platfo
     else {const ctx=await supabaseAgencyContext(client,process.env.CONTRATPRO_AUTH_ACCESS_VERIFIED==="true",Date.now,readSelection(request.cookies.get(selectionCookie)?.value));if(ctx.access.status!=="authorized"||!ctx.canonical||ctx.canonical.userId!==ctx.access.userId)throw new BillingFault("forbidden");agencyId=ctx.access.agencyId;}
     let body:unknown;try{body=await signingBody(request);}catch{throw new BillingFault("invalid");}
     if(!isRecord(body)||typeof body.action!=="string"||!isRecord(body.input))throw new BillingFault("invalid");
+    if(["history","support-page"].includes(body.action)&&process.env.CONTRATPRO_A4_VERIFIED!=="true")throw new BillingFault("unavailable");
     const value=await new BillingRepository(client).call(agencyId,body.action,body.input,platform);
+    if(body.action==="dashboard"&&isRecord(value))value.a4Enabled=process.env.CONTRATPRO_A4_VERIFIED==="true";
     return json({ok:true,value});
   } catch(error) {const code=error instanceof BillingFault?error.code:"unavailable";return json({ok:false,code},code==="forbidden"?403:code==="invalid"?422:code==="conflict"?409:code==="quota"?429:code==="restricted"?402:503);}
 }

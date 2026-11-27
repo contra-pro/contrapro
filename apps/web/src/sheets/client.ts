@@ -1,0 +1,2 @@
+import type { Locale } from "../i18n/locales";
+export async function sendSheets(locale:Locale,action:string,input:object):Promise<unknown>{const r=await fetch(`/${locale}/app/sheets/action`,{method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json"},body:JSON.stringify({action,input})});const result=await r.json();if(!r.ok||r.redirected||result.ok!==true)throw Error(result.code??"unconfirmed");return result.value;}

@@ -6,5 +6,6 @@ export function message(material:Material){const ar=material.locale==="ar";const
   const expiry=`${ar?"صالح حتى":"Valable jusqu’au"} ${material.expiresAt}`;
   const text=[material.agencyName,subject,material.reference,action,expiry].join("\n");
   const html=`<!doctype html><html lang="${material.locale}" dir="${ar?"rtl":"ltr"}"><body style="font-family:Arial,sans-serif;text-align:${ar?"right":"left"};line-height:1.6"><h1>${escape(material.agencyName)}</h1><h2>${escape(subject)}</h2><p>${escape(material.reference)}</p>${material.link?`<p><a href="${escape(material.link)}">${escape(subject)}</a></p>`:`<p>${escape(action)}</p>`}<p>${escape(expiry)}</p></body></html>`;
+  if(material.purpose==="team-invitation") {const title=ar?"دعوة للانضمام إلى فريق الوكالة":"Invitation à rejoindre l’équipe de l’agence";return {subject:title,text:text.replace(subject,title),html:html.split(escape(subject)).join(escape(title))};}
   return {subject,text,html};}
 export function whatsapp(material:Material){const recipient=phone(material.recipient),text=message(material).text;return {phone:recipient,message:text,url:`https://wa.me/${recipient.slice(1)}?text=${encodeURIComponent(text)}`};}

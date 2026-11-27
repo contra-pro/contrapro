@@ -13,6 +13,7 @@ import { encodeRentalCreateRequest } from "../../../../packages/domain/src/renta
 import { parseRentalCreateJson } from "../../../../packages/domain/src/rentals/json-boundary";
 import { parseRentalTimestamp } from "../../../../packages/domain/src/rentals/timestamps";
 import { RentalFault, rentalRpc, rentalCapabilities, rentalList, rentalDetail, rentalChoices, validPage } from "./data";
+import { archiveQuery } from "./archive-model";
 type Dependencies = { origin: () => string; client: (cookies: CookieMethodsServer) => SupabaseClient;
   context: (client: SupabaseClient, selection?: { userId: string; agencyId: string }) => Promise<AgencyContext>; ready: () => boolean };
 const production: Dependencies = { origin: () => appOrigin(process.env.CONTRATPRO_APP_ORIGIN), client: serverAuthClient,
@@ -39,7 +40,7 @@ export async function handleRentals(request: NextRequest, locale: string, deps: 
     if (!deps.ready()) return fail("unavailable", 503);
     let body: unknown; try { body = await readBody(request); } catch { return fail("invalid", 400); }
     if (!isRecord(body) || typeof body.action !== "string") return fail("invalid", 400);
-    const shapes: Record<string, string[]> = { list: ["action", "page"], detail: ["action", "id"], document: ["action", "id"],
+    const shapes: Record<string, string[]> = { archive:["action","input"],"archive-mark":["action","input"],list: ["action", "page"], detail: ["action", "id"], document: ["action", "id"],
       choices: ["action", "kind", "search", "page"], create: ["action", "requestId", "data"], update: ["action", "id", "version", "requestId", "data"],
       driver: ["action", "id", "version", "requestId", "clientId"], extend: ["action", "id", "version", "requestId", "end"],
       confirm: ["action", "id", "version", "requestId"], start: ["action", "id", "version", "requestId"],
@@ -53,6 +54,13 @@ export async function handleRentals(request: NextRequest, locale: string, deps: 
     if (context.access.status === "unavailable") return fail("unavailable", 503);
     if (context.access.status !== "authorized" || !context.canonical || context.canonical.userId !== context.access.userId) return fail("forbidden", 403);
     const agencyId = context.access.agencyId; await rentalCapabilities(client, agencyId);
+    if(body.action==="archive"||body.action==="archive-mark"){
+      if(process.env.CONTRATPRO_A4_VERIFIED!=="true")return fail("unavailable",503);
+      if(!isRecord(body.input))return fail("invalid",400);
+      if(body.action==="archive-mark"&&(!isUuid(body.input.rentalId)||!isUuid(body.input.requestId)||typeof body.input.archived!=="boolean"))return fail("invalid",400);
+      const input=body.action==="archive"?archiveQuery(body.input):body.input;
+      return reply({ok:true,value:await rentalRpc(client,"contratpro_archive",{p_agency_id:agencyId,p_action:body.action==="archive"?"search":"mark",p_input:input})});
+    }
     if (body.action === "list") return validPage(body.page) ? reply({ ok: true, value: await rentalList(client, agencyId, body.page) }) : fail("invalid", 400);
     if (body.action === "choices") {
       if (!["client", "vehicle"].includes(String(body.kind)) || typeof body.search !== "string" || body.search.length > 100 || /[\u0000-\u001f\u007f]/.test(body.search) || !validPage(body.page)) return fail("invalid", 400);

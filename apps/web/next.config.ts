@@ -7,6 +7,9 @@ if (process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_PUB
 }
 
 const nextConfig: NextConfig = {
+  ...(process.env.A6_AUTH_POLISH_VERIFY === "1" ? {distDir: ".next-auth-polish",typescript:{tsconfigPath:"tsconfig.auth-review.json"}} : {}),
+  // Local offline review uses Next's regular production server; deployments retain standalone output.
+  ...(process.env.A6_ISOLATED_REVIEW === "1" ? {} : { output: "standalone" as const }),
   poweredByHeader: false,
   async headers() {
     return [{

@@ -1,5 +1,191 @@
 # Rental Contracts Phase 1A — offline Production readiness assessment
 
+## Batch A4 follow-up — local code, full batch incomplete, 2026-11-26
+
+[A4 implementation evidence and bounds](a4-archive-sheets-billing.md) adds guarded
+0024: canonical/private archive search, non-destructive markers and receipts,
+durable spreadsheet-creation recovery, safe resync, bounded scan/pagination and
+payment-operation terms/correlation. No migration applied or feature activated.
+
+- [ ] Select B5 and implement its actual payment transport, merchant/authenticated
+  event verification, checkout/renew/refund/cancel flow, concrete reconciliation
+  and agency route/UI integration; approve B4 unattended policy before adding it.
+- [ ] Accept native composition through 0024, exact helper/RPC owner/ACL/default
+  privileges/history/rollback packaging, genuine multi-session archive/creation/
+  worker/payment races, cross-tenant managed Auth/Storage behavior.
+- [ ] Accept Google exact-title recovery/manual abandonment, 10,000-row scan bound,
+  moved/deleted/duplicate/header/formula/late-write behavior and pilot capacity;
+  metadata reads/injected tests do not prove live Google semantics.
+- [ ] Accept full archive/document/evidence/billing FR/AR/mobile/keyboard/browser
+  journeys, scope-sensitive search log exclusion and private retrieval.
+
+Full A4 remains incomplete pending dependent provider code. A3 provider/verifier/
+hosted/raw-evidence, retained logos, preview/generated/signing cleanup, Arabic/
+native DOCX, SMTP/domain, keys/worker hosting, commercial/fiscal and final migration/
+concurrency/live acceptance blockers remain open. A5 was not started.
+Local A4 verification passed TypeScript/lint, 1,906 web tests, 737 database tests,
+production build and whitespace checks; final focused module rerun passed 67 tests.
+No live/native/provider acceptance box is closed by these results.
+
+## Batch A3 follow-up — local implementation, incomplete
+
+See [A3 source/test evidence and remaining implementation](a3-signing-reminders-delivery-recovery.md).
+Guarded 0023 adds configurable durable reminder generation, invitation revocation,
+tag-correlated unknown-ID recovery, immutable manual review and external result
+admission. No gate was enabled, SQL applied or real message sent.
+
+- [x] B3 initial-MVP method decision: owner selected internal simple signing.
+  External provider transport, trust profile, hosted journey and raw external
+  evidence storage are optional deferred extensions. Internal legal and live
+  acceptance remain separate unchecked launch requirements.
+- [ ] Accept exact native ownership/ACL/history/rollback composition through 0023,
+  concurrent reminder/session/policy/worker races and managed cross-tenant access.
+- [ ] Accept real tagged Resend callbacks, unknown outcomes, domain/sender setup,
+  worker hosting and FR/AR/RTL/mobile/accessibility recovery journeys.
+
+Earlier A1/A2 live acceptance, retained logos, preview/generated/signing object
+cleanup, Arabic/native DOCX, key rotation/provisioning, legal/commercial/fiscal,
+Sheets/billing and final migration blockers remain open. A3 is not fully complete;
+no A4, deployment preflight or activation is started.
+Final local verification on 2026-11-26 UTC passed TypeScript/lint, 1,898 web tests,
+737 database tests, production build and whitespace checks. These results do not
+tick the live/native/provider acceptance boxes above.
+
+## Batch A2 implementation follow-up — 2026-11-25
+
+[A2 implementation and supported-format evidence](a2-templates-clauses-previews.md)
+adds guarded **0022** for versioned clauses, persisted draft custom values, actual
+preconfirmation previews, private expiry/freshness controls and confirmed-input
+binding. Both preview and confirmed capture use the same canonical A1 projection.
+No SQL was applied and no gate was enabled. This does not establish readiness.
+
+- [ ] Review native composition through **0022**, including renamed RPC/helper
+  execution restrictions, existing Storage policy OID rebinding, capture/confirmation
+  trigger order, immutable inputs, isolation/row/advisory locks and rollback/history.
+- [ ] Keep new `CONTRATPRO_A2_VERIFIED` closed until separately accepted; preserve
+  existing documents/A1/signing/delivery gates and renderer-key requirements.
+- [ ] Accept managed private preview reads/uploads, foreign/revoked-user denial,
+  expiry/staleness, lost-response/lease recovery and genuine concurrent updates.
+- [ ] Accept representative PDF/DOCX appendix layout, long/multiline content,
+  Arabic fonts/shaping/mixed bidi and FR/AR mobile/keyboard/assistive technology.
+- [ ] Complete A5 physical preview/generated/signing object orphan reconciliation
+  and approved retention; preserve A1 retained/unattached-logo recovery blocker.
+
+All earlier A1, provider/reminder/delivery, key/worker, billing and final acceptance
+blockers remain open. Stop after A2; no A3 or production preflight was started.
+Local A2 `npm.cmd run verify` passed TypeScript, lint, 1,889 web tests, 737 database
+tests and production build; whitespace checks passed. No acceptance box above is
+ticked by these automated results.
+
+## Batch A1 implementation follow-up — 2026-11-25
+
+See [A1 local implementation and exact policies](a1-core-agency-rental-workflows.md).
+Guarded **0021** adds team/role/invitation/signatory/branding/location/rental-accounting
+behavior and shared delivery/Sheets/billing integration. Earlier SQL and all detailed
+acceptance blockers below remain unchanged. A1 source/tests now exist; this does
+**not** tick live acceptance boxes, apply SQL or authorize feature activation.
+
+- [ ] Review exact native composition and migration inventory through **0021**,
+  including restricted owner/grantor/default-ACL authority, Auth email/MAC/canonical
+  boundary, membership hierarchy/last-owner isolation, new asset policies and shared
+  signing/delivery/Sheets/billing trigger/function changes.
+- [ ] Independently provision the A1 gateway key and matching server secret, keep
+  `CONTRATPRO_A1_VERIFIED` disabled until accepted, and preserve all other gates.
+- [ ] Accept native multi-session member/role/last-owner/invitation/reactivation/
+  payment/branding/worker races and deadlock recovery; PGlite stale-version tests do
+  not establish native concurrency or real managed JWT/Storage behavior.
+- [ ] Accept real confirmed-email/canonical invitation acceptance, fragment privacy,
+  key rotation/reissue behavior, explicit team-email queueing and worker dispatch
+  fencing; no real email was sent in local verification.
+- [ ] Accept signer selection/actual authorization/revocation, cancellation of pending
+  sessions and preservation of completed evidence during identity/member changes.
+- [ ] Accept bounded PNG upload/private read/replacement/removal, immutable captured
+  branding and storage quotas; review visible retained/unattached originals and A5
+  reconciliation. No physical orphan reclamation is claimed.
+- [ ] Accept legacy draft location completion, draft-only location edits, exact rental
+  accounting/deposit separation/partial payments/reversals after return/cancellation,
+  audit rollback and singular same-row Sheets updates without rewriting signed PDFs.
+- [ ] Accept all new FR/AR/RTL/mobile/keyboard/error/quota/uncertainty journeys with
+  actual managed services in a separately authorized environment.
+
+**A2 now has a local implementation checkpoint**, not a production preflight. Older references
+below to A1/missing locations/payment/team/branding are preserved historical blockers
+whose code portions are superseded by the A1 report; their live acceptance portions
+remain open. Higher-assurance providers, automatic reminder generation, unknown-ID
+recovery, key-ring/backup/monitoring/orphan operations, Arabic/DOCX fidelity and all
+other original blockers remain. Whole-MVP and production verdict is still **NO-GO**.
+
+## Full MVP scope acceptance addendum — 2026-11-25
+
+**NO-GO remains.** This is a documentation-only scope reconciliation, not a new
+deployment preflight or permission to execute any procedure below. The
+[source/test matrix](mvp-scope-reconciliation.md), [completion plan](mvp-completion-plan.md)
+and [tracker](mvp-tracker.md) distinguish missing implementation from final
+integration. No checkbox or historical blocker below was removed or closed.
+Historical recommendations for production catalog collection do not supersede the
+current BUILD-FIRST priority: **A1 core agency and rental workflows**.
+
+### Implementation prerequisites (queue A; not final integration)
+
+- [ ] A1: implement tenant-safe team lifecycle, managed signer designation/authority,
+  reusable agency branding and authoritative pickup/return/rental-payment capture;
+  preserve exact money, tenant boundaries, quotas, receipts and immutable histories.
+- [ ] Confirm exact required identity fields against the existing CIN/passport/
+  licence/nationality schema; do not classify all client identity handling as absent.
+- [ ] A2: persist versioned clause customization and allow actual populated document
+  preview before rental confirmation; retain supported PDF/DOCX limits and explicit
+  unsupported/overflow states. “Draft” post-confirmation artifacts do not satisfy it.
+- [ ] A3: implement automatic reminder admission/cancellation, safe unknown-send
+  recovery and selected provider-specific signing dispatch, independent verification,
+  unchanged provider-byte persistence and completion. Interfaces/fixtures alone fail.
+- [ ] A4: implement contract archive search/retrieval, authoritative location/payment
+  export, spreadsheet-creation recovery and bounded pacing, and actual selected
+  billing-provider UI/adapter/webhook/reconciliation. Resolve required admin-list
+  and unattended renewal scope; add fiscal issuance only if validated as required.
+- [ ] A5: implement/review operational key provisioning/rotation/draining, generated/
+  signing object reconciliation, supervised worker/scheduler artifacts, redacted
+  monitoring and complete backup/restore/independent-host/portability artifacts.
+- [ ] A6: complete operational dashboard/navigation, FR/AR labels and all required
+  journeys/states; implement responsive/accessibility fixes. Existing markup tests
+  and historical rental screenshots do not establish whole-app browser acceptance.
+- [ ] Each slice has meaningful behavior/fault/tenant tests; each batch passes the
+  current local verification command and updates its matrix evidence. No module/test
+  count or unverified flag establishes MVP completion.
+
+### Decisions and setup (queues B/C)
+
+- [ ] Record minimal field/payment/team/signer/archive/format/pilot-volume policy;
+  selected signing/payment provider capabilities; approved exact commercial catalog,
+  recurring/manual payment policy and platform support scope.
+- [ ] Obtain signature/consent/authority/privacy/digest/retention and fiscal validation;
+  internal billing records must remain distinct from legally required tax invoices.
+- [ ] Provision independent keys, explicit capabilities and platform AAL2 identities;
+  verified SMTP/Resend, Google consent/APIs/HTTPS, licensed Arabic fonts and isolated
+  digest-pinned converter. Configure actual values only through separately authorized work.
+- [ ] Provision an independent environment, TLS/backend/worker scheduling, backup/key
+  custody and monitoring; do not use the existing production VPS for heavy testing.
+
+### Final integration only after implementation (queue D)
+
+- [ ] D1: reconcile exact current migration inventory, native authority/owner/ACL/RLS/
+  history/trigger composition and separately reviewed deploy/rollback artifacts; keep
+  guarded 0013–0020 drafts unchanged. Prior catalog evidence remains date/scope bound.
+- [ ] D2: accept real managed Auth/JWT/Storage, cross-tenant/capability/revocation,
+  native concurrent lifecycle/quota/worker races and audit/partial-failure rollback.
+- [ ] D3: accept actual supported templates/converter/fonts/Arabic/bidi PDFs and all
+  FR/AR mobile/desktop/keyboard/accessibility journeys with meaningful recovery.
+- [ ] D4: accept real selected-provider sandbox/webhook/unknown outcomes, Resend and
+  separate-code/manual sharing, automatic reminders/final delivery, Google same-row
+  synchronization and hosted worker behavior without duplicate effects.
+- [ ] D5: rehearse independent deployment, DB/object/key restore, key overlap/draining,
+  orphan safeguards, alerting and recovery without accidentally replaying external effects.
+- [ ] D6: complete a bounded pilot, close findings and obtain explicit later launch
+  approval. No production readiness or MVP completion is declared by this addendum.
+
+All detailed original blockers below remain in force, including canonical digest,
+native SET/ADMIN/default ACL and exact-signature requirements, provider/legal,
+storage, retention, dependency diagnostics and operational recovery limitations.
+
 ## Additional final acceptance checklist — billing and platform, 2026-11-24
 
 See [billing implementation and exact policy](billing-mvp.md) and the
@@ -422,3 +608,143 @@ not permission or proof to deploy. No Production or local PostgreSQL was accesse
 - https://www.postgresql.org/docs/17/sql-createrole.html — CREATEROLE and role attributes.
 - https://www.postgresql.org/docs/17/role-membership.html — SET/INHERIT/ADMIN options.
 - https://www.postgresql.org/docs/17/sql-createpolicy.html — policy and table-owner boundary.
+
+## A5 local operational follow-up — 2026-11-26
+
+See [A5 report](a5-operational-readiness.md) for the requirement/source/test matrix
+and [operational runbooks](operations/backup-restore.md). Added executable bounded
+worker orchestration, database-owned schedules, historical key compatibility and
+CAS rotation, conservative inventory/quarantine cleanup, backup/isolated restore
+tools, restricted monitoring/admin and future independent-host artifacts. Guarded
+0025 is unapplied; no live infrastructure, providers, objects or configuration
+were activated. No commit/push/deploy or A6 work occurred.
+
+Production readiness remains unaccepted. Native role/RLS/lock/migration and
+managed Auth/Storage validation, real encrypted restore, container/private-TLS
+hosting, resource/restart exercises, live provider reconciliation, Arabic font and
+document fidelity, native DOCX conversion, FR/AR browser/cross-tenant acceptance
+and measured recovery objectives remain open. Signature/fiscal legal review,
+commercial catalog decisions, Resend domain verification and Google OAuth setup
+remain open. A3 concrete signature transport/identity/trust/certificate/hosted/raw
+evidence and A4 concrete payment/merchant/checkout/refund/cancellation/recurrence
+integration remain unfinished implementation, not configuration-only blockers.
+
+Final A5 local verification PASS: TypeScript/lint, 1,913 web tests, 737 database
+tests, 8 operational-tool tests, standalone production build and whitespace. These
+satisfy the documented provider-independent local implementation checkpoint only.
+# A6 verification follow-up — 2026-11-26 UTC
+
+The later A6 authorization supersedes historical stop-at-A5 wording only for
+local A6 work. See [A6 implementation and verification report](a6-professional-ui-ux.md)
+for focused route/source coverage, actual verification results and explicit gaps.
+**A6 remains incomplete; its local exit criteria are not satisfied.** The overview
+currently covers a bounded rental list, not all required operational summaries.
+Whole-journey FR/AR state coverage and composed fixture/visual/accessibility
+verification remain open. No completed browser or screenshot evidence is claimed.
+The browser tool stopped because it could not establish Chrome's current URL;
+the user subsequently stopped the isolated synthetic review server on port 3316.
+It was not restarted in the verification follow-up.
+
+The recovered first verification passed TypeScript and stopped on a dashboard
+render-time clock lint error, since corrected through a server observation-time
+helper. The first resumed database run passed 737 tests. Final resumed results
+are recorded in the A6 report rather than inferred from historical A5 counts.
+Application/provider environment sources were excluded by the local verification
+preload; no real integration, flag or migration was activated.
+
+The pre-existing uncommitted guarded 0026 navigation projection remains unapplied
+and requires permission/SQL compatibility validation. It was not created merely
+as part of this verification follow-up. Earlier guarded drafts are preserved.
+All A3 signature transport/trust/identity/certificate/hosted/raw-evidence and A4
+payment transport/merchant/checkout/refund/cancellation/recurrence code gaps,
+commercial/legal decisions, Resend/OAuth, Arabic font/DOCX, native PostgreSQL,
+Auth/Storage, migration, container/worker, backup restoration, hosting and full
+cross-tenant/live-browser acceptance blockers remain open. No commit, push,
+deployment or overall MVP completion is claimed.
+
+Final resumed A6 automated verification: TypeScript and zero-warning lint PASS,
+1,924 web tests / 104 files PASS, 737 database tests / 28 files PASS, 8 operational
+tests PASS, production build (including final TypeScript) and whitespace PASS.
+Successful existing results were recovered; database tests were not redundantly
+rerun after presentation-only corrections. Browser/axe/responsive measurements
+and FR/AR screenshots remain unavailable, so these results do not close A6.
+
+### A6 remaining-implementation follow-up
+
+The dashboard projection/presentation gap is now implemented locally. The existing
+guarded 0026 draft adds a minimal read-only tenant/capability-scoped task projection:
+active rentals, 24-hour exclusive-cutoff pickups/returns plus overdue, drafts,
+recent contract modifications, signing/invitation/finalization actions, delivery
+failures/uncertainty and pending/problematic Sheets work. Lists are capped at 20,
+with no provider calls, unbounded totals or implied vehicle availability. One
+request-scoped UTC observation time is shared across at most four module queries.
+Disabled/denied/error modules do not display fabricated zeroes.
+
+Navigation now respects Sheets manage authority and A1's canonical-owner condition
+for team/branding. Operational enum labels have FR/AR copy. The existing composed
+PGlite scenario tests the projection, cross-agency and role denial, bounded/minimal
+outputs, exact time boundary and cancelled-rental exclusion. 0026 remains guarded
+and unapplied; native ownership/RLS/migration compatibility remains a later gate.
+
+See the [updated A6 report](a6-professional-ui-ux.md) for current source/test evidence
+and the [manual review guide](a6-manual-visual-review.md) for exact isolated startup,
+localhost routes, synthetic identities, screenshot/keyboard/RTL/responsive checks
+and shutdown/PID/port verification. The final fixture bundle and populated Latin
+renderer preview were built without starting a server. No automated browser
+interaction was retried and no screenshot acceptance was claimed.
+
+Full A6 exit remains open: complete persistent whole-journey fixture coverage is
+not established, and manual visual/accessibility/full-browser review is pending.
+Fixture limitations are documented as verification-support gaps, not completed
+functionality or configuration-only provider work. All previous concrete A3/A4
+provider implementation, A5 operational, commercial/legal, Resend/OAuth, font/DOCX,
+native/managed backend, migration, worker/container/restore, hosting and live
+cross-tenant acceptance blockers remain. No commit, push, deployment or next phase.
+
+Latest targeted follow-up verification PASS: TypeScript in both workspaces,
+zero-warning lint, **1,933 web tests / 105 files**, the extended composed A1–A6
+PGlite scenario, production build and whitespace. Manual fixtures and the actual
+synthetic populated renderer preview compiled with `--build-only`, without a
+listener. Historical 737 database / 8 operational passing results remain evidence
+for unaffected suites, not newly rerun full-suite counts. Manual browser,
+accessibility and complete whole-journey acceptance remain pending.
+
+
+## V4.1 main-application integration — 2026-11-26
+
+Owner-authorized batches I1–I7 are integrated locally: original Dusk landing and clearly simulated marketing demonstrations; real authentication and capability-aware Light Violet shell; actual agency switching/theme/language/search/notifications; six bounded operational KPIs, daily priorities before five visualizations and recent contracts/activity in a responsive 65/35 grid. Existing client/vehicle/rental, complete Studio, signing/delivery/archive, team/branding/Sheets/billing/platform screens share the approved tokens and shell while retaining authoritative handlers and gates. Rental filters/search/sort explicitly apply to the current server page. Agency/canonical-user changes replace client shell state.
+
+See [integration report](v4.1-integration-report.md), [file manifest](v4.1-integration-files.json) and [manual acceptance](v4.1-manual-acceptance.md) for exact routes, verification evidence and limitations. No dependency installation, new migration draft, migration application, feature activation, real credential/provider access, commit, push or deployment. Existing source notices retained; owner-managed licensing questions are not declared resolved. The V4.1 reference remains unchanged.
+
+This is a local implementation checkpoint only. A6 final visual/accessibility/responsive/browser acceptance remains **OPEN** under the retained Computer Use stop. No screenshots were generated or claimed. Authenticated whole-journey acceptance needs a separately authorized isolated synthetic backend. All P0–P12 scope and the previously recorded provider, assurance, document/DOCX/Arabic-font, infrastructure/restore, commercial/legal and live cross-tenant blockers remain open; no complete MVP production-readiness claim. Verification results are recorded in the linked report, without replacing prior evidence.
+<!-- registration-onboarding-checkpoint-2026-11-27 -->
+## Registration and agency onboarding checkpoint — 2026-11-27
+
+Implemented locally: FR/AR personal registration fields and server validation, secure canonical profile seeding/settings, encrypted invitation continuation, a four-step saved agency wizard, atomic idempotent owner bootstrap, scoped agency administrative settings and future contract snapshot fields. Existing authentication, role authority, historical document versions and provider gates remain in place.
+
+See [implementation and security report](registration-agency-onboarding.md) and [manual acceptance/restart instructions](registration-onboarding-manual-acceptance.md). Draft **0027** is guarded and unapplied. Final approved legal documents/versions are absent: registration remains unavailable rather than fabricating consent. A6 visual/authenticated acceptance, native PostgreSQL/managed backend concurrency and rollout verification, and all existing MVP production blockers remain open. No migration, provider activation, installation, commit, push or deployment.
+Verification: 1,987 web tests, 739 database tests and 8 operational tests pass; TypeScript, zero-warning ESLint and isolated production build pass. Sixteen public FR/AR HTTP checks return 200. Review artifacts unchanged; temporary server stopped. Browser acceptance remains pending.
+## B1 owner scope decision — 2026-11-27 (current authority)
+
+The initial MVP uses ContratPro's internal **simple electronic signature**. External higher-assurance integrations, including SAFY and DamaneSign, are **optional and deferred**, not an initial-MVP implementation or provider-selection blocker. Earlier B3/A3 statements requiring a selected signature provider are historical and superseded for this scope. Payment-provider, email configuration and other independent requirements are unaffected. A contract requiring higher assurance is still refused rather than downgraded.
+
+B1 adds a bounded optional drawing to the typed-name capture and authoritative hash-bound event, plus an appended final-PDF execution record with UTC signing dates and unique references. Existing sequential authorization, invitation/code verification, immutable evidence, durable finalization, delivery/recovery/archive and same-row Sheets behavior are reused. Local draft **0028** is guarded and unapplied. See [B1 report](b1-internal-signature-completion.md) and [manual acceptance](internal-signature-manual-acceptance.md).
+
+Legal qualification, approved consent/privacy/retention, native/managed backend and actual delivery acceptance remain launch requirements. No legal approval, qualified/certified signature, automatic handwritten equivalence or complete MVP readiness is claimed. No feature activation, live connection, remote migration, installation, commit, push or deployment.
+Local verification results and their limits are recorded in the B1 report.
+## C1 owner decision and technical integration — 2026-11-27
+
+Current decision labels: **B2 payments/provider**, **B3 commercial plans/pricing/limits** and **B4 final legal documents/validation** are deferred, remain in MVP scope and must be revisited before commercial launch. Existing billing and legal safeguards are retained. B1 internal simple signature is locally implemented; external signature providers are optional deferred extensions. Earlier queue labels are historical where they differ.
+
+C1 reuses the actual A1/A3/A4/A5 email, Google Sheets and worker architecture. It adds early OAuth/key-ring configuration validation, refusal of credential-bearing redirects, bilingual technical Auth templates, isolated test-only legal fixture support and targeted configuration/orchestration regression coverage. Production signup still fails closed without approved real legal documents; no runtime route accepts synthetic identity or legal fallback. No new database draft was necessary after 0028.
+
+See [C1 implementation report](c1-technical-integration-completion.md), [configuration matrix](c1-environment-configuration-matrix.md) and [C2/live acceptance sequence](c1-live-integration-acceptance.md). Native/managed backend, actual SMTP/Resend/Google delivery, infrastructure/worker and owner visual acceptance remain separate. The known unchanged Unicode scalar test can time out under concurrent build/SQL load; retain that observation and run the full web suite separately.
+
+A6 remains OPEN; the full MVP is not production-ready. No real environment read/change, live provider access, production Hostinger/Coolify testing, migration application, purchase, gate activation, dependency installation, payment implementation, final legal drafting, commit, push or deployment occurred in C1.
+## C2 infrastructure/worker checkpoint — 2026-11-27
+
+C2 prepares independent production app/HTTP-worker entries, explicit deployment stages, static/public asset packaging, worker health snapshots and safe failure/backoff, private networking and deployment templates. Existing A5 durable schedules, least-privilege gateway, retry/lease/uncertainty protections, key rotation and backup/restore holds are reused. No schema/history/guarded draft through 0028 was changed; no new migration was needed.
+
+See [C2 readiness](c2-infrastructure-worker-readiness.md), [deployment configuration](c2-deployment-configuration.md), [resource estimates](c2-infrastructure-requirements.md) and [D1 prerequisites](d1-migration-compatibility-prerequisites.md). Container/image/proxy/TLS behavior and native migration compatibility remain unverified. The optional DOCX host-container launcher needs separately approved isolated execution before use in the hardened app; no Docker socket is supplied.
+
+B2 payments, B3 plans/pricing, B4 final legal validation, complete rental-workflow manual acceptance and D5 actual backup/restore acceptance remain deferred and retained. A6 remains OPEN. No Docker creation/build, dependency install, service activation, real secrets/services, infrastructure provisioning, existing production Hostinger/Coolify VPS use, backup/restore, remote SQL, commit, push or deployment. The Unicode parallel-load observation is retained; web regression is run separately from heavy build/SQL checks.

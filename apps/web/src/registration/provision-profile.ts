@@ -1,0 +1,7 @@
+import 'server-only';import {createHash} from 'node:crypto';import type {SupabaseClient} from '@supabase/supabase-js';import {personalInput,approvedLegalRelease} from './model';import {verifyRegistrationConsent} from './consent';
+function key(subject:string,payload:unknown){const hash=createHash('sha256').update(subject+':'+JSON.stringify(payload)).digest('hex');return `${hash.slice(0,8)}-${hash.slice(8,12)}-4${hash.slice(13,16)}-8${hash.slice(17,20)}-${hash.slice(20,32)}`;}
+export async function provisionRegistrationProfile(client:SupabaseClient,subject:string,now:number){if(!Number.isFinite(now))return false;const user=await client.auth.getUser();if(user.error||user.data.user?.id!==subject)return false;const metadata=user.data.user.user_metadata;
+ const p=personalInput(metadata?.registrationProfile);if(p.ok){const saved=await client.rpc('contratpro_account_profile',{p_action:'seed',p_data:p.value,p_request_id:key(subject,p.value)});if(saved.error)return false;}
+ const email=user.data.user.email;if(approvedLegalRelease&&email&&user.data.user.email_confirmed_at){const consent=verifyRegistrationConsent(metadata?.registrationConsent,approvedLegalRelease,email,process.env.CONTRATPRO_AUTH_FLOW_SECRET??'',now);if(consent){const {acceptedAt,...versions}=consent;const saved=await client.rpc('contratpro_account_profile',{p_action:'consent',p_data:versions,p_request_id:key(subject,{...consent,acceptedAt})});if(saved.error)return false;}}
+ return true;
+}

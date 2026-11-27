@@ -1,4 +1,4 @@
-export type FaultCode = "invalid" | "forbidden" | "unavailable" | "revoked" | "quota" | "conflict" | "uncertain" | "restricted";
+export type FaultCode = "invalid" | "forbidden" | "unavailable" | "revoked" | "quota" | "conflict" | "uncertain" | "restricted" | "capacity";
 export class SheetsFault extends Error { constructor(readonly code: FaultCode) { super(code); } }
 export interface Repository { call<T>(agencyId:string|null,action:string,input:object):Promise<T> }
 export const fields = ["reference","createdAt","clientName","clientPhone","clientEmail","primaryDriver","secondaryDriver","registration","make","model","start","end","pickup","returnLocation","days","rate","deposit","total","currency","payment","state","agencySignature","clientSignature","completion","lastSync"] as const;

@@ -9,7 +9,7 @@ const rental: RentalView = { id, agency_id: key, secondaryClientId: null, client
   starts_at: "2026-12-01T09:00:00Z", ends_at: "2026-12-02T09:00:00Z", daily_rate_minor: "10000", deposit_minor: "0", total_minor: "10000", billable_days: 1,
   physicalUnavailable: false, overdueConflict: false };
 let host: HTMLDivElement, root: Root;
-beforeEach(() => { vi.stubGlobal("IS_REACT_ACT_ENVIRONMENT", true); vi.stubGlobal("fetch", vi.fn(() => { throw Error("No network in component tests"); })); host = document.createElement("div"); document.body.append(host); root = createRoot(host); });
+beforeEach(() => { vi.stubGlobal("IS_REACT_ACT_ENVIRONMENT", true); vi.stubGlobal("fetch", vi.fn(() => { throw Error("No network in component tests"); })); HTMLDialogElement.prototype.showModal=function(){this.open=true;};HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new Event("close"));};host = document.createElement("div"); document.body.append(host); root = createRoot(host); });
 afterEach(async () => { await act(async () => root.unmount()); host.remove(); vi.unstubAllGlobals(); });
 async function click(text: string) { await act(async () => { const button = [...host.querySelectorAll("button")].find(item => item.textContent === text); expect(button).toBeDefined(); button!.click(); }); }
 async function change(control: HTMLInputElement | HTMLSelectElement, value: string) { await act(async () => {
@@ -31,6 +31,8 @@ it("requires explicit return and operation confirmation and blocks ambiguous ret
   await act(async () => checks[0]!.click()); expect(complete().disabled).toBe(true);
   await act(async () => checks[1]!.click()); expect(complete().disabled).toBe(false);
   await click("Enregistrer le retour");
+  expect(host.querySelector("dialog[open]")).not.toBeNull();expect(send.mock.calls.filter(([,body])=>(body as {action:string}).action==="complete")).toHaveLength(0);
+  await click("Confirmer l’opération");
   expect(send.mock.calls.at(-1)?.[1]).toMatchObject({ action: "complete", version: 2, id, returnConfirmed: true });
   expect(complete().disabled).toBe(true); expect(host.textContent).toContain("Résultat non confirmé");
   expect(send.mock.calls.filter(([, body]) => (body as { action: string }).action === "complete")).toHaveLength(1);

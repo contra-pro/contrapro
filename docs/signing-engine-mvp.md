@@ -189,3 +189,11 @@ All earlier outstanding work is retained: preconfirmation previews, authoritativ
 location/payment capture, renderer-key provisioning, Arabic font configuration,
 real DOCX conversion/layout acceptance, generated-orphan reconciliation, migration
 compatibility/deployment inventory, cross-tenant acceptance and Resend SMTP setup.
+## B1 owner scope decision — 2026-11-27 (current authority)
+
+The initial MVP uses ContratPro's internal **simple electronic signature**. External higher-assurance integrations, including SAFY and DamaneSign, are **optional and deferred**, not an initial-MVP implementation or provider-selection blocker. Earlier B3/A3 statements requiring a selected signature provider are historical and superseded for this scope. Payment-provider, email configuration and other independent requirements are unaffected. A contract requiring higher assurance is still refused rather than downgraded.
+
+B1 adds a bounded optional drawing to the typed-name capture and authoritative hash-bound event, plus an appended final-PDF execution record with UTC signing dates and unique references. Existing sequential authorization, invitation/code verification, immutable evidence, durable finalization, delivery/recovery/archive and same-row Sheets behavior are reused. Local draft **0028** is guarded and unapplied. See [B1 report](b1-internal-signature-completion.md) and [manual acceptance](internal-signature-manual-acceptance.md).
+
+Legal qualification, approved consent/privacy/retention, native/managed backend and actual delivery acceptance remain launch requirements. No legal approval, qualified/certified signature, automatic handwritten equivalence or complete MVP readiness is claimed. No feature activation, live connection, remote migration, installation, commit, push or deployment.
+Local verification results and their limits are recorded in the B1 report.

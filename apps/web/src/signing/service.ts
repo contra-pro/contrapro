@@ -29,10 +29,11 @@ export class SigningEngine {
   }
   async agencySign(agencyId:string,input:{sessionId:string;version:number;requestId:string;capture:unknown}) {
     uuid(agencyId,input.sessionId,input.requestId);const s=await this.get(agencyId,input.sessionId);
+    if(s.assurance!=="simple")throw new SigningFault("unsupported-assurance");
     if(s.state==="agency_signed") return this.repo.call<Session>(agencyId,"agency-sign",{sessionId:s.id,version:input.version,requestId:input.requestId,intent:{captureText:JSON.stringify(capture(input.capture,s.locale,s.original.checksum)),fontHash:signatureFontHash(this.font)}});
     if(s.state!=="awaiting_agency" || s.version!==input.version) throw new SigningFault("conflict");
     signingZones(s.original.signing.zones);const cap=capture(input.capture,s.locale,s.original.checksum),intent={captureText:JSON.stringify(cap),fontHash:signatureFontHash(this.font)};
-    const bytes=await signaturePdf(await this.bytes(s.original.key,s.original.checksum),s,{agency:cap.typedName},this.font),checksum=digest(bytes),key=objectKey(agencyId,"issued",s.id,checksum,"pdf");
+    const bytes=await signaturePdf(await this.bytes(s.original.key,s.original.checksum),s,{agency:cap.typedName},this.font,{agency:cap.drawing}),checksum=digest(bytes),key=objectKey(agencyId,"issued",s.id,checksum,"pdf");
     await this.repo.call(agencyId,"stage-agency",{sessionId:s.id,version:s.version,requestId:input.requestId,key,checksum,intent});
     await this.store.put(key,bytes,"application/pdf");
     return this.repo.call<Session>(agencyId,"agency-sign",{sessionId:s.id,version:s.version,requestId:input.requestId,intent});
@@ -48,11 +49,13 @@ export class SigningEngine {
   }
   async clientSign(token:string,input:{version:number;requestId:string;challengeId:string;capture:unknown}) {
     uuid(input.requestId,input.challengeId);const tokenHash=tokenDigest(token),s=await this.repo.call<Session>(null,"document",{tokenHash});
+    if(s.assurance!=="simple")throw new SigningFault("unsupported-assurance");
     const cap=capture(input.capture,s.locale,s.intermediate?.checksum ?? "");
+    if(!s.agencySignature)throw new SigningFault("conflict");
     if(cap.typedName.toLowerCase()!==s.clientName.trim().normalize("NFC").toLowerCase()) throw new SigningFault("invalid");
     if(!s.intermediate) throw new SigningFault("conflict");await this.bytes(s.intermediate.key,s.intermediate.checksum);
     // Validate font and placement before consuming the authorization.
-    await signaturePdf(await this.bytes(s.original.key,s.original.checksum),s,{agency:s.agencySignature?.typedName ?? "",client:cap.typedName},this.font);
+    await signaturePdf(await this.bytes(s.original.key,s.original.checksum),s,{agency:s.agencySignature?.typedName ?? "",client:cap.typedName},this.font,{agency:s.agencySignature?.method==="typed"?s.agencySignature.drawing:undefined,client:cap.drawing});
     return this.repo.call<Session>(null,"client-sign",{tokenHash,version:input.version,requestId:input.requestId,challengeId:input.challengeId,captureText:JSON.stringify(cap),fontHash:signatureFontHash(this.font)});
   }
   async command(agencyId:string|null,action:"cancel"|"decline",input:{sessionId?:string;version:number;requestId:string},token?:string) {
@@ -60,14 +63,15 @@ export class SigningEngine {
   }
   async finalize(agencyId:string|null,sessionId:string|null,token?:string) {
     let s=await this.get(agencyId,sessionId,token);if(s.state==="completed") return s;
+    if(s.assurance!=="simple")throw new SigningFault("unsupported-assurance");
     const auth=agencyId ? {sessionId:s.id} : {tokenHash:tokenDigest(token)};
     try {
       s=await this.repo.call<Session>(agencyId,"finalize-prepare",{...auth,version:s.version,requestId:randomUUID()});
-      if(!s.agencySignature || !s.clientSignature) throw new SigningFault("conflict");
+      if(!s.agencySignature || !s.clientSignature || s.agencySignature.method!=="typed" || s.clientSignature.method!=="typed") throw new SigningFault("conflict");
       if(s.agencySignature.fontHash!==signatureFontHash(this.font) || s.clientSignature.fontHash!==signatureFontHash(this.font) || !s.intermediate) throw new SigningFault("reconciliation-required");
       await this.bytes(s.intermediate.key,s.intermediate.checksum);
       const original=await this.bytes(s.original.key,s.original.checksum);
-      const bytes=await signaturePdf(original,s,{agency:s.agencySignature.typedName,client:s.clientSignature.typedName},this.font),checksum=digest(bytes),key=objectKey(s.agencyId,"issued",s.id,checksum,"pdf");
+      const bytes=await signaturePdf(original,s,{agency:s.agencySignature.typedName,client:s.clientSignature.typedName},this.font,{agency:s.agencySignature.drawing,client:s.clientSignature.drawing,final:s.agencySignature.executionRecordVersion==="b1-v1"||s.clientSignature.executionRecordVersion==="b1-v1"}),checksum=digest(bytes),key=objectKey(s.agencyId,"issued",s.id,checksum,"pdf");
       await this.repo.call(agencyId,"stage-final",{...auth,version:s.version,requestId:randomUUID(),key,checksum,intent:{originalChecksum:s.original.checksum,agencySignature:s.agencySignature.artifactChecksum,clientSignature:s.clientSignature.artifactChecksum,fontHash:signatureFontHash(this.font)}});
       await this.store.put(key,bytes,"application/pdf");
       return await this.repo.call<Session>(agencyId,"complete",{...auth,version:s.version,requestId:randomUUID(),checksum});

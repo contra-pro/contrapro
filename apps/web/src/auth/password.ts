@@ -9,10 +9,12 @@ import { verifiedSubject } from "./identity";
 import { isLocale, type Locale } from "../i18n/locales";
 import { selectionCookie } from "../agency/selection";
 import { authDiagnostic, developmentAuthDiagnostic, type AuthDiagnostic, type AuthStage } from "./diagnostics";
+import {approvedLegalRelease,registrationInput,type LegalRelease} from '../registration/model';
+import {signRegistrationConsent} from '../registration/consent';
 
 export type PasswordOperation = "sign-up" | "password" | "forgot-password" | "reset-password" | "password-callback";
 type Dependencies = { origin: () => string; client: (cookies: CookieMethodsServer) => SupabaseClient;
-  nonce: () => string; now: () => number; secret: () => string; diagnostic?: (event: AuthDiagnostic) => void };
+  nonce: () => string; now: () => number; secret: () => string; diagnostic?: (event: AuthDiagnostic) => void;legal?:()=>LegalRelease|null };
 const production: Dependencies = { origin: () => appOrigin(process.env.CONTRATPRO_APP_ORIGIN), client: serverAuthClient,
   nonce: () => randomBytes(32).toString("hex"), now: Date.now, secret: () => recoverySecret(), diagnostic: developmentAuthDiagnostic };
 export const recoveryCookie = "contratpro-password-recovery";
@@ -45,7 +47,7 @@ async function sessionIdentity(client: SupabaseClient, now: number) {
   const session: unknown = claims.data?.claims?.session_id;
   return !claims.error && typeof session === "string" && session.length > 0 && session.length < 256 ? { ...identity, session } : null;
 }
-async function readForm(request: NextRequest) {
+async function readForm(request: NextRequest,operation:PasswordOperation) {
   if (request.headers.get("content-type")?.split(";")[0] !== "application/x-www-form-urlencoded") throw new Error();
   const reader = request.body?.getReader(); if (!reader) throw new Error();
   const chunks: Uint8Array[] = []; let size = 0;
@@ -54,7 +56,8 @@ async function readForm(request: NextRequest) {
       size += part.value.length; if (size > 8192) { await reader.cancel(); throw new Error(); } chunks.push(part.value); }
   } finally { reader.releaseLock(); }
   const values = new URLSearchParams(new TextDecoder("utf-8", { fatal: true }).decode(Buffer.concat(chunks)));
-  if ([...values.keys()].some(key => !["email", "password", "confirmPassword"].includes(key) || values.getAll(key).length !== 1)) throw new Error();
+  const allowed=operation==='sign-up'?['email','password','confirmPassword','firstName','lastName','callingCode','phone','acceptLegal']:['email','password','confirmPassword'];
+  if ([...values.keys()].some(key => !allowed.includes(key) || values.getAll(key).length !== 1)) throw new Error();
   return values;
 }
 function providerCode(error: unknown): string {
@@ -134,10 +137,13 @@ export async function handlePasswordAuth(request: NextRequest, locale: string, o
       return finish(`/${locale}/auth/continue`);
     }
     stage = "form";
-    const values = await readForm(request), email = values.get("email")?.trim() ?? "", password = values.get("password") ?? "";
+    const values = await readForm(request,operation), email = values.get("email")?.trim() ?? "", password = values.get("password") ?? "";
     if (operation !== "reset-password" && (!email || email.length > 320 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) return fail("invalid-email");
     if (operation !== "forgot-password" && (password.length < (operation === "password" ? 1 : 12) || password.length > 128)) return fail("invalid-password");
     if ((operation === "sign-up" || operation === "reset-password") && values.get("confirmPassword") !== password) return fail("password-mismatch");
+    const legal=deps.legal?.()??approvedLegalRelease;
+    const registration=operation==='sign-up'?registrationInput(Object.fromEntries(values),legal):null;
+    if(registration&&!registration.ok)return fail(legal?'invalid-registration':'legal-unavailable');
     if (operation === "reset-password") {
       stage = "password-update";
       const secret = deps.secret(), sdk = client(), identity = await sessionIdentity(sdk, deps.now());
@@ -163,7 +169,7 @@ export async function handlePasswordAuth(request: NextRequest, locale: string, o
     const redirectTo = `${origin}${callbackPath}?flow=${flow}`, sdk = client();
     if (operation === "sign-up") {
       stage = "signup-request";
-      const result = await sdk.auth.signUp({ email, password, options: { emailRedirectTo: redirectTo } });
+      const result = await sdk.auth.signUp({ email, password, options: { emailRedirectTo: redirectTo,data:{registrationProfile:registration?.ok?registration.value:undefined,registrationConsent:legal?signRegistrationConsent(legal,email,deps.secret(),deps.now()):undefined} } });
       stage = "signup-response";
       if (result.error) diagnose(result.error);
       if (result.error && !["user_already_exists", "email_exists"].includes(providerCode(result.error))) {

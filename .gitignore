@@ -25,3 +25,5 @@ supabase/.temp/
 *.zip
 *.log
 docs/deployment-0007/postflight-output.txt
+# Separate artifacts for auth verification while the owner's production session runs.
+apps/web/.next-auth-polish/

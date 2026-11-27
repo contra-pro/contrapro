@@ -1,3 +1,4 @@
+import {signRegistrationConsent} from '../registration/consent';
 import { describe, expect, it, vi } from "vitest";
 import { createHmac } from "node:crypto";
 import { NextRequest } from "next/server";
@@ -21,14 +22,16 @@ function fixture() {
     signOut: vi.fn(async () => ({ error: null as unknown })),
   };
   const client = vi.fn<(cookies: CookieMethodsServer) => SupabaseClient>(() => ({ auth }) as unknown as SupabaseClient);
-  const deps = { origin: () => origin, client, nonce: () => nonce, now: () => 1000, secret: () => "s".repeat(64) };
+  const deps = { origin: () => origin, client, nonce: () => nonce, now: () => 1000, secret: () => "s".repeat(64),legal:()=>legal };
   return { auth, client, deps };
 }
 function post(operation: string, fields: Record<string, string>, cookie = "", locale = "fr", requestOrigin = origin) {
   return new NextRequest(`${origin}/${locale}/auth/${operation}`, { method: "POST", headers: {
     origin: requestOrigin, "content-type": "application/x-www-form-urlencoded", cookie,
-  }, body: new URLSearchParams(fields).toString() });
+  }, body: new URLSearchParams(operation==="sign-up"?{...person,acceptLegal:"on",...fields}:fields).toString() });
 }
+const legal={terms:{version:'synthetic-v1',path:'/test-terms'},privacy:{version:'synthetic-v1',path:'/test-privacy'}};
+const person={firstName:'Amina',lastName:'Exemple',callingCode:'+212',phone:'+212612345678'};
 const credentials = { email: "owner@example.com", password: "a secure password", confirmPassword: "a secure password" };
 function callback(purpose: string, locale = "fr", query = `code=one-use-code&flow=${nonce}`) {
   const state = `${purpose}.${nonce}`;
@@ -38,6 +41,9 @@ function callback(purpose: string, locale = "fr", query = `code=one-use-code&flo
   } });
 }
 describe("password authentication through injected Supabase only", () => {
+  it('requires server-side personal fields and explicit acceptance before signup',async()=>{const f=fixture();for(const fields of [{...credentials,firstName:''},{...credentials,acceptLegal:''},{...credentials,callingCode:'+212',phone:'+33123456789'}]){const r=await handlePasswordAuth(post('sign-up',fields),'fr','sign-up',f.deps);expect(r.headers.get('location')).toContain('invalid-registration');}expect(f.auth.signUp).not.toHaveBeenCalled();expect(f.client).not.toHaveBeenCalled();});
+  it('does not register or record legal acceptance when final documents are absent',async()=>{const f=fixture(),r=await handlePasswordAuth(post('sign-up',credentials),'fr','sign-up',{...f.deps,legal:()=>null});expect(r.headers.get('location')).toContain('legal-unavailable');expect(f.auth.signUp).not.toHaveBeenCalled();});
+  it('allows personal email domains and signs server-generated legal evidence without role claims',async()=>{const f=fixture();await handlePasswordAuth(post('sign-up',{...credentials,email:'person@gmail.com'}),'fr','sign-up',f.deps);expect(f.auth.signUp).toHaveBeenCalledWith(expect.objectContaining({email:'person@gmail.com',options:expect.objectContaining({data:{registrationProfile:person,registrationConsent:signRegistrationConsent(legal,'person@gmail.com','s'.repeat(64),1000)}})}));});
   it("accepts a verified immediate session when confirmation is disabled", async () => {
     const f = fixture(); f.auth.signUp.mockResolvedValue({ data: { session: { synthetic: true } }, error: null });
     const response = await handlePasswordAuth(post("sign-up", credentials), "fr", "sign-up", f.deps);
@@ -82,7 +88,7 @@ describe("password authentication through injected Supabase only", () => {
       const f = fixture();
       const response = await handlePasswordAuth(post("sign-up", credentials, "", locale), locale, "sign-up", f.deps);
       expect(f.auth.signUp).toHaveBeenCalledExactlyOnceWith({ email: credentials.email, password: credentials.password,
-        options: { emailRedirectTo: `${origin}/${locale}/auth/password-callback?flow=${nonce}` } });
+        options: { emailRedirectTo: `${origin}/${locale}/auth/password-callback?flow=${nonce}`,data:{registrationProfile:person,registrationConsent:signRegistrationConsent(legal,credentials.email,"s".repeat(64),1000)} } });
       expect(response.headers.get("location")).toBe(`${origin}/${locale}/sign-up?status=confirmation-sent`);
       expect(response.cookies.get(`contratpro-password-flow-${locale}`)).toMatchObject({ httpOnly: true, secure: true });
     });

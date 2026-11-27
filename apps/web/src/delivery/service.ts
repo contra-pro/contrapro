@@ -1,16 +1,27 @@
 import { invitation,digest } from "../signing/crypto";
 import { DeliveryFault,deliveryScope,email,phone,separate,type Channel,type DeliveryContext,type DeliveryJob,type DeliveryRepository,type Envelope,type Material,type Purpose } from "./model";
-import { deliveryId,keyed,seal,unseal } from "./secrets";
+import { deliveryId,keyed,seal } from "./secrets";
 import { message,whatsapp } from "./messages";
-export type DeliveryConfig={gatewaySecret:string;encryptionKey:string;keyId:string;signingSecret:string;origin:string};
+import { keyRing,openEnvelope } from "../maintenance/keys";
+export type DeliveryConfig={gatewaySecret:string;encryptionKey:string;keyId:string;signingSecret:string;origin:string;historicalKeys?:string;derivationKey:string};
 export type QueuedJob={id:string;eventKey:string;purpose:Purpose;channel:Channel;tokenHash:string|null;grantId:string|null;checksum:string;intentHash:string;envelope:Envelope;expiresAt:string;delayMinutes:number};
+export type ReminderClaim={agencyId:string;sessionId:string;tokenHash:string;ordinal:number;lease:string;seed:DeliveryJob;envelope:Envelope;context:DeliveryContext};
 export class DeliveryService {
   constructor(private repo:DeliveryRepository,private config:DeliveryConfig){}
   context(agencyId:string,sessionId:string){deliveryScope(agencyId,sessionId);return this.repo.call<DeliveryContext>(agencyId,"context",{sessionId});}
   list(agencyId:string,sessionId:string){deliveryScope(agencyId,sessionId);return this.repo.call<{jobs:DeliveryJob[];events:{id:string;state:string;errorCode:string|null}[];downloads:{id:string;expiresAt:string;revoked:boolean}[]}>(agencyId,"list",{sessionId});}
+  async automaticReminder(claim:ReminderClaim){
+    const {agencyId,sessionId,tokenHash,ordinal,lease,seed,context}=claim;
+    deliveryScope(agencyId,sessionId,seed.id);
+    if(context.agencyId!==agencyId||context.sessionId!==sessionId||context.invitation?.hash!==tokenHash)throw new DeliveryFault("conflict");
+    const material=openEnvelope<Material>(claim.envelope,keyRing(this.config.keyId,this.config.encryptionKey,this.config.historicalKeys),`${agencyId}|${sessionId}|${seed.id}|invitation`);
+    if(material.purpose!=="invitation"||!material.link||material.code!==null||material.expiresAt!==context.invitation.expiresAt)throw new DeliveryFault("invalid");
+    const job=this.prepare(context,`automatic-reminder:${tokenHash}:${ordinal}`,"reminder",seed.channel,{...material,purpose:"reminder"},{tokenHash,checksum:context.originalChecksum});
+    return this.repo.call(agencyId,"reminder-publish",{sessionId,tokenHash,ordinal,lease,jobs:[job]});
+  }
   private prepare(c:DeliveryContext,eventKey:string,purpose:Purpose,channel:Channel,material:Material,binding:{tokenHash?:string;grantId?:string;checksum:string},delayMinutes=0):QueuedJob {
-    const id=deliveryId(this.config.encryptionKey,`${c.agencyId}|${c.sessionId}|${eventKey}|${purpose}|${channel}`),aad=`${c.agencyId}|${c.sessionId}|${id}|${purpose}`;
-    return {id,eventKey,purpose,channel,tokenHash:binding.tokenHash??null,grantId:binding.grantId??null,checksum:binding.checksum,expiresAt:material.expiresAt,delayMinutes,intentHash:keyed(this.config.encryptionKey,`intent|${JSON.stringify(material)}`),envelope:seal(material,this.config.encryptionKey,this.config.keyId,aad,material.expiresAt)};
+    const identity=this.config.derivationKey,id=deliveryId(identity,`${c.agencyId}|${c.sessionId}|${eventKey}|${purpose}|${channel}`),aad=`${c.agencyId}|${c.sessionId}|${id}|${purpose}`;
+    return {id,eventKey,purpose,channel,tokenHash:binding.tokenHash??null,grantId:binding.grantId??null,checksum:binding.checksum,expiresAt:material.expiresAt,delayMinutes,intentHash:keyed(identity,`intent|${JSON.stringify(material)}`),envelope:seal(material,this.config.encryptionKey,this.config.keyId,aad,material.expiresAt)};
   }
   async invitation(agencyId:string,sessionId:string,input:{linkChannel:Channel;codeChannel:Channel;reminder:boolean;requestId:string}) {
     deliveryScope(agencyId,sessionId,input.requestId);separate(input.linkChannel,input.codeChannel);const c=await this.context(agencyId,sessionId);
@@ -25,7 +36,7 @@ export class DeliveryService {
     deliveryScope(agencyId,sessionId,requestId);if(!["email","manual-whatsapp"].includes(channel))throw new DeliveryFault("invalid");const c=await this.context(agencyId,sessionId);return this.queueFinal(c,requestId,channel,agencyNotification);
   }
   async queueFinal(c:DeliveryContext,requestId:string,channel:Channel,agencyNotification:boolean){
-    if(c.state!=="completed"||!c.final)throw new DeliveryFault("conflict");const grantId=deliveryId(this.config.encryptionKey,`grant|${c.agencyId}|${c.sessionId}|${requestId}`),token=keyed(this.config.gatewaySecret,`download|${c.agencyId}|${c.sessionId}|${grantId}`);
+    if(c.state!=="completed"||!c.final)throw new DeliveryFault("conflict");const grantId=deliveryId(this.config.derivationKey,`grant|${c.agencyId}|${c.sessionId}|${requestId}`),token=keyed(this.config.gatewaySecret,`download|${c.agencyId}|${c.sessionId}|${grantId}`);
     const grant=await this.repo.call<{id:string;expiresAt:string;checksum:string}>(c.agencyId,"prepare-final",{sessionId:c.sessionId,grantId,tokenHash:digest(token)});
     const base={version:1 as const,locale:c.locale,agencyName:c.agencyName,replyTo:c.agencyEmail?email(c.agencyEmail):null,expiresAt:grant.expiresAt,reference:c.reference};
     const eventKey=`final:${grant.id}`,jobs=[this.prepare(c,eventKey,"final-document",channel,{...base,purpose:"final-document",recipient:channel==="email"?email(c.clientEmail):phone(c.clientPhone),link:`${this.config.origin}/${c.locale}/contract#access=${token}`,code:null},{grantId:grant.id,checksum:grant.checksum})];
@@ -33,7 +44,7 @@ export class DeliveryService {
     return this.repo.call(c.agencyId,"queue",{sessionId:c.sessionId,jobs});
   }
   async material(agencyId:string,jobId:string){deliveryScope(agencyId,jobId);const value=await this.repo.call<{job:DeliveryJob;envelope:Envelope}>(agencyId,"material",{jobId});
-    const m=unseal<Material>(value.envelope,this.config.encryptionKey,this.config.keyId,`${agencyId}|${value.job.sessionId}|${jobId}|${value.job.purpose}`);
+    const m=openEnvelope<Material>(value.envelope,keyRing(this.config.keyId,this.config.encryptionKey,this.config.historicalKeys),`${agencyId}|${value.job.sessionId}|${jobId}|${value.job.purpose}`);
     if(m.purpose!==value.job.purpose||m.code&&m.link)throw new DeliveryFault("invalid");const text=message(m).text;
     return {job:value.job,message:text,link:m.link,code:m.code,whatsappUrl:value.job.channel==="manual-whatsapp"?whatsapp(m).url:null};
   }

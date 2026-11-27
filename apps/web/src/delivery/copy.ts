@@ -9,4 +9,4 @@ states:{queued:"في الطابور",processing:"جارٍ المعالجة",acce
 manual:{"not-shared":"لم تلاحظ مشاركة","copied-link":"تم نسخ الرابط","copied-message":"تم نسخ الرسالة","whatsapp-open-requested":"طُلب فتح واتساب","reported-sent":"إرسال مصرح به من الوكالة — غير متحقق منه"},
 purpose:{invitation:"دعوة","verification-code":"رمز منفصل",reminder:"تذكير","final-document":"العقد الموقع","agency-notification":"إشعار الوكالة"},
 errors:{invalid:"تحقق من معلومات الاتصال الدولية وفصل القنوات. تأتي المعلومات من العقد المحفوظ.",forbidden:"يتطلب صلاحية التسليم.","not-found":"عملية التسليم أو الإذن غير موجود.",conflict:"تغيرت الحالة أو لا يسمح بإعادة المحاولة. حدّث السجل.",expired:"انتهت صلاحية الإذن أو المحتوى. اطلب التجديد.",unavailable:"النتيجة غير متاحة. حدّث الحالة قبل إعادة المحاولة.","rate-limited":"طلبات كثيرة. انتظر قبل المحاولة.",uncertain:"يجب تسوية نتيجة الإرسال. لن تعاد المحاولة تلقائياً."}};
-export const deliveryCopy=(locale:Locale)=>locale==="ar"?ar:fr;
+export const deliveryCopy=(locale:Locale)=>{const c=locale==="ar"?ar:fr;return {...c,purpose:{...c.purpose,"team-invitation":locale==="ar"?"دعوة فريق الوكالة":"Invitation à l’équipe"}};};

@@ -1,10 +1,14 @@
-.root { display: grid; gap: 1rem; max-width: 75rem; overflow-wrap: anywhere; }
+.root { display: grid; gap: 1.25rem; max-width: 75rem; overflow-wrap: anywhere; color:var(--ink); }
 .root form, .editor { display: grid; gap: 1rem; }
-.root fieldset { display: flex; flex-wrap: wrap; gap: .75rem; border: 1px solid #a6b7c4; padding: 1rem; min-inline-size: 0; }
+.root fieldset { display: flex; flex-wrap: wrap; gap: 1rem; border: 1px solid var(--line); border-radius:var(--radius); padding: 1.25rem; min-inline-size: 0; background:var(--surface); }
 .root label { display: grid; gap: .35rem; max-inline-size: 100%; }
 .root input, .root select, .root button, .root a { min-block-size: 2.75rem; max-inline-size: 100%; }
 .root button, .root a { padding: .5rem .75rem; }
-.root :focus-visible { outline: 3px solid #17669b; outline-offset: 3px; }
+.root :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
 .root ul { display: grid; gap: 1rem; padding-inline-start: 1.2rem; }
-.preview { inline-size: 100%; block-size: 75vh; border: 1px solid #a6b7c4; }
+.preview { inline-size: 100%; block-size: 75vh; min-block-size:20rem; border: 1px solid var(--line); border-radius:var(--control-radius); background:var(--surface); }
+.root label:has(input[type=checkbox]) { display:flex; align-items:center; gap:.75rem; }
+.root input[type=checkbox] { min-block-size:1.25rem; inline-size:1.25rem; }
+.root article { border-block-end:1px solid var(--line); padding-block:1rem; }
+.root button { border-radius:var(--control-radius); }
 @media(max-width: 40rem) { .root fieldset { flex-direction: column; } }

@@ -1,0 +1,28 @@
+// Offline-only derivative. Does not alter prior packages, evidence or cluster state.
+import {readFile,writeFile,readdir,lstat,mkdir} from 'node:fs/promises';import {createHash} from 'node:crypto';import {resolve} from 'node:path';
+const root=resolve(import.meta.dirname,'..'),oldDir=resolve(root,'scripts/d2-native-recovery'),out=resolve(root,'scripts/d2-native-probe-recovery'),session='C:/Users/lenovo/AppData/Local/ContratPro-D2-native/pg17-54329',sha=b=>createHash('sha256').update(b).digest('hex');
+const priorHash='a431ef060a9636c4165d09dae785dfc487ddaec226c42031bb6568f61dabd88a',bytes=await readFile(resolve(oldDir,'package-manifest.json'));if(sha(bytes)!==priorHash)throw Error('Prior package changed');const prior=JSON.parse(bytes);for(const f of prior.files)if(sha(await readFile(resolve(root,f.path)))!==f.sha256)throw Error('Prior file drift');
+const receipt=JSON.parse(await readFile(session+'/acceptance-receipt-recovery.json')),state=JSON.parse(await readFile(session+'/session-recovery.json'));if(receipt.phase!=='0013-native-compile-rollback-probe'||receipt.code!=='42601'||receipt.diagnostic.position!=='48120'||receipt.events.length!==2||state.status!=='STOPPED'||state.pid!==0)throw Error('Unexpected checkpoint');
+const frozen=[];async function walk(name){const s=await lstat(session+'/'+name);if(s.isSymbolicLink())throw Error('Linked checkpoint');if(s.isDirectory())for(const n of(await readdir(session+'/'+name)).sort())await walk(name+'/'+n);else if(s.isFile())frozen.push({path:name,bytes:s.size,sha256:sha(await readFile(session+'/'+name))});}
+for(const name of ['session.json','session-recovery.json','recovery-binding.json','acceptance-receipt.json','acceptance-receipt-recovery.json','startup.log','startup-recovery.log','root-ca.crt','server.crt','data'])await walk(name);
+await mkdir(out,{recursive:true});const files=[];async function put(name,text){await writeFile(resolve(out,name),text,{flag:'wx'});files.push({path:'scripts/d2-native-probe-recovery/'+name,sha256:sha(text)});}
+for(const name of ['resources.mjs','resource-manifest.json','baseline.mjs','baseline-sources.json','provider-fixture.sql','receipt-model.sql','scenarios.mjs'])await put(name,await readFile(resolve(oldDir,name)));
+let driver=await readFile(resolve(oldDir,'orchestrate.mjs'),'utf8');driver=driver.replaceAll('scripts\\/d2-native-recovery\\/','scripts\\/d2-native-probe-recovery\\/').replaceAll('session-recovery.json','session-probe-recovery.json').replaceAll('acceptance-receipt-recovery.json','acceptance-receipt-probe-recovery.json').replaceAll('D2-NATIVE-RECOVERY-ONLY','D2-NATIVE-PROBE-RECOVERY');
+driver=driver.replace("import {verifyBinding} from './binding.mjs';","import {verifyBinding} from './binding.mjs';\nimport {rollbackProbe,expectedProbeError,verifyCheckpoint} from './probe.mjs';");
+const from=driver.indexOf('  assert.equal((await boot.query("SELECT count(*)::int n FROM pg_roles'),to=driver.indexOf("  phase='0013-native-compile-rollback-probe';");if(from<0||to<from)throw Error('Bootstrap section not located');
+driver=driver.slice(0,from)+`  phase='checkpoint-readonly-validation';boot.__d2CheckpointConnect=()=>open('d2_bootstrap',rootPassword,'contratpro_d2_native');await verifyCheckpoint(boot,plan.files[0].expectedHistory);await record({phase,status:'PASS_NO_BOOTSTRAP_REPLAY'});
+  // Existing synthetic test passwords were transient in the previous run. Rotate ONLY
+  // these two disposable fixture login passwords after complete checkpoint validation.
+  phase='synthetic-login-credential-refresh';
+  const pw="'"+testPassword.replaceAll("'","''")+"'";
+  await boot.query(\`ALTER ROLE postgres PASSWORD \${pw}; ALTER ROLE authenticator PASSWORD \${pw};\`);
+  const admin=await open('postgres',testPassword),a=await open('authenticator',testPassword),b=await open('authenticator',testPassword),a2=await open('authenticator',testPassword),context={admin,a,b,a2,state:{counter:1000}};
+  await record({phase,status:'SYNTHETIC_CREDENTIALS_ONLY'});
+`+driver.slice(to);
+const faulty="const fault=first.sql.replace(/COMMIT;\\s*$/,\"DO $$BEGIN RAISE EXCEPTION 'D2 controlled rollback injection';END$$; COMMIT;\");";
+if(!driver.includes(faulty))throw Error('Fault construction not found');driver=driver.replace(faulty,'const fault=rollbackProbe(first.sql);');
+driver=driver.replace("e.code==='P0001'&&e.message==='D2 controlled rollback injection'","expectedProbeError(e)");
+await put('orchestrate.mjs',driver);
+let ps=await readFile(resolve(oldDir,'session.ps1'),'utf8');for(const [a,b]of [['session-recovery.json','session-probe-recovery.json'],['startup-recovery.log','startup-probe-recovery.log'],['D2-RECOVERY-BIND','D2-PROBE-RECOVERY-BIND'],['D2-RECOVERY-START','D2-PROBE-RECOVERY-START'],['D2-RECOVERY-STOP','D2-PROBE-RECOVERY-STOP'],['D2-NATIVE-RECOVERY-ONLY','D2-NATIVE-PROBE-RECOVERY']])ps=ps.replaceAll(a,b);await put('session.ps1',ps);
+for(const name of ['probe.mjs','binding.mjs'])await put(name,await readFile(resolve(root,'scripts/d2-probe-'+name),'utf8'));
+const manifest={schema:1,profile:'completed-synthetic-baseline-probe-recovery-only',priorPackageSha256:priorHash,candidateManifestSha256:prior.candidateManifestSha256,sessionRoot:session,frozen,files:[...files,...prior.files.filter(f=>!f.path.startsWith('scripts/'))],checkpoint:'baseline committed; three-session test passed; malformed probe rejected; no suffix history/objects may exist',syntheticLoginPasswordRotation:'postgres/authenticator only, after checkpoint validation; no role attributes/grants changed'};const text=JSON.stringify(manifest,null,2)+'\n';await writeFile(resolve(out,'package-manifest.json'),text,{flag:'wx'});console.log(JSON.stringify({packageSha256:sha(text),frozenFiles:frozen.length,sqlExecuted:false}));

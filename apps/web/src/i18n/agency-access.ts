@@ -20,7 +20,7 @@ const copy: Record<Locale, Copy> = {
       onboarding: { title: "Bienvenue sur ContratPro", description: "Votre compte n’est associé à aucune agence. Créez votre agence pour commencer." },
       "selection-required": { title: "Choisissez votre agence", description: "Sélectionnez une agence parmi vos adhésions actives pour continuer." },
       unavailable: { title: "Connexion à votre espace indisponible", description: "Votre accès n’a pas pu être vérifié. Le tableau de bord reste fermé. Réessayez plus tard." },
-      authorized: { title: "Votre espace agence", description: "Votre session et votre adhésion active ont été vérifiées. Les fonctions de gestion seront ajoutées progressivement." },
+      authorized: { title: "Votre espace agence", description: "Retrouvez les contrats, les clients et les véhicules accessibles à votre équipe." },
     },
   },
   ar: {

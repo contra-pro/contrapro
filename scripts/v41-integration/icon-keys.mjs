@@ -1,0 +1,1 @@
+import {readFile} from 'node:fs/promises';import {resolve} from 'node:path';import {root,save} from './files.mjs';const p='apps/web/src/components/operational-icon.tsx';let i=0;await save(p,(await readFile(resolve(root,p),'utf8')).replaceAll('<path d=',()=>`<path key="${i++}" d=`));

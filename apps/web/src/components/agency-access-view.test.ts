@@ -10,6 +10,7 @@ import AgencyError from "../app/[locale]/app/error";
 import { getAgencyAccess } from "../server/agency-access";
 
 // Tests alone provide a synthetic verified result. No production session shortcut.
+vi.mock("server-only", () => ({}));
 vi.mock("../server/agency-access", () => ({ getAgencyAccess: vi.fn() }));
 vi.mock("../clients/server", () => ({ getClientScope: vi.fn() }));
 vi.mock("next/navigation", () => ({ notFound: () => { throw new Error("NOT_FOUND"); } }));

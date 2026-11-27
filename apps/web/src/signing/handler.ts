@@ -12,6 +12,7 @@ import { SigningFault,type Assurance,type Session } from "./model";
 import { SupabaseSigningRepository } from "./repository";
 import { SigningEngine } from "./service";
 import { SigningStorage } from "./storage";
+import { discoverProviders } from "./providers";
 export const signingHeaders={"Cache-Control":"private, no-store, max-age=0","Referrer-Policy":"no-referrer","X-Content-Type-Options":"nosniff","X-Robots-Tag":"noindex, nofollow, noarchive"};
 export async function signingBody(request:NextRequest) {
   if(request.headers.get("content-type")?.split(";")[0]!=="application/json" || !request.body) throw new SigningFault("invalid");
@@ -42,13 +43,14 @@ export async function handleSigning(request:NextRequest,locale:string,guest=fals
     const engine=new SigningEngine(new SupabaseSigningRepository(client,process.env.CONTRATPRO_SIGNING_SECRET!),new SigningStorage(guest?null:client),process.env.CONTRATPRO_SIGNING_SECRET!,font);
     let value:unknown;
     const sessionId=guest ? null : typeof p.sessionId==="string" ? p.sessionId : null;
-    if(action==="get") {const s=await engine.get(agencyId,sessionId,token);value=guest?publicSigningView(s):s;}
+    if(action==="providers"&&agencyId)value=discoverProviders();
+    else if(action==="get") {const s=await engine.get(agencyId,sessionId,token);value=guest?publicSigningView(s):s;}
     else if(action==="document" || action==="final-pdf" || action==="evidence") {
       let bytes:Uint8Array;let mime="application/pdf",name="contrat-signe.pdf";
       if(action==="evidence") {if(guest || !agencyId || !sessionId)throw new SigningFault("forbidden");bytes=Buffer.from(JSON.stringify(await engine.dossier(agencyId,sessionId),null,2));mime="application/json";name="preuves-signature.json";}
       else bytes=await engine.document(agencyId,sessionId,token,action==="final-pdf");
       const r=new NextResponse(Buffer.from(bytes),{headers:{...signingHeaders,"Content-Type":mime,"Content-Disposition":`attachment; filename="${name}"`}});for(const c of pending)r.cookies.set(c.name,c.value,c.options??{});return r;
-    }else if(action==="list" && agencyId) value=await engine.list(agencyId,String(p.rentalId));
+    }else if(action==="list" && agencyId) value=(await engine.list(agencyId,String(p.rentalId))).map(s=>({...s,recoveryAvailable:process.env.CONTRATPRO_A3_VERIFIED==="true"}));
     else if(action==="create" && agencyId) {
       if(!["simple","external-advanced","external-qualified-requested"].includes(String(p.assurance)))throw new SigningFault("unsupported-assurance");
       value=await engine.create(agencyId,{artifactId:String(p.artifactId),requestId:String(p.requestId),locale,assurance:p.assurance as Assurance,providerId:typeof p.providerId==="string"?p.providerId:null});
@@ -58,6 +60,10 @@ export async function handleSigning(request:NextRequest,locale:string,guest=fals
     else if(action==="client-sign" && guest && token)value=publicSigningView(await engine.clientSign(token,{version:Number(p.version),requestId:String(p.requestId),challengeId:String(p.challengeId),capture:p.capture}));
     else if(action==="finalize") {const s=await engine.finalize(agencyId,sessionId,token);value=guest?publicSigningView(s):s;}
     else if(action==="cancel" && agencyId && sessionId)value=await engine.command(agencyId,"cancel",{sessionId,version:Number(p.version),requestId:String(p.requestId)});
+    else if(action==="revoke-invitation" && agencyId && sessionId){
+      if(process.env.CONTRATPRO_A3_VERIFIED!=="true")throw new SigningFault("unavailable");
+      value=await new SupabaseSigningRepository(client,process.env.CONTRATPRO_SIGNING_SECRET!).call(agencyId,"revoke-invitation",{sessionId,version:Number(p.version),requestId:String(p.requestId)});
+    }
     else if(action==="decline" && guest && token)value=publicSigningView(await engine.command(null,"decline",{version:Number(p.version),requestId:String(p.requestId)},token));
     else throw new SigningFault("invalid");
     return json({ok:true,value});

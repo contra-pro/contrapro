@@ -9,6 +9,7 @@ export async function handleResendWebhook(request:NextRequest){
   if(!request.body)return reply(400);const reader=request.body.getReader(),parts:Uint8Array[]=[];let size=0;
   try{for(;;){const p=await reader.read();if(p.done)break;size+=p.value.length;if(size>65536){void reader.cancel().catch(()=>{});return reply(413);}parts.push(p.value);}
     const raw=Buffer.concat(parts),keys=(process.env.CONTRATPRO_RESEND_WEBHOOK_SECRETS??"").split(",").filter(Boolean),event=authenticateResend(raw,request.headers,keys);if(!event)return reply(401);
+    if(process.env.CONTRATPRO_A3_VERIFIED!=="true")delete event.jobId;
     await workerRepository().repo.call(null,"webhook",{...event,hash:digest(raw)});return reply(200);
   }catch{return reply(503);}finally{reader.releaseLock();}
 }

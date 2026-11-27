@@ -1,0 +1,4598 @@
+{
+  "schema": 1,
+  "planId": "contratpro-d2-0013-0028-v1",
+  "profile": "native-synthetic-only",
+  "target": {
+    "database": "contratpro_d2_native",
+    "port": 54329,
+    "serverVersionNum": 170011,
+    "listen": "loopback-only"
+  },
+  "baselineProvenance": "UNRESOLVED_0008_0009; candidate-synthetic is not faithful target upgrade acceptance",
+  "historyOwner": "candidate",
+  "sqlExecuted": false,
+  "managedReleaseApproved": false,
+  "storageConfiguration": "0016 retains private contract-documents bucket INSERT and policies; 0022 replaces two policies atomically; provider policy-owner authority must pre-exist in authorized native fixture; no managed configuration executed",
+  "migrations": [
+    {
+      "logical": "0013",
+      "id": "20261120001300",
+      "file": "20261120001300_rental_contracts.sql",
+      "source": "supabase/migration-drafts/20261120001300_rental_contracts.sql",
+      "sourceSha256": "3c27bc2a11de4d13a8003b35aa16d5d733eaeaa3be86557167a6fb2967214b79",
+      "candidateSha256": "0dfae4a706db5a570d24688f3124b440589de7d622668479f72735b072fb0dbc",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200"
+      ],
+      "dependencies": [
+        "0012"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer"
+      ],
+      "newRoles": [
+        "contratpro_rental_writer"
+      ],
+      "expectedObjects": {
+        "tables": [
+          "tenancy.rental_contracts",
+          "app_private.rental_numbers",
+          "app_private.rental_creation_receipts",
+          "app_private.rental_confirmation_receipts"
+        ],
+        "functions": [
+          "app_private.rental_member",
+          "app_private.rental_receipt_immutable",
+          "app_private.rental_history_guard",
+          "app_private.rental_price",
+          "app_private.rental_input",
+          "app_private.rental_number",
+          "app_private.rental_lock",
+          "app_private.rental_available",
+          "public.contratpro_rental_create",
+          "public.contratpro_rental_detail",
+          "public.contratpro_rental_list",
+          "app_private.rental_change",
+          "public.contratpro_rental_update_draft",
+          "public.contratpro_rental_confirm",
+          "public.contratpro_rental_start",
+          "public.contratpro_rental_complete",
+          "public.contratpro_rental_cancel",
+          "public.contratpro_rental_extend"
+        ],
+        "rls": [
+          {
+            "relation": "tenancy.rental_contracts",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "tenancy.rental_contracts",
+            "flag": "relforcerowsecurity"
+          },
+          {
+            "relation": "app_private.rental_numbers",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "app_private.rental_numbers",
+            "flag": "relforcerowsecurity"
+          },
+          {
+            "relation": "app_private.rental_creation_receipts",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "app_private.rental_creation_receipts",
+            "flag": "relforcerowsecurity"
+          },
+          {
+            "relation": "app_private.rental_confirmation_receipts",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "app_private.rental_confirmation_receipts",
+            "flag": "relforcerowsecurity"
+          }
+        ],
+        "renames": []
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "b1180275b130b5e6e54516b37a6bed3325820274aa7f616ccfdb3a4c0a417739"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "CreateRoleStmt",
+          "sha256": "5e6d538560a055fcf2c1720c6da6e1c00cf09f8b4a1dceb039a8282a4cbff67e"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "6ae5d425efb8b66c1f3276eb547bd79b0d1657eae746928f70c745452b9e2a52"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "de85f0e6bf313bd14e617b0b9c5455c6f88b66ffd689acb005bbec659f71eb8f"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "e250ca5162015b8325515a1af265614e98b2e9ad4b2fe722f24494372c74d928"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "fba27a37fb4d7e5ca4a5d08b5a600ba9f91452889111b98d54488392fb98b14f"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "8bce6bce9208865fbb2fc6bac7287d82ee194f77afd20e31ebb867af1f1a9520"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "953b00820dfb85f574efd1d59aaee0125a6dd303e4f829a9004c0c48001ea0ed"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "bf3bafe77703d2fd9e98566c841908e61f6662c86e40c56964cbfcb685393e6a"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "2cb57ed59df07a0fbb6a40b33a141b2eee874a89ce4e3ff186c334cb53d491b5"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "765608f4b9a988f2503aca74273ce1caceb9af4c172bcee609cf2956dfc7cf45"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "9c29828d25abd049b7f80ec2ade4dec144c282f91c5c28d3c18da6ed947e21b4"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "fb0cd5a5570d9eef5e5a6cc6d247b0bfa623805067b2af56a78498d9d2482bec"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "be78097d278c7b15c5e6558ca00156f4f314630b616c6796adbe6c6e5c86392b"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "767731e2222aa932e6b5198c18be68e6630fed894894194d0a5290b902c98b34"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "0bb0691db4f2110cffc4ad613ebc2ec68f8027f638ce4d1996ed84d3928fe4e2"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "350147871699e768bc610ebb834c8b3559fcfa2752b224acabc770d7d9dba1eb"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "ac7c3369dd731f9be713f8fad30f9aac2220794f6ab51a36e73b38a171e7e843"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "f14d99d4156561123bc40a56f0c67a397f1bfb5bb769d858b680b68cbceef928"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "7f42cd12aab78972092c4e30e428bbf635fb7327db9f9527fef92a13821bb43c"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "e77080e493373ca6c145352e10283292563459b2831bed1a79397935c941a1b1"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "4b66d9e28a2418926f2ec44ce5be738f90e472cd0f456a24e1b2b9e06855077d"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "b24c9a88b4a121dc551dcb347b7e16f9e11e9b6b4f28a79fb5f82e0da0601e69"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "1b349435c4de62a17e18a6f9cbbb9fa24bc23c2efbd66336e113cfd5b0283829"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "14a48bc1f3e46e9ba44653bc078e05f0738f75661e283b404b3c734a48f39c96"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "cf7185249205786272d8e7ec1032f95d6200c99f71250917121cc4ec48c58274"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "e253e8050de49824e8c645888693148c76518640f78ec60158f1a5fbe9bddab6"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "58d675f66c11e7ee67dbdd097f6a12f222d82ebdc46bf0952161365d305f5610"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "057e4cf75a8532caced5126526aefe9d67c9616f523d5ad148fac2a0675cee5a"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "5bb7678ed56f0590c381dc062cefab307d70e19af256de478858bccbd6dbbaa1"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "ea31a4f740d04e033c0eba0236c77fe42995e2e51b2c004a607bc5c5f90acf3b"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "19477ee3a580667c475a62360df3135fb94cb4f0217a36601a9792b3aad9d3be"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "3674df73086ad22fb0b423d2d84b778013e99b67e91743ec87a25255544e5938"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "c20f7b9cf13a67259806a28b4c2997bfcdec9d8b53a406b93fb6763e439c29a6"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "75b80bdef080179748eae44f9cfa6802958c56f54cca4b62e620cf3f2e19ba63"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "1e2a87df0ebbbb7037238301f82398d6537c102d052f525d1f59b71dddbd38b7"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "6b5322db7771c1a48afc9b360ef5b4cb6331f6823dab6792c31330837d2b5880"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "373a88fe3ce645ba60b043733cd98cb01b92a73bfbe3c85645b6a80c19626510"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "6631417e7b4a0b25a7cb5a40e1591d85f3bb9bb8ac0ed0b97cf32423c2150f37"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "1a8880e48926b61f687b53cb09064e91733903411d117f7c630b31ea812a2a7f"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "fe1f9bd818f49461fdbabbf512710be315f47bfaa773f970d6034d3b1cc1a0ff"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "a2bc019bbfc061c0a223e8a2c2b47f0939e1b11bdbbcdbbaee5eb19dac8a44b6"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "42f516bc35af4bdb85d5f75f5a5f812691651b7ac7853d16bec2426c5a021608"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "21a51f18388da5cf9d499f42a1f3500671feadb8b31ba1cef230c1f81ae7ff34"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "25ad539c87124be2048c809a2fd2df94f06a7b2f2db13f6ee7fd10dcd1d0b1b7"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "626fdeb28d5954e433d98da717503a8e9a9bded98d4990e56705455194e587d0"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "5528e39bb25dea569b1a10fe0d102dfc755c663208a55ff4a2ab72c530f2cca3"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "dd1ee70eae5afa2d9cfca385161cc19d60b84d597870dbb369df97d8fc186b9a"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "987e68c713d5f6c11b6d5e05edc8d3ce3ee24bc6ef9ae72a243aa304ca20387a"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "2ea02976caf087072aeb5dcd8eb019784c6cd070e5d2fe6b763c93d6107eb306"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "84294d9b9ab7bdee2e2df85008e3eb6c278a6c4b69d3521899715d5983e61295"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "79c2e3ad473d04fee4bc602acdcef14bcbf4ec3ce479b455059bd00bac509fa9"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "51842d907a391a7d24c03fa2b13727176e391c1ebbb502aadf16f306b45d96df"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "9a2b9106879b01c689601cfd94fa76eddead2c1ecfdd64d13fec117b9a7b0d9e"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "8acfc4b452d336a712771ca9c14433fb27006b4646e5a4af670286929462ac5d"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "7c0c2890c598424bf6302098ffa019d41dac892237e327fea75e6ce3f510f43a"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "9e3b0f1db26e42ebe3d5a98ad1afde1b7193ec41891de7176b6ccbe1ceea372a"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "0f82114541497d78f50adf42d5376fe2e01214d1641a5d749f87ef92769cb3cf"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "b88cf0c99b2fd04063a568373fa6f45880cf62c327634a7d9e4d91f7f9ad9350"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "93fe274bae3aaab6fdb4d618f337925aef19a1a09b6d226cbf2229409628f613"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "5afc12993ef1d161aece958e67670096c6cc4a370be44a21d22dd039d4944f09"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "a321d6e42cd8169b7b0b443c3e2dddff24c5435bcb08efa10c77eb9fd5f577a9"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "d7f23597d203fb11efc26f76513b7f420c2b132160b365dc928130df82861479"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "23554585ae0f8be374e48c265dcce9fd5127da88452bef7a16494033976fb50a"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "363b8d3889483237f2eefda8a1279d047b15227fc5c5dbbd7a28ed7331cf90ce"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "27eaddad87f3420a91074ef5db2006a1fd8f733493b46353a6c2787ab7694a3a"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f000b41ee0c66740c14ee1ee8e50582b65aa5eac44b99c0f09008b3c89be5ee3"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "5e409ed3632b00f3f0ce1da5f0151391917c616ef6aa2f1bfb6cf6494451a980",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0014",
+      "id": "20261122001400",
+      "file": "20261122001400_vehicle_module.sql",
+      "source": "supabase/migration-drafts/20261122001400_vehicle_module.sql",
+      "sourceSha256": "5fe673381f862fc65e7e9b8c83e38de090f8d075167041d5c5398ceed243e051",
+      "candidateSha256": "4db5d4da254f6d856003977357dee3a833916ebeecf4cf60578247516eab19f1",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300"
+      ],
+      "dependencies": [
+        "0013"
+      ],
+      "authorityRoles": [],
+      "newRoles": [],
+      "expectedObjects": {
+        "tables": [],
+        "functions": [
+          "app_private.vehicle_allowed",
+          "app_private.vehicle_payload",
+          "app_private.normalize_vehicle",
+          "app_private.valid_vehicle",
+          "app_private.vehicle_guard",
+          "public.contratpro_vehicles_permissions",
+          "public.contratpro_vehicles_search",
+          "public.contratpro_vehicles_list",
+          "public.contratpro_vehicle_detail",
+          "public.contratpro_vehicle_create",
+          "public.contratpro_vehicle_update",
+          "public.contratpro_vehicle_archive"
+        ],
+        "rls": [],
+        "renames": []
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [],
+      "retainedStatements": [
+        {
+          "kind": "DoStmt",
+          "sha256": "92d9d0527a1d68e481d3d3c8dc9ba5f4e02fd5ec152f478738dcd1878118b248"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "4169bc514fbeb856ad0494f22d52670d4cce0ee0ead0046e62558f30ed963a81"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "1e985917e158151e51f8ac457c597f620667743a07e3cf4e23c7edf164a7da19"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "c0d525ff8d717e252ae2bf6d7ba4b74bdfb43b6596b758e864034826e9e21da3"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "95a91f4245159c250efb443fcee3f926673028574f514902d7bf93bd025bddbe"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "4be791512fc0848bc03e20604c057a3575db3aa1da49b567e2c1a3a26621ec36"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "9cd6ab7e7d29c5ef003ac04cc5088b477738de385a0bf0b19be31b9ffb67204f"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "6963daa54fcbfe39025ff03b24ae818ae040b9b85d5ccaa3fa8be34728a215d4"
+        },
+        {
+          "kind": "AlterPolicyStmt",
+          "sha256": "730bda055712a8754a75216ee4b44f8468b877785b184fea1282c043419e5292"
+        },
+        {
+          "kind": "AlterPolicyStmt",
+          "sha256": "5117c5db3f724899117c8441cacf94eed8d721bbe6abb6e972bd746980f4d371"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "0e406590f899493f6b33d215763d0e5c7393d7ac5778a07c90c39d330ee91fda"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "10ac0dd58ee41b4ebc6f060b1920a0b33dc8e850182e66e5664fe2e7ac3f25e5"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "143413ba31aa6501f5bf81cc6a84f611848544cb087ca6bac259a679cabc5b88"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "1d6de5e9b523f8c3aa3ab0cfb664fb083dd64a9aafb22bd28488d425cb4e3f01"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "3236be5ba32d83bedef6d4f076129b3ad3b7927865780e40f1c4c9f9fe5d37c8"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "4efd5d255920b8fa763bb6f8ee06c8749644e2d8f6eb40910b77bd4da057d0cd"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "c127cd0518e4b09f065523861b93be15eed5c100777fa4363e0b9aeaf447b45d"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "9eef8cf0e7d7de652d3a096be3d07a97db3cff215a855d7f0a4036f5c0da1db9"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "6ce8f8eb513bc95d141a9070b0d11613acc371f8161c764e8744cdcc51565205"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "db1d6819c3992098acfb8def89a45db39dcc2020ee4f8b3fcaf011dd79863d1a"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f042b762d222c0c5cb74a16e808c2d9902ab1700c094deb05ca3866a4d24ccd0"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "af08585545bad240237a13d4e33fc83ff6b5ed152a3cf17d8f0727d7982f1080"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "ae8b5e752a868f7a5ed64b19a7633b278bfa71fcc92af067b6e185f521a9bdd3",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0015",
+      "id": "20261122001500",
+      "file": "20261122001500_rental_mvp.sql",
+      "source": "supabase/migration-drafts/20261122001500_rental_mvp.sql",
+      "sourceSha256": "1e1136862b5ebe5dad9894de6695e256f9c8efa03eb08e754744c3d4317cd444",
+      "candidateSha256": "5c7e6b75b5dee492a497b755649305422c32c77adb7a351a6468b901a905ba48",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400"
+      ],
+      "dependencies": [
+        "0014"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer"
+      ],
+      "newRoles": [],
+      "expectedObjects": {
+        "tables": [
+          "app_private.rental_drivers",
+          "app_private.rental_document_versions"
+        ],
+        "functions": [
+          "app_private.rental_mvp_guard",
+          "app_private.rental_vehicle_archive_lock",
+          "app_private.rental_document_capture",
+          "app_private.rental_driver_payload",
+          "public.contratpro_rental_capabilities",
+          "public.contratpro_rental_detail_v2",
+          "public.contratpro_rental_document",
+          "public.contratpro_rental_set_driver",
+          "public.contratpro_rental_choices"
+        ],
+        "rls": [
+          {
+            "relation": "app_private.rental_drivers",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "app_private.rental_drivers",
+            "flag": "relforcerowsecurity"
+          },
+          {
+            "relation": "app_private.rental_document_versions",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "app_private.rental_document_versions",
+            "flag": "relforcerowsecurity"
+          }
+        ],
+        "renames": []
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "2d0e66b68e7fe097450e00327d1e163e7756c87ebbed879c77be7995cabdab64"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "add5257c464eb7263fcad3f5f323b9126ccd466cec47be05ba5f755ba3cbafcd"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "7a8e8cd418de2ce9dcbb98b7042801388481b7a1bb01cc1964a94a3856eece4c"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "1fee9f7b6f09451424b12cdf4e6145a0060570f4e8a8f7dddd07ef8b7e540239"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "981e383d5cb683f45fcb4f1081d999f951e16117f511a5b5c27b97a9e39ebbb0"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "421fb288257e60cb567ad172f4ff22ba3661439e3b86806c96888f2f2f153892"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "b5e19872afe3d05599d27e49f799c116c9dc4bf8cd82ef55c448db0ded1b7fd1"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "caf8b9ef690dcbb11b9e80bb0b17b5f906ba55b5d9cbe985583875d6028cc6a0"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "75088e718a17c02492b516da89cdb680158651c3105d8c7c6135202b542c93ff"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "7f47d36843dbfd99ff4d8d23e9e875d452f4095320b15ba88472ba1d0d47543b"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "c4ee97e19ed482b19aa5178179cca1dc8976d83d227b1788d1de055af2e13d1b"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "7d9a12e87bb355904cefc574f6378ebde67359745390e74eedce83118036af68"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "e29daa5efa28f910f15d6f85cc8869f0179c830a8326b2694207f0495a13b3da"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "4fc4097ad0a230613e1be1f358b2a343e849c89fa049213157ce1454f8a2e720"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "5ce01f50389fcfe8b96fc62973e0fc86b0aaf4968ce06277a27b257c0db6c6de"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "98a37d2528e3d277df96ae80d7a998ad87a51e9233c383fa571d2c2a8ca49332"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "0d91bf5e133b89e67792f62c011295b553d58564c07c0ddde146a852e2c74495"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "e0bff7c9350c3de7eaa6fe0e1bbc1e3a64b3c34f9a3046dcd6f68a882b3840b1"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "cd85fb32db37d66b3521dc89e4a92f27fe54dbedaad26bc2e00dd4f5ea0bf76c"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "37f42ebfe2dd559b734ec12941ed56f3b9f48b1d68052d2250af1e5d80016a5d"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "87e737896e8929defe3977cf7b06c16696fd090c1995fb62e3187f2b55c02671"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "2d8e4d4da4a44bc37e8e1298ddbe69198e054c81eb5080a7c99e097465f61fa0"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "92c265752907a7d07c772a016df415891eb3ac5d4b78289db193d01105a3660d"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "5a6642b29f9f1ac0aa70d040143bedac5968c7eb07d57614ae6a840b859bf2ee"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "2c1f33e1120ae93e87e8a69406db389679fadae5f0845af9fbc7d4fe3ea0e3f7"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "4af14fbbfdeb8b100025b57de094c207c945f5ecc978be787120a61c239f2e37"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "faa2f20d0b236c823ed074d03a253be058d27a9351fdc62eaa4de2d090c9a4b0"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "ed9954a7a089fe12062267327bf4a0186a605c78d020f7b7d4e2fc6387e6d7d9"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "5d0b32d860d072c6c55c28212fd30a935f89a5bef08bbd7121554b5faed4fac0"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "363b8d3889483237f2eefda8a1279d047b15227fc5c5dbbd7a28ed7331cf90ce"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "b1cc8ea3af5801c31c44c63eb0bc495cf7912da0edf0b30fa491a897f490fbd5"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f000b41ee0c66740c14ee1ee8e50582b65aa5eac44b99c0f09008b3c89be5ee3"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "2f351aaa610a914200a6b4934417862d0f95f734339bce9dea6d5913f0804496"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "704367e7d38844fc544fb835721df02cfe79561459aaf67e5a4a9f7e1a69f664",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0016",
+      "id": "20261124001600",
+      "file": "20261124001600_contract_documents.sql",
+      "source": "supabase/migration-drafts/20261124001600_contract_documents.sql",
+      "sourceSha256": "99ef99d667346ce00d0f981c4eb7a79816f4c592fb56210cf946029a64b18b4d",
+      "candidateSha256": "44bb26a1a418b854f2af3f6da7c8e2b1386589d1568c0b577918d3a9f490e9e1",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500"
+      ],
+      "dependencies": [
+        "0015"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer"
+      ],
+      "newRoles": [],
+      "expectedObjects": {
+        "tables": [
+          "app_private.document_renderer_key",
+          "app_private.contract_templates",
+          "app_private.contract_template_versions",
+          "app_private.contract_objects",
+          "app_private.contract_generation_jobs",
+          "app_private.contract_artifacts",
+          "app_private.rental_template_selections"
+        ],
+        "functions": [
+          "app_private.document_renderer_mac",
+          "public.contratpro_documents",
+          "public.contratpro_document_object_access",
+          "public.contratpro_document_cleanup_access"
+        ],
+        "rls": [
+          {
+            "relation": "app_private.document_renderer_key",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "app_private.document_renderer_key",
+            "flag": "relforcerowsecurity"
+          }
+        ],
+        "renames": []
+      },
+      "providerPolicyOwnerRequired": true,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "01ea70b5e2a9f9383f6e89b08b68edbc3ef05df732f8baa91604ced1b516f5c8"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a3dc4a2a5bcedf9de56b5c104ceac617cf6be695d5792b142a70c6e7b8ad2b55"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "040c36c4835eec72355144c52d02e1a4594b262665edbcf033d9ded56a11d4a6"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ebcb672bdd2285ac7bfa91b1ace4f6d32837c77266d4d7d356926adaa9c4694f"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "581ea37ba54d2c20e2b28e6d13a2e10ff35ca2504a3352b5706b62b7edb6abd3"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "f17160f5690a0ad54ef0d9d07769692d24b7e4b8e41d24c6e7cdd91054e72dda"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "a286add32e8893d6246ce66ab79b9d8987a6e4d80696088aa2282f5542562068"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "fcdc79144296687a337d4bb6fbcafef93c1dd43a5f27af9898eae2ace78389bd"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "b169058d13e3f652ebf13977acf070ac99faa7d4f523abf5405f973707967d9d"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "ba14c6edeb61d5a6aae636b2b24ee169953518d2a2baacf9373a2bef6e289e01"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "6cadb32aea20958c3faca518492e4b73356f77c6095e5721919bb7ebe47e5806"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "4d9bcb86334e105dba92b838eff9d0db5868ce2b531544c634e58daddcd9f036"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "4b07af09dd0fc7c903576878874db95fe205c83966b9e29ccca08f03ec95a46d"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "bc2696f7f0f0d26b1fb1af3b15e2985a6b6605aece247dd226a5f1354f9acc7c"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "adfd821be5f8d6094b246dca2dd5150a5e15262afe83a9ba8655a918fe329a56"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f3dc358ecdb0e55e5e2822e9fb7014484f62ca690b4330c53356677095f1d863"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "86e642350e1b37904e59735898f7a8aab8e7ae1b4c54e98eb75508b878851cd5"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "82d680d94d9ac950e5a8a22f3b819c6f79cba6cb3917bb80ceeebf8352dd9ec0"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "2679d458b836f689a255c7ba7a43fdeb3de124ac532a4cf26aee5cbc3e647d99"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "023b5aa6a65acd45ce1e3c82b7112e4143459a01ce8b1f715f63f7cf1f263bca"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "706455f02ad9a91320919e93e163b919ad28d14a941e3827f3b78f10ba34fb69"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "573169481d57a51bb4138649c612cae988be7fb6ece931c14ab7748d9b9ceb59"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "3bb59a2f5986a6cc4920d7fa6582b3e810de5822a5737b86f5522523179b052a"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "92e34162a595cc80b941f051690f1bc79c6d6dd1f0563a0aaa34c7b668ce9dc9"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "9ba1c5318afd904ce2a0905e1abf789a2e7d34726ccbe57b009af4329cf91473"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "205e85929d5bacff9b85add50219fe899c38bcd6b5bb4d530c8779047a9603db"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "a7bfb9d7798c404b55dda9e36ecaad03e522af2a2d8cebe787ba3479ded65da7"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "0f7977f7d87df1bcf0afd2bb7597d81e0a2656fc1b4ebfdb0c71c7f97e00f032"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "6fd4c009002eebaba9dee490d71755331ca1ab9936ebd0d612e3fecbf116f5a9"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ed130b8709f5cfabfc29705caa3c9d1338d7e730d7c001451654481cd4a2b112"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "95977bfff2132e3b71d5ce80bc8a91de38221bc211f509d095b349a972f43303"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "0f555d5c0aaf33773d954fc33c03fea05edcd2f45e0ac5408628b5f501db67c8"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "2cb9df03920c5af5244eb22885f5bc71db8103bbc2712e2b01362d149e7bbdd6"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "d20601ea38fe6a40878b5442ae7153c4203e16c81928b59c76f5424ddcd5cb3f"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "2df9aeb0ca4dd91de2c494984a655a3b6bc296826bf34b5765c5211c9d759c18"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "fe7d4cd13822809a1b5c604a32e1fdfe1719e345df7ef52ed5c742fa91345930"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "8a80527664a53e20b42aebc4c5ce563e3a87d7b18894939d08303f87cdae326d"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "70dd7791c3616ff2da8feba2d18fe9ceb790170c0c455f522ad60e5da6e38d5a"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "8ae22b2dc53cf0b318e5154da4f6909c06c095171490a849b775d3404943bb8b"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a5afc1578bce53c1da2748a10348ed3dc5997160c42c658059e9dcbb42d5fd51"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "638af293f4c56ee74d591d005314a53fb26cdc72c0e32e271d4cf5ff72fdee3a"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "282ad3fb0478d5f86a0839780ef7e94769f2870cb87bfbf3abbc04ab546930d3"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "6340bb0058b2b89578c7325db17ff097f8611305b4b3d3abe25260cd2196cdfa"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f3d58ac40973d25c3a4423ad117a8acb11caad85dc6723a981804866d391f845"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "a9659b3786beff9c8d4f758c15a989445f04b49159a11d7ad3b6f70d7983186f"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "3cecefb611fddf4d36159efef07c7b273b6b120652cdc668a350750398ed3aef",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0017",
+      "id": "20261124001700",
+      "file": "20261124001700_signing_engine.sql",
+      "source": "supabase/migration-drafts/20261124001700_signing_engine.sql",
+      "sourceSha256": "79fd03dbfab28c3fb14941519c847333f9598aec26ee0d1bc9616a6e634c2b44",
+      "candidateSha256": "34b516974ac9ecd184c2ad09201b5a3da0712757ccf0089980d2612973659fde",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600"
+      ],
+      "dependencies": [
+        "0016"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer"
+      ],
+      "newRoles": [],
+      "expectedObjects": {
+        "tables": [
+          "app_private.signing_gateway_key",
+          "app_private.signing_sessions",
+          "app_private.signing_invitations",
+          "app_private.signing_events",
+          "app_private.signing_receipts",
+          "app_private.signing_objects",
+          "app_private.signing_rate",
+          "app_private.signing_provider_operations",
+          "app_private.signing_provider_inbox"
+        ],
+        "functions": [
+          "app_private.signing_binding_immutable",
+          "app_private.signing_mac",
+          "app_private.signing_allowed",
+          "app_private.signing_view",
+          "app_private.signing_event",
+          "app_private.signing_transition",
+          "app_private.signing_command",
+          "public.contratpro_signing_agency",
+          "public.contratpro_signing_public",
+          "public.contratpro_signing_object_access",
+          "app_private.signing_supersede"
+        ],
+        "rls": [],
+        "renames": []
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "148bb702756c39177b5c8f7a5d4eb43e870b798aebabb0ae91a7654fdc8ee12d"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "34584d5a480c8e1294364732613b64881a9c830bd142f6815d706a83cecb0f16"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "64dd7bcfb5d60a3e426dbad62f0975cb671f58dabaf7785d0f9900dabded9777"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "fb5aada83976d693e5a99f07ee601028fb2deaab6b0cb22cff5e66ad52e4084c"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "bf471bfee4b7c8e51a6e364c33cc8282c6a34df0cf1cab3c786d21cfb10b490d"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "2d9481697974ebb3dfee7ded736365bbc843c1320299cde58496b53305555afc"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "86cfab4dbe345deeb12cd1aa2ca10bf4c511af65c8782867aab8eb0a5aeff23e"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "022dcc8616aa7286ee067338067c1b5a4628b1e2b046a4d276d1162ab82713a4"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "70d160310e87d87d17ba0d94504bc220f9b23e3bc529f75a2055cf11d83f3338"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "8360d9b4fd33200287b52b01c9c8475b286577fa0e401eed5d79cc00d5b931c4"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "1c4cb136075165476bae861da58f2769dceaa7c5e41cfb18eb68391ac9c53cc0"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "04db1e9d236e93c19b1ee3f95c980b9f68bbdef9e8c61ffb273e4c4a4799e72c"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "4cc6e1327638f562cfc012d5ba6203ae379ad92d4028ccdce5d75c5e12fbf5f5"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "ce0222cebd462cb716cbf3d09076f77d5236b352670cb793eb0aa7d35d360ef2"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "2ad34141951f7ce362d93000981b0c634de3a8b1837ac1fb1b0fdece4e3bea4e"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a011bb690d1736444e1fbe4f44f91513be9b57cce5f6194df18a6e30c28c8e7a"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "472bf005bff31e5c53925a4c8fd0adc85ce6de711f65d6788796333c7e47a670"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "0e7365af8853466219fa9d2ee682ee48012f487ef42c33216609ba47f62f2270"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "a5c30bb98cbb6c9c125c7890f2cb47c21ef4a5fe69f4fd867e4af961258119c8"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "8b66ccb995a7ead607edbe65b61d0f853b26916a70ed9897b66cd97a6e15ea7b"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "1efb927ca71606e31f2e4600f6ffd9806517eba5778aba231f58f3cbc4cadf55"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "f49d92bafdb6448b866b32bb57b0a2c32012502d6a5ad81528f312866be70492"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "38e6ce86daccf03e7dbeca445675b1385438fcd4415ba9a17956fb8d2793cf78"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "ed8201d3921d38a51d84da882066e33249b689f31bd214b9da8f7f82f0538c9f"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "25a06953d10e8b711e405e913e8c2243d26c9bbe521a267f305a860852ee014f"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "48d6dca8ed3a3a1a1df6ed77daae2f406147a5235f30811c481c67a48dab4149"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "3eb8721f895b706e76389e2bb0e6d5ca595d0fd35fe36dc69af53c5c39f82c99"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "39030485f3a0372e73cf5473b534972dc904ad3fa2520dd84f6fcb67c22942b0"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "2923748275158f7751f49105a93b57212cb372e6d5f2343d6b3cb070c3581187"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "93c369e65fdb94a9546e9131a5ccd1dcabc9556503e190ae1884b48b9c5d9860"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "4f50e1cba4ca357139ef07590e4a7bcd5b9afbcd2d6b7047b4d5880b09c79c0b"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "78c2450ae24f5718ffc18c27f0c3f020fbb628d1e8fd038b8bf9fac674f89de8"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "7ea092c0e9f117e92359e76c41273b9362a074f221098e0b87e1a3e61595e13d"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "d32e9c7c8799b19c876374871a05d62411579131e8d79d48316e767ebfd62389"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "e0c7e3c4090210fec4b1c1c7c67b1a7afd0afc7ca9d3b878dd2cd934138cfbd9"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "b98f7c5ff4b7d0be11baaf581fbcec236af9e8646fd47b315b3f4270244a6445"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "b3f0ec142fbcef0fc9ed46a0614012228acacec53b1a4324d11e7e394551bcf1"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "8ae964552f28851632cbd5721042b3d650cc00aaca0c93fdbc59615f2cc1e448"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "210dbb6113a136ff20e97ed405d853fcd6b8765e6cfbbd2db573493051c11889"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "94a3dffb5d0a0a222b6a8d0e2408ce3d7afc424e94a8cd6e89fe1222bf495ef4"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "f48ef124d6374f6d76a6f26386bf1c2d4b4fdd0f1e66847e5fcb007c217b4185"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "c79c1e2fdbf573806430fd00c2bbdbefc3a73bd0b0e442622d321aff78c1fa0c"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "2bb3ff766d5f9191eb6a74ffdc89c19ea7cba580633c841caa14f698df24969e"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "1f3e660646a5d18498f1e13f81344f20236ab77580c0c5f9e148e3cdc28c1377"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "2e6ea2c58967a0e562cdd1a6832f47a0a4b55077000dfb9e038c2d3c611a9824"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "f5f2827f33d26429e09ecb6ba168416b219833ae54d94bb38b668f213c5c5d2e",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0018",
+      "id": "20261124001800",
+      "file": "20261124001800_delivery_orchestration.sql",
+      "source": "supabase/migration-drafts/20261124001800_delivery_orchestration.sql",
+      "sourceSha256": "4eb74ced7309cd2398c5d81241f7871f33c25a85a3523e99740441af73219cbe",
+      "candidateSha256": "0d29be55d312939aa15a05d806b5f5db2fd310450d93c5304193d557ef7bd4d5",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600",
+        "20261124001700"
+      ],
+      "dependencies": [
+        "0017"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer",
+        "contratpro_delivery_worker"
+      ],
+      "newRoles": [
+        "contratpro_delivery_worker"
+      ],
+      "expectedObjects": {
+        "tables": [
+          "app_private.delivery_gateway_key",
+          "app_private.delivery_events",
+          "app_private.delivery_downloads",
+          "app_private.delivery_jobs",
+          "app_private.delivery_payloads",
+          "app_private.delivery_inbox",
+          "app_private.delivery_rate"
+        ],
+        "functions": [
+          "app_private.delivery_binding_guard",
+          "app_private.delivery_mac",
+          "app_private.delivery_allowed",
+          "app_private.delivery_view",
+          "app_private.delivery_context",
+          "app_private.delivery_valid",
+          "app_private.delivery_observe",
+          "app_private.delivery_command",
+          "public.contratpro_delivery_agency",
+          "public.contratpro_delivery_worker",
+          "app_private.delivery_fence"
+        ],
+        "rls": [],
+        "renames": []
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "e48d37c814868d90758f3f91d30a2ad70e9302f096f6c6ca01556182dbfc435b"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "CreateRoleStmt",
+          "sha256": "7796d0f2e5e58c4eb39c09f6c15d6d4bae1af1c66185e92a01d87e1aa3b05ce8"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "aa843825a811e73a5476e21dad49e48d82bdd7e6aa0d0b3326fe0b73b7810258"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "cb06261564369fbef1c0efbc5f4fb0b87303baab04f42220d3fc407a4b6923b6"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "e07d6953d50fd7707ada3a734307d637b9a4d80be729cb306d81ad0157c3ff0f"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "137c764e5d6d13fb364b0c0f849b86328c039cdaa79fb066e6ac0c05da6943f9"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "4175682be4799687e2897ff867451b0524cf55f84d7a0ebbedc8b3cdf66897c4"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "42462cebcb112e9217af9392ca3ca59c7b6dc1bfd3f305c38438c1591cb02969"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "a19351678415d7795970ba0415b53d94963eeef6288ca2d515aa0eabfde0a6a2"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "3d49bd3f034b049dd37a0ad1fcf843bdbff9f77cdb94c791ae6de1d747c34639"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "828a49d37e33d1c9ab7ed3f82d8ebf80ec0dd73d6cddcb87380b18587207476c"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "805033b6123669d99b805c22f6143aff67cf44589ee0e4ce09b098bf63efc4c3"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "8398e61d70a30f533c834f7a616cc169c4768937227a385d2285fc78672273d4"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "b50b3d0561b2b377ed2b1e2f78d3187e055ba5cd03caea563d54fd43b7e5c32d"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "2ac698e26e2638529553ba77b741063b8302c31d01172341ba847c00ecd3110b"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "b16fa8caa70a55c7516a38d924bd3fccaec29eb45b4005bffab3b9ee0848948b"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "55351077649e35598a31003570e3a076f8db9b633fb4a50661e384af893b7d63"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ce79e7447d31120f46af699cb5ffc192b7566708e8af7d15907ee9477a6b8d39"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "314f1bd4800fa1b102666e933d71e5026409543ef0060eb947343d2bc3548c72"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "a27cde52ad7c6c7d5ce5ec25402e55ad050e1ce76b6e77ebc86b5f18018af85f"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a2e0d95cf4a39f4992a36bb9879c36e664fa8b9710bef659072a6b7d09e06cb6"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "74789293e41e60d13699ee86540913bd2a7c5695a4795c9c1b93baf29942f249"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "190e9e1f8682cd8060407a9ef7cd73942b16accfbebdae4d56acbfdb7b0b94b8"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "663b22201e7dabd7e2361f01a5c2c46963849465c0941d19f9d89707d218837a"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "570702e71c9ea8923dfa5fcf27f052d9eb1983cb52a71231643369668da8e386"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "c6507f86e364f3122b4429af32e8571529aa4521075476950afd91753e9a22e8"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "0cd17cf652a04277592475fdbfc2038e1990265e7a9999898b96a6f79303a963"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "e12a5d64cae7a1b8148970e4d5faeba909254476f239648cddfa82221a12394c"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "e593d496e99f85f36cfa742fa084bb4b9f9cb8f391ff100439550ff11061ca1b"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "b60006f8e6325664d26407f4543fe740632dfeffb7ceb5c7ee74b9d09deba846"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "4268aa32d1d1a0b341ded549fdf694c0b3771b3ea34d21db3d433b7c0560487a"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "2026c8a9aaf9b6cd94d0ed39d8f935191c835a31f7d9ddebda5347251a219a9c"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "b8bb54cdff2cfa792d004780cde5f325c5a32607659bfa9b0a7a8e303939ff55"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ea90735c5d3c345cc6e19ac57e9845c93d43f1627ff016929acbc2c92dfad7c4"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "32b8edc219efcb3c065002094e9e67cb9a272a042b9e32b88133e32fe2ecf915"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "9a62afaafea047676b0a86daf8cd6da6be79b83494d8a0fbe9e0df3c1c5c53ac"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "2b45b5e9844d341325d6cb449697b3a7e192b56aaff25d43d937d9882c60df83"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "456144e8b2a905398acd4af2aea15dbbb507c1ddf6c647acec27241294acec44"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "e8d8229b79b7fe40893806ca605ff75effc12200a44859b298daa8acd5038a8b"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "c54adac64327ba01011a8c45cf8a61c41057138bea288656610d472d0dc6075c"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "9477491d1f287e8ac856f9886b8b8ea7ec0f42e07ff139f35e5fa76767de94f9"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "bab6797a20fc9f827085081137176fd826e619a0882920410f6ce2dc29964d7c"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "4da765a4fe8e7e266e6e402acf0103bb9d85b8119f9ce6db52dbf7045ff25dfe"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "7614a81b5a003705ada5293aeeed82c340d277d9c116d6f5a8b2ad7879bd41e0"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "ada77c071769df8013385d614ec5395c17e044c96500b7c9169a5febefeb304e"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "a1d5c6fe482bc5fa5c34e6f9950a18aba548c9da2be24935b99708dda9ceb345"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "ffc8e14241c024a18e416930f77d92d6ad86325660763ca986cfca1571df0200"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "982acffa84252b2b838f90c668a7cf533b260d476bcc3e1361db78d52a0d370e"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "1fcf09e6bbf5cf97cd44e3bb940f85aa9eb0742c38f3a217e5c43f336829ba47"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "5adbab7a6d7914a25935eef2f9426c6f04021bd912a689e1d27b2c35281f4779"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "9124b3397e85b925616487ef48813658053580ad127b97e6684b1f066f9d09af"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "cc8ce5ba69ab5fbed635c5cd4e9bdc8f5cb22b24596f1673db05e02f370b0316"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a0787678042c230d0c98a84337def5c5d2224d1e7e6e87db79e8ee351d823bc1"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "17ddf1d895f12bcf533e502462a0af55803787ea3130cf32f41f57d0b1729a5e",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0019",
+      "id": "20261124001900",
+      "file": "20261124001900_google_sheets.sql",
+      "source": "supabase/migration-drafts/20261124001900_google_sheets.sql",
+      "sourceSha256": "368799027b058224d2ff40a12bc10a41cd094544956b41bf2ae41f874c5f9465",
+      "candidateSha256": "5072505849b0adb32cf876b560b070b89d08c36cb5dc44c9b5d2a4b69808047c",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600",
+        "20261124001700",
+        "20261124001800"
+      ],
+      "dependencies": [
+        "0018"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer",
+        "contratpro_sheets_worker"
+      ],
+      "newRoles": [
+        "contratpro_sheets_worker"
+      ],
+      "expectedObjects": {
+        "tables": [
+          "app_private.sheets_gateway_key",
+          "app_private.sheets_connections",
+          "app_private.sheets_oauth",
+          "app_private.sheets_heads",
+          "app_private.sheets_events",
+          "app_private.sheets_jobs",
+          "app_private.sheets_rows",
+          "app_private.sheets_audit"
+        ],
+        "functions": [
+          "app_private.sheets_source",
+          "app_private.sheets_snapshot",
+          "app_private.sheets_mac",
+          "app_private.sheets_command",
+          "public.contratpro_sheets_agency",
+          "public.contratpro_sheets_worker"
+        ],
+        "rls": [],
+        "renames": []
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "5c4f7dd46aec1df72015825cc2f397659b2ade4ba251104a04b1814aac2eff65"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "CreateRoleStmt",
+          "sha256": "b093e7389ae902daa5b891f2d0fceacf8f23280bf8cb37c5991a8cd550c7d267"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "1a995f25ee3e7847fc32cff1c1994824cca99dc95e46e6a9fd4f2a1949351943"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "e517f82413985ff389c1b01439fe4ead88c548612eb0b1a0e76cbd55f8d41631"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "6022840ad58f45503c4cbcf6c24d9a8e0973a92be965c6487e5680beb4968e7c"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "2154ffbf4f7dc9eefba4c45f078bbcdc394abe06867d726821ffb13de853e8bd"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "843f0dc335ba76bedb1b108928c4b87d2dd704435cae28a53fe24d05a9a65563"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "358280f28abd9a9118895bd9541d6eeb84bcbc99f5c76bf48bb8809493d9385a"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "e5dcf7d88236ba1fc2b85286f65b04a287d3e18c1b1bfc7ca940b72c32812ddb"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "5523ae7ee62f7ac6d98327eb4217d7ee8375c5b134bb6d8cdf851e14f1aaabf6"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "e98e5f166fd033cabac1003074c29386e8c3c815d01f55d6dd06e4eb3f7d3ca8"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "76c110bf5ede9b911679375f7d5037b7bfaadd06ef0b75fa0491831336f906bb"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "4f890af006e6372cffd6661bceb45220d46e6acde88c7d65da7b440b010e793a"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "47f25f809df7a49bd0263d6f781ab71e3fc250ef6419eed08cf26aeaf364abed"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f0fa945a60084f1393fbcad0436f408b31e096412a1e8c9ae5b9c82342eb92a3"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "906a42906c7e2c0b2256a85e4188bddb6a372c0c910db7ad47cc42b7b93d0f2a"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "76aa5a06a95100d9bb2120cd4af62665f24bbeea48ffbf157a8ff839f606162c"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "c2e55c70a48d3bdf59a4274a36740a95ed4567b84cbd3d0c0eb1dc01e13e81f0"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "7ccf34332cc42159450aa60f66785d1e01e97fa9cf5aa02870030e174004060d"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "b301ded1102ed7cc5b3d2549a24711f6699dd5bf678651a816344b8a6ab9fb02"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "68454aaa749e981da4b508b9923a68f335d2ce0f4e9ae041a63f9cccedfcf98a"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "b3d511d65f5a6ec1a427be1dffc4d78291f6798e1d51b54a745b5d8ae681c29d"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "02386894f52378513d526d6b77692cb6ed10df3742fc61084fa1c247de183bae"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "f752fc12be4a89d49413fdf0d5573abcfe115e7393d1213d29809d3bb2600421"
+        },
+        {
+          "kind": "UpdateStmt",
+          "sha256": "7be95b9c7b483661053b3ac82ea1d95a109dc13322ba79aa33f4b529b7b325dd"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "fecefe2dcb02a235526d737d07487bc58fbfe105cbe0d2507c67b70678508410"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "901d1c42a64e6b3a3146191a25e8f6d5d614c779105c4e8afa45a93485caee19"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "d8e762217e5d050cdf0bb9f3787a6bd20d47b6ce0ca66cc0c7e9aad7b03e1582"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "acac799a36e3b2e5c7ba66b8f84c854da884636d0926348d2a425166851340f0"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "3990217ad617cc298308a264baa803e2819fd5af998bc6db20d1c357bad23db7"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "21caaca75e89507fb6089477051177676cbd35ef57bca355019be5af1db19862"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "331ce5ef8c049d08f417d554833ffd2f623f6c57de6c745e3976000e48bca32a"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "571fe30806cc7b3527439d163fe42ff82cc5b3ad829acd7ad98bca8e7ec0c6b7"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "14776915d21c18e8b8ac1b77fab6adafffa4755ae010c589c5481c80294ca030"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "c039018beb3c8bef9814fa2c95135bd11a4b88e5830134c1aa53f00b9521f23b"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "befce396499609e00199058486c4a4404b0c8d0b440af108f7f28e78c5582bf2"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "6938c3202c2bf85ebfa1131b18187969a5c81578cc2bd2de629645a0eed2e164"
+        },
+        {
+          "kind": "AlterFunctionStmt",
+          "sha256": "e946aeafa4be1283578ccc515dcf37d70df44735cd032d8fe8c1801db0dbb0a2"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "70076887181a6e081ae5f9d1fb03ac0ff9c34119e64f539daf2756a6b06a84f4"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "3dae311c53d61d44193d4180b37407bf9733100ec2274af0f7d9fc759079fdb8"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "7f0ed1dc3d4e02f208ac4b7ede58e31dcd83c8ec441eb326f20ea294d8d3f0f0"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a5779dd23674e9db226dc099f407161a8b580c0ec49a094efe88e8a34a55096f"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "3e1dc84646ce885c3f6677c8511358261d8655159d71e0416d289b1a191d902d"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "3f0020fc880ad596e0c8efedc6bd80d443cd952a9565e82ccd7ec7588a00777e"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f1275bc0fbd51661605456bd115a96b1ef5e44fb5148c0c311550f6f3b71788f"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "0210ad516e3cdf4914dae541f3ddfc957fa77e9361cab7f7608a06c502274f45"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "2fc30789e9b8b23022e8a854a83eb321b9bcb8a9865b1beb2fbd98e35a9d75a0",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0020",
+      "id": "20261124002000",
+      "file": "20261124002000_billing.sql",
+      "source": "supabase/migration-drafts/20261124002000_billing.sql",
+      "sourceSha256": "d6d4aff81f187a7bc847b8daca46e554ab7b3da838dfc5fae10289e33e1c4ce8",
+      "candidateSha256": "05e13cd92e7724f58c9dc703aa08093c9c9d582a76b46ebc345e29e371740517",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600",
+        "20261124001700",
+        "20261124001800",
+        "20261124001900"
+      ],
+      "dependencies": [
+        "0019"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer",
+        "contratpro_billing_writer"
+      ],
+      "newRoles": [
+        "contratpro_billing_writer"
+      ],
+      "expectedObjects": {
+        "tables": [
+          "app_private.billing_admin_subjects",
+          "app_private.billing_plans",
+          "app_private.billing_subscriptions",
+          "app_private.billing_trial_history",
+          "app_private.billing_profiles",
+          "app_private.billing_payments",
+          "app_private.billing_audit",
+          "app_private.billing_receipts",
+          "app_private.billing_usage",
+          "app_private.billing_reservations",
+          "app_private.billing_signing_admissions",
+          "app_private.billing_provider_events",
+          "app_private.billing_provider_operations",
+          "app_private.billing_gateway_key"
+        ],
+        "functions": [
+          "app_private.billing_plan_guard",
+          "app_private.billing_member",
+          "app_private.billing_reviewer_conflict",
+          "app_private.billing_admin",
+          "app_private.billing_access",
+          "app_private.billing_reserve",
+          "app_private.billing_transition",
+          "app_private.billing_snapshot",
+          "app_private.billing_catalog",
+          "public.contratpro_billing_agency",
+          "app_private.billing_settle",
+          "app_private.billing_refresh",
+          "app_private.billing_confirm",
+          "public.contratpro_billing_platform",
+          "app_private.billing_resource",
+          "app_private.billing_feature_write",
+          "app_private.billing_sheets",
+          "app_private.billing_storage",
+          "app_private.billing_email",
+          "app_private.billing_subscription_history",
+          "app_private.billing_payment_guard",
+          "app_private.billing_mac",
+          "public.contratpro_billing_gateway"
+        ],
+        "rls": [],
+        "renames": []
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "e7400ae27b22299583d18785112e575716f00d95cd975f446c418e2bf289b6ea"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "CreateRoleStmt",
+          "sha256": "578cf6cffc8af197e2a03b69ef046b200bbaaf4192a96ba5e2d8512b02ea28d0"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "1facabe202a62afb9b8ad8a4192ec254bd91e6128ab3d8db86de88da6ec8c1f9"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "23a5c3b13fff90778ae46941544d33d4772bbf96f2aca93cea8c9d9cb99d7d05"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "500b77a593ee083c2be1576d8b5068fa2528a77bcb048fe60d57cdd3c68399a5"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "3e07acc06fb7714da799fed128fe5c69e5c80ab9753d7c0fe3eddad9894397bf"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "9e1028215cc320c3cbcbb8b3ae44a4340b3e7cfab874cfb737b060d7f45fb2cc"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "1c9d2aa1404490b1970be19200314a525b76498c7d9af57d401a4e5694e016e8"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "25720c0f0e4ed2fd03de2ff6598d985898c1a67ad9d1659953fccebaaca0f2cf"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "18e1f19c55d129be7c9ecccf110329070826092425498ce851cc24df08d5ede7"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "2baa1d7c7f28c0c08e5a05cba2724f27ee950429f33895ef64a00b87ae03b5e4"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "a88ad12411a1d317fbe1c3410ab8dcde47daff75ff458a74919cd45e2f534f00"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "2b86ba0b0a706af0d7571e718c61ef0d97211150b665e4f7d307d7548c7b81ff"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "4b89374a60b6cbcf91cc4c2257df341885fe6654e0c8678d7a08b343499fafd7"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "6cf135a7b27134c1a9a289c02fafb1efa808e90d7276a81a19d9d976daf68300"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "422a994d0e1e0b387d49acdad65647119d0e91a96fcc1e9ccaffce09981b7549"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "61011b1b7d9a4ee5c5053aa7fde34ca49cc465f0c7b29b7c5810fa6e95fcbc60"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "39d91d0a95021d48078962ed8aef4abc665a75a5f53d77f3ac9394613681d1ef"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "365fb5ae916f59287e353d498225bd4874201a59fdc8a54b362d3cffb0f7436c"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "04ff2a3e149a90309d53a89ce630a9709440c711cf84602aaf6f504d52aea072"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "e4cfb5530cbd951086085fc5b77dbbc77e689eaa2bf36816d627409d80c4e873"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "bf3b992613e966a0aa4c7ca5b6b332906e3779936342a269c2d201ce05ed2bd2"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "5155536708add6feef489c14a25b86d6f09410e09178dd344dc7b462ad1ded64"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "f254ce3c100c43eb0884d6cd6d7c2fbe62346aeb30827f6b50b62f755a589daa"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "897f4018072bd783bfa8ebb82fba6b2abeebfe5bca703b37c8cb650785fbb436"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "62147f19d12750e445a42ae7daf4cdfe5ba88c2d2f5595616f9e833be90c45f3"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "e29c08b58445e18acb8b98c762018e6073490529a6d13f61d0b66cbe0d08ba61"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "981c3bbb68a2534e57a29a1c32a6e080a489d55b2702f1dc325743af1a7fcad4"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "4e57883cf0768d6afddcec5dcb90f1cc7ff97a57affe200fe3bbd05492bc449b"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "736c11c5e4212a964bc15327887289bd2f96566779638153c11e2cb58216952d"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "59707fb5adc20fd45e8c9808d34c367196e5ad0c3841eecc6df4e479b578d34b"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "fdef42fcff833dacf1d4d8660911731de135d952fce05d497911a5caf11a092b"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "805ca9933e2bcac3213634413949e0be7193bdff1234208336af221387f4fc19"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "821875c2a85427c808d6461726e6d95081741ce7359946894966e9956ab267c6"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "e28569522ee51383bc731a5c393dfc7470eca12bce924986017b13e3f4cb6e04"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "1a9e9f20129c07224daec1d91a8edc464333cf31e0c9cb5c52cb81a13e5cf3f4"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "2cf4daeca92920234af286506a267d980f13d48e3141545e46ec578b05c22272"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "5929e7de8875c44df5225ab276fef7bae79621a238c51e600665ffdfb3a2643c"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "4e2ed304e83e65e60c15d44845010eeda9f87e99f1320918a0d02c2fa81eadc2"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "9a8452309e86ae052df0db163923ec3d1d5bd95e7d7faf0d53b96b06ecb723bf"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "7589b5e55585bf4de5b0d23672112faaeae81ef0cdb18fc9c0e1617a4f36a482"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "91beb5344864faa519193f2beb24d66f80e2aaf75585d8e8a32f04d87d0d7cab"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "6fa352fe7f9f2786c314dc58bef23402f505d3b5674fdd29bbe0a8d94f760f22"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "c6afe1b6655e0bdb401a1e1c604b8e032998ae9bb50ff9842d497a3667e881de"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "fb67cfeaf860e7e9d06fb110df51b806f695ab683be03ca74562496fe978cf15"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "4689a7ce93e01578e871ca870531c4832139c45f6473424b5716fdc45694305c"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "1c7b9b13522276755e83c882deb95e88fc5143e87fb44b4f3db2aa61f59219ac"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "76096db83b198ce15ffc65cebcd70fd72dd0e7e961fddfc5da99aa13b111ba56"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "dddb5bca2eaf5ecbc2a1e8d1b7ee71ac0b61d9bfcac7e74bad6d07cef889bf45"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "f5b5c2a2552215b33f5b0cce59eaaf2c074089a47c327495daa7a5d0e8e4d056"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "f62fbc1fae2f3e91704517030645104e50e61a3bc9f56f961fc48282bdc251d9"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a5ce464b8a1cf9a664be0df41a2c4fe13e1c285f430236b2e7aceece58c1f875"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "5b5e2c93672851e0d15a86ef88ee6584dce38fde478cb54a71e89d9519815906"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "7e65c47574277cf350c3894fdf286530d985333ab03a9665e7513bc79f71f3be"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "c9973a3e58515908ce133d9168c8fab0b5a17750c92fc52bde0c1f1152d2f034"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "542c4ab9caf3b6b9b36d5c3c4e557103b68c659aa70ce3942f26724376d2cff8"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "80b9492a9c07927a81616e3f276d510290e265534c6d2d9c46324f6a6f52cb96"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "71ed27a100f4d2d63b52a02dbab2879bcdc93bb9c41c4d83ea6f047459715968"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "6a75062cd5b7cadc370ad93be3936b4664b36743af9f57269db5588a58bf7656"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "22146083bfbd956ea0174a2847a32af5b3534e85969e7e9c68bd40882a89389b"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "b73bc671bc1674a539b09553a4074764e9092eb26fa6792a3775d9c8dba9d8ca"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "b759984727b46bdfb8a90cd402520aca1e7f16d0d6570dc88669d1b10414c9c3"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "a1001822c659f37fd6950281828dd3bd589b3d958d777c96bc6ed64044a13a6c"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "7f157a97d5f81e969886dd91fc650fce9b33c669fe667d7d72824f4c2428f733"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "28f6c9e921451e55266b448adc65455522d3c5475b743ce48beac92e605a823d"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "e2ccc60c7e9e2096dccba11a16061ea44aa2266d0c81af2ef45d095dedf59b1b"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "9d365de63b099b6957b1fae6b3fd9a5b6a9b5d41b384e819514e8f952ccca418"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "371b91592cd006ddb299d00b7d48056a803b4a2c8c3c584cf0441f58b969fcb3"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "5a1b903657dea0ea1e88265cd2a496a96e18cd043e3db3f88d927d8d7f147f25"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "5dc879f7efafdfe7e12d4d786653f1b218b41f10fd70d51d50f1e71b3e8e3dd2"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "5763de011e3e90a443dde612aebed53d634e5d9bb8ac07479637fb86d81149ca"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "9ead87b1b223a31fcc864b4f7204e86b3b54aa1a4c32ed85dd5ab98d09b23302"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "ee56d8045bd65ae983c69890d9e0f15fb4d7b6e3bca2b90a7ff2c1c37520824d"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "6ff8d400e2c89dfe825e5eac9d43fab6d14e5b87311f899468bc07e261a84e90"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "d2c26e804425df40b98bc76f49dd2c5ba58e9c8baaafade7853aec5c445673f7"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "b5796efc85ab0829eb67e60fe65d6ee4dea8793444e73ec637fa7012d399dbc8"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "ca897c8b1927af3c3c3fe11ce551f415d03b452656b028dc7bcc2f7fc67f9026"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "56149d52af3ce8ea708d0a6014db533233ecc7f9ba207416da02e93719e6d6b8"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "13fadf235f778245c75a5346230b79481f3923b51a2ef8fef4c5c2509b96f433"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "88063431b9a9edeb6c6d35066cc3db7c6bdb1d5934cab8b32d1a509e0c7e8273"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "0bf9b6d5be35b0daadeb68b5fe3864aee55807fd23be07dde2cc95102fe0f4aa"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "e1404ea35a1077385c59e63435997e3f7e2f3f96c537fe0a4727da2c85d21854"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "ac16c196d35707d0aa1e3e7958d46ad150f320bc84afe77649a6ad5f70781aee"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "9e08d5214624052bf0f5353cfdd8f349d43f827a3ef9d2905df3147684e8c2b5"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "5a57b36d86c17927ad3f986c0b076db90793b0f5a81bc16ded27bedc7e0da6d1"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "6b0c86b8821677f1d6c3a059e5c81ed4d519b2ae656ddc3fac6e2fc5ca6da672"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "a497f87cd9da64fe2e2bbca836611eb1177dbda4a4f1487c977eed603c09bce4"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "dc5bb6cc23f72d4add37026afe64f43be936b015fb4b466156998ac1d8c96936"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "dd609141784b958376950e27de7c5e35b34d7dfc168d63a1d60cfbc4dc68c27c"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a0e73c6e4bf9f9d9f9e4d5e8944bd4fa7f23acc7c3f24511a6ee5669b8a86d68"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a57f618dfbf8c466c1da80df1b4e5971bae6651e69df743106b2fdf45dca7088"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ec274ccbf5b4b6067e8d9bf2ba6068f9a325e8e322aaed8e832254c2d007ba72"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "267a733f0e1ff2431e2989f8f7eecd08552da941f6cbc16e9ab0898f22dd28fe",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0021",
+      "id": "20261125002100",
+      "file": "20261125002100_agency_rental_workflows.sql",
+      "source": "supabase/migration-drafts/20261125002100_agency_rental_workflows.sql",
+      "sourceSha256": "c6a8c1f56fe4a163c7824129864e6d862d2b0b536bf6788ed0a4bfd50c0b853f",
+      "candidateSha256": "2e06f515c826a83b495b9b13963e485eb5702f29dc091b4a265f9a5650074f1a",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600",
+        "20261124001700",
+        "20261124001800",
+        "20261124001900",
+        "20261124002000"
+      ],
+      "dependencies": [
+        "0020"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer",
+        "contratpro_delivery_worker",
+        "contratpro_sheets_worker",
+        "contratpro_a1_writer"
+      ],
+      "newRoles": [
+        "contratpro_a1_writer"
+      ],
+      "expectedObjects": {
+        "tables": [
+          "app_private.a1_gateway_key",
+          "app_private.a1_receipts",
+          "app_private.a1_member_versions",
+          "app_private.a1_invitation_acceptances",
+          "app_private.agency_branding",
+          "app_private.agency_logo_objects",
+          "app_private.agency_signers",
+          "app_private.rental_operations",
+          "app_private.rental_payments"
+        ],
+        "functions": [
+          "app_private.a1_delivery_binding_guard",
+          "app_private.a1_mac",
+          "app_private.a1_member",
+          "app_private.a1_capability",
+          "app_private.a1_owner",
+          "app_private.a1_revoke_signer",
+          "app_private.a1_payment_summary",
+          "public.contratpro_a1",
+          "public.contratpro_agency_logo_access",
+          "app_private.signing_allowed",
+          "app_private.a1_signer_selection_guard",
+          "app_private.rental_document_capture",
+          "app_private.a1_rental_guard",
+          "app_private.a1_payment_sync",
+          "app_private.sheets_snapshot_before_a1",
+          "app_private.sheets_snapshot",
+          "app_private.a1_team_delivery_valid",
+          "app_private.a1_team_delivery_audit",
+          "app_private.delivery_view_before_a1",
+          "app_private.delivery_view",
+          "app_private.delivery_valid_before_a1",
+          "app_private.delivery_valid",
+          "app_private.delivery_observe_before_a1",
+          "app_private.delivery_observe",
+          "app_private.delivery_command_before_a1",
+          "app_private.delivery_command"
+        ],
+        "rls": [],
+        "renames": [
+          {
+            "from": "app_private.sheets_snapshot",
+            "to": "app_private.sheets_snapshot_before_a1"
+          },
+          {
+            "from": "app_private.delivery_view",
+            "to": "app_private.delivery_view_before_a1"
+          },
+          {
+            "from": "app_private.delivery_valid",
+            "to": "app_private.delivery_valid_before_a1"
+          },
+          {
+            "from": "app_private.delivery_observe",
+            "to": "app_private.delivery_observe_before_a1"
+          },
+          {
+            "from": "app_private.delivery_command",
+            "to": "app_private.delivery_command_before_a1"
+          }
+        ]
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "792781e4fbbf5102d78caa7d32f1537149e78532e9411872472a16ae8f602600"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "CreateRoleStmt",
+          "sha256": "6ea5bad0b520bd4953f112c91053615468f34ae4500e5a01baaeeec8d3e39d18"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a1e96cede618d18877ed47643127c0fb95f83ad8ecaf63dab8d460cbb63dd4cc"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "2103c0f37d05174b2b016300e2a20f284a46d7068d620e0b4853d76c12d20988"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "4141041b70ce1a62db2b46813f4aaacb7adb355943412d6309bd018fae37cab3"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "4a1bcb34a77c3864a96231bf09b03617176c4b7360e3eff447db8aa11ad3feb0"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "e71d77c9b05db95e01297f1edf7f8abec2e3df61750a5e7b570d5f4cbadf9601"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "1784b1e01e3b721b98b6c83e494db44288e1b68562e8027899cbf62b88c49437"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "828dcb4750ece9705d9dc5916345709b36701091b31b61494ebe5cf9de772071"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "16fc58032bd936ab9ce564a55f6006c3fc54b7cbcd98c69dbf27d7478e487053"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "5293a92aaad6751caba07c567c5a39ae58f0fa50b4d0d0676cb77965fc2fdda0"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "22a4a0b3f6340a9470a039ed0eed012d9726b1e07c2558a2fba6a8ba5aed9dd9"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "9a3660075833de8fdcfddb40dcb066ac921abc567b68c5f992cab33ab8a50d69"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "0f21219c9e560288054859fe7c22b5344c695885560a27e609edeef2bce4b1a4"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "4a834a8ad467e8c3d7aa558ebb4811834727252bf944c0e97bf47933735ea666"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "64623ef689e010a5cd8cf8c0a76ae4d02b96868b9699379d5c74936ce5ea7dcf"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "7c8b89654ab3b3bae446d49073e0b5df17b0a5c3d76cc12bb6a585e89f743ec5"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "0ca1cb9912b9c4f5d09a142d349195a35cd7ee951c43b2e0768ed97eb7340189"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "24cbc77e55b5f4ddb21636245f68cedf7e61d0620a2ead65a56ae6f4a6e8680b"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "63dd01804f2d1fa0d5ef72f1b8556762a9c1525e2f6b07d9b56f306a709aaaa7"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "72b002346807d5b7f92aed6c0080302f5413b3111ba6f71c40cd7b95df18e038"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "4b06f54a66fd4be51f58a74cd5364ef0c8cd4c4e87af4b32b15674c5d72d9a2b"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "35c57c81e0fa229d95a95ad94e60394db20a8856b080ca98f708f44133a7abe8"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "748330e57ad903f908ed5e9faf7d6cd95ba58757128eb6ac60195e8552cf2361"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "3df1be9741f09387ea87ed86f571eafece1398fa1509702d2e9b2f6501a26954"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "d5d70243e20730374cd6023ec7807d757d3fbfeb697732ed28bc9e94907975e3"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "983168925f9580f641fc7f0f7486b577872d455bcd1bd203b2bb6466d61083fb"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "03a221039d3b4790bdeb954cf628b7aac2957ebf0c1d317ec69ba9394e3260fc"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "e7f48b8d2b6e2974b1491241023f25fc37660dc19da9567841995b60e40c36a8"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "e5a99302ee8c248225dce337f2846fb594d0b34a8dbbd6f934d57fb291aff5cb"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "361d9e2473331ddff47de75a236eaf59ffb76935f5b7eaffda878d2083f4923c"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "0c0e8e034a51cbc2ca1fd71759cebfdd4eec5f4aaefa7cd2163a1aa55d794af9"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ea49361684c5057fc712bbd05b39669c8ce4be1c907a507b1eac962c3c0f4c04"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "10c6494bd439e43f72025a28a2466f08a980005666d69100f147e4023b56356d"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "d7e6a94d05ce69602c20099203adaf41192084bf33025dfa1571ef7738c6b29d"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "dad2255c75037acffb1a41c6704a9bec83630f1c3a24e7fab905c8423c85c40d"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "9491f2a57f6e48bff8349efa2124eb2e087eca6639eade1581b050d3a57fe103"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "31240b95d2c1634ca102859bc3c36dbbbe342e90828340fe5f8474b86ec340e1"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "d86d880f432c3d61e7a8f541865303f8ebce4ff34f21e9a6b6cb6f0493851401"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "bbee281e6bd1e2d3d5f1689a49eba155a374a4c29cf73df104b96b1a108cebc3"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "37a4caa40bd3dc226d866be32cc265f7910bafb4c85eb51acd64c3ff2c2b810f"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "c4928a646b743a15af59bbb5d1afaec1b2dff8d9347f897fdd43e654d061fcb3"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ca09243f1fd66cadf8e6b011c5343bcc878b4f3745454790f04ed5a556c3f65d"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "db2f6224a870bcfaca5008d587324b6d4db263654926db08fb3243f4bbba8107"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "90385b7d77ffcb37a2bc83f2007ec14806d0534ea28e57e2cdaa17f8d7f9a311"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "dd424e6cf974dda17fa207f8275204906d2dbaac140ab811ba5c0a97d32f4654"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "fb880716db0ec8a02fa2641178086590bf080ad57951dcbf9b1299038150bc46"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "bebd0645dc5a83146d43c806d95d08e8fedca4bfe6d4c76303fbf1012678f92b"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "0e5e7fedcb70295388201e9e4a0d5e7db24388d05e8c51d75b0048f375314ce5"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "e9a3497fda0106602aec41257e29836ba3467e769653a2944a68278222497876"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "e8695022bd7057d26973630fe4a66ee816e615b780f4d8faa0daa18c840481e5"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "46057aa37171d7c0c55bee6cc7fb53b0d1c57868f67c617be4fce9cb319e0059"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "538e95d4bd0d662d30d0da3a1c0486be7ea632698758334039c4d6fa8aa4df34"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "e9651b728fb5f475dc523090729d6eaedd93863e6365461c0d6d391c45f93c06"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "d0bc792bbd59c922cc652e4bd3e618468c3ffd393b7b80915757e1977defc974"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "8557428fb6ba992db776d99de4f57dcdb08e625cf743c067ed71f5f4dfa7fc31"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "4e2cdb8339e0768b60f65392f746c30871cba198fb5936f8683609395dfeb66f"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "7e8ba0aea8e65276c0c458d60edeaabc62ed11e3405a6c53607bf6aa61f30e54"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "79be3912fdaef60130e23abb077afd53728d76fd380ce1cd56cb8a92beb8abbb"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ec8226ece67451807cbc4824ed36eec0bc94d2a13bf2ebc2714e23ff1bac830b"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "58d754e71b12ea8c483831aad7b1a2875ba51298c5e8d791ef37b368e1e35ea3"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "b46ba2a11d3d68d78cbad46e44e3f8b7231d8a28badd955fee217475193eb1a9"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "d3330aa8db2d843c757da94342d65291a8e3aa655c5f75e56593ab7e2c9fc1e3"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "ecdd0b7efd0bb5747662987aa35ec9c0a0020fe44b183f33aaee99c832cb3a0d"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "288a2a6eeecfd79e2904dc887e28eb2c0ae44570b84144dc085bf9f2782c1e50"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "4f8b4428183849c930273375604bf4bcfb2894baafcdb37f1a41179c51c2646a"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "b5b588a5b51581670d5d51e141272d5ea7b00dff59b13e99bab83c6099c4035a"
+        },
+        {
+          "kind": "UpdateStmt",
+          "sha256": "5ef8174c7398c12d995629574ee26cbd58b72e0d1a3b58ba5f2e7b99903ca18c"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "1dfdbee49c0d389dfc6094a18dd031ae7db0ef9f1edd60d9ae00f855ea6e7af3"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "0bad84a29ba98e7a7b7ea2acf1b9e50f70d296905ca9a4c0aa4d02e58d29b95c"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "ab9f4606c07f5a01eda733abfadb4a7b6847a5c84c1cc1db8b941aefdb1efae9"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "112da82c71830271a60003349c1f30b98c092df3037d7f4d7d512b0cbf0b3626"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f57a74aabe1a1651170df453ec2fd20dd7bf83ec650277c2ce317f4a33457b26"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "872966f28f6827a957fbc1ad8a989faa78c8bc8576c1466b4e607efefb2736e1"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "d318fcecee7d966edac5771e7144061437ec4ab37e66d905a1fd8691abc8fdee"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "8151b76c7a38f1a9ca6a102a6fd28d10edc56fca815a5e2e8335b02ed714bc54"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "6396bf0818710a41c50d708f5a9c7f9e042b0ad3fc0549cbc9e777ef3326900a"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "97c23f4733b9c7f7298776781c577155f70b1391d3a62982997952232331af46"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "1038286cc9689aacc237f586169b035f0ae56370762344337d611e83165f86d1"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "fee24147aad0bcdc248d6b776b127662341127f9f33184e560d846719d85ec10"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "11647bde0e7b206e91df2cb279a0e5e0e70319a9c17184700f2a86fe30959332"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "8b8162729ad3b5eae22b5977d11b6d5f04ece1b544efaf3480f18a01a31d32f2"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "aea9e2551db4458b656bacb8ac7f655ecbbd17b6a8674fe3df3fae83ba43d4dd"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "e4ded22e00f67de88fad86220c4ec34b7838ef8a36dcec04c0bac20d5ce1d94b"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "03b6115d0ef8c81d75558c99f81a1ae5a27186313f733ec8d2ad801434a62da5"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "5ff87e53ad777a581525c8398cf180f9ac6e26cecbcfae07afe766e8cfd7044d"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "aedaab09c07e175997a225806b4c27f99b0416e175e558c3bed6dde70f2063f8"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "6dcbcd7eb2a7e9c8d4205e2b88c22b0627ca9d4787caa646f945cf0cf7a57c46"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "e2227e529eae9e9b907cef38b2acb8665938c053c13c3b9b928d64c7f7ef5e3f"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "597e88cc86b01d1b135ac8e208ef461bd57a0e7323c42e6c9969e92f56d12e09"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "a5a7e64e10a4c440910e783bd4ceb9077e069e7807b4c1ab77d9135791d4d86b"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "0742b67e5d7a09094b33301095ece70372aff085718f2b08d1aa8b5e2dd08ff8"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "8616600675a05168148f5ac52b8122950ebc0e7a69e127ceecb44f7d7b94392e"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "307f55171a9b8cfe274a47fabe87ebe8594201d2c3b703be750db5401b54378b"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "fe2f3bd4dce0ce0eb5d161f55207e503fa2613310e47b610e888a026f2a8af96"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "0c791e056ac7774ee3bf11b5cbce30b422690675a5184b4c81cdfd670f112004"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "858e1eb6c06976d5435321d544ef7199ffdb12e2fa5205ab777945b0876cc163"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "2891c706a0f5ccd04f8f4ae4d1917ceac3038abe3ea98ccbd3d0248da671c461"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "92f70e9040c3dd1483ec506ceadb9523400262282309f86d30de27ede3175d9f"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "ee0977c63c58400f6fec6e22ed6974f69a3f4c4dc6c5146589e8bbea95e175e8"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "b0b4644ef99ffc0aaa8d1088fd798ca69189a9e1149278835ab7e9b6df7e08bb"
+        },
+        {
+          "kind": "AlterFunctionStmt",
+          "sha256": "07f1f2a1c82a7ce61100d0a625e1ecfe8ec289019ace28061714a516f85bdce6"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "5144a0ce7b9ea33fe3ed570ef7df4ff5ec0c3d93f9f6703670cdd63c0778e539"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "61c9a950329236c9440aa6ef36bfac59f5ab515c7a0017c917c74887425713af"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "5b0af0b7ce706bcac3382b8a1c99a48fbcebb096c7d7b0b39b0c16c72d92ae39"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "6be35e36325209d91c0e155d4bdf99d2ec35b08e1d0e111e53a5f804e489fb21"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "54e089a288aac6b647cd6f97b2f5d8bf9dff5aff6ac36a9e8103936ec7cc3e3c"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "6e7ad53bc38340d62f5715d00ee0cb9561421ab5550d5b8fe06505d1e5942e54"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f8451f026daa2f7a64b54fd23ee477d2c95b342ead9916e552267501ead61e63"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "bc8ba0a48cf9cf917252371658bb18dd74030550ae27972fa62d55a6eec3b011"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "d92439a4df152fc3f4543ccdadac67fa1115d5fdff0ce4506b1e80e673d5e2a1"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "6dcbcd7eb2a7e9c8d4205e2b88c22b0627ca9d4787caa646f945cf0cf7a57c46"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "efda66dd9ac93207e7bd60d2946a9c8cbf5fa1cd2289fae5b4fa18ba75039e2e"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "6942bdfa6c32eb4407ca83143ff488792273d3866799649dda6c2adb4e8ba043",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0022",
+      "id": "20261125002200",
+      "file": "20261125002200_contract_previews_clauses.sql",
+      "source": "supabase/migration-drafts/20261125002200_contract_previews_clauses.sql",
+      "sourceSha256": "3c3d58ddc09df3adee0a16cf060802169b225ffbfbf14ce2c8533c994b78426a",
+      "candidateSha256": "71a6ca805d6bcd5a2cab2a2836cfbdf12ac1481fcd586802dc21694b6264d61e",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600",
+        "20261124001700",
+        "20261124001800",
+        "20261124001900",
+        "20261124002000",
+        "20261125002100"
+      ],
+      "dependencies": [
+        "0021"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer"
+      ],
+      "newRoles": [],
+      "expectedObjects": {
+        "tables": [
+          "app_private.contract_clause_versions",
+          "app_private.contract_draft_inputs",
+          "app_private.contract_confirmed_inputs",
+          "app_private.contract_previews"
+        ],
+        "functions": [
+          "app_private.a2_snapshot",
+          "app_private.rental_document_capture",
+          "app_private.a2_fingerprint",
+          "public.contratpro_documents_before_a2",
+          "public.contratpro_documents",
+          "app_private.a2_confirmation_guard",
+          "public.contratpro_document_object_access_before_a2",
+          "public.contratpro_document_object_access"
+        ],
+        "rls": [],
+        "renames": [
+          {
+            "from": "public.contratpro_documents",
+            "to": "public.contratpro_documents_before_a2"
+          },
+          {
+            "from": "public.contratpro_document_object_access",
+            "to": "public.contratpro_document_object_access_before_a2"
+          }
+        ]
+      },
+      "providerPolicyOwnerRequired": true,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "be086858db07be9fed8db97a7620cc16dce71e1b8d6f3c313913d6b524aea61c"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "22f343b26680346ec0839ddb5dac14397ff34bdafab15a4f7b9f6de205c581e1"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "6381bf202d1d90d977ec181133c809b86ad561e8270d260037784ec078d66a86"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "c0e6a7b4e5c34e3a3b0cd204baf5ed2dcf47546b62ca53dbed435c8752de29ad"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "dac03bcb7ee57dbc3b43855b3ab0bd662be48a7bc65351c0bf0dc2ede62b930d"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "ce64ffecafb1cd412d316db5e0ede732b9e4456bfd2fa44518c64990459713ce"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "3d32baa9a4d5b91ae5ef2b3abdea7db7cc734468b7906819b6398a69d4c165f2"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "3f45e5649531f036281f3d0aa202157959a24c05775a181299cf1aa486f94715"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "99e5ae309323d5db5045dcde2d4e12c185ae13c4f6197937409355b49e425cf5"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "6ce7cf8ab739f94a9548d0d3927025dea7e0e15223dc46dd2bee8de49be9f622"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "7a5ce6778ef46e6d3a02f60243662d0c4bd23a64b2152ac73ef4f03aaf4665ec"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "7aa38c79e60a90b63b5aac8c34d8d7535926b6d3f1b2c295811b06935de5a26e"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "f5f2e6e0eaa786d15f944caf61e81582d6906796d19e8a7798890484e3470bf5"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "e8cf92c56b11074d92a7bc9dfb666737928dbb052c4d5b44d4e2d096ac987eeb"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "8c94a66d99c26146966cfb2e80fa7bc65e505a09a9070c63c580eae2c74fdec3"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "fdd8f707667cfc0740dc38c78dffb3f7f98450847edc67c4dece58f062c6048c"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "846c9ef2528cf65caca9120c916b3b3e6eee3bf0dc59e7cdbc3dcae14d86bc5b"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "5d26e8635124a8220ce633443ff8b5dc8c45cdbeb60219c96b6c0f423b79b3be"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "08cf49b33ee5599b969f6a03c6a0bd3a3418475ff6cc11c33a220e8b66cee759"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "af90b3edec4fe3a939a5ff988266a4200bdaca72bae92ab7ccea92abac950f8a"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "35e8cde19885ceea587dfb80eda4aabc4334f82c9f52af54d45a82a2858a051e"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "fe7d4cd13822809a1b5c604a32e1fdfe1719e345df7ef52ed5c742fa91345930"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "2df9aeb0ca4dd91de2c494984a655a3b6bc296826bf34b5765c5211c9d759c18"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "8a80527664a53e20b42aebc4c5ce563e3a87d7b18894939d08303f87cdae326d"
+        },
+        {
+          "kind": "DropStmt",
+          "sha256": "ac34f0cf2e76d02d2063724b464012dded71dbf1834fd05841be582dfe918412"
+        },
+        {
+          "kind": "DropStmt",
+          "sha256": "66523365bb14482f4fe2c1a66c287e2eb87f5232822654cdbd10cd807cb587de"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "cda903a282db4c615307d6c6775b23ec41543fd19accc03a4af00da69304d882"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "31c032b86f3ae0a62eabbca3f1188aa8764a745c498153ef269051dabeb2385c"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "753d8024f9ededa421ab2502472fcd326c871aa0d9bf59586a704c24e54696ad"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "95977bfff2132e3b71d5ce80bc8a91de38221bc211f509d095b349a972f43303"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ed130b8709f5cfabfc29705caa3c9d1338d7e730d7c001451654481cd4a2b112"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "0f555d5c0aaf33773d954fc33c03fea05edcd2f45e0ac5408628b5f501db67c8"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "d6701fc9dd1073d2a06cf9a7c245f57a5bac798a7dd3e5533e7e9d6f90f13277",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0023",
+      "id": "20261125002300",
+      "file": "20261125002300_signing_reminders_recovery.sql",
+      "source": "supabase/migration-drafts/20261125002300_signing_reminders_recovery.sql",
+      "sourceSha256": "19f78076867002e71ea25b039ecf944d4d34876ac9b685302c0709074bd05ed1",
+      "candidateSha256": "81b70357e2249b3a0328972d2112b21f8fb42e0700b01faa028e3de3a9b4c718",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600",
+        "20261124001700",
+        "20261124001800",
+        "20261124001900",
+        "20261124002000",
+        "20261125002100",
+        "20261125002200"
+      ],
+      "dependencies": [
+        "0022"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer"
+      ],
+      "newRoles": [],
+      "expectedObjects": {
+        "tables": [
+          "app_private.reminder_policies",
+          "app_private.reminder_slots",
+          "app_private.delivery_recoveries"
+        ],
+        "functions": [
+          "app_private.delivery_valid_before_a3",
+          "app_private.delivery_valid",
+          "app_private.delivery_command_before_a3",
+          "app_private.delivery_command",
+          "app_private.signing_command_before_a3",
+          "app_private.signing_command",
+          "public.contratpro_delivery_agency",
+          "public.contratpro_delivery_worker"
+        ],
+        "rls": [],
+        "renames": [
+          {
+            "from": "app_private.delivery_valid",
+            "to": "app_private.delivery_valid_before_a3"
+          },
+          {
+            "from": "app_private.delivery_command",
+            "to": "app_private.delivery_command_before_a3"
+          },
+          {
+            "from": "app_private.signing_command",
+            "to": "app_private.signing_command_before_a3"
+          }
+        ]
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "a7377322424f2eee43dad536555fc55e2c185bd60134ab3ed23643472938c313"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "76b190a3b5f69afa0c2a7b68dafbde9e8ee2c59e06c1f8702158a3b301a7a43c"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "cac225764b416eeb1cde5143396a738b4dc57b9e1cf4258e493d02c64d28387a"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "424d3f46e7a196657484ab29e15348d618f6ac0073d8c28ca12371c69ef7f75a"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "f41c507ed97816ea654d791b37d4489b5eba9bb5d296793524693076f09c5851"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "e81240e99c253cd06d154ca806d32c1329cca414d5f317ea8ac214a095023ac5"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "779516878589fcb2e51dec28e1cfc6492be521ba2a6d29bb1b80a42a243cf47d"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "d8ee840ba94adc0e14e0bbaeca3268400d6d9541fa0202e749b73fb5d628b286"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "2f04c91b2f775ccef558299e1d4e7a2da238e70916e518c534b7a696a770cdb4"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "ac25b41c8642be65f80bdf13d1062e168bc8c23d0fdd9515fa0bc010c1bfd682"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "e259dea1b324e394e980ae43aa591a096c3822617239eaa59a2529a4ce9955db"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "27e10b425a186490bc27cc7083bb5e9489831df66a61bc40cb9e93d91e7c4e89"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "bcbb1fcd3a23cc88bf9a4683c27c0e8a35fdce633ebf2aa93e5e973a13787a54"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "3fcc25a77f3c7d3cef54385baffb8cea1547b9308541808ae2a928651e31f4ea"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "1a328b46cdb7e1069a57d40c34863b491b36934b69696b99027b05bb3b702fe7"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "8fcb76b96be6ddd939b71e93dad3ce07e9edbec2a3e95dec1b1d8c373829ed32"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f8f16a1e57fae1487e0cf21dd373370a6e8104531c2c6f0f6baa7e99f0c07cd1"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "cbc49c9d370fafd93b55f37c544016ac826520d94510d03ec3ced08e71868ec9"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "01e341e108e921c16f1ca9c6086f041b1a2cd67864611b1e4fa10c647b80e425"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "c5bc71f24fe3be8c7d40e25f3c820eb65133cffc6c51095accd7c77648aac39f"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "9a2a0a259c94672c74c7f8dcef6893aed13b33858c66d4d6ee54390db202a40e",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0024",
+      "id": "20261126002400",
+      "file": "20261126002400_archive_sheets_billing.sql",
+      "source": "supabase/migration-drafts/20261126002400_archive_sheets_billing.sql",
+      "sourceSha256": "50260fc4c3b55d758e0860fbf7f807a0cec99eed3a661edd6cf23a2b6431adb0",
+      "candidateSha256": "09e88c9c217b9bfab056719853e783a96dff9c6061890463b2e37446db29535d",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600",
+        "20261124001700",
+        "20261124001800",
+        "20261124001900",
+        "20261124002000",
+        "20261125002100",
+        "20261125002200",
+        "20261125002300"
+      ],
+      "dependencies": [
+        "0023"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer",
+        "contratpro_sheets_worker",
+        "contratpro_billing_writer"
+      ],
+      "newRoles": [],
+      "expectedObjects": {
+        "tables": [
+          "app_private.rental_archive_marks",
+          "app_private.archive_mark_receipts",
+          "app_private.sheets_creation_requests"
+        ],
+        "functions": [
+          "public.contratpro_archive",
+          "app_private.sheets_command_before_a4",
+          "app_private.sheets_command",
+          "public.contratpro_sheets_agency_before_a4",
+          "public.contratpro_sheets_agency",
+          "public.contratpro_billing_agency_before_a4",
+          "public.contratpro_billing_agency",
+          "public.contratpro_billing_platform_before_a4",
+          "public.contratpro_billing_platform",
+          "public.contratpro_billing_gateway_before_a4",
+          "public.contratpro_billing_gateway"
+        ],
+        "rls": [
+          {
+            "relation": "app_private.rental_archive_marks",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "app_private.rental_archive_marks",
+            "flag": "relforcerowsecurity"
+          },
+          {
+            "relation": "app_private.archive_mark_receipts",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "app_private.archive_mark_receipts",
+            "flag": "relforcerowsecurity"
+          },
+          {
+            "relation": "app_private.sheets_creation_requests",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "app_private.sheets_creation_requests",
+            "flag": "relforcerowsecurity"
+          }
+        ],
+        "renames": [
+          {
+            "from": "app_private.sheets_command",
+            "to": "app_private.sheets_command_before_a4"
+          },
+          {
+            "from": "public.contratpro_sheets_agency",
+            "to": "public.contratpro_sheets_agency_before_a4"
+          },
+          {
+            "from": "public.contratpro_billing_agency",
+            "to": "public.contratpro_billing_agency_before_a4"
+          },
+          {
+            "from": "public.contratpro_billing_platform",
+            "to": "public.contratpro_billing_platform_before_a4"
+          },
+          {
+            "from": "public.contratpro_billing_gateway",
+            "to": "public.contratpro_billing_gateway_before_a4"
+          }
+        ]
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "4df6330103cb15129bd200891431260b8178b437928447253d94a77cabab2104"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "2c6851d60be8e2b8051ee5f317145d1ea67ad695dc0b24f52b664b23d69400c1"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "2f562e1291671e8121fbb930bd65402d76edf00aeb9f6aabae936a07c1b01d18"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "16ca8b52f1d7dfe04cced2fc7c3c4a68d4990a107ab3a41672d9c03b35d908c4"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "4e3ef99685a2cd95e546257184013061c70e9e9899584a167ea9f9bc0d677a06"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "170c5b92a4b6de4bb0dfbb56a86900951373eadda1d05c227841572575ac43e0"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "2a2c06ecd8914fb434e70bb95e8e0374cb426a22bf4ab0fa2af9cbf7e3bc4280"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "6a0df7e67b9da8b3bd340f826053206c4c018ffe71d806e9aea4cd8a24487d7a"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "8013871d06da2c2873d4558e4e1df67b5e10440fa124abd3b3492de51cd55b87"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "714a0a74c102d95c59ffc77fc0c3f0bbeccef82c60569bca632281a8bb0a389e"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "c0b9dd149bfa25f67960cc02c34480abe9bb24031e31b2b98ed3f70a5204e861"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "c70c6598689e774555adf8d59f6e2b06930a7c24bcbbec50471c4da15c539e8a"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "38bef93fa795a1be2e1098eca6b7fff462c5469165c39c757c930ac8c60e782e"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "5eb33ce155f8354168aaf83e3bae32e532dad1614c8c34d596ca84cecf8c7d12"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "77bfe03da3a714f0a3ccab194476d3766a5a473e023e7e21a466846e8f0cd626"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "2ed6d0ef55a9b4f6abf224369c304779c2feb55dce9a689d1c0d11b52793d878"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "6bb3e57b6bb1e855cd1467edfb259dd30d037c494716d4425ebec1a4e3a02437"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "a0eb1cdbb0b197f00b1299341b7dd6df4c4498cdef8f92bd45304c9e405c0e2d"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "e01e51779c4d7808d4462f1a4c3f071204d2e4c6d227a2e7b232c4d432044f1b"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "bb5378bbdbd8ba1408b3403a37c8b8e48a7500450f983592fb3c20d6a1c9378e"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "64c7cbda07676c1edee2e398135b125d59d7e1dee352cbdcb1ccdd7b6344600b"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "6bab500c79e8dfca05746310ae13264eb8c2f48957053844563550befd217ab2"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "fb49684e6959fb6c07e214ad1d8778929549e8d43208167cfe3d84e76975566c"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "9c969b0944e83a7f64d40a52e57c16b92b22b8674563ed566b73ec7fc7ebc8b8"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "77ec28748a0b1eac82fe995afbf4002b5282e0c7ea11a0ee6f1ac05b768e3159"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "c7719fe87fdfc2161b2516a3ac0ceaa5d3363111a468cb533f3b969afbb7aea8"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "c1300c63c8a4ff3115e716f9a78bc8dd1970c102bc79de0fd295c64f738ad3bf"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "546e1b54275ad09ec497223ff6d3617a1a933ea17de1791c9eb4307eb82093f1"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "19af72753e33773252a6e268080d65d3f17f8f507f02594b490c5bfd3e421c4f"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "fc876ce8d33f1d457681da17c9698e2a9bfb12deb032a3368cbbcfdf3c531d2a"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "7dd31249d3a395e47229614ec4602f4c6a9b85e3d77464aafb6d939c84d5a1fe"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "d1b7875a8423f85485202c622d2c3c2afb502e7c7717cf22d6a9499d614e4e67"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "e41bae8193ef5c0b497a236cb94db83d0f47f264ed8e135daaf76ec28612eca5"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "03c7c2063e299a3e357180026fded68ec6d4a050e4023c11e075b73cdb5752dd"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "02361b5e83c2b67904d7fc139754ec78b4b71d8a71e306a280a821baa3945eaf"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "70076887181a6e081ae5f9d1fb03ac0ff9c34119e64f539daf2756a6b06a84f4"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "7f0ed1dc3d4e02f208ac4b7ede58e31dcd83c8ec441eb326f20ea294d8d3f0f0"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ccc290a83fdbf176fb947d6ffc73bade1ef22bd41a209e8709a18022987ac0e8"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "5f509a4d32b630b829e8de670b7a2f5e7eaf96b0fb2f06a1dd4b7fa2df409c42"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f1275bc0fbd51661605456bd115a96b1ef5e44fb5148c0c311550f6f3b71788f"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "fce236a5a2f42cfa43fa1de2783c954b56a4edeb2c2b8b09393888d70e247348"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "73965c439d28602840e7340e6c68447f4071fddf9995a60be6b462369bdcea62"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "ac6cfc3d3ba4425a107f2201d8236183a6fbcc1ea5d788c9572ce026e2a44ece"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "4e53c920aaa43cb79bff1d6074405afef4502e99f6b98de19a9d8626d3f6d5c1"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "00a62e50de032b7165187b075ddb378e34c17d30a019dcc73ee97446d274f7eb"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "850c72bb90cbdb4574d8f98c677f3fd410ddb30e7539ce979002df0392c1aa53"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "dc24b9dd1769f8151ef9a6367019d3caddb254b7745676a4e8769c41e56bb2fe"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "928763970536f8bb41e8daa1f211709939b5310581cdbc96722662bbe6b9eeb4"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "2aba622ae0fcc7ebfaa8739980e3979e0954d4e81f3c836cfed4c0363c03f4ab"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "6b0c86b8821677f1d6c3a059e5c81ed4d519b2ae656ddc3fac6e2fc5ca6da672"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "a497f87cd9da64fe2e2bbca836611eb1177dbda4a4f1487c977eed603c09bce4"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "dc5bb6cc23f72d4add37026afe64f43be936b015fb4b466156998ac1d8c96936"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "bd216e76203dbf294bd0a98fe5cd9d2616cf5d212172bb6658ec0cf9e76da837"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ec274ccbf5b4b6067e8d9bf2ba6068f9a325e8e322aaed8e832254c2d007ba72"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a0e73c6e4bf9f9d9f9e4d5e8944bd4fa7f23acc7c3f24511a6ee5669b8a86d68"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "13c9d96ff0eae4fa23dc223159ffaed8d003999861316e9cba92597356e59e47",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0025",
+      "id": "20261126002500",
+      "file": "20261126002500_operational_readiness.sql",
+      "source": "supabase/migration-drafts/20261126002500_operational_readiness.sql",
+      "sourceSha256": "3c8d300640b6fe77c8b01120d05f1d999a50fbc1ffcab9746a2a92cd3423f1ca",
+      "candidateSha256": "bb73b93306b76b9564458ef3afd8e18e6d64cd655a99228603999eae1672d070",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600",
+        "20261124001700",
+        "20261124001800",
+        "20261124001900",
+        "20261124002000",
+        "20261125002100",
+        "20261125002200",
+        "20261125002300",
+        "20261126002400"
+      ],
+      "dependencies": [
+        "0024"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer",
+        "contratpro_billing_writer",
+        "contratpro_maintenance"
+      ],
+      "newRoles": [
+        "contratpro_maintenance"
+      ],
+      "expectedObjects": {
+        "tables": [
+          "app_private.maintenance_key",
+          "app_private.maintenance_schedules",
+          "app_private.maintenance_generation",
+          "app_private.maintenance_finalization",
+          "app_private.maintenance_audit",
+          "app_private.maintenance_inventory",
+          "app_private.maintenance_policies",
+          "app_private.maintenance_rotations",
+          "app_private.maintenance_backups",
+          "app_private.maintenance_incidents",
+          "app_private.maintenance_reconciliation",
+          "app_private.maintenance_heartbeat"
+        ],
+        "functions": [
+          "app_private.maintenance_classify",
+          "app_private.maintenance_reference_fence",
+          "app_private.maintenance_confirm_fence",
+          "public.contratpro_maintenance_storage_write",
+          "app_private.maintenance_command",
+          "public.contratpro_maintenance_worker",
+          "public.contratpro_maintenance_platform",
+          "app_private.maintenance_admin",
+          "app_private.maintenance_lifecycle",
+          "app_private.maintenance_expire",
+          "app_private.maintenance_document"
+        ],
+        "rls": [],
+        "renames": []
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "90cb8f0382e3d1d10fb0e81653e74346b595db6f2f59643697b73dbe0fdb1db7"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "CreateRoleStmt",
+          "sha256": "c0c45c25d4aa86a115309d6c1218a8761ac063af2bc5fafc82ff8fb333a66936"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "b763a71ed3c3e7b3e05b16157a89f1a46b6192cfcd60520dde2bd455839d480d"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "4577a370e9f1015e0161e6b3361076a22e757d2c46a517303ccc06dbeacf0491"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "3a1e3fe2359a8d375b5887ddaee625872137ac334da0546aa3400c1092a42623"
+        },
+        {
+          "kind": "AlterFunctionStmt",
+          "sha256": "b37cdc6e1013f5a8b5f9ab646f15500a74f25c5d9465a02a10030e55f84a9845"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "9613d72570232cf3f83f8757108584db90436c2520850d9b565173e072ffe40b"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "1ef00dd81d9e44d8083a1a61a47f6920e6f43e648e4d3f8d730b2aefc8c23d04"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "20ab2f419a63eca25e18dd1292a278f4a76c1506d89b7d1fc9695858c10b3b62"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "a0ef89df5090667f7979b78a3613a6f784abf3ee04b0f282fbf305bb94439904"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "52f773d352252f55586e19f41360afe4a7794e4a1cf9aa64bdfdaba920a2cdd4"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "85303cf8ce978c819634ac698f75a97a9721bc1308158527670e768a3e840474"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "86e4edadec51b94ce5619e7f915fbbcbe729cc26345221a8b35c9a5d76bc4b0d"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "05c5495073d77046569fab25acbf2ff0add45865423edbff6f1c4388cc8f6b66"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "b6c5bdacad0b181bebe470501b8e0fd3f2b324330cf44e58dc8bed648e4f2ecb"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "5b3fb11723ecb8267a63c21220be1b4f94d6627bfc8f711120fe3da56307670f"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "5da677c24845226d16d383910fe6433f833db6faab1ef8f6f33dba8a086d1d2d"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "8cde2e2f0f7da5d16ee615c86fe5435e71e2f62fda013b3a8bef851bfb7e76d9"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "cc56d3fe34ea4a80a458f80444a02eda51055ed7b2fbf24851e58b0904088322"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "14c7583bd32b17541f1631df8ab198652f8ad3a0c5cd263f70e9fbd10a01610f"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "6244fb16338f7e5f55d9589be27d05f96dce6eaa60843802be0ce0ac027322a9"
+        },
+        {
+          "kind": "InsertStmt",
+          "sha256": "73acc775f410cb5c213b39ced3fb105e0908fd354c97ee2fd0ae9ca6c80db3e1"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "4031faf4cf97934f246c1e5fadd018b6b72bf2d9cc2e200223ae850508240a10"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "881842f4e0ca3c3519acbafba7b1555a7cf799bcfbc3daa961a893618729c2ab"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ab6da10bfc56a68807e8204921b1f3ab8ee0d3ab725ebcc6efbcc387b8a5ce30"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "7da00243319421cd1c6fe75f4d508c78d935d5e8bed5268393be8c7c02ed3a2c"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "37fe6bb5de87aae52c0c8628e2e84bd1d29b391132430cecccdcf99297f913a2"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "d5b237463e23f2483c490e0f19b830966b7f985433e1192ab9e5d384ee2f9731"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "2c07991cb6712c87356360e993025423f81dabc8af8edccd1ba01d399794532b"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "040cca33014c73b210722f2a60497d0c5d76a2281bee650d56ea2934c6feb712"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "b381e91431b02f2f307025420b78197d842bd8b825a8ba08567da6e9c10c77aa"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "0cefa0b52e3724db3ea6d2b92ddf4f3e9b89b47c4a338ed408294cd1ca998946"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "e351ec3a058382c963b98623cc8ae4130c1ff885921afb909d13f668092a77fc"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "356241fd93a14143e7f0bb874a79d04384ecf8b26c9fcc2978e698168444bb1f"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "9c546526f8dfc635d3c5de2b36a86bf4c97a9111d2025c7f557c39e74903ade4"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "717f566782ba8b85ba92504aeb61b4a6e571d9869b4519aa39589a951156f860"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "839832eddd5835d51a4b748024f48337c53a3333d9cdbf6fb776d8a53f81291a"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "4c2ec5264a9748a4ca0ed6cca4a208dcab41a72ceeda1e96d87722a406ce4031"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "fdaee9f62a1e948020cac9cfb592d8e55de68a985a54a12643997987fc6edbea"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "a0eada6008d2fdd88270d1b933a87f53aaf2611456501b97f59b6219e5816eab"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "050b4cb42fdb922a7a76e4e178c9168fa92d5827abc5b61241b0ca0e4a1eb1fe"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "4404ee701cb2278cc8662473e71d497f4263fa870a08296188e43669835376fc"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "4320824f717af57ebb8a27d1e4d5cdd4bc1a43ad0c4a7020c635f15fe6d858e9"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "4f1bdaa71920dac4fa59d450781a0ac3813a199314a8529dfe32ef3f87c174da"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "3797268fb23972215a1f2c92c01bcde8a5b94f6a0c479da63e0b118df30472c8"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "3d80305b23e1a96f452bd8bd0a179fc999730936548f1770434d3d0529d6168e"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "ff9bb7d7296229e376fc6050f6f4ef050dd1e6220b3b8875f1f019d28df037b7"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "fc291c69051913ffe5c7206b0eebf34e74c47f9186480336922db78f7c797d8c"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "db12f1fbcfc20e9eb010cf3b25752fa19aa2a1cdf2ea9d7a3bd6eb38d742913b"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "6099b173f968cad7ba84645c56ee51105de07756b1dee5ee0c55e3b3a21913da"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "6299dce3bc6f27c0c3c8c44f8e21280558dcfc7f2fbe326483a60d7b386ed9b9"
+        },
+        {
+          "kind": "CreateTrigStmt",
+          "sha256": "c45a401a3d60ceb0255b089b286400ef81f196b7535a8dfd833f93c12bdd81e9"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "b5ea31862207febe8c72c9228a1f0cc624872f8012fe1703256860894da6f256"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "59d634bac83953799d9dbd83fa785a14374613f35f881b0996f2d0be67148e3b"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "2c69afac9ef15f558fabffe28a8934291a73378573c5119060738fcb235f2817"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "39cc40e9e20fb2c9f9dd8611938631dd03c34b23d3b16ae626f079ff164dffde"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "913bf32c83aac2bb27b076095ba5b27b7fdac19c846f1c3050ad7261e4159b38"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "5161d9e14906137e3acd8269e292e4e5cac7619a544015f7095b5dae43eb8042"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "b5f247b4d99a5b67077550b845295d8622083044f4fce670b11bced1156c385e"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "ec11c1fb6fe664d1bd51508d6e5b06e05ed2d001b9257d2cdcebe7b89b0ecabb"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ed578d6e7704dbe0f06e2fcf04b1aa9364bceeabe89c8f6fb1eba785daceb9a3"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "87e5c17910eabef3c8d90b8aaff31d995e0462876ec357053f3b64dc0860cb22"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "8e1bb3937e5a34affa8523d6096e1c3622818619df2e8c21a8741f7aeb114c49"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "2b8a40992f2101ecec506db343128689deb3f7e6eaec7f387a47fb7e44339b0d"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "a9e910679c97fc9fae3dc69f1c7b836e7abd490e7621d76719b0629e50c7d6b1"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "7729b1cafd97371458af5179bbb0b917f58df1e84d94979f923c222aa31d9cea"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "fa6058c5f5b9d20dc14f86856cde0fdf62e72714f98e88b315a51b23f71d61bf"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "3f51cfdd7cd103a6f4fd0c4be26438dd767d9c59b225b4eb3a46e80dff8def1c"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "552bcc5d9bd817787e93206177068e813b369790a112237c8b06cfcfbf768e05"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "fd04e3e6254b808d1531846f0d5c49b50d08789f5833e74d10a94abc55f27f97"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "6905115f6cc8cf38a001ffec32794eae25f382df1777b63657991a8232ed8d44"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "ca18e9175d4c0b9e7ee2f557c0caf1a33dc607a454ff9518983852fe9d16d91a"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "1b4ad39eed6810277b1db9c3ff776bbd7ae3422ed56415bf1242b5969d0ee8a1"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "d43a3c5a25b74ff6ba6b9e7697d0558eeec8a5f815c1a67ee46451dfebaa7595"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "466492350b204e1a06a0489f66c7bc585e80560347ce1ffa8680cb2e79053609"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "290eead7121321ddd5301df9c8cc85b8a96edbddf89f112c06979f588a58b08c"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "edafcffe1dd104a383c9e94bf5a9005f2b7fac5a5e9e11f28a7dd37d3bea7d35"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "359af18729e284d71f20c7313286b4e7c64e92a77fa98b0b109549d0a854a0f0"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "08770dc95208d12917f4de5d9079bd3b833ca024b4ce99e43dada2b86ec9730a"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "9b33749b7a9b7671813f7e73ed3eacfe9a1ef91341f5249b3f3a353aa5dc2be1"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "7dff3e10a284c008724426fbe6a2bbc523b919c4e12f04561511960111ce4b7e"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "e21c45df797b4d7b88927614cc8700eda847919c511e74e427f7aad968e8c76a"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "912eae9b9e993007e4e72a163fee4f8ce27565d8d7246b9118339c6a519ea92b"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "e8c99d822052e9d4fb99782f4bd9eccedff3788ce04f28338f7727e56e256ce7"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "9d37506b2df70d930451102e7be954cb11dc0bc2963778c3ffc8551b4a9d52d7",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0026",
+      "id": "20261126002600",
+      "file": "20261126002600_navigation_capabilities.sql",
+      "source": "supabase/migration-drafts/20261126002600_navigation_capabilities.sql",
+      "sourceSha256": "148ea786c67d0bebfcccc57844a471a3665aa6459efe81b341d570e663559aca",
+      "candidateSha256": "881c0901f4634159b73d5e59cc298a4b77e01585df0aa49c6c5b4f7018017c3f",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600",
+        "20261124001700",
+        "20261124001800",
+        "20261124001900",
+        "20261124002000",
+        "20261125002100",
+        "20261125002200",
+        "20261125002300",
+        "20261126002400",
+        "20261126002500"
+      ],
+      "dependencies": [
+        "0025"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer"
+      ],
+      "newRoles": [],
+      "expectedObjects": {
+        "tables": [],
+        "functions": [
+          "public.contratpro_navigation",
+          "public.contratpro_dashboard"
+        ],
+        "rls": [],
+        "renames": []
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "ebd716e69306cd4c2a12066c5695dd616feed61750ca7905dbd71ca72ee38e84"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "3aae31b3cc277a4ef3154db69538d83d09aca9463b46dc71a3dcd5b107ff030d"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "b008e10da82c7e0eb1d2cd268aab21ea88d5a0a0c041c600a3503d59a4717c18"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "06abb1f1d9497a18a7773073334e1a87896119a92ebdefa2e54e382a168cb3bb"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "37030669180c270780f828a64b2a67b48e29fa10937fb010fc37efa3c89ebc94"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "d3d681e1b5afcdcb847540253094b2bd360d6fafb948ee90780b686ec3fa94ce"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "a1b8c9741c70884b3675762954aa96bf8cd0bb155e37d8800b06dbbf1bd88d4c"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "1cdd341afab7c039ff682a6def93eea0ca0c91f25681afd7bbf5f9731d70eff2"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "7447238887f058f6a5a3794983d3c63609f270e56991d034c807a63318296672"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "16d2aa01608452ed17785f9708ab81ab6ecc7c59ab5296107653df624859ea90"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "d612f2549e1c0980c77712b96d72bfdda45d5ef8e7cbd8227c8fde380de54bcb"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "ab39e17e2dd439ae82b318f12158696ba6fd987f587707cb73d594c1b32d9536",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0027",
+      "id": "20261127002700",
+      "file": "20261127002700_registration_onboarding.sql",
+      "source": "supabase/migration-drafts/20261127002700_registration_onboarding.sql",
+      "sourceSha256": "6e455f86c61125030bfc18346136efbcb4abd520fe796899d3db7a405560bf83",
+      "candidateSha256": "f4fb00bfaadaf5036da8eb67745f34e3495c9dd80317e063ee701c7358b971ed",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600",
+        "20261124001700",
+        "20261124001800",
+        "20261124001900",
+        "20261124002000",
+        "20261125002100",
+        "20261125002200",
+        "20261125002300",
+        "20261126002400",
+        "20261126002500",
+        "20261126002600"
+      ],
+      "dependencies": [
+        "0026"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer",
+        "contratpro_agency_writer"
+      ],
+      "newRoles": [],
+      "expectedObjects": {
+        "tables": [
+          "app_private.personal_profiles",
+          "app_private.legal_documents",
+          "app_private.legal_acceptances",
+          "app_private.onboarding_drafts",
+          "app_private.agency_business_details",
+          "app_private.registration_receipts"
+        ],
+        "functions": [
+          "app_private.valid_personal_profile",
+          "app_private.valid_onboarding",
+          "public.contratpro_account_profile",
+          "public.contratpro_onboarding"
+        ],
+        "rls": [
+          {
+            "relation": "app_private.legal_documents",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "app_private.legal_documents",
+            "flag": "relforcerowsecurity"
+          },
+          {
+            "relation": "app_private.agency_business_details",
+            "flag": "relrowsecurity"
+          },
+          {
+            "relation": "app_private.agency_business_details",
+            "flag": "relforcerowsecurity"
+          }
+        ],
+        "renames": []
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "f436f5ea41fe2cf82fe99f21e8ce4538ce5a9c8e6ebfc98cf08b97af3ef3051f"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "8da9be47debd66de503e1aac0ea1538fea28bf82601fceeb0f6cb5aa7d6be3e9"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "4650fb8f31915f4e2fb31ee145505cb0a07e78d0449ff6c0a14d08d4f56d2c72"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "8852a901d2413c0614057303d16c2980ad24a118194f0794e6d9713cea1ef1da"
+        },
+        {
+          "kind": "IndexStmt",
+          "sha256": "ded4f057ecc3f7bc9030d37db2ef58ed6474c87034d09dd1058241a5ed5a67aa"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "e6d13d5c4b5ca5b53d7f336fdec6b05b9cf0c04f2f29decd62c4c478b7d1807e"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "7c1f905666269eee09dea7a4a60702fa41c42d64107e7d8b5ea088fa753e9fa4"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "4a1f50a36dd75edf3dd81be27acb4e13c5758352c0875f304d9e91766673b84d"
+        },
+        {
+          "kind": "CreateStmt",
+          "sha256": "415d968c3283792164252cfdc4cc1c17404dc670a41d3ee830635a28525565bd"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "6cae52a3b0a6ff99e8ee9177bfa02958ae6d60d8a9bd2b73816c37cfb984d490"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "8d755f91ee83a3a7ffb8c6d437b8a8f3c86233db8539971cdaba29226a982784"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "9cc2f07a9c8c9b15a2ff2fa4fac2b3caab60eacfbed248ac7dcdf72d78133786"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "3b9956a57fdd68acc060df13250e3f4e6ef331bc3ff4fdc8fdf7d9860e0aa88b"
+        },
+        {
+          "kind": "AlterTableStmt",
+          "sha256": "b136bd062bc5cc11cf8942d70903708d95b664bc5279fa9c6365966195824cbe"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "5c60589ab41a68f6f9737925291f04111acf910bbc694029cbe02647f8850ce1"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "cfaf0f586ffa2e44b28760e10aa2663cc4647cfc3b56d31a3602be4e7bef357a"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "7bff9cd831dde3723b443bf1120ac249c62296f766bb941e05bfde82fe1b0512"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "1e7298d45f24d604b247107016d8d66dcef413a0b3869c109e99dda596330b1c"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "7727085d83b81afc757674517a32532347ed66d31dbf6cf4ad27c2802ace1e58"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "b3d20b5a809c2145474e3e07fb68de7adb3a05e3cc3f4a3c62ff455283097290"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "c084a03978044383dccc566c54ace5939a488bc7a04d20150816eac747d1a775"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "8fabd0d402ddc8ccddc3d62c1f8b81868fe4b33f31dd1fc75cafa9e5dd35dacc"
+        },
+        {
+          "kind": "CreatePolicyStmt",
+          "sha256": "1f4d56dc4149f51f7797a145ab9ac0065008ee4ad56dc115e7d795ad234e1344"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "4d8960b6541b5a0f2a5bc2176a124a644a1565f431a6b95868555347c50f73b4"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "024506ba7f12ed317c64d2888fb703e55daa3dca7fc26968d87af335b6d1d2b5"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "7e2660bb72071e9f949ba91ec4c6444cf9b8752c069dcbe415a2ae0574efd0bc"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "12fe296ce906ca378aad1ba897bfd25b223d65a9e646bb6ea40044b506dedbf3"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "c55fef6f6fd881fb70b09c6465a162d2972ddfeb5e40a5608f8ce106c4665429"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "de99890346befc7e4d6e58a5341328bf72f5540d4c53e382fcb3827c6c8d3125"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "9ad09c4a609450a504c1c6bbdceb42a5752b67b2f957048c1f8b4a3d814b41f3"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "f4c90f4708ab264099cb5e0dea506d26bb84f4f87b31d896f21374e8683f528e"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "b7b48c8265bb513764532033b501ee895d5d2173fd8995d9ac33677f1048cd24"
+        },
+        {
+          "kind": "AlterOwnerStmt",
+          "sha256": "eeb2373d6451e0405e76e9ea38a64fc4b3cb8ef89c60fed7e95c4bf1ff66d194"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "ce6292cf661c34ba0a80895d1c3d204094900254690660a1bc7b24d4554710f7"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "d495dda3559028b7e721e69b62f33a6f374945e72ced2da96588504f9a914c5f",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    },
+    {
+      "logical": "0028",
+      "id": "20261127002800",
+      "file": "20261127002800_internal_signature_representation.sql",
+      "source": "supabase/migration-drafts/20261127002800_internal_signature_representation.sql",
+      "sourceSha256": "d2efcbc7ef47d906dd6c659f0200ae559e0b5644a3b25272460177d5e83b0d2e",
+      "candidateSha256": "991416ece4c2dab45f6ac4f71eb3245872a74ace480bd882da58cbf17a7c1332",
+      "expectedHistory": [
+        "20261115000000",
+        "20261115000100",
+        "20261115000200",
+        "20261115000300",
+        "20261115000400",
+        "20261115000500",
+        "20261115000600",
+        "20261116000700",
+        "20261118000800",
+        "20261118000900",
+        "20261118001000",
+        "20261119001100",
+        "20261119001200",
+        "20261120001300",
+        "20261122001400",
+        "20261122001500",
+        "20261124001600",
+        "20261124001700",
+        "20261124001800",
+        "20261124001900",
+        "20261124002000",
+        "20261125002100",
+        "20261125002200",
+        "20261125002300",
+        "20261126002400",
+        "20261126002500",
+        "20261126002600",
+        "20261127002700"
+      ],
+      "dependencies": [
+        "0027"
+      ],
+      "authorityRoles": [
+        "contratpro_rental_writer"
+      ],
+      "newRoles": [],
+      "expectedObjects": {
+        "tables": [],
+        "functions": [
+          "app_private.b1_capture_valid",
+          "app_private.signing_command_before_b1",
+          "app_private.signing_command"
+        ],
+        "rls": [],
+        "renames": [
+          {
+            "from": "app_private.signing_command",
+            "to": "app_private.signing_command_before_b1"
+          }
+        ]
+      },
+      "providerPolicyOwnerRequired": false,
+      "excludedStatements": [
+        {
+          "kind": "TransactionStmt",
+          "sha256": "a8402858d4f1e1d27afee976520485ebb4b96a5387355b823f0d0b8079729032"
+        },
+        {
+          "kind": "DoStmt",
+          "sha256": "014588bd9dfd358e3943225f80fb8fc3d425a671100baf85dcaa0e8f6401d10c"
+        },
+        {
+          "kind": "TransactionStmt",
+          "sha256": "587fa628a9fe4642ac0e22825a97e81d388af674f7251a9fb699f96901dcb710"
+        }
+      ],
+      "retainedStatements": [
+        {
+          "kind": "VariableSetStmt",
+          "sha256": "e893a7107485648fbe85f018e6957174b30601d8865c8f3adcdd538d2575e5ac"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "59a9e16e50fd6386962299b8cf56c1e659153182e40602f40ebc49cb741e1435"
+        },
+        {
+          "kind": "RenameStmt",
+          "sha256": "8f6981f8f3453726bbcdbdd7aef298c53bf8cf9fd7ff0b5c60ff8f09020bedcc"
+        },
+        {
+          "kind": "CreateFunctionStmt",
+          "sha256": "f31753c31d137902aed545e94474ef5cf76dcfc6f3bd12f32d7730c421f1369f"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "5d8668cf194ad0ad38eda68a2530f80beb9e367dc724d4b3b2c642edbc0183bb"
+        },
+        {
+          "kind": "GrantStmt",
+          "sha256": "e506e830d7bafe9cf991298ff5d2d0b800580740a61acaadf0ab25153eff3460"
+        }
+      ],
+      "transaction": "candidate owns BEGIN/COMMIT and one native history INSERT",
+      "status": "OFFLINE_EXECUTABLE_NATIVE_TEST_CANDIDATE_NOT_NATIVE_ACCEPTED_NOT_MANAGED_RELEASE",
+      "priorCandidateSha256": "6ffb4882ff8966497a23f65db45f47bb79b5b615df8d64d1da2e54d8f177a0fb",
+      "derivativeCorrection": "Temporary executor self-grant changes INHERIT/SET only; ADMIN unchanged. Existing full-edge restoration check retained."
+    }
+  ],
+  "priorManifestSha256": "c5f3bcaa94e92843e26a55b9069542cc9274800d003155e4aee4e4b7bfb2cdc8",
+  "revision": "v2-admin-preserving-authority"
+}

@@ -9,13 +9,23 @@ import { AgencyNavigation } from "./agency-navigation";
 import { agencyManagementMessages } from "../i18n/agency-management";
 import { AccountSetup } from "./account-setup";
 import { SignOutForm } from "./sign-out-form";
+import {AuthShell} from './auth-shell';
 
-export function AgencyAccessView({ locale, access, children }: { locale: Locale; access: AgencyAccess; children?: React.ReactNode }) {
+export function AgencyAccessView({ locale, access, children, presentation }: { locale: Locale; access: AgencyAccess; children?: React.ReactNode;presentation?:'auth' }) {
   const copy = agencyAccessMessages(locale);
   const state = copy.states[access.status];
-  return <AreaShell locale={locale} area="agency" notice={copy.notice}>
+  if(presentation==='auth')return <AuthShell locale={locale} path="auth/continue" title={authMessages(locale).continuationTitle} subtitle={authMessages(locale).continuationSubtitle}>
+    <SessionSync/>
+    <div className="auth-environment" role="status"><strong>{state.title}</strong><p>{state.description}</p></div>
+    {access.status==='authorized'&&children}
+    {access.status==='unmapped'&&<AccountSetup locale={locale} enabled={process.env.CONTRATPRO_CANONICAL_PROVISIONING_VERIFIED==='true'&&process.env.CONTRATPRO_AUTH_ACCESS_VERIFIED==='true'}/>}
+    <p><Link href={`/${locale}/app`} prefetch={false}>{copy.retry}</Link></p>
+    {access.status==='onboarding'&&<p><Link href={`/${locale}/app/onboarding`} prefetch={false}>{agencyManagementMessages(locale).create}</Link></p>}
+    {access.status==='selection-required'&&<p><Link href={`/${locale}/app/select`} prefetch={false}>{agencyManagementMessages(locale).select}</Link></p>}
+    {access.status==='signed-out'||access.status==='unavailable'?<p><Link href={`/${locale}/sign-in`} prefetch={false}>{authMessages(locale).login}</Link></p>:access.status!=='authorized'&&<SignOutForm locale={locale}/>}
+  </AuthShell>;
+  return <AreaShell locale={locale} area="agency" {...(access.status==="authorized"?{agencyName:access.agencyName,agencyScope:access.agencyId+":"+access.userId,navigation:<AgencyNavigation locale={locale}/>,account:<SignOutForm locale={locale}/>}:{notice:copy.notice})}>
     <SessionSync />
-    {access.status === "authorized" && <AgencyNavigation locale={locale} />}
     <section className="intro" aria-labelledby="page-title">
       <h1 id="page-title">{state.title}</h1>
       <p className="description">{state.description}</p>
@@ -31,6 +41,6 @@ export function AgencyAccessView({ locale, access, children }: { locale: Locale;
     {access.status === "selection-required" && <p><Link href={`/${locale}/app/select`} prefetch={false}>{agencyManagementMessages(locale).select}</Link></p>}
     {access.status === "signed-out" || access.status === "unavailable" ?
       <p><Link href={`/${locale}/sign-in`} prefetch={false}>{authMessages(locale).title}</Link></p> :
-      <SignOutForm locale={locale} />}
+      access.status!=="authorized"&&<SignOutForm locale={locale} />}
   </AreaShell>;
 }

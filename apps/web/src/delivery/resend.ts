@@ -1,9 +1,9 @@
 import { createHmac,timingSafeEqual } from "node:crypto";
-import { isRecord } from "../../../../packages/application/src/agency-management";
+import { isRecord,isUuid } from "../../../../packages/application/src/agency-management";
 import { DeliveryFault,email,type Material } from "./model";
 import { message } from "./messages";
 export type SendOutcome={state:"accepted";providerId:string}|{state:"failed";retryable:boolean;errorCode:"rate-limit"|"rejected"}|{state:"uncertain";retryable:false;errorCode:"transport-unknown"};
-export type ProviderObservation={eventId:string;providerId:string;state:"accepted"|"delivered"|"failed"|"bounced";at:string};
+export type ProviderObservation={eventId:string;providerId:string;state:"accepted"|"delivered"|"failed"|"bounced";at:string;jobId?:string};
 export interface EmailProvider {send(jobId:string,material:Material):Promise<SendOutcome>;reconcile(providerId:string):Promise<{state:"accepted"|"delivered"|"failed"|"bounced"}|null>}
 export class ResendAdapter implements EmailProvider {
   constructor(private config:{enabled:boolean;apiKey:string;from:string;replyTo?:string},private transport:typeof fetch=fetch){}
@@ -19,10 +19,14 @@ export class ResendAdapter implements EmailProvider {
   async reconcile(providerId:string):Promise<{state:"accepted"|"delivered"|"failed"|"bounced"}|null>{this.ready();if(!/^[A-Za-z0-9_-]{1,128}$/.test(providerId))throw new DeliveryFault("invalid");try{const response=await this.transport(`https://api.resend.com/emails/${providerId}`,{headers:{Authorization:`Bearer ${this.config.apiKey}`},cache:"no-store",redirect:"error",signal:AbortSignal.timeout(10000)});if(!response.ok)return null;const data:unknown=await response.json();if(!isRecord(data))return null;const state=providerState(`email.${String(data.last_event)}`);return state?{state}:null;}catch{return null;}}
 }
 export function providerState(type:string){return type==="email.sent"?"accepted":type==="email.delivered"?"delivered":type==="email.bounced"?"bounced":type==="email.failed"?"failed":null;}
+export function correlatedJob(tags:unknown):string|undefined{
+  const values=Array.isArray(tags)?tags.filter(t=>isRecord(t)&&t.name==="delivery_job").map(t=>t.value):isRecord(tags)?[tags.delivery_job]:[];
+  return values.length===1&&isUuid(values[0])?values[0]:undefined;
+}
 export function authenticateResend(raw:Uint8Array,headers:Headers,keys:readonly string[],now=Date.now()):ProviderObservation|null {
   const id=headers.get("svix-id"),timestamp=headers.get("svix-timestamp"),signatures=headers.get("svix-signature");
   if(raw.length>65536||!id||!/^[A-Za-z0-9_-]{1,256}$/.test(id)||!timestamp||!/^\d{10}$/.test(timestamp)||Math.abs(now/1000-Number(timestamp))>300||!signatures||signatures.length>4096)return null;
   let verified=false;for(const key of keys){if(!/^whsec_[A-Za-z0-9+/=_-]+$/.test(key))continue;const secret=Buffer.from(key.slice(6),"base64");if(secret.length<16)continue;
     const mac=createHmac("sha256",secret).update(`${id}.${timestamp}.`).update(raw).digest();for(const signature of signatures.split(" ")){const [version,value]=signature.split(",");if(version!=="v1"||!value)continue;const candidate=Buffer.from(value,"base64");if(candidate.length===mac.length&&timingSafeEqual(candidate,mac))verified=true;}}
-  if(!verified)return null;try{const payload:unknown=JSON.parse(new TextDecoder("utf-8",{fatal:true}).decode(raw));if(!isRecord(payload)||!isRecord(payload.data))return null;const state=providerState(String(payload.type));if(!state||typeof payload.data.email_id!=="string"||!/^[A-Za-z0-9_-]{1,128}$/.test(payload.data.email_id)||typeof payload.created_at!=="string"||!Number.isFinite(Date.parse(payload.created_at)))return null;return {eventId:id,providerId:payload.data.email_id,state,at:payload.created_at};}catch{return null;}
+  if(!verified)return null;try{const payload:unknown=JSON.parse(new TextDecoder("utf-8",{fatal:true}).decode(raw));if(!isRecord(payload)||!isRecord(payload.data))return null;const state=providerState(String(payload.type));if(!state||typeof payload.data.email_id!=="string"||!/^[A-Za-z0-9_-]{1,128}$/.test(payload.data.email_id)||typeof payload.created_at!=="string"||!Number.isFinite(Date.parse(payload.created_at)))return null;const jobId=correlatedJob(payload.data.tags);return {eventId:id,providerId:payload.data.email_id,state,at:payload.created_at,...(jobId?{jobId}:{})};}catch{return null;}
 }

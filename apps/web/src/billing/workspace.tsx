@@ -5,10 +5,9 @@ import { billingCopy, featureLabels, stateLabels } from "./copy";
 import { features, type Dashboard, type Plan, type Subscription } from "./model";
 import styles from "../rentals/workspace.module.css";
 
-export async function sendBilling(locale:Locale,action:string,input:object,platform=false):Promise<unknown> {
-  const r=await fetch(`/${locale}/${platform?"platform":"app/billing"}/action`,{method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json"},body:JSON.stringify({action,input})});
-  const data=await r.json();if(!r.ok||r.redirected||data.ok!==true)throw Error(data.code??"error");return data.value;
-}
+import { sendBilling } from "./client";
+export { sendBilling } from "./client";
+import { BillingHistory } from "./history-workspace";
 export function useBilling<T>(locale:Locale,platform=false) {
   const c=billingCopy(locale),[data,setData]=useState<T|null>(null),[message,setMessage]=useState(""),[busy,setBusy]=useState(false),lock=useRef(false),pending=useRef<{key:string;requestId:string}|null>(null);
   useEffect(()=>{let current=true;sendBilling(locale,"dashboard",{},platform).then(v=>{if(current)setData(v as T);}).catch(e=>{if(current)setMessage(e.message==="forbidden"?c.forbidden:c.error);});return()=>{current=false;};},[locale,platform,c.error,c.forbidden]);
@@ -52,7 +51,7 @@ export function AgencyBilling({locale}:{locale:Locale}) {
   const download=async(id:string)=>{try{const record=await sendBilling(locale,"document",{id});const url=URL.createObjectURL(new Blob([JSON.stringify(record,null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=url;a.download=`contratpro-internal-${id}.json`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}catch{void op.run("dashboard");}};
   return <section className={styles.root} dir={locale==="ar"?"rtl":"ltr"} aria-busy={op.busy} aria-label={c.title}>
     <p role="status" aria-live="polite">{op.message||(!data?c.loading:"")}</p><button disabled={op.busy} onClick={()=>void op.run("dashboard")}>{c.refresh}</button><p>{c.policy}</p>
-    {data&&<><SubscriptionDetails locale={locale} s={s} plans={data.plans}/><UsageDetails locale={locale} data={data}/>
+    {data&&<>{data.a4Enabled&&<BillingHistory locale={locale}/>}<SubscriptionDetails locale={locale} s={s} plans={data.plans}/><UsageDetails locale={locale} data={data}/>
     {s&&<div className={styles.actions}><button disabled={op.busy||s.cancel_at_end} onClick={()=>void op.run("cancel",{revision:s.revision})}>{c.cancel}</button>{s.plan_id&&<button disabled={op.busy} onClick={()=>void op.run("renew",{planId:s.plan_id,revision:s.revision})}>{c.renew}</button>}</div>}
     <section className={styles.panel}><h2>{c.plans}</h2>{data.plans.filter(p=>!p.archived).length===0&&<p>{c.empty}</p>}{data.plans.filter(p=>!p.archived).map(p=><article key={p.id}><PlanDetails locale={locale} plan={p}/><div className={styles.actions}>{!s&&p.trial_days!==null&&<button disabled={op.busy} onClick={()=>void op.run("trial",{planId:p.id})}>{c.trial}</button>}<button disabled={op.busy} onClick={()=>void op.run(s?"change":"request",{planId:p.id,...(s?{revision:s.revision}:{})})}>{s?c.change:c.request}</button></div></article>)}</section>
     <form key={JSON.stringify(data.profile)} className={styles.panel} onSubmit={e=>{e.preventDefault();const f=new FormData(e.currentTarget);void op.run("profile",{name:f.get("name"),address:f.get("address"),taxId:f.get("taxId")});}}><h2>{c.profile}</h2><label>{c.name}<input name="name" maxLength={160} defaultValue={data.profile.name??""}/></label><label>{c.address}<textarea name="address" maxLength={1000} defaultValue={data.profile.address??""}/></label><label>{c.taxId}<input name="taxId" maxLength={80} defaultValue={data.profile.taxId??""}/></label><button disabled={op.busy}>{c.save}</button></form>

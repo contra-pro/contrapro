@@ -1,0 +1,3 @@
+import {readFile} from 'node:fs/promises';import {resolve} from 'node:path';import {root,save} from './files.mjs';
+let p='apps/web/src/components/operational-dashboard.tsx',s=await readFile(resolve(root,p),'utf8');const start=s.indexOf('        <OperationalVisualizations'),end=s.indexOf('\n  </section>;',start);const block=s.slice(start,end);s=s.slice(0,start)+s.slice(end);const close=s.lastIndexOf('\n  </section>;');s=s.slice(0,close)+'\n'+block+s.slice(close);await save(p,s);
+p='apps/web/src/marketing/landing.test.tsx';s=await readFile(resolve(root,p),'utf8');s=s.replace('([\\s\\S]*?)`;','([\\s\\S]*?)`');await save(p,s);

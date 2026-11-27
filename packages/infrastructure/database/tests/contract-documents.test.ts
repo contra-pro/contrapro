@@ -139,6 +139,7 @@ it("private documents: tenant and owner authorization, immutable versions, defau
     expect(await rpc("history", { rentalId: rental.id })).toEqual([artifact]);
     // Signing runs against the same immutable issued-artifact fixtures, without
     // loading another database or touching any live storage/provider.
+    await db.exec(read('supabase/migration-drafts/20261127002800_internal_signature_representation.sql').replace(/DO \$guard\$[\s\S]*?END \$guard\$;/,'').replace(/ROLLBACK;\s*$/,'COMMIT;'));
     const signingSecret="b".repeat(64);
     await db.query("INSERT INTO app_private.signing_gateway_key(secret) VALUES($1)",[signingSecret]);
     const signing = async (action:string,input:object,publicCall=false,sub=subject,aid=agency) => {
@@ -172,7 +173,7 @@ it("private documents: tenant and owner authorization, immutable versions, defau
     await db.query("INSERT INTO tenancy.role_permissions SELECT agency_id,id,'contracts.deliver' FROM tenancy.roles WHERE agency_id=$1 AND key='owner'",[agency]);
     await expect(deliver("context",{sessionId:sid},false,foreignSubject)).rejects.toMatchObject({code:"42501"});
     await expect(signing("invite",{sessionId:sid,requestId:uuid(81),version:1,tokenHash,codeHash})).rejects.toMatchObject({code:"22023"});
-    const cap={typedName:"Agency Person",reviewed:true,identityConfirmed:true,consent:true,consentVersion:"simple-fr-v1",reviewedChecksum:checksum};
+    const cap={typedName:"Agency Person",reviewed:true,identityConfirmed:true,consent:true,consentVersion:"simple-fr-v1",reviewedChecksum:checksum,drawing:{version:"drawn-v1",strokes:[[[0,100],[1000,900]]]},drawingNotice:"Le dessin accompagne mon nom saisi. Il est une représentation visuelle, pas une preuve indépendante d’identité ni une signature cryptographique."};
     const intent={captureText:JSON.stringify(cap),fontHash:"f".repeat(64)},agencyKey=`${agency}/issued/${sid}/${checksum}.pdf`;
     const signerRole=uuid(96);await db.query("INSERT INTO tenancy.roles(id,agency_id,key,name) VALUES($1,$2,'signer','Signer')",[signerRole,agency]);
     await db.query("INSERT INTO tenancy.role_permissions VALUES($1,$2,'contracts.sign')",[agency,signerRole]);
@@ -231,6 +232,8 @@ it("private documents: tenant and owner authorization, immutable versions, defau
     expect(await signing("client-sign",signedInput,true)).toMatchObject({ok:false,code:"verification-failed"});
     const verifiedAgain=await signing("verify",{tokenHash,requestId:uuid(98),version:3,codeHash},true);signedInput.challengeId=verifiedAgain.value.challengeId;
     expect((await signing("client-sign",signedInput,true)).value).toMatchObject({state:"client_signed",version:4});
+    const recorded=(await db.query<{v:Record<string,unknown>}>("SELECT client_signature v FROM app_private.signing_sessions WHERE id=$1",[sid])).rows[0]!.v;
+    expect(recorded).toMatchObject({drawing:cap.drawing,drawingNotice:cap.drawingNotice,verification:"invitation-separate-code-self-asserted-name",artifactChecksum:createHash('sha256').update(signedInput.captureText).digest('hex')});
     expect((await signing("client-sign",signedInput,true)).value).toMatchObject({state:"client_signed",version:4});
     await expect(signing("client-sign",{...signedInput,requestId:uuid(88)},true)).rejects.toMatchObject({code:"40001"});
     expect((await signing("finalize-prepare",{tokenHash,requestId:uuid(89),version:4},true)).value).toMatchObject({state:"finalization_pending",version:5});

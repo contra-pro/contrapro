@@ -3,7 +3,7 @@ import { SheetsFault,headers,destination,type Destination } from "./model";
 export type Transport = (url:string,init:RequestInit)=>Promise<Response>;
 type Metadata = {metadataId:number;metadataKey:string;metadataValue:string;location:{dimensionRange?:{sheetId:number;startIndex:number;endIndex:number}}};
 type GridCell = {userEnteredValue?:{formulaValue?:string;stringValue?:string;numberValue?:number};formattedValue?:string};
-type Sheet = {properties:{sheetId:number;title:string};data?:{rowData?:{values?:GridCell[]}[]}[]};
+type Sheet = {properties:{sheetId:number;title:string;gridProperties?:{rowCount:number}};data?:{rowData?:{values?:GridCell[]}[]}[]};
 export const identityKey="contratpro_contract_v1";
 export const ownerKey="contratpro_sheet_v1";
 export function owner(agencyId:string,d:Destination){return `${agencyId}:${createHash("sha256").update(JSON.stringify(headers(d))).digest("hex")}`;}
@@ -11,11 +11,15 @@ export class GoogleSheets {
   constructor(private enabled:boolean,private transport:Transport=fetch){}
   private async api<T>(token:string,path:string,body?:object,write=false):Promise<T>{
     if(!this.enabled||!token||token.length>8192)throw new SheetsFault("unavailable");
-    let response:Response;try{response=await this.transport(`https://sheets.googleapis.com/v4/spreadsheets${path}`,{method:body?"POST":"GET",headers:{Authorization:`Bearer ${token}`,"Content-Type":"application/json"},...(body?{body:JSON.stringify(body)}:{}),cache:"no-store",signal:AbortSignal.timeout(15000)});}catch{throw new SheetsFault(write?"uncertain":"unavailable");}
+    let response:Response;try{response=await this.transport(`https://sheets.googleapis.com/v4/spreadsheets${path}`,{method:body?"POST":"GET",redirect:"error",headers:{Authorization:`Bearer ${token}`,"Content-Type":"application/json"},...(body?{body:JSON.stringify(body)}:{}),cache:"no-store",signal:AbortSignal.timeout(15000)});}catch{throw new SheetsFault(write?"uncertain":"unavailable");}
     if(!response.ok)throw new SheetsFault(response.status===401?"revoked":response.status===429?"quota":response.status===403?"forbidden":response.status>=500?(write?"uncertain":"unavailable"):"conflict");
     try{return await response.json() as T;}catch{throw new SheetsFault(write?"uncertain":"unavailable");}
   }
-  async metadata(token:string,id:string){destination({spreadsheetId:id,sheetId:0,revision:1,columns:["reference"]});return this.api<{spreadsheetId:string;sheets:Sheet[]}>(token,`/${id}?fields=spreadsheetId,sheets.properties`);}
+  async metadata(token:string,id:string){destination({spreadsheetId:id,sheetId:0,revision:1,columns:["reference"]});return this.api<{spreadsheetId:string;properties?:{title:string};sheets:Sheet[]}>(token,`/${id}?fields=spreadsheetId,properties.title,sheets.properties`);}
+  async recoverSpreadsheet(token:string,id:string,title:string,requestId:string){
+    if(!/^[a-f0-9-]{36}$/.test(requestId))throw new SheetsFault("invalid");
+    const result=await this.metadata(token,id);if(result.spreadsheetId!==id||result.properties?.title!==`${title} (${requestId})`)throw new SheetsFault("conflict");return result;
+  }
   async createSpreadsheet(token:string,title:string,requestId:string){if(!/^[a-f0-9-]{36}$/.test(requestId)||title.length<1||title.length>80)throw new SheetsFault("invalid");return this.api<{spreadsheetId:string;sheets:Sheet[]}>(token,"",{properties:{title:`${title} (${requestId})`}},true);}
   async createWorksheet(token:string,agencyId:string,d:Destination,title:string){
     destination(d);if(!title||title.length>80)throw new SheetsFault("invalid");
@@ -29,12 +33,16 @@ export class GoogleSheets {
     destination(d);const ownership=(await this.search(token,d,ownerKey,owner(agencyId,d))).filter(m=>(m.location as {sheetId?:number}).sheetId===d.sheetId);
     if(ownership.length!==1||(ownership[0]!.location as {sheetId?:number}).sheetId!==d.sheetId)throw new SheetsFault("conflict");
     const meta=await this.metadata(token,d.spreadsheetId),sheet=meta.sheets.find(s=>s.properties.sheetId===d.sheetId);if(!sheet)throw new SheetsFault("conflict");
+    // Bounded pilot contract: fail visibly rather than silently truncate ID scans.
+    if(!sheet.properties.gridProperties||!Number.isSafeInteger(sheet.properties.gridProperties.rowCount)||sheet.properties.gridProperties.rowCount<1)throw new SheetsFault("conflict");
+    if(sheet.properties.gridProperties.rowCount>10000)throw new SheetsFault("capacity");
     const escaped=sheet.properties.title.replaceAll("'","''"),range=encodeURIComponent(`'${escaped}'!A1:${column(headers(d).length)}1`);
     const grid=await this.api<{sheets:Sheet[]}>(token,`/${d.spreadsheetId}?ranges=${range}&includeGridData=true`);
     const cells=grid.sheets[0]?.data?.[0]?.rowData?.[0]?.values??[];
     if(headers(d).some((h,i)=>cells[i]?.userEnteredValue?.stringValue!==h))throw new SheetsFault("conflict");
     // Independent visible-ID scan catches copied rows and orphaned metadata.
-    const ids=await this.api<{values?:string[][]}>(token,`/${d.spreadsheetId}/values/${encodeURIComponent(`'${escaped}'!A2:A`)}?valueRenderOption=UNFORMATTED_VALUE`);
+    const ids=await this.api<{values?:string[][]}>(token,`/${d.spreadsheetId}/values/${encodeURIComponent(`'${escaped}'!A2:A10000`)}?valueRenderOption=UNFORMATTED_VALUE`);
+    if((ids.values?.length??0)>=9999)throw new SheetsFault("capacity");
     const matches=(ids.values??[]).map((v,i)=>({id:v[0],index:i+1})).filter(v=>v.id===id),found=(await this.search(token,d,identityKey,id)).filter(m=>m.location.dimensionRange?.sheetId===d.sheetId);
     if(found.length>1||matches.length>1||found.length!==matches.length)throw new SheetsFault("conflict");
     if(!found.length)return null;

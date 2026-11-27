@@ -7,6 +7,7 @@ import { serverAuthClient } from "./server";
 import { supabaseAgencyContext, verifiedSubject } from "./identity";
 import { provisionCanonicalIdentity } from "./canonical-provisioning";
 import { isLocale } from "../i18n/locales";
+import {provisionRegistrationProfile} from '../registration/provision-profile';
 
 type Dependencies = {
   origin: () => string;
@@ -63,7 +64,7 @@ export async function handleProvisioning(request: NextRequest, locale: string, d
     if (!identity) return fail("signed-out", 401);
     const before = await supabaseAgencyContext(client, true, deps.now);
     if (before.access.status === "signed-out") return fail("signed-out", 401);
-    if (before.canonical) return before.canonical.subject === identity.subject ? reply({ ok: true, destination: `/${locale}/app` }, 200) : fail("forbidden", 403);
+    if (before.canonical){if(before.canonical.subject!==identity.subject)return fail('forbidden',403);mutationAttempted=true;return await provisionRegistrationProfile(client,identity.subject,deps.now())?reply({ok:true,destination:`/${locale}/app`},200):fail('uncertain',503);}
     if (before.access.status !== "unmapped") return fail(before.access.status === "unavailable" ? "unavailable" : "forbidden", before.access.status === "unavailable" ? 503 : 403);
     mutationAttempted = true;
     const result = await provisionCanonicalIdentity(client, true, deps.now);

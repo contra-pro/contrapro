@@ -13,7 +13,7 @@ async function harness() {
   const objects = new Map<string, Uint8Array>([[key, original]]), calls: string[] = []; let artifact: Artifact | null = null, failedUpload = false, failedCommit = false, denied = false;
   const repo: DocumentRepository = { async call<T>(agencyId: string, action: string, input: object): Promise<T> {
     calls.push(action); if (denied || agencyId !== agency) throw Error("forbidden"); const data = input as Record<string, unknown>;
-    if (action === "begin") return { artifact, snapshot: { ...snapshot, parties: { agency: { name: "Agence" } } }, template: version, fingerprint: requestId } as T;
+    if (action === "begin" || action === "preview-begin") return { artifact:action==="begin"?artifact:null, snapshot: { ...snapshot, parties: { agency: { name: "Agence" } } }, template: version, fingerprint: requestId, lease:requestId,input:{custom:{},issueDate:"2026-11-25"} } as T;
     if (action === "finish") { if (failedCommit) { failedCommit = false; throw Error("unavailable"); }
       artifact ??= { id: vid, agencyId: agency, rentalId: rental, rentalVersion: 1, templateVersionId: vid, key: String(data.key), checksum: String(data.checksum), sourceChecksum: checksum, status: "issued", requestId, createdAt: "2026-11-24", signing: { order: ["agency", "client"], evidence: null, zones: [] } }; return artifact as T; }
     if (action === "artifact") return artifact as T;
@@ -27,6 +27,16 @@ async function harness() {
 }
 const input = { rentalId: rental, templateVersionId: vid, rentalVersion: 1, requestId, issueDate: "2026-11-24", custom: {}, status: "issued" as const };
 describe("document storage consistency", () => {
+  it("renders actual draft data through the shared pipeline without issuance or signing actions",async()=>{
+    const h=await harness();await h.service.preview(rental,requestId);
+    expect(h.calls).toEqual(["preview-begin","preview-reserve","preview-finish"]);
+    const bytes=[...h.objects.values()][1]!;
+    expect((await PDFDocument.load(bytes)).getTitle()).toContain("UNSIGNED PREVIEW");
+  });
+  it("releases the rendering lease after storage failure and preserves the original error",async()=>{
+    const h=await harness();h.failUpload();await expect(h.service.preview(rental,requestId)).rejects.toThrow("unavailable");
+    expect(h.calls).toContain("preview-fail");expect(h.calls).not.toContain("preview-finish");
+  });
   it("persists exact bytes and replays an issued artifact without overwriting", async () => {
     const h = await harness(), artifact = await h.service.generate(input); expect(await h.service.generate(input)).toEqual(artifact);
     expect(h.calls.filter(c => c === "finish")).toHaveLength(1); expect(sha256(await h.service.download(artifact.id))).toBe(artifact.checksum);

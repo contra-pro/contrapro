@@ -1,11 +1,12 @@
 import { createHmac, randomUUID } from "node:crypto";
-import { configuration, DocumentFault, resolveValues, requiredValues, scope, type Artifact, type Template, type TemplateVersion } from "./model";
+import { configuration, capturedConfiguration, DocumentFault, resolveValues, requiredValues, scope, type Artifact, type Template, type TemplateVersion } from "./model";
 import { sha256, validateUpload } from "./uploads";
 import { objectKey, scopedKey, type PrivateStorage } from "./storage";
 import { fillDocx, renderDocument, type DocxConverter } from "./render";
 
 /** Implementations must authorize the current user for every call, including reads and retries. */
 export interface DocumentRepository { call<T>(agencyId: string, action: string, input: object): Promise<T> }
+export type PreviewArtifact = { id: string; agencyId: string; rentalId: string; rentalVersion: number; templateVersionId: string; requestId: string; key: string; checksum: string; fingerprint: string; status: "preview"; expiresAt: string; stale: boolean };
 export class Documents {
   constructor(private agencyId: string, private repo: DocumentRepository, private store: PrivateStorage, private font: Uint8Array, private converter?: DocxConverter, private rendererSecret?: string) { scope(agencyId); }
   list() { return this.repo.call<Template[]>(this.agencyId, "list", {}); }
@@ -48,7 +49,7 @@ export class Documents {
     if (job.artifact) return job.artifact;
     const template = job.template;
     if (template.agencyId !== this.agencyId || template.id !== input.templateVersionId) throw new DocumentFault("forbidden");
-    const config = configuration(template.config), values = resolveValues(job.snapshot, this.agencyId, input.rentalId, input.custom, input.issueDate);
+    const config = capturedConfiguration(configuration(template.config),job.snapshot), values = resolveValues(job.snapshot, this.agencyId, input.rentalId, input.custom, input.issueDate);
     if (Object.keys(input.custom).some(k => !config.custom.includes(k))) throw new DocumentFault("invalid");
     requiredValues(config, values);
     const original = await this.store.get(template.originalKey); if (sha256(original) !== template.checksum) throw new DocumentFault("conflict");
@@ -64,5 +65,37 @@ export class Documents {
     const artifact = await this.repo.call<Artifact>(this.agencyId, "artifact", { id });
     if (artifact.agencyId !== this.agencyId) throw new DocumentFault("forbidden"); scopedKey(this.agencyId, artifact.key);
     const bytes = await this.store.get(artifact.key); if (sha256(bytes) !== artifact.checksum) throw new DocumentFault("conflict"); return bytes;
+  }
+  async preview(rentalId: string, requestId: string) {
+    scope(this.agencyId,rentalId,requestId);
+    if (!this.rendererSecret || !/^[a-f0-9]{64}$/.test(this.rendererSecret)) throw new DocumentFault("unavailable");
+    const job = await this.repo.call<{ artifact: PreviewArtifact | null; snapshot: unknown; template: TemplateVersion; fingerprint: string; lease: string; input: { custom: Record<string,string>; issueDate: string } }>(this.agencyId,"preview-begin",{rentalId,requestId});
+    if (job.artifact) return job.artifact;
+    try {
+    if (job.template.agencyId !== this.agencyId) throw new DocumentFault("forbidden");
+    const config = capturedConfiguration(configuration(job.template.config),job.snapshot);
+    const values = resolveValues(job.snapshot,this.agencyId,rentalId,job.input.custom,job.input.issueDate);
+    requiredValues({...config,mappings:config.mappings.filter(m=>m.field!=="contract.number")},values);
+    const original = await this.store.get(job.template.originalKey);
+    if (sha256(original) !== job.template.checksum) throw new DocumentFault("conflict");
+    const bytes = await renderDocument({original,format:job.template.format,config,values,font:this.font,preview:true,...(this.converter ? {converter:this.converter} : {})});
+    const checksum = sha256(bytes), key = objectKey(this.agencyId,"drafts",requestId,checksum,"pdf");
+    await this.repo.call(this.agencyId,"preview-reserve",{rentalId,requestId,key,checksum,lease:job.lease});
+    await this.store.put(key,bytes,"application/pdf");
+    const attestation = createHmac("sha256",Buffer.from(this.rendererSecret,"hex")).update([this.agencyId,requestId,key,checksum,job.template.checksum,job.fingerprint].join("|")).digest("hex");
+    return await this.repo.call<PreviewArtifact>(this.agencyId,"preview-finish",{rentalId,requestId,key,checksum,attestation,lease:job.lease});
+    } catch(error) {
+      await this.repo.call(this.agencyId,"preview-fail",{rentalId,requestId,lease:job.lease}).catch(()=>{});
+      throw error;
+    }
+  }
+  async downloadPreview(rentalId: string,requestId: string) {
+    scope(this.agencyId,rentalId,requestId);
+    const artifact = await this.repo.call<PreviewArtifact>(this.agencyId,"preview-artifact",{rentalId,requestId});
+    if (!artifact || artifact.agencyId !== this.agencyId || artifact.rentalId !== rentalId) throw new DocumentFault("forbidden");
+    scopedKey(this.agencyId,artifact.key);
+    const bytes = await this.store.get(artifact.key);
+    if (sha256(bytes) !== artifact.checksum) throw new DocumentFault("conflict");
+    return bytes;
   }
 }

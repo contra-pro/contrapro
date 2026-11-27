@@ -5,7 +5,8 @@ import { AgencyAccessView } from "../../../../components/agency-access-view";
 import { AgencyWorkspace } from "../../../../components/agency-workspace";
 import { AgencyBilling } from "../../../../billing/workspace";
 import { billingCopy } from "../../../../billing/copy";
+import Link from 'next/link';
 export default async function Page({params}:{params:Promise<{locale:string}>}) {
  const {locale}=await params;if(!isLocale(locale))notFound();const context=await getAgencyContext();if(context.access.status!=="authorized")return <AgencyAccessView locale={locale} access={context.access}/>;
- const c=billingCopy(locale);return <AgencyWorkspace locale={locale} title={c.title}>{process.env.CONTRATPRO_BILLING_VERIFIED==="true"?<AgencyBilling key={`${context.access.userId}:${context.access.agencyId}`} locale={locale}/>:<p role="status">{c.unavailable}</p>}</AgencyWorkspace>;
+ const c=billingCopy(locale);return <AgencyWorkspace locale={locale} agencyName={context.access.agencyName} agencyScope={context.access.agencyId+":"+context.access.userId} title={c.title}>{process.env.CONTRATPRO_BILLING_VERIFIED==="true"?<AgencyBilling key={`${context.access.userId}:${context.access.agencyId}`} locale={locale}/>:<p role="status">{c.unavailable}</p>}<p><Link href={`/${locale}/app/profile`} prefetch={false}>{locale==='fr'?'Coordonnées et informations administratives de l’agence':'معلومات الاتصال والبيانات الإدارية للوكالة'}</Link></p></AgencyWorkspace>;
 }

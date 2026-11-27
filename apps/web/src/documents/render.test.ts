@@ -8,6 +8,15 @@ import { pdf } from "./uploads";
 import { config } from "./fixtures";
 const blank = async () => { const d = await PDFDocument.create(); d.addPage([595, 842]); return d.save(); };
 describe("actual document rendering", () => {
+  it("paginates multiline fixture clauses on separate pages without covering template signatures", async () => {
+    const bytes = await renderDocument({ original: await blank(), format: "pdf", config: { ...config, clauses: [{ id: "11111111-1111-4111-8111-111111111111", agencyId: "11111111-1111-4111-8111-111111111111", clauseId: "11111111-1111-4111-8111-111111111111", revision: 1, title: "Fixture", fr: "Texte de test\n".repeat(100), ar: "اختبار", enabled: true }] }, values: { "agency.name": "Agence" }, font: new Uint8Array(), preview: true });
+    expect((await PDFDocument.load(bytes)).getPageCount()).toBeGreaterThan(2);
+  });
+  it("keeps the draft reference empty and adds a notice strip outside the template content",async()=>{
+    const bytes=await renderDocument({original:await blank(),format:"pdf",config:{...config,mappings:[{...config.mappings[0]!,field:"contract.number"}]},values:{},font:new Uint8Array(),preview:true});
+    const result=await PDFDocument.load(bytes);expect(result.getPage(0).getHeight()).toBe(866);expect(result.getTitle()).toContain("UNSIGNED");
+    await expect(renderDocument({original:await blank(),format:"pdf",config:{...config,mappings:[{...config.mappings[0]!,field:"contract.number"}]},values:{},font:new Uint8Array()})).rejects.toThrow("missing-values");
+  });
   it("produces a downloadable PDF with original pages and deterministic bytes", async () => {
     const input = { original: await blank(), format: "pdf" as const, config, values: { "agency.name": "Agence été" }, font: new Uint8Array() };
     const bytes = await renderDocument(input); expect((await PDFDocument.load(bytes)).getPageCount()).toBe(1);
@@ -21,8 +30,8 @@ describe("actual document rendering", () => {
   });
   const fontPath = process.env.CONTRATPRO_DOCUMENT_FONT_PATH ?? "C:/Windows/Fonts/arial.ttf";
   it.skipIf(!existsSync(fontPath))("embeds a configured Arabic-capable font and retains RTL zones (visual fidelity deferred)", async () => {
-    const bytes = await renderDocument({ original: await blank(), format: "pdf", config: { ...config, locale: "ar", mappings: [{ ...config.mappings[0]!, rtl: true }] }, values: { "agency.name": "وكالة الكراء" }, font: new Uint8Array(readFileSync(fontPath)) });
-    const result = await PDFDocument.load(bytes); expect(result.getPageCount()).toBe(1); expect(bytes.length).toBeGreaterThan(1000);
+    const bytes = await renderDocument({ original: await blank(), format: "pdf", config: { ...config, locale: "ar", mappings: [{ ...config.mappings[0]!, rtl: true }],clauses:[{id:"11111111-1111-4111-8111-111111111111",clauseId:"11111111-1111-4111-8111-111111111111",agencyId:"11111111-1111-4111-8111-111111111111",revision:1,title:"Fixture",fr:"Fixture française",ar:"نص اختبار\nFrançais والعربية",enabled:true}] }, values: { "agency.name": "وكالة الكراء" }, font: new Uint8Array(readFileSync(fontPath)) });
+    const result = await PDFDocument.load(bytes); expect(result.getPageCount()).toBe(2); expect(bytes.length).toBeGreaterThan(1000);
   });
   it("rejects direct nested PDF actions", async () => {
     const doc = await PDFDocument.create(); doc.addPage(); doc.catalog.set(PDFName.of("Names"), doc.context.obj({ Nested: { S: PDFName.of("JavaScript"), JS: "app.alert('bad')" } }));

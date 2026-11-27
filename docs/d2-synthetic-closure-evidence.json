@@ -1,0 +1,373 @@
+{
+  "reviewedAt": "2026-11-27T13:22:05.680Z",
+  "scope": "LOCAL_EVIDENCE_ONLY_NO_TEST_REPLAY_NO_SQL",
+  "verdict": "SYNTHETIC_NATIVE_ACCEPTANCE_PASSED",
+  "faithfulUpgradeAccepted": false,
+  "managedMigrationAuthorized": false,
+  "packageHash": "15b2aeaac5fc12a87360091c3eb4ea8fb5d3d2a992155938419ea63052612aa3",
+  "receiptSha256": "21734b31664d6b3fc48cdf84f3a815eb1ccbe375bb02e275e7073c25407714b4",
+  "sessionStateSha256": "3de38d856eb2a853f2a2d2caf8be5006f5d728f2e1832f29ccab0d8498b0b09d",
+  "committedMigrations": 16,
+  "acceptedMigrationEvents": [
+    {
+      "phase": "migration-0013",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "0dfae4a706db5a570d24688f3124b440589de7d622668479f72735b072fb0dbc",
+      "at": "2026-11-27T11:44:17.788Z"
+    },
+    {
+      "phase": "migration-0014",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "4db5d4da254f6d856003977357dee3a833916ebeecf4cf60578247516eab19f1",
+      "at": "2026-11-27T11:44:18.850Z"
+    },
+    {
+      "phase": "migration-0015",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "5c7e6b75b5dee492a497b755649305422c32c77adb7a351a6468b901a905ba48",
+      "at": "2026-11-27T11:44:19.478Z"
+    },
+    {
+      "phase": "migration-0016",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "44bb26a1a418b854f2af3f6da7c8e2b1386589d1568c0b577918d3a9f490e9e1",
+      "at": "2026-11-27T11:44:20.141Z"
+    },
+    {
+      "phase": "migration-0017",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "34b516974ac9ecd184c2ad09201b5a3da0712757ccf0089980d2612973659fde",
+      "at": "2026-11-27T11:44:20.860Z"
+    },
+    {
+      "phase": "migration-0018",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "0d29be55d312939aa15a05d806b5f5db2fd310450d93c5304193d557ef7bd4d5",
+      "at": "2026-11-27T11:44:21.650Z"
+    },
+    {
+      "phase": "migration-0019",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "5072505849b0adb32cf876b560b070b89d08c36cb5dc44c9b5d2a4b69808047c",
+      "at": "2026-11-27T11:44:22.415Z"
+    },
+    {
+      "phase": "migration-0020",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "05e13cd92e7724f58c9dc703aa08093c9c9d582a76b46ebc345e29e371740517",
+      "at": "2026-11-27T11:44:23.133Z"
+    },
+    {
+      "phase": "migration-0021",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "2e06f515c826a83b495b9b13963e485eb5702f29dc091b4a265f9a5650074f1a",
+      "at": "2026-11-27T11:44:23.954Z"
+    },
+    {
+      "phase": "migration-0022",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "79e76a53dc94f52ae2ab324af366c461a37b916702316610e312c88df795093f",
+      "at": "2026-11-27T12:13:18.805Z"
+    },
+    {
+      "phase": "migration-0023",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "5b2ffede568697c0466a4947606d1961aaf2acff5eeb85174872a302a8432ef9",
+      "at": "2026-11-27T13:08:44.122Z"
+    },
+    {
+      "phase": "migration-0024",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "09e88c9c217b9bfab056719853e783a96dff9c6061890463b2e37446db29535d",
+      "at": "2026-11-27T13:08:44.917Z"
+    },
+    {
+      "phase": "migration-0025",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "bb73b93306b76b9564458ef3afd8e18e6d64cd655a99228603999eae1672d070",
+      "at": "2026-11-27T13:08:45.626Z"
+    },
+    {
+      "phase": "migration-0026",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "881c0901f4634159b73d5e59cc298a4b77e01585df0aa49c6c5b4f7018017c3f",
+      "at": "2026-11-27T13:08:46.333Z"
+    },
+    {
+      "phase": "migration-0027",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "f4fb00bfaadaf5036da8eb67745f34e3495c9dd80317e063ee701c7358b971ed",
+      "at": "2026-11-27T13:08:46.965Z"
+    },
+    {
+      "phase": "migration-0028",
+      "status": "APPLIED_TO_SYNTHETIC_ONLY",
+      "candidateSha256": "991416ece4c2dab45f6ac4f71eb3245872a74ace480bd882da58cbf17a7c1332",
+      "at": "2026-11-27T13:08:47.716Z"
+    }
+  ],
+  "finalPassedPhases": [
+    {
+      "phase": "checkpoint-readonly-validation",
+      "status": "PASS_NO_BOOTSTRAP_REPLAY"
+    },
+    {
+      "phase": "drawn-payload-validation",
+      "status": "PASS"
+    },
+    {
+      "phase": "fresh-verification-challenge",
+      "status": "PASS"
+    },
+    {
+      "phase": "typed-client-sign-and-idempotency",
+      "status": "PASS"
+    },
+    {
+      "phase": "finalization-and-immutable-agency-evidence",
+      "status": "PASS"
+    },
+    {
+      "phase": "duplicate-replay-refusal",
+      "status": "PASS_HISTORY_GUARD_ONLY_NO_MIGRATION_REPLAY"
+    },
+    {
+      "phase": "duplicate-replay-refusal",
+      "status": "PASS"
+    }
+  ],
+  "receipts": [
+    {
+      "file": "acceptance-receipt-0022.json",
+      "sha256": "bf4946974eba978919a624453687fc81d5302d43875bf0e784b56bba45447aac",
+      "status": "FAILED_STOP_NO_RETRY",
+      "phase": "checkpoint-readonly-validation"
+    },
+    {
+      "file": "acceptance-receipt-0023.json",
+      "sha256": "e14e041f220f4b594a9181d7714ce8cdd29097cbb030680878efb84dfc0be055",
+      "status": "FAILED_STOP_NO_RETRY",
+      "phase": "scenarios-0028"
+    },
+    {
+      "file": "acceptance-receipt-checkpoint.json",
+      "sha256": "7a10f16173e3193de042a3a40b2d9f2b105b2a46cdb2f7b713fb5b5f361f3c50",
+      "status": "FAILED_STOP_NO_RETRY",
+      "phase": "migration-0023"
+    },
+    {
+      "file": "acceptance-receipt-final.json",
+      "sha256": "21734b31664d6b3fc48cdf84f3a815eb1ccbe375bb02e275e7073c25407714b4",
+      "status": "SYNTHETIC_NATIVE_ACCEPTANCE_PASSED",
+      "phase": null
+    },
+    {
+      "file": "acceptance-receipt-probe-recovery.json",
+      "sha256": "f416d3185dc58bdd7569bca33e5baeefba23de00a3d15b1bc21f1a5f2962a3f0",
+      "status": "FAILED_STOP_NO_RETRY",
+      "phase": "0013-native-compile-rollback-probe"
+    },
+    {
+      "file": "acceptance-receipt-recovery.json",
+      "sha256": "82ef21ff1da2ea9eb44ae55f29a13e34b9a2891c781e5da45b64d247d3d6c37d",
+      "status": "FAILED_STOP_NO_RETRY",
+      "phase": "0013-native-compile-rollback-probe"
+    },
+    {
+      "file": "acceptance-receipt-stable.json",
+      "sha256": "e691a73c5eab178668cddd3787421357923fe760f51044972b7613ac850c10e1",
+      "status": "FAILED_STOP_NO_RETRY",
+      "phase": "migration-0022"
+    },
+    {
+      "file": "acceptance-receipt.json",
+      "sha256": "5385d2d95418a97323992ee2f40974f4b77b83e68a8fdc78c0692ef96cffcf70",
+      "status": "FAILED_STOP_NO_RETRY",
+      "phase": "bootstrap"
+    }
+  ],
+  "latestLog": {
+    "file": "d2-20261127131836.log",
+    "sha256": "03c23927fc3a99b871399ca8a01e7ad9cc4e4eac5c59daf44f47db8afd1b4400",
+    "cleanShutdown": true
+  },
+  "inventory": {
+    "privateRoot": "C:/Users/lenovo/AppData/Local/ContratPro-D2-native/pg17-54329",
+    "categories": {
+      "data": {
+        "files": 1739,
+        "bytes": 73298099
+      },
+      "logs": {
+        "files": 9,
+        "bytes": 10879
+      },
+      "sessionEvidenceAndTls": {
+        "files": 34,
+        "bytes": 33592
+      }
+    },
+    "repositoryTooling": [
+      {
+        "path": "scripts/d2-0022-binding.mjs",
+        "files": 1,
+        "bytes": 4188
+      },
+      {
+        "path": "scripts/d2-0022-build.mjs",
+        "files": 1,
+        "bytes": 6740
+      },
+      {
+        "path": "scripts/d2-0022-checkpoint.mjs",
+        "files": 1,
+        "bytes": 5675
+      },
+      {
+        "path": "scripts/d2-0023-binding.mjs",
+        "files": 1,
+        "bytes": 5010
+      },
+      {
+        "path": "scripts/d2-0023-build.mjs",
+        "files": 1,
+        "bytes": 7282
+      },
+      {
+        "path": "scripts/d2-0023-dependencies.mjs",
+        "files": 1,
+        "bytes": 3523
+      },
+      {
+        "path": "scripts/d2-checkpoint-binding.mjs",
+        "files": 1,
+        "bytes": 4442
+      },
+      {
+        "path": "scripts/d2-checkpoint-build.mjs",
+        "files": 1,
+        "bytes": 4842
+      },
+      {
+        "path": "scripts/d2-checkpoint-state.mjs",
+        "files": 1,
+        "bytes": 2864
+      },
+      {
+        "path": "scripts/d2-final-build.mjs",
+        "files": 1,
+        "bytes": 7657
+      },
+      {
+        "path": "scripts/d2-final-remaining.mjs",
+        "files": 1,
+        "bytes": 3314
+      },
+      {
+        "path": "scripts/d2-final-state.mjs",
+        "files": 1,
+        "bytes": 2262
+      },
+      {
+        "path": "scripts/d2-native",
+        "files": 13,
+        "bytes": 326652
+      },
+      {
+        "path": "scripts/d2-native-0022",
+        "files": 13,
+        "bytes": 585024
+      },
+      {
+        "path": "scripts/d2-native-0023",
+        "files": 14,
+        "bytes": 600709
+      },
+      {
+        "path": "scripts/d2-native-checkpoint",
+        "files": 13,
+        "bytes": 590916
+      },
+      {
+        "path": "scripts/d2-native-final",
+        "files": 14,
+        "bytes": 611751
+      },
+      {
+        "path": "scripts/d2-native-probe-recovery",
+        "files": 13,
+        "bytes": 535806
+      },
+      {
+        "path": "scripts/d2-native-recovery",
+        "files": 13,
+        "bytes": 473487
+      },
+      {
+        "path": "scripts/d2-native-stable",
+        "files": 14,
+        "bytes": 542864
+      },
+      {
+        "path": "scripts/d2-offline",
+        "files": 8,
+        "bytes": 51545
+      },
+      {
+        "path": "scripts/d2-probe-binding.mjs",
+        "files": 1,
+        "bytes": 4037
+      },
+      {
+        "path": "scripts/d2-probe-probe.mjs",
+        "files": 1,
+        "bytes": 3313
+      },
+      {
+        "path": "scripts/d2-probe-recovery-build.mjs",
+        "files": 1,
+        "bytes": 5741
+      },
+      {
+        "path": "scripts/d2-recovery-binding-template.mjs",
+        "files": 1,
+        "bytes": 3646
+      },
+      {
+        "path": "scripts/d2-recovery-build.mjs",
+        "files": 1,
+        "bytes": 5784
+      },
+      {
+        "path": "scripts/d2-stabilize-build.mjs",
+        "files": 1,
+        "bytes": 6891
+      },
+      {
+        "path": "scripts/d2-stable-binding.mjs",
+        "files": 1,
+        "bytes": 3883
+      },
+      {
+        "path": "supabase/migration-candidates/d2-0022-suffix-v3",
+        "files": 8,
+        "bytes": 386922
+      },
+      {
+        "path": "supabase/migration-candidates/d2-0023-suffix-v4",
+        "files": 7,
+        "bytes": 350515
+      },
+      {
+        "path": "supabase/migration-candidates/d2-native-synthetic-v1",
+        "files": 17,
+        "bytes": 790251
+      },
+      {
+        "path": "supabase/migration-candidates/d2-native-synthetic-v2",
+        "files": 17,
+        "bytes": 793719
+      }
+    ]
+  }
+}

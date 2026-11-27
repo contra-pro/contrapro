@@ -24,7 +24,7 @@ function fakeBook(){
    const lookup=body.dataFilters[0].developerMetadataLookup;
    return json({matchedDeveloperMetadata:lookup.metadataKey===ownerKey?[{developerMetadata:{metadataId:1,metadataValue:owner(aid,d),location:{sheetId:42}}}]:rows.flatMap((r,i)=>r.values[0]===lookup.metadataValue&&r.metadataId!==null?[{developerMetadata:{metadataId:r.metadataId,location:{dimensionRange:{sheetId:42,startIndex:i+1,endIndex:i+2}}}}]:[])});
   }
-  if(url.includes("?fields="))return json({sheets:[{properties:{sheetId:42,title:"ContratPro"}}]});
+  if(url.includes("?fields="))return json({sheets:[{properties:{sheetId:42,title:"ContratPro",gridProperties:{rowCount:1000}}}]});
   if(url.includes("/values/")&&!url.includes(":batch"))return json({values:rows.map(r=>[r.values[0]])});
   if(url.includes("includeGridData")){
    const range=new URL(url).searchParams.get("ranges")!,index=Number(/!A(\d+)/.exec(range)![1]);
@@ -50,6 +50,15 @@ describe("minimized export contract",()=>{
  it("renders FR/AR direction and an announced loading state",()=>{for(const locale of ["fr","ar"] as const){const html=renderToStaticMarkup(createElement(SheetsDashboard,{locale}));expect(html).toContain(`dir="${locale==="ar"?"rtl":"ltr"}"`);expect(html).toContain('role="status"');expect(html).not.toContain(statuses[locale].synchronized);}});
 });
 describe("Google row adapter with injected transport",()=>{
+ it("recovers spreadsheet creation only by the exact durable request-marked title",async()=>{
+  const request="11111111-1111-4111-8111-111111111111",transport=vi.fn(async()=>new Response(JSON.stringify({spreadsheetId:d.spreadsheetId,properties:{title:`Fixture (${request})`},sheets:[]})));
+  const api=new GoogleSheets(true,transport);expect((await api.recoverSpreadsheet("synthetic-token",d.spreadsheetId,"Fixture",request)).spreadsheetId).toBe(d.spreadsheetId);
+  await expect(api.recoverSpreadsheet("synthetic-token",d.spreadsheetId,"Other",request)).rejects.toThrow("conflict");expect(transport.mock.calls).toHaveLength(2);
+ });
+ it("refuses oversized worksheets before a truncated ID scan can authorize a write",async()=>{
+  const f=fakeBook(),transport:Transport=async(url,init)=>url.includes("?fields=")?new Response(JSON.stringify({sheets:[{properties:{sheetId:42,title:"ContratPro",gridProperties:{rowCount:10001}}}]})):f.transport(url,init);
+  await expect(new GoogleSheets(true,transport).write("synthetic-token",aid,d,values,false)).rejects.toThrow("capacity");expect(f.calls.some(c=>c.url.endsWith(":batchUpdate"))).toBe(false);
+ });
  it("creates metadata and literal user values atomically, then updates the same moved row",async()=>{
   const f=fakeBook();expect(await f.api.write("synthetic-token",aid,d,values,false)).toBe(99);expect(f.rows[0]!.values[3]).toBe(s.values.reference);
   f.rows.unshift({values:["unrelated","preserve formula"],metadataId:null});

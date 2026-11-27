@@ -5,12 +5,12 @@ import { fields, type Artifact, type Configuration, type Mapping, type Template,
 import { documentMessages } from "./messages";
 import styles from "./workspace.module.css";
 import { AgencySigning } from "../signing/workspace";
-export async function sendDocument(locale: Locale, action: string, input: object = {}, binary = false): Promise<unknown> {
-  const response = await fetch(`/${locale}/app/document-action`, { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action, input }) });
-  if (response.redirected) throw Error("unavailable");
-  if (!response.ok) { const error = await response.json(); throw Error(error.code ?? "unavailable"); }
-  return binary ? response.blob() : (await response.json()).value;
-}
+import { sendOperation } from "../operations/client";
+import { operationsCopy } from "../operations/copy";
+import { ClauseChoice, ClauseManager } from "./clause-workspace";
+import { fieldLabel } from "./field-labels";
+import { sendDocument } from "./client";
+export { sendDocument } from "./client";
 function useStatus(locale: Locale) {
   const c = documentMessages(locale); const [status, setStatus] = useState(""); const [busy, setBusy] = useState(false);
   const flight = useRef(false);
@@ -18,20 +18,25 @@ function useStatus(locale: Locale) {
   return { busy, run, feedback: <p role="status" aria-live="polite">{busy ? c.loading : status}</p> };
 }
 const box = { page: 1, x: 20, y: 20, width: 200, height: 24 };
-export function MappingEditor({ locale, value, change }: { locale: Locale; value: Configuration; change: (v: Configuration) => void }) {
+export function MappingEditor({ locale, value, change, a1Enabled=false,a2Enabled=false }: { locale: Locale; value: Configuration; change: (v: Configuration) => void; a1Enabled?:boolean;a2Enabled?:boolean }) {
   const c = documentMessages(locale);
+  const [logoError,setLogoError]=useState(false);
   function numeric<T extends Pick<Mapping, "page" | "x" | "y" | "width" | "height">>(v: T, onChange: (v: T) => void) { return (["page", "x", "y", "width", "height"] as const).map(key =>
     <label key={key}>{c[key]}<input type="number" step={key === "page" ? 1 : "any"} min={key === "page" ? 1 : 0} value={v[key]} onChange={e => onChange({ ...v, [key]: Number(e.target.value) })} required /></label>); }
   return <div className={styles.editor}>
+    {a2Enabled&&<ClauseChoice locale={locale} value={value.clauseVersions??[]} change={clauseVersions=>change({...value,clauseVersions})}/>}
     <label>{c.language}<select value={value.locale} onChange={e => change({ ...value, locale: e.target.value as "fr" | "ar" })}><option value="fr">Français</option><option value="ar">العربية</option></select></label>
     <label>{c.custom}<input value={value.custom.join(",")} onChange={e => change({ ...value, custom: e.target.value ? e.target.value.split(",").map(s => s.trim()) : [] })} /></label>
+    {a1Enabled&&<label><input type="checkbox" checked={value.agencyLogo??false} onChange={e=>{setLogoError(false);if(!e.target.checked){change({...value,agencyLogo:false});return;}
+      void sendOperation<{logoData:string|null}>(locale,"branding").then(b=>{if(!b.logoData)throw Error();change({...value,agencyLogo:true,logo:{...box,width:80,height:40,...value.logo,data:b.logoData}});}).catch(()=>setLogoError(true));}}/>{operationsCopy(locale).useLogo}</label>}
+    {logoError&&<p role="alert">{c.errors["missing-values"]}</p>}
     <label>{locale === "ar" ? "شعار الوكالة PNG (200 كيلوبايت)" : "Logo de l’agence PNG (200 Ko)"}<input type="file" accept="image/png" onChange={e => { const file = e.target.files?.[0]; if (!file || file.size > 204800) return;
       const reader = new FileReader(); reader.onload = () => change({ ...value, logo: { ...box, width: 80, height: 40, data: String(reader.result) } }); reader.readAsDataURL(file); }} /></label>
     {value.logo && <fieldset><legend>{locale === "ar" ? "موضع الشعار" : "Position du logo"}</legend>{numeric(value.logo, v => change({ ...value, logo: v }))}
       <button type="button" onClick={() => change({ ...value, logo: null })}>{c.remove}</button></fieldset>}
     <h3>{c.mapping}</h3>{value.mappings.map((m, i) => <fieldset key={i}><legend>{c.field} {i + 1}</legend>
       <label>{c.field}<select value={m.field} onChange={e => change({ ...value, mappings: value.mappings.map((v, n) => n === i ? { ...v, field: e.target.value } : v) })}>
-        {[...fields, ...value.custom.map(k => `custom.${k}`)].map(f => <option key={f} value={f}>{f}</option>)}</select></label>
+        {[...fields, ...value.custom.map(k => `custom.${k}`)].map(f => <option key={f} value={f}>{fieldLabel(f,locale)}</option>)}</select></label>
       {numeric(m, v => change({ ...value, mappings: value.mappings.map((old, n) => n === i ? v as Mapping : old) }))}
       <label>{c.size}<input type="number" min="6" max="48" value={m.fontSize} onChange={e => change({ ...value, mappings: value.mappings.map((v, n) => n === i ? { ...v, fontSize: Number(e.target.value) } : v) })} /></label>
       {(["required", "rtl"] as const).map(key => <label key={key}><input type="checkbox" checked={m[key]} onChange={e => change({ ...value, mappings: value.mappings.map((v, n) => n === i ? { ...v, [key]: e.target.checked } : v) })} />{c[key]}</label>)}
@@ -51,13 +56,14 @@ function Preview({ url, close, locale }: { url: string; close: () => void; local
   useEffect(() => () => URL.revokeObjectURL(url), [url]);
   return <section aria-label={c.preview}><button type="button" onClick={close}>{c.cancel}</button><a href={url} download="contrat.pdf">{c.download}</a><iframe className={styles.preview} src={url} title={c.preview} /></section>;
 }
-export function TemplateLibrary({ locale }: { locale: Locale }) {
+export function TemplateLibrary({ locale, a1Enabled=false,a2Enabled=false }: { locale: Locale; a1Enabled?:boolean;a2Enabled?:boolean }) {
   const c = documentMessages(locale), status = useStatus(locale);
   const [items, setItems] = useState<Template[] | null>(null), [edit, setEdit] = useState<TemplateVersion | null>(null), [name, setName] = useState("");
   const [config, setConfig] = useState<Configuration>({ locale, custom: [], mappings: [], signatures: [] }), [file, setFile] = useState<File | null>(null), [url, setUrl] = useState(""), [loadError, setLoadError] = useState(false);
-  const refresh = async () => setItems(await sendDocument(locale, "list") as Template[]);
+  const refresh = async () => {setItems(await sendDocument(locale, "list") as Template[]);setLoadError(false);};
   useEffect(() => { let live = true; sendDocument(locale, "list").then(v => { if (live) setItems(v as Template[]); }).catch(() => { if (live) setLoadError(true); }); return () => { live = false; }; }, [locale]);
   return <div className={styles.root} dir={locale === "ar" ? "rtl" : "ltr"}><p>{c.limits}</p>{status.feedback}
+    {a2Enabled&&<ClauseManager locale={locale}/>}
     <form onSubmit={e => { e.preventDefault(); void status.run(async () => {
       const input = { templateId: edit?.templateId ?? crypto.randomUUID(), expectedRevision: edit?.revision ?? 0, name, config,
         ...(file ? { base64: await asBase64(file), filename: file.name, mime: file.type } : { sourceVersionId: edit?.id }) };
@@ -65,10 +71,10 @@ export function TemplateLibrary({ locale }: { locale: Locale }) {
     }); }}><fieldset disabled={status.busy}><legend>{edit ? c.edit : c.upload}</legend>
       <label>{c.name}<input value={name} maxLength={120} onChange={e => setName(e.target.value)} required /></label>
       <label>{c.file}<input key={edit?.id ?? "new"} type="file" accept=".pdf,.docx" required={!edit} onChange={e => setFile(e.target.files?.[0] ?? null)} /></label>
-      <MappingEditor locale={locale} value={config} change={setConfig} /><button type="submit">{c.save}</button>
+      <MappingEditor locale={locale} value={config} change={setConfig} a1Enabled={a1Enabled} a2Enabled={a2Enabled} /><button type="submit">{c.save}</button>
       {edit && <button type="button" onClick={() => { setEdit(null); setName(""); setFile(null); }}>{c.cancel}</button>}
     </fieldset></form>
-    {loadError ? <p role="alert">{c.errors.unavailable}</p> : !items ? <p role="status">{c.loading}</p> : !items.length ? <p>{c.empty}</p> : <ul>{items.map(t => <li key={t.id}><h3>{t.name}</h3><p>{t.archived ? c.archived : t.isDefault ? c.currentDefault : ""}</p>
+    {loadError ? <p role="alert">{c.errors.unavailable}<button type="button" disabled={status.busy} onClick={()=>void status.run(refresh)}>{c.retry}</button></p> : !items ? <p role="status">{c.loading}</p> : !items.length ? <p>{c.empty}</p> : <ul>{items.map(t => <li key={t.id}><h3>{t.name}</h3><p>{t.archived ? c.archived : t.isDefault ? c.currentDefault : ""}</p>
       <fieldset disabled={status.busy || t.archived}><legend>{c.edit}</legend>
         <button onClick={() => { setEdit(t.versions[0]!); setConfig(structuredClone(t.versions[0]!.config)); setName(t.name); setFile(null); }}>{c.edit}</button>
         <button onClick={() => void status.run(async () => { await sendDocument(locale, "save", { templateId: crypto.randomUUID(), expectedRevision: 0, name: `${t.name.slice(0, 110)} (2)`, config: t.versions[0]!.config, sourceVersionId: t.versions[0]!.id }); await refresh(); })}>{c.duplicate}</button>
@@ -79,22 +85,23 @@ export function TemplateLibrary({ locale }: { locale: Locale }) {
     </li>)}</ul>}{url && <Preview url={url} locale={locale} close={() => setUrl("")} />}
   </div>;
 }
-export function RentalDocuments({ locale, rentalId, rentalVersion, signingEnabled=false,deliveryEnabled=false }: { locale: Locale; rentalId: string; rentalVersion: number; signingEnabled?:boolean;deliveryEnabled?:boolean }) {
+export function RentalDocuments({ locale, rentalId, rentalVersion, signingEnabled=false,deliveryEnabled=false,a2Enabled=false }: { locale: Locale; rentalId: string; rentalVersion: number; signingEnabled?:boolean;deliveryEnabled?:boolean;a2Enabled?:boolean }) {
   const c = documentMessages(locale), status = useStatus(locale), [templates, setTemplates] = useState<Template[]>([]), [history, setHistory] = useState<Artifact[]>([]);
   const [selected, setSelected] = useState(""), [date, setDate] = useState(() => new Date().toISOString().slice(0, 10)), [custom, setCustom] = useState<Record<string, string>>({}), [url, setUrl] = useState("");
   const [retry, setRetry] = useState<object | null>(null);
   const [loadError, setLoadError] = useState(false);
+  const [confirmed,setConfirmed]=useState(false);
   const refresh = async () => setHistory(await sendDocument(locale, "history", { rentalId }) as Artifact[]);
-  useEffect(() => { let live = true; Promise.all([sendDocument(locale, "list"), sendDocument(locale, "history", { rentalId }), sendDocument(locale, "selection", { rentalId })]).then(([t, h, selected]) => { if (live) { const items = (t as Template[]).filter(x => !x.archived); setTemplates(items); setHistory(h as Artifact[]); setSelected(typeof selected === "string" && items.some(x => x.versions.some(v => v.id === selected)) ? selected : (items.find(x => x.isDefault) ?? items[0])?.versions[0]?.id ?? ""); } }).catch(() => { if (live) setLoadError(true); }); return () => { live = false; }; }, [locale, rentalId]);
+  useEffect(() => { let live = true; Promise.all([sendDocument(locale, "list"), sendDocument(locale, "history", { rentalId }), sendDocument(locale, "selection", { rentalId }),a2Enabled?sendDocument(locale,"confirmed-input",{rentalId}):Promise.resolve(null)]).then(([t, h, selected,binding]) => { if (live) { const items = (t as Template[]).filter(x => !x.archived || !!binding); setTemplates(items); setHistory(h as Artifact[]);setConfirmed(!!binding);if(binding){const input=binding as {templateVersionId:string;custom:Record<string,string>;issueDate:string};setSelected(input.templateVersionId);setCustom(input.custom);setDate(input.issueDate);}else setSelected(typeof selected === "string" && items.some(x => x.versions.some(v => v.id === selected)) ? selected : (items.find(x => x.isDefault) ?? items[0])?.versions[0]?.id ?? ""); } }).catch(() => { if (live) setLoadError(true); }); return () => { live = false; }; }, [locale, rentalId,a2Enabled]);
   const version = templates.flatMap(t => t.versions).find(v => v.id === selected);
   async function generate(kind: "draft" | "issued") { const input = retry ?? { rentalId, rentalVersion, templateVersionId: selected, requestId: crypto.randomUUID(), issueDate: date, custom, status: kind };
     setRetry(input); try { await sendDocument(locale, "generate", input); setRetry(null); await refresh(); }
     catch (error) { if (error instanceof Error && error.message !== "unavailable") setRetry(null); throw error; } }
   return <section className={styles.root} dir={locale === "ar" ? "rtl" : "ltr"}><h2>{c.history}</h2>{status.feedback}<p>{c.unsigned}</p>
     {loadError && <p role="alert">{c.errors.unavailable}</p>}
-    <fieldset disabled={status.busy || !!retry}><legend>{c.template}</legend><label>{c.template}<select value={selected} onChange={e => { setSelected(e.target.value); setCustom({}); }}><option value="">—</option>{templates.flatMap(t => t.versions.map(v => <option key={v.id} value={v.id}>{t.name} · {v.revision}</option>))}</select></label>
-      <label>{c.issueDate}<input type="date" value={date} onChange={e => setDate(e.target.value)} required /></label>
-      {version?.config.custom.map(k => <label key={k}>{k}<input maxLength={2000} value={custom[k] ?? ""} onChange={e => setCustom({ ...custom, [k]: e.target.value })} /></label>)}
+    <fieldset disabled={status.busy || !!retry}><legend>{c.template}</legend><label>{c.template}<select disabled={confirmed} value={selected} onChange={e => { setSelected(e.target.value); setCustom({}); }}><option value="">—</option>{templates.flatMap(t => t.versions.map(v => <option key={v.id} value={v.id}>{t.name} · {v.revision}</option>))}</select></label>
+      <label>{c.issueDate}<input disabled={confirmed} type="date" value={date} onChange={e => setDate(e.target.value)} required /></label>
+      {version?.config.custom.map(k => <label key={k}>{k}<input disabled={confirmed} maxLength={2000} value={custom[k] ?? ""} onChange={e => setCustom({ ...custom, [k]: e.target.value })} /></label>)}
       <button disabled={!selected} onClick={() => void status.run(() => generate("draft"))}>{c.generate}</button><button disabled={!selected} onClick={() => void status.run(() => generate("issued"))}>{c.issue}</button>
     </fieldset>{retry && <button disabled={status.busy} onClick={() => void status.run(() => generate("draft"))}>{c.retry}</button>}
     <ul>{history.map(a => <li key={a.id}>{a.status === "issued" ? locale === "ar" ? "صادر" : "Émis" : locale === "ar" ? "مسودة" : "Brouillon"} · {a.rentalVersion} · <bdi>{a.createdAt}</bdi> · <bdi>{a.checksum}</bdi><button disabled={status.busy} onClick={() => void status.run(async () => setUrl(URL.createObjectURL(await sendDocument(locale, "download", { id: a.id }, true) as Blob)))}>{c.preview} / {c.download}</button></li>)}</ul>
@@ -104,9 +111,11 @@ export function RentalDocuments({ locale, rentalId, rentalVersion, signingEnable
 }
 export function RentalTemplateChoice({ locale, rentalId }: { locale: Locale; rentalId: string | null }) {
   const c = documentMessages(locale), status = useStatus(locale), [templates, setTemplates] = useState<Template[]>([]), [selected, setSelected] = useState("");
-  useEffect(() => { let live = true; sendDocument(locale, "list").then(t => { if (live) { const items = (t as Template[]).filter(x => !x.archived); setTemplates(items); setSelected((items.find(x => x.isDefault) ?? items[0])?.versions[0]?.id ?? ""); } }).catch(() => {}); return () => { live = false; }; }, [locale]);
+  const [failed,setFailed]=useState(false),[reload,setReload]=useState(0);
+  useEffect(() => { let live = true; sendDocument(locale, "list").then(t => { if (live) { const items = (t as Template[]).filter(x => !x.archived); setTemplates(items); setSelected((items.find(x => x.isDefault) ?? items[0])?.versions[0]?.id ?? "");setFailed(false); } }).catch(() => {if(live)setFailed(true);}); return () => { live = false; }; }, [locale,reload]);
   return <fieldset disabled={status.busy}><legend>{c.template}</legend><label>{c.template}<select value={selected} onChange={e => setSelected(e.target.value)}><option value="">—</option>{templates.flatMap(t => t.versions.map(v => <option key={v.id} value={v.id}>{t.name} · {v.revision}</option>))}</select></label>
     <p>{locale === "ar" ? "احفظ المسودة ثم اربط إصدار النموذج المختار قبل التأكيد." : "Enregistrez le brouillon, puis associez la version choisie avant confirmation."}</p>
+    {failed&&<p role="alert">{c.errors.unavailable}<button type="button" onClick={()=>setReload(v=>v+1)}>{c.retry}</button></p>}
     <button type="button" disabled={!rentalId || !selected} onClick={() => void status.run(async () => { await sendDocument(locale, "select", { rentalId, templateVersionId: selected }); })}>{c.save}</button>{status.feedback}
   </fieldset>;
 }

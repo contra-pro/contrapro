@@ -1,11 +1,11 @@
 // @vitest-environment jsdom
-import { act, cloneElement, type ReactElement } from "react";
+import { act, cloneElement, createElement, type ReactElement } from "react";
 import { createRoot, type Root } from "react-dom/client";
 import { NextRequest } from "next/server";
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { AgencyForm, type AgencyFormProps } from "./agency-form";
-import Onboarding from "../app/[locale]/app/onboarding/page";
+
 import { getAgencyContext } from "../server/agency-access";
 import { handleAgencyAction } from "../agency/handler";
 import type { AgencyContext } from "../auth/identity";
@@ -72,8 +72,8 @@ function fixture(failure: "response-lost" | "readback-failed" | "none" = "none")
 }
 
 async function render(enabled = true) {
-  const page = await Onboarding({ params: Promise.resolve({ locale: "fr" }) });
-  const form = page.props.children as ReactElement<AgencyFormProps>;
+  const context=await getAgencyContext();
+  const form = createElement(AgencyForm,{key:context.canonical?.userId,locale:"fr",action:"create",requestId:crypto.randomUUID(),enabled,isOwner:true}) as ReactElement<AgencyFormProps>;
   expect(form.type).toBe(AgencyForm);
   // Enable only this isolated component prop; never change a feature flag.
   await act(async () => root.render(cloneElement(form, { enabled })));
@@ -86,7 +86,7 @@ async function submit() {
   await act(async () => { host.querySelector("form")!.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true })); });
 }
 
-describe("agency draft identity through the real onboarding page and HTTP handler", () => {
+describe("legacy agency form identity through the existing HTTP handler", () => {
   it("preserves the mounted creation key and entered fields across a server refresh before submission", async () => {
     const f = fixture(); const originalKey = await render(); fill();
     expect(await render()).not.toBe(originalKey);

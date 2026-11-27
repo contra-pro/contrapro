@@ -7,7 +7,7 @@ import { authMessages } from "../i18n/auth";
 describe("French/Arabic sign-in UI", () => {
   for (const locale of ["fr", "ar"] as const) {
     it(`${locale}: offers password login and optional Magic Link, hides unconfigured Google`, () => {
-      const html = renderToStaticMarkup(createElement(SignInView, { locale, configured: true, status: undefined }));
+      const html = renderToStaticMarkup(createElement(SignInView, { locale, configured: true, status: undefined, magicEnabled: true }));
       expect(html).toContain(authMessages(locale).title);
       expect(html).not.toContain(authMessages(locale).google);
       expect(html).toContain(`action="/${locale}/auth/password"`);
@@ -21,6 +21,13 @@ describe("French/Arabic sign-in UI", () => {
       const html = renderToStaticMarkup(createElement(SignInView, { locale, configured: true, status: undefined, googleEnabled: true }));
       expect(html).toContain(authMessages(locale).google);
       expect(html).toContain('value="google"');
+    });
+    it(`${locale}: defaults to password only without enabling external authentication`, () => {
+      const html = renderToStaticMarkup(createElement(SignInView, { locale, configured: true, status: undefined }));
+      expect(html).not.toContain(`action="/${locale}/auth/start"`);
+      expect(html).not.toContain('value="magic"');
+      expect(html).not.toContain('value="google"');
+      expect(html.match(/method="post"/g)).toHaveLength(1);
     });
     it.each(["sent", "error", "signed-out"] as const)(`${locale}: shows fixed %s copy`, status => {
       const html = renderToStaticMarkup(createElement(SignInView, { locale, configured: true, status }));
